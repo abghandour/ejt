@@ -17,8 +17,9 @@ body{
   display:flex;
   flex-direction:column;
   align-items:center;
-  min-height:100vh;
-  overflow-x:hidden;
+  height:100vh;
+  height:100dvh;
+  overflow:hidden;
 }
 
 /* ===== BANNER ===== */
@@ -96,10 +97,11 @@ body{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:40px 16px 32px;
-  flex:1;
-  min-height:180px;
+  padding:12px 16px 8px;
+  flex:1 1 0;
+  min-height:0;
   perspective:800px;
+  overflow:hidden;
 }
 
 #russian-word{
@@ -150,7 +152,7 @@ body{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
-  padding:0 16px 24px;
+  padding:0 16px 50px;
 }
 
 .answer-btn{
@@ -517,23 +519,24 @@ body{
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:400px){
-  #top-bar{padding:10px 12px;font-size:13px}
-  #russian-word{font-size:clamp(34px,9vw,52px)}
-  .answer-btn{padding:12px 8px;font-size:13px;min-height:46px}
+  #top-bar{padding:8px 12px;font-size:13px}
+  #russian-word{font-size:clamp(28px,8vw,44px)}
+  .answer-btn{padding:10px 8px;font-size:13px;min-height:40px}
   #results-popup{padding:16px 14px}
   #results-popup h2{font-size:18px}
   .results-btn{padding:8px 14px;font-size:13px}
+  #word-display-area{padding:8px 16px 4px}
+  #date-display{padding:4px 16px 0}
 }
 
 @media(min-width:768px){
-  #word-display-area{padding:60px 16px 48px;min-height:220px}
+  #word-display-area{padding:24px 16px 16px}
   #russian-word{font-size:68px}
   .answer-btn{padding:18px 16px;font-size:16px}
 }
 
 @media(min-width:1024px){
-  body{justify-content:flex-start;padding-top:40px}
-  #word-display-area{min-height:260px}
+  body{justify-content:flex-start;padding-top:20px}
 }
 </style>
 </head>
@@ -636,16 +639,32 @@ body{
 <script>
   // ===== SOUND ENGINE =====
   var audioCtx = null;
+  var audioUnlocked = false;
   function getAudioCtx() {
     if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     return audioCtx;
   }
+  function unlockAudio() {
+    if (audioUnlocked) return;
+    var ctx = getAudioCtx();
+    if (ctx.state === 'suspended') ctx.resume();
+    var b = ctx.createBuffer(1, 1, 22050);
+    var s = ctx.createBufferSource();
+    s.buffer = b;
+    s.connect(ctx.destination);
+    s.start(0);
+    audioUnlocked = true;
+  }
+  document.addEventListener('touchstart', unlockAudio, { once: true });
+  document.addEventListener('touchend', unlockAudio, { once: true });
+  document.addEventListener('click', unlockAudio, { once: true });
 
   function playTone(freq, dur, type, vol, delay) {
     type = type || 'sine';
     vol = vol || 0.12;
     delay = delay || 0;
     var ctx = getAudioCtx();
+    if (ctx.state === 'suspended') ctx.resume();
     var o = ctx.createOscillator();
     var g = ctx.createGain();
     o.type = type;
