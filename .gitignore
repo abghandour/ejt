@@ -1,0 +1,10 @@
+# IDE / editor
+.vscode/
+.kiro/
+
+# Utility scripts
+.utils/
+
+# Other pages not part of russian-word-roots
+game.html
+metro.html

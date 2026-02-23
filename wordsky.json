@@ -1,0 +1,219 @@
+{
+  "20260124": [
+    {"wordOfTheDay": "кошка", "translation": "cat", "wordOptions": ["dog", "bird", "fish", "mouse", "rabbit"]},
+    {"wordOfTheDay": "дом", "translation": "house", "wordOptions": ["room", "door", "window", "roof", "wall"]},
+    {"wordOfTheDay": "книга", "translation": "book", "wordOptions": ["page", "letter", "newspaper", "magazine", "notebook"]},
+    {"wordOfTheDay": "вода", "translation": "water", "wordOptions": ["milk", "juice", "tea", "rain", "ice"]},
+    {"wordOfTheDay": "солнце", "translation": "sun", "wordOptions": ["moon", "star", "sky", "cloud", "light"]}
+  ],
+  "20260125": [
+    {"wordOfTheDay": "дерево", "translation": "tree", "wordOptions": ["flower", "grass", "bush", "leaf", "forest"]},
+    {"wordOfTheDay": "город", "translation": "city", "wordOptions": ["village", "town", "country", "street", "square"]},
+    {"wordOfTheDay": "время", "translation": "time", "wordOptions": ["hour", "minute", "clock", "day", "moment"]},
+    {"wordOfTheDay": "друг", "translation": "friend", "wordOptions": ["brother", "neighbor", "stranger", "partner", "guest"]},
+    {"wordOfTheDay": "работа", "translation": "work", "wordOptions": ["rest", "task", "office", "career", "effort"]}
+  ],
+  "20260126": [
+    {"wordOfTheDay": "ночь", "translation": "night", "wordOptions": ["evening", "morning", "darkness", "dream", "sleep"]},
+    {"wordOfTheDay": "хлеб", "translation": "bread", "wordOptions": ["butter", "cake", "flour", "toast", "wheat"]},
+    {"wordOfTheDay": "река", "translation": "river", "wordOptions": ["lake", "sea", "stream", "ocean", "pond"]},
+    {"wordOfTheDay": "сердце", "translation": "heart", "wordOptions": ["soul", "mind", "chest", "blood", "love"]},
+    {"wordOfTheDay": "земля", "translation": "earth", "wordOptions": ["ground", "soil", "land", "field", "world"]}
+  ],
+  "20260127": [
+    {"wordOfTheDay": "огонь", "translation": "fire", "wordOptions": ["flame", "smoke", "heat", "light", "spark"]},
+    {"wordOfTheDay": "зима", "translation": "winter", "wordOptions": ["autumn", "spring", "summer", "frost", "snow"]},
+    {"wordOfTheDay": "стол", "translation": "table", "wordOptions": ["chair", "desk", "shelf", "bench", "counter"]},
+    {"wordOfTheDay": "мать", "translation": "mother", "wordOptions": ["sister", "daughter", "aunt", "grandmother", "wife"]},
+    {"wordOfTheDay": "слово", "translation": "word", "wordOptions": ["letter", "sentence", "speech", "phrase", "name"]}
+  ],
+  "20260128": [
+    {"wordOfTheDay": "глаз", "translation": "eye", "wordOptions": ["ear", "nose", "face", "mouth", "brow"]},
+    {"wordOfTheDay": "дождь", "translation": "rain", "wordOptions": ["snow", "storm", "cloud", "wind", "fog"]},
+    {"wordOfTheDay": "песня", "translation": "song", "wordOptions": ["music", "dance", "melody", "voice", "poem"]},
+    {"wordOfTheDay": "дверь", "translation": "door", "wordOptions": ["gate", "window", "wall", "lock", "entrance"]},
+    {"wordOfTheDay": "молоко", "translation": "milk", "wordOptions": ["cream", "cheese", "butter", "yogurt", "water"]}
+  ],
+  "20260129": [
+    {"wordOfTheDay": "лето", "translation": "summer", "wordOptions": ["spring", "autumn", "winter", "heat", "vacation"]},
+    {"wordOfTheDay": "рука", "translation": "hand", "wordOptions": ["arm", "finger", "fist", "palm", "wrist"]},
+    {"wordOfTheDay": "птица", "translation": "bird", "wordOptions": ["butterfly", "eagle", "wing", "nest", "feather"]},
+    {"wordOfTheDay": "цветок", "translation": "flower", "wordOptions": ["plant", "garden", "rose", "leaf", "petal"]},
+    {"wordOfTheDay": "небо", "translation": "sky", "wordOptions": ["cloud", "heaven", "air", "space", "blue"]}
+  ],
+  "20260130": [
+    {"wordOfTheDay": "собака", "translation": "dog", "wordOptions": ["cat", "wolf", "puppy", "fox", "bear"]},
+    {"wordOfTheDay": "школа", "translation": "school", "wordOptions": ["class", "lesson", "teacher", "university", "student"]},
+    {"wordOfTheDay": "улица", "translation": "street", "wordOptions": ["road", "path", "avenue", "sidewalk", "alley"]},
+    {"wordOfTheDay": "масло", "translation": "butter", "wordOptions": ["oil", "cream", "cheese", "fat", "margarine"]},
+    {"wordOfTheDay": "звезда", "translation": "star", "wordOptions": ["moon", "sun", "planet", "comet", "light"]}
+  ],
+  "20260131": [
+    {"wordOfTheDay": "снег", "translation": "snow", "wordOptions": ["ice", "frost", "rain", "hail", "cold"]},
+    {"wordOfTheDay": "окно", "translation": "window", "wordOptions": ["door", "glass", "curtain", "frame", "wall"]},
+    {"wordOfTheDay": "яблоко", "translation": "apple", "wordOptions": ["pear", "orange", "cherry", "plum", "grape"]},
+    {"wordOfTheDay": "море", "translation": "sea", "wordOptions": ["ocean", "lake", "river", "wave", "beach"]},
+    {"wordOfTheDay": "ключ", "translation": "key", "wordOptions": ["lock", "door", "code", "ring", "chain"]}
+  ],
+  "20260201": [
+    {"wordOfTheDay": "утро", "translation": "morning", "wordOptions": ["evening", "afternoon", "dawn", "night", "sunrise"]},
+    {"wordOfTheDay": "стена", "translation": "wall", "wordOptions": ["floor", "ceiling", "fence", "roof", "corner"]},
+    {"wordOfTheDay": "рыба", "translation": "fish", "wordOptions": ["shrimp", "crab", "whale", "shark", "frog"]},
+    {"wordOfTheDay": "луна", "translation": "moon", "wordOptions": ["star", "sun", "planet", "night", "sky"]},
+    {"wordOfTheDay": "чай", "translation": "tea", "wordOptions": ["coffee", "juice", "water", "cocoa", "milk"]}
+  ],
+  "20260202": [
+    {"wordOfTheDay": "ветер", "translation": "wind", "wordOptions": ["storm", "breeze", "air", "rain", "cloud"]},
+    {"wordOfTheDay": "сахар", "translation": "sugar", "wordOptions": ["salt", "honey", "candy", "flour", "spice"]},
+    {"wordOfTheDay": "нога", "translation": "leg", "wordOptions": ["arm", "foot", "knee", "hip", "toe"]},
+    {"wordOfTheDay": "мост", "translation": "bridge", "wordOptions": ["road", "tunnel", "arch", "river", "path"]},
+    {"wordOfTheDay": "лес", "translation": "forest", "wordOptions": ["park", "garden", "field", "jungle", "grove"]}
+  ],
+  "20260203": [
+    {"wordOfTheDay": "сыр", "translation": "cheese", "wordOptions": ["butter", "cream", "milk", "bread", "yogurt"]},
+    {"wordOfTheDay": "поезд", "translation": "train", "wordOptions": ["bus", "car", "plane", "tram", "subway"]},
+    {"wordOfTheDay": "зеркало", "translation": "mirror", "wordOptions": ["glass", "window", "picture", "frame", "screen"]},
+    {"wordOfTheDay": "весна", "translation": "spring", "wordOptions": ["summer", "autumn", "winter", "bloom", "rain"]},
+    {"wordOfTheDay": "голова", "translation": "head", "wordOptions": ["face", "neck", "brain", "hair", "skull"]}
+  ],
+  "20260204": [
+    {"wordOfTheDay": "мясо", "translation": "meat", "wordOptions": ["fish", "chicken", "bone", "steak", "food"]},
+    {"wordOfTheDay": "камень", "translation": "stone", "wordOptions": ["rock", "brick", "sand", "pebble", "mountain"]},
+    {"wordOfTheDay": "осень", "translation": "autumn", "wordOptions": ["spring", "winter", "summer", "harvest", "leaf"]},
+    {"wordOfTheDay": "письмо", "translation": "letter", "wordOptions": ["note", "message", "card", "envelope", "word"]},
+    {"wordOfTheDay": "кровать", "translation": "bed", "wordOptions": ["sofa", "pillow", "blanket", "couch", "mattress"]}
+  ],
+  "20260205": [
+    {"wordOfTheDay": "машина", "translation": "car", "wordOptions": ["bus", "truck", "bicycle", "train", "motorcycle"]},
+    {"wordOfTheDay": "правда", "translation": "truth", "wordOptions": ["lie", "fact", "justice", "honesty", "faith"]},
+    {"wordOfTheDay": "мечта", "translation": "dream", "wordOptions": ["wish", "hope", "thought", "sleep", "fantasy"]},
+    {"wordOfTheDay": "соль", "translation": "salt", "wordOptions": ["sugar", "pepper", "spice", "flour", "sand"]},
+    {"wordOfTheDay": "гора", "translation": "mountain", "wordOptions": ["hill", "valley", "cliff", "rock", "peak"]}
+  ],
+  "20260206": [
+    {"wordOfTheDay": "медведь", "translation": "bear", "wordOptions": ["wolf", "lion", "tiger", "fox", "deer"]},
+    {"wordOfTheDay": "облако", "translation": "cloud", "wordOptions": ["sky", "fog", "rain", "mist", "smoke"]},
+    {"wordOfTheDay": "кухня", "translation": "kitchen", "wordOptions": ["bedroom", "bathroom", "dining room", "living room", "hallway"]},
+    {"wordOfTheDay": "песок", "translation": "sand", "wordOptions": ["dust", "dirt", "gravel", "clay", "stone"]},
+    {"wordOfTheDay": "свет", "translation": "light", "wordOptions": ["shadow", "lamp", "glow", "sun", "flame"]}
+  ],
+  "20260207": [
+    {"wordOfTheDay": "волк", "translation": "wolf", "wordOptions": ["fox", "bear", "dog", "lion", "deer"]},
+    {"wordOfTheDay": "мёд", "translation": "honey", "wordOptions": ["sugar", "syrup", "jam", "candy", "nectar"]},
+    {"wordOfTheDay": "озеро", "translation": "lake", "wordOptions": ["river", "pond", "sea", "pool", "stream"]},
+    {"wordOfTheDay": "крыша", "translation": "roof", "wordOptions": ["ceiling", "wall", "floor", "attic", "chimney"]},
+    {"wordOfTheDay": "палец", "translation": "finger", "wordOptions": ["hand", "thumb", "nail", "wrist", "fist"]}
+  ],
+  "20260208": [
+    {"wordOfTheDay": "лошадь", "translation": "horse", "wordOptions": ["cow", "donkey", "deer", "goat", "sheep"]},
+    {"wordOfTheDay": "карта", "translation": "map", "wordOptions": ["card", "plan", "chart", "picture", "guide"]},
+    {"wordOfTheDay": "трава", "translation": "grass", "wordOptions": ["leaf", "weed", "moss", "hay", "plant"]},
+    {"wordOfTheDay": "зуб", "translation": "tooth", "wordOptions": ["mouth", "tongue", "lip", "jaw", "gum"]},
+    {"wordOfTheDay": "платье", "translation": "dress", "wordOptions": ["skirt", "shirt", "coat", "blouse", "suit"]}
+  ],
+  "20260209": [
+    {"wordOfTheDay": "мышь", "translation": "mouse", "wordOptions": ["rat", "hamster", "rabbit", "squirrel", "cat"]},
+    {"wordOfTheDay": "ложка", "translation": "spoon", "wordOptions": ["fork", "knife", "plate", "cup", "bowl"]},
+    {"wordOfTheDay": "дорога", "translation": "road", "wordOptions": ["path", "street", "highway", "bridge", "trail"]},
+    {"wordOfTheDay": "шапка", "translation": "hat", "wordOptions": ["cap", "scarf", "glove", "hood", "helmet"]},
+    {"wordOfTheDay": "тишина", "translation": "silence", "wordOptions": ["noise", "peace", "calm", "quiet", "whisper"]}
+  ],
+  "20260210": [
+    {"wordOfTheDay": "корова", "translation": "cow", "wordOptions": ["horse", "goat", "sheep", "bull", "pig"]},
+    {"wordOfTheDay": "подарок", "translation": "gift", "wordOptions": ["prize", "surprise", "reward", "present", "box"]},
+    {"wordOfTheDay": "туча", "translation": "storm cloud", "wordOptions": ["rain", "fog", "thunder", "lightning", "mist"]},
+    {"wordOfTheDay": "ухо", "translation": "ear", "wordOptions": ["eye", "nose", "mouth", "cheek", "chin"]},
+    {"wordOfTheDay": "башня", "translation": "tower", "wordOptions": ["castle", "wall", "bridge", "fortress", "pillar"]}
+  ],
+  "20260211": [
+    {"wordOfTheDay": "сон", "translation": "sleep", "wordOptions": ["dream", "rest", "night", "bed", "nap"]},
+    {"wordOfTheDay": "нож", "translation": "knife", "wordOptions": ["fork", "spoon", "blade", "sword", "scissors"]},
+    {"wordOfTheDay": "остров", "translation": "island", "wordOptions": ["beach", "shore", "coast", "peninsula", "cape"]},
+    {"wordOfTheDay": "шоколад", "translation": "chocolate", "wordOptions": ["candy", "cake", "cookie", "caramel", "cocoa"]},
+    {"wordOfTheDay": "крыло", "translation": "wing", "wordOptions": ["feather", "tail", "beak", "claw", "nest"]}
+  ],
+  "20260212": [
+    {"wordOfTheDay": "тарелка", "translation": "plate", "wordOptions": ["bowl", "cup", "dish", "saucer", "tray"]},
+    {"wordOfTheDay": "война", "translation": "war", "wordOptions": ["battle", "fight", "peace", "army", "conflict"]},
+    {"wordOfTheDay": "золото", "translation": "gold", "wordOptions": ["silver", "bronze", "copper", "iron", "diamond"]},
+    {"wordOfTheDay": "язык", "translation": "language", "wordOptions": ["tongue", "speech", "word", "voice", "accent"]},
+    {"wordOfTheDay": "колесо", "translation": "wheel", "wordOptions": ["tire", "circle", "ring", "axle", "gear"]}
+  ],
+  "20260213": [
+    {"wordOfTheDay": "свеча", "translation": "candle", "wordOptions": ["lamp", "torch", "flame", "lantern", "match"]},
+    {"wordOfTheDay": "кольцо", "translation": "ring", "wordOptions": ["bracelet", "necklace", "chain", "earring", "jewel"]},
+    {"wordOfTheDay": "борода", "translation": "beard", "wordOptions": ["mustache", "hair", "chin", "face", "whisker"]},
+    {"wordOfTheDay": "ягода", "translation": "berry", "wordOptions": ["fruit", "cherry", "grape", "plum", "seed"]},
+    {"wordOfTheDay": "лёд", "translation": "ice", "wordOptions": ["snow", "frost", "cold", "water", "hail"]}
+  ],
+  "20260214": [
+    {"wordOfTheDay": "любовь", "translation": "love", "wordOptions": ["heart", "passion", "joy", "happiness", "friendship"]},
+    {"wordOfTheDay": "роза", "translation": "rose", "wordOptions": ["tulip", "lily", "daisy", "violet", "orchid"]},
+    {"wordOfTheDay": "поцелуй", "translation": "kiss", "wordOptions": ["hug", "touch", "smile", "embrace", "wave"]},
+    {"wordOfTheDay": "счастье", "translation": "happiness", "wordOptions": ["joy", "luck", "pleasure", "delight", "peace"]},
+    {"wordOfTheDay": "подруга", "translation": "girlfriend", "wordOptions": ["sister", "friend", "wife", "neighbor", "colleague"]}
+  ],
+  "20260215": [
+    {"wordOfTheDay": "самолёт", "translation": "airplane", "wordOptions": ["helicopter", "rocket", "jet", "balloon", "glider"]},
+    {"wordOfTheDay": "чашка", "translation": "cup", "wordOptions": ["glass", "mug", "bowl", "bottle", "jug"]},
+    {"wordOfTheDay": "пол", "translation": "floor", "wordOptions": ["ceiling", "wall", "ground", "carpet", "tile"]},
+    {"wordOfTheDay": "муж", "translation": "husband", "wordOptions": ["wife", "brother", "father", "son", "uncle"]},
+    {"wordOfTheDay": "ложь", "translation": "lie", "wordOptions": ["truth", "secret", "trick", "mistake", "rumor"]}
+  ],
+  "20260216": [
+    {"wordOfTheDay": "корабль", "translation": "ship", "wordOptions": ["boat", "yacht", "raft", "canoe", "ferry"]},
+    {"wordOfTheDay": "перо", "translation": "feather", "wordOptions": ["wing", "quill", "fur", "hair", "scale"]},
+    {"wordOfTheDay": "гнездо", "translation": "nest", "wordOptions": ["cage", "den", "hole", "burrow", "hive"]},
+    {"wordOfTheDay": "пыль", "translation": "dust", "wordOptions": ["dirt", "sand", "ash", "smoke", "mud"]},
+    {"wordOfTheDay": "тень", "translation": "shadow", "wordOptions": ["darkness", "shade", "light", "ghost", "silhouette"]}
+  ],
+  "20260217": [
+    {"wordOfTheDay": "черепаха", "translation": "turtle", "wordOptions": ["frog", "lizard", "snake", "snail", "crab"]},
+    {"wordOfTheDay": "гриб", "translation": "mushroom", "wordOptions": ["berry", "nut", "herb", "moss", "root"]},
+    {"wordOfTheDay": "забор", "translation": "fence", "wordOptions": ["wall", "gate", "hedge", "barrier", "railing"]},
+    {"wordOfTheDay": "ковёр", "translation": "carpet", "wordOptions": ["rug", "blanket", "curtain", "mat", "cloth"]},
+    {"wordOfTheDay": "гром", "translation": "thunder", "wordOptions": ["lightning", "storm", "rain", "wind", "noise"]}
+  ],
+  "20260218": [
+    {"wordOfTheDay": "бабочка", "translation": "butterfly", "wordOptions": ["moth", "dragonfly", "bee", "beetle", "ladybug"]},
+    {"wordOfTheDay": "вилка", "translation": "fork", "wordOptions": ["spoon", "knife", "plate", "chopstick", "ladle"]},
+    {"wordOfTheDay": "подушка", "translation": "pillow", "wordOptions": ["blanket", "mattress", "cushion", "sheet", "quilt"]},
+    {"wordOfTheDay": "радуга", "translation": "rainbow", "wordOptions": ["sunset", "sunrise", "cloud", "storm", "sky"]},
+    {"wordOfTheDay": "кирпич", "translation": "brick", "wordOptions": ["stone", "block", "tile", "cement", "plaster"]}
+  ],
+  "20260219": [
+    {"wordOfTheDay": "орёл", "translation": "eagle", "wordOptions": ["hawk", "falcon", "owl", "raven", "sparrow"]},
+    {"wordOfTheDay": "мука", "translation": "flour", "wordOptions": ["sugar", "salt", "starch", "dough", "grain"]},
+    {"wordOfTheDay": "лестница", "translation": "stairs", "wordOptions": ["ladder", "elevator", "ramp", "step", "escalator"]},
+    {"wordOfTheDay": "полотенце", "translation": "towel", "wordOptions": ["napkin", "cloth", "blanket", "rag", "sheet"]},
+    {"wordOfTheDay": "молния", "translation": "lightning", "wordOptions": ["thunder", "storm", "spark", "flash", "bolt"]}
+  ],
+  "20260220": [
+    {"wordOfTheDay": "паук", "translation": "spider", "wordOptions": ["ant", "beetle", "fly", "scorpion", "mosquito"]},
+    {"wordOfTheDay": "ведро", "translation": "bucket", "wordOptions": ["barrel", "pot", "basin", "jug", "pail"]},
+    {"wordOfTheDay": "крест", "translation": "cross", "wordOptions": ["circle", "square", "star", "triangle", "symbol"]},
+    {"wordOfTheDay": "тыква", "translation": "pumpkin", "wordOptions": ["melon", "squash", "cucumber", "tomato", "gourd"]},
+    {"wordOfTheDay": "якорь", "translation": "anchor", "wordOptions": ["chain", "rope", "sail", "helm", "mast"]}
+  ],
+  "20260221": [
+    {"wordOfTheDay": "клубника", "translation": "strawberry", "wordOptions": ["raspberry", "blueberry", "cherry", "cranberry", "blackberry"]},
+    {"wordOfTheDay": "замок", "translation": "castle", "wordOptions": ["palace", "fortress", "tower", "mansion", "temple"]},
+    {"wordOfTheDay": "ножницы", "translation": "scissors", "wordOptions": ["knife", "blade", "razor", "cutter", "shears"]},
+    {"wordOfTheDay": "облако", "translation": "cloud", "wordOptions": ["fog", "mist", "smoke", "haze", "steam"]},
+    {"wordOfTheDay": "верблюд", "translation": "camel", "wordOptions": ["horse", "donkey", "llama", "giraffe", "elephant"]}
+  ],
+  "20260222": [
+    {"wordOfTheDay": "ворона", "translation": "crow", "wordOptions": ["raven", "sparrow", "pigeon", "magpie", "starling"]},
+    {"wordOfTheDay": "чеснок", "translation": "garlic", "wordOptions": ["onion", "ginger", "pepper", "radish", "leek"]},
+    {"wordOfTheDay": "одеяло", "translation": "blanket", "wordOptions": ["pillow", "sheet", "quilt", "towel", "curtain"]},
+    {"wordOfTheDay": "фонарь", "translation": "lantern", "wordOptions": ["lamp", "torch", "candle", "flashlight", "spotlight"]},
+    {"wordOfTheDay": "жемчуг", "translation": "pearl", "wordOptions": ["diamond", "ruby", "emerald", "sapphire", "crystal"]}
+  ],
+  "20260223": [
+    {"wordOfTheDay": "победа", "translation": "victory", "wordOptions": ["defeat", "battle", "glory", "triumph", "honor"]},
+    {"wordOfTheDay": "флаг", "translation": "flag", "wordOptions": ["banner", "sign", "shield", "emblem", "symbol"]},
+    {"wordOfTheDay": "солдат", "translation": "soldier", "wordOptions": ["officer", "general", "warrior", "guard", "hero"]},
+    {"wordOfTheDay": "родина", "translation": "homeland", "wordOptions": ["country", "nation", "fatherland", "territory", "state"]},
+    {"wordOfTheDay": "мужество", "translation": "courage", "wordOptions": ["bravery", "strength", "honor", "valor", "pride"]}
+  ]
+}
