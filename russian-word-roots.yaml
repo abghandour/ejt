@@ -1,0 +1,5536 @@
+- rootKey: корень_ход
+  rootWord: ход
+  rootTranslation: movement, course
+  children:
+  - word: ходить
+    translation: to walk, to go
+    type: verb
+  - word: выход
+    translation: exit
+    type: noun
+  - word: вход
+    translation: entrance
+    type: noun
+  - word: поход
+    translation: hike, campaign
+    type: noun
+  - word: переход
+    translation: crossing, transition
+    type: noun
+  - word: проход
+    translation: passage
+    type: noun
+  - word: обход
+    translation: bypass, detour
+    type: noun
+  - word: уход
+    translation: departure, care
+    type: noun
+  - word: приход
+    translation: arrival, coming
+    type: noun
+  - word: расход
+    translation: expense, consumption
+    type: noun
+  - word: доход
+    translation: income
+    type: noun
+  - word: исход
+    translation: outcome, exodus
+    type: noun
+  - word: заход
+    translation: approach, setting (sun)
+    type: noun
+  - word: находка
+    translation: find, discovery
+    type: noun
+  - word: пешеход
+    translation: pedestrian
+    type: noun
+  - word: теплоход
+    translation: motor ship
+    type: noun
+  - word: вездеход
+    translation: all-terrain vehicle
+    type: noun
+  - word: ходьба
+    translation: walking
+    type: noun
+  - word: хождение
+    translation: going, walking
+    type: noun
+  - word: выходной
+    translation: day off
+    type: adjective
+  - word: входной
+    translation: entrance (adj)
+    type: adjective
+  - word: походка
+    translation: gait, walk
+    type: noun
+  - word: прохожий
+    translation: passerby
+    type: adjective
+  - word: сходство
+    translation: similarity
+    type: noun
+  - word: восход
+    translation: sunrise
+    type: noun
+  - word: заходить
+    translation: to drop by
+    type: verb
+- rootKey: корень_бег
+  rootWord: бег
+  rootTranslation: running
+  children:
+  - word: бегать
+    translation: to run
+    type: verb
+  - word: побег
+    translation: escape, sprout
+    type: noun
+  - word: забег
+    translation: race
+    type: noun
+  - word: разбег
+    translation: running start
+    type: noun
+  - word: пробег
+    translation: mileage, run
+    type: noun
+  - word: набег
+    translation: raid
+    type: noun
+  - word: убежище
+    translation: shelter, refuge
+    type: noun
+  - word: беженец
+    translation: refugee
+    type: noun
+  - word: бегство
+    translation: flight, escape
+    type: noun
+  - word: перебежчик
+    translation: defector
+    type: noun
+  - word: беглый
+    translation: fluent, fugitive
+    type: adjective
+  - word: бегун
+    translation: runner
+    type: noun
+  - word: забегаловка
+    translation: dive bar, eatery
+    type: noun
+- rootKey: корень_ех
+  rootWord: ехать
+  rootTranslation: to ride, to drive
+  children:
+  - word: езда
+    translation: riding, driving
+    type: noun
+  - word: поездка
+    translation: trip
+    type: noun
+  - word: поезд
+    translation: train
+    type: noun
+  - word: выезд
+    translation: departure (by vehicle)
+    type: noun
+  - word: въезд
+    translation: entry (by vehicle)
+    type: noun
+  - word: проезд
+    translation: passage, fare
+    type: noun
+  - word: переезд
+    translation: move, crossing
+    type: noun
+  - word: объезд
+    translation: detour
+    type: noun
+  - word: наезд
+    translation: collision, raid
+    type: noun
+  - word: разъезд
+    translation: departure, siding
+    type: noun
+  - word: приезд
+    translation: arrival
+    type: noun
+  - word: отъезд
+    translation: departure
+    type: noun
+  - word: съезд
+    translation: congress, gathering
+    type: noun
+  - word: наездник
+    translation: rider, horseman
+    type: noun
+  - word: проездной
+    translation: travel pass
+    type: adjective
+- rootKey: корень_лет
+  rootWord: лететь
+  rootTranslation: to fly
+  children:
+  - word: полёт
+    translation: flight
+    type: noun
+  - word: вылет
+    translation: departure (flight)
+    type: noun
+  - word: прилёт
+    translation: arrival (flight)
+    type: noun
+  - word: перелёт
+    translation: flight (long distance)
+    type: noun
+  - word: налёт
+    translation: raid, coating
+    type: noun
+  - word: отлёт
+    translation: departure (flight)
+    type: noun
+  - word: залёт
+    translation: flyover
+    type: noun
+  - word: самолёт
+    translation: airplane
+    type: noun
+  - word: вертолёт
+    translation: helicopter
+    type: noun
+  - word: лётчик
+    translation: pilot
+    type: noun
+  - word: летучий
+    translation: volatile, flying
+    type: adjective
+  - word: перелётный
+    translation: migratory
+    type: adjective
+- rootKey: корень_нес
+  rootWord: нести
+  rootTranslation: to carry
+  children:
+  - word: носить
+    translation: to carry, to wear
+    type: verb
+  - word: вынос
+    translation: carrying out
+    type: noun
+  - word: занос
+    translation: skid, drift
+    type: noun
+  - word: донос
+    translation: denunciation
+    type: noun
+  - word: поднос
+    translation: tray
+    type: noun
+  - word: перенос
+    translation: transfer
+    type: noun
+  - word: разнос
+    translation: delivery, scolding
+    type: noun
+  - word: относить
+    translation: to attribute, to carry away
+    type: verb
+  - word: приносить
+    translation: to bring
+    type: verb
+  - word: уносить
+    translation: to carry away
+    type: verb
+  - word: износ
+    translation: wear and tear
+    type: noun
+  - word: взнос
+    translation: payment, contribution
+    type: noun
+  - word: произносить
+    translation: to pronounce
+    type: verb
+  - word: носилки
+    translation: stretcher
+    type: noun
+  - word: носитель
+    translation: carrier
+    type: noun
+  - word: переносной
+    translation: portable
+    type: adjective
+- rootKey: корень_вод
+  rootWord: водить
+  rootTranslation: to lead
+  children:
+  - word: вести
+    translation: to lead, to conduct
+    type: verb
+  - word: провод
+    translation: wire
+    type: noun
+  - word: проводник
+    translation: conductor, guide
+    type: noun
+  - word: вождь
+    translation: leader, chief
+    type: noun
+  - word: руководить
+    translation: to manage, to lead
+    type: verb
+  - word: заводить
+    translation: to start (engine), to wind up
+    type: verb
+  - word: завод
+    translation: factory, plant
+    type: noun
+  - word: вывод
+    translation: conclusion, output
+    type: noun
+  - word: ввод
+    translation: input, introduction
+    type: noun
+  - word: перевод
+    translation: translation, transfer
+    type: noun
+  - word: отвод
+    translation: diversion, rejection
+    type: noun
+  - word: привод
+    translation: drive (mechanism)
+    type: noun
+  - word: поводок
+    translation: leash
+    type: noun
+  - word: повод
+    translation: reason, occasion
+    type: noun
+  - word: разводить
+    translation: to breed, to dilute
+    type: verb
+  - word: хоровод
+    translation: round dance
+    type: noun
+  - word: проводы
+    translation: farewell, send-off
+    type: noun
+  - word: поведение
+    translation: behavior
+    type: noun
+  - word: введение
+    translation: introduction
+    type: noun
+  - word: сведение
+    translation: information
+    type: noun
+- rootKey: корень_став
+  rootWord: стоять
+  rootTranslation: to stand
+  children:
+  - word: ставить
+    translation: to put, to place
+    type: verb
+  - word: состав
+    translation: composition, train
+    type: noun
+  - word: устав
+    translation: charter, regulations
+    type: noun
+  - word: постав
+    translation: delivery, supply
+    type: noun
+  - word: выставка
+    translation: exhibition
+    type: noun
+  - word: расстановка
+    translation: arrangement
+    type: noun
+  - word: установка
+    translation: installation, setting
+    type: noun
+  - word: подставка
+    translation: stand, support
+    type: noun
+  - word: приставка
+    translation: prefix, attachment
+    type: noun
+  - word: заставить
+    translation: to force, to make
+    type: verb
+  - word: представить
+    translation: to present, to imagine
+    type: verb
+  - word: оставить
+    translation: to leave behind
+    type: verb
+  - word: доставить
+    translation: to deliver
+    type: verb
+  - word: достоинство
+    translation: dignity, merit
+    type: noun
+  - word: стоимость
+    translation: cost, value
+    type: verb
+  - word: расстояние
+    translation: distance
+    type: noun
+  - word: обстоятельство
+    translation: circumstance
+    type: noun
+  - word: постоянный
+    translation: constant, permanent
+    type: adjective
+- rootKey: корень_пад
+  rootWord: падать
+  rootTranslation: to fall
+  children:
+  - word: падение
+    translation: fall, decline
+    type: noun
+  - word: водопад
+    translation: waterfall
+    type: noun
+  - word: листопад
+    translation: leaf fall
+    type: noun
+  - word: снегопад
+    translation: snowfall
+    type: noun
+  - word: западный
+    translation: western
+    type: adjective
+  - word: запад
+    translation: west
+    type: noun
+  - word: нападение
+    translation: attack
+    type: noun
+  - word: совпадение
+    translation: coincidence
+    type: noun
+  - word: пропасть
+    translation: abyss, to disappear
+    type: verb
+  - word: опасность
+    translation: danger
+    type: verb
+  - word: спасать
+    translation: to save, to rescue
+    type: verb
+  - word: выпад
+    translation: lunge, attack
+    type: noun
+  - word: распад
+    translation: decay, disintegration
+    type: noun
+  - word: упадок
+    translation: decline
+    type: noun
+- rootKey: корень_ум
+  rootWord: ум
+  rootTranslation: mind, intellect
+  children:
+  - word: умный
+    translation: smart, clever
+    type: adjective
+  - word: разум
+    translation: reason, intellect
+    type: noun
+  - word: разумный
+    translation: reasonable, sensible
+    type: adjective
+  - word: безумный
+    translation: insane, mad
+    type: adjective
+  - word: безумие
+    translation: madness, insanity
+    type: adjective
+  - word: умение
+    translation: skill, ability
+    type: noun
+  - word: уметь
+    translation: to be able to, to know how
+    type: verb
+  - word: умник
+    translation: smart person, know-it-all
+    type: noun
+  - word: благоразумие
+    translation: prudence
+    type: adjective
+  - word: недоумение
+    translation: bewilderment
+    type: noun
+  - word: вразумить
+    translation: to bring to reason
+    type: verb
+  - word: подразумевать
+    translation: to imply, to mean
+    type: verb
+  - word: умозаключение
+    translation: conclusion, inference
+    type: noun
+  - word: умственный
+    translation: mental, intellectual
+    type: adjective
+- rootKey: корень_мысл
+  rootWord: мысль
+  rootTranslation: thought
+  children:
+  - word: мыслить
+    translation: to think
+    type: verb
+  - word: мышление
+    translation: thinking, thought process
+    type: noun
+  - word: замысел
+    translation: plan, design
+    type: noun
+  - word: промысел
+    translation: trade, craft
+    type: noun
+  - word: помысел
+    translation: thought, intention
+    type: noun
+  - word: вымысел
+    translation: fiction, invention
+    type: noun
+  - word: смысл
+    translation: meaning, sense
+    type: noun
+  - word: бессмыслица
+    translation: nonsense
+    type: noun
+  - word: осмыслить
+    translation: to comprehend
+    type: verb
+  - word: размышлять
+    translation: to reflect, to ponder
+    type: verb
+  - word: домысел
+    translation: conjecture, speculation
+    type: noun
+  - word: мыслитель
+    translation: thinker
+    type: noun
+- rootKey: корень_зна
+  rootWord: знать
+  rootTranslation: to know
+  children:
+  - word: знание
+    translation: knowledge
+    type: noun
+  - word: знак
+    translation: sign, symbol
+    type: noun
+  - word: значение
+    translation: meaning, significance
+    type: noun
+  - word: значить
+    translation: to mean
+    type: verb
+  - word: признак
+    translation: sign, feature
+    type: noun
+  - word: признание
+    translation: recognition, confession
+    type: noun
+  - word: сознание
+    translation: consciousness
+    type: noun
+  - word: познание
+    translation: cognition
+    type: noun
+  - word: опознать
+    translation: to identify
+    type: verb
+  - word: обозначить
+    translation: to designate
+    type: verb
+  - word: знакомый
+    translation: acquaintance, familiar
+    type: adjective
+  - word: знаменитый
+    translation: famous
+    type: adjective
+  - word: знамя
+    translation: banner, flag
+    type: noun
+  - word: незнакомец
+    translation: stranger
+    type: noun
+  - word: означать
+    translation: to mean, to signify
+    type: verb
+  - word: предназначение
+    translation: purpose, destiny
+    type: noun
+  - word: достопримечательность
+    translation: landmark, sight
+    type: verb
+- rootKey: корень_говор
+  rootWord: говорить
+  rootTranslation: to speak, to talk
+  children:
+  - word: разговор
+    translation: conversation
+    type: noun
+  - word: договор
+    translation: contract, agreement
+    type: noun
+  - word: заговор
+    translation: conspiracy, plot
+    type: noun
+  - word: приговор
+    translation: sentence, verdict
+    type: noun
+  - word: переговоры
+    translation: negotiations
+    type: noun
+  - word: выговор
+    translation: reprimand, pronunciation
+    type: noun
+  - word: оговорка
+    translation: reservation, slip of tongue
+    type: noun
+  - word: поговорка
+    translation: saying, proverb
+    type: noun
+  - word: уговор
+    translation: persuasion, agreement
+    type: noun
+  - word: наговор
+    translation: slander, spell
+    type: noun
+  - word: отговорка
+    translation: excuse, pretext
+    type: noun
+  - word: проговориться
+    translation: to let slip
+    type: verb
+  - word: разговорчивый
+    translation: talkative
+    type: adjective
+  - word: сговор
+    translation: collusion, conspiracy
+    type: noun
+- rootKey: корень_слов
+  rootWord: слово
+  rootTranslation: word
+  children:
+  - word: словарь
+    translation: dictionary
+    type: noun
+  - word: пословица
+    translation: proverb
+    type: noun
+  - word: условие
+    translation: condition
+    type: adjective
+  - word: предисловие
+    translation: foreword
+    type: adjective
+  - word: послесловие
+    translation: afterword
+    type: adjective
+  - word: словесный
+    translation: verbal
+    type: adjective
+  - word: многословный
+    translation: verbose
+    type: adjective
+  - word: дословный
+    translation: literal, word-for-word
+    type: adjective
+  - word: благословить
+    translation: to bless
+    type: verb
+  - word: злословить
+    translation: to slander
+    type: verb
+  - word: прекословить
+    translation: to contradict
+    type: verb
+  - word: ословоохотливый
+    translation: talkative
+    type: adjective
+- rootKey: корень_пис
+  rootWord: писать
+  rootTranslation: to write
+  children:
+  - word: письмо
+    translation: letter
+    type: noun
+  - word: писатель
+    translation: writer
+    type: noun
+  - word: запись
+    translation: record, entry
+    type: noun
+  - word: подпись
+    translation: signature
+    type: noun
+  - word: надпись
+    translation: inscription
+    type: noun
+  - word: опись
+    translation: inventory, list
+    type: noun
+  - word: рукопись
+    translation: manuscript
+    type: noun
+  - word: описание
+    translation: description
+    type: noun
+  - word: переписка
+    translation: correspondence
+    type: noun
+  - word: выписка
+    translation: extract, excerpt
+    type: noun
+  - word: приписка
+    translation: postscript, addition
+    type: noun
+  - word: расписание
+    translation: schedule, timetable
+    type: noun
+  - word: расписка
+    translation: receipt
+    type: noun
+  - word: летопись
+    translation: chronicle
+    type: noun
+  - word: живопись
+    translation: painting (art)
+    type: noun
+  - word: правописание
+    translation: spelling
+    type: noun
+- rootKey: корень_чит
+  rootWord: читать
+  rootTranslation: to read
+  children:
+  - word: читатель
+    translation: reader
+    type: noun
+  - word: чтение
+    translation: reading
+    type: noun
+  - word: прочитать
+    translation: to read through
+    type: verb
+  - word: считать
+    translation: to count, to consider
+    type: verb
+  - word: расчёт
+    translation: calculation
+    type: noun
+  - word: учёт
+    translation: accounting, record
+    type: noun
+  - word: отчёт
+    translation: report
+    type: noun
+  - word: зачёт
+    translation: credit, pass
+    type: noun
+  - word: вычет
+    translation: deduction
+    type: noun
+  - word: подсчёт
+    translation: count, calculation
+    type: noun
+  - word: перечитать
+    translation: to reread
+    type: verb
+  - word: начитанный
+    translation: well-read
+    type: adjective
+  - word: счётчик
+    translation: counter, meter
+    type: noun
+- rootKey: корень_уч
+  rootWord: учить
+  rootTranslation: to learn, to teach
+  children:
+  - word: учитель
+    translation: teacher
+    type: noun
+  - word: ученик
+    translation: student, pupil
+    type: noun
+  - word: учёный
+    translation: scientist, scholar
+    type: adjective
+  - word: учебник
+    translation: textbook
+    type: noun
+  - word: учебный
+    translation: educational
+    type: adjective
+  - word: училище
+    translation: school, college
+    type: noun
+  - word: наука
+    translation: science
+    type: noun
+  - word: научный
+    translation: scientific
+    type: adjective
+  - word: обучение
+    translation: training, education
+    type: noun
+  - word: изучать
+    translation: to study
+    type: verb
+  - word: выучить
+    translation: to learn, to memorize
+    type: verb
+  - word: приучить
+    translation: to train, to accustom
+    type: verb
+  - word: поучение
+    translation: instruction, lesson
+    type: noun
+  - word: самоучитель
+    translation: self-study guide
+    type: noun
+- rootKey: корень_каз
+  rootWord: казать
+  rootTranslation: to show
+  children:
+  - word: показать
+    translation: to show, to demonstrate
+    type: verb
+  - word: сказать
+    translation: to say, to tell
+    type: verb
+  - word: рассказ
+    translation: story, tale
+    type: noun
+  - word: приказ
+    translation: order, command
+    type: noun
+  - word: указ
+    translation: decree, edict
+    type: noun
+  - word: наказание
+    translation: punishment
+    type: noun
+  - word: доказательство
+    translation: proof, evidence
+    type: noun
+  - word: отказ
+    translation: refusal, rejection
+    type: noun
+  - word: заказ
+    translation: order (purchase)
+    type: noun
+  - word: показатель
+    translation: indicator
+    type: noun
+  - word: указатель
+    translation: pointer, index
+    type: noun
+  - word: сказка
+    translation: fairy tale
+    type: noun
+  - word: подсказка
+    translation: hint, prompt
+    type: noun
+  - word: предсказание
+    translation: prediction, prophecy
+    type: noun
+- rootKey: корень_люб
+  rootWord: любить
+  rootTranslation: to love
+  children:
+  - word: любовь
+    translation: love
+    type: noun
+  - word: любимый
+    translation: beloved, favorite
+    type: adjective
+  - word: любитель
+    translation: amateur, lover of
+    type: noun
+  - word: влюбиться
+    translation: to fall in love
+    type: verb
+  - word: полюбить
+    translation: to come to love
+    type: verb
+  - word: любезный
+    translation: kind, courteous
+    type: adjective
+  - word: любопытство
+    translation: curiosity
+    type: noun
+  - word: любознательный
+    translation: inquisitive
+    type: adjective
+  - word: нелюбовь
+    translation: dislike
+    type: noun
+  - word: возлюбленный
+    translation: beloved
+    type: adjective
+  - word: себялюбие
+    translation: selfishness
+    type: adjective
+- rootKey: корень_рад
+  rootWord: рад
+  rootTranslation: glad
+  children:
+  - word: радость
+    translation: joy
+    type: verb
+  - word: радовать
+    translation: to gladden, to please
+    type: verb
+  - word: радостный
+    translation: joyful
+    type: adjective
+  - word: обрадовать
+    translation: to make happy
+    type: verb
+  - word: порадовать
+    translation: to please
+    type: verb
+  - word: нерадивый
+    translation: negligent
+    type: adjective
+  - word: радушный
+    translation: hospitable
+    type: adjective
+  - word: радуга
+    translation: rainbow
+    type: noun
+  - word: радужный
+    translation: rainbow (adj), rosy
+    type: adjective
+  - word: нерадостный
+    translation: joyless
+    type: adjective
+- rootKey: корень_гор
+  rootWord: гореть
+  rootTranslation: to burn
+  children:
+  - word: горячий
+    translation: hot
+    type: adjective
+  - word: горе
+    translation: grief, sorrow
+    type: noun
+  - word: горький
+    translation: bitter
+    type: adjective
+  - word: загар
+    translation: tan, sunburn
+    type: noun
+  - word: пожар
+    translation: fire
+    type: noun
+  - word: угар
+    translation: fumes, frenzy
+    type: noun
+  - word: нагар
+    translation: soot, carbon
+    type: noun
+  - word: перегар
+    translation: hangover smell
+    type: noun
+  - word: разгар
+    translation: height, peak
+    type: noun
+  - word: огарок
+    translation: candle stub
+    type: noun
+  - word: погорелец
+    translation: fire victim
+    type: noun
+  - word: горючий
+    translation: combustible
+    type: adjective
+  - word: горение
+    translation: burning, combustion
+    type: noun
+  - word: загорать
+    translation: to sunbathe
+    type: verb
+  - word: выгорать
+    translation: to burn out
+    type: verb
+- rootKey: корень_жал
+  rootWord: жалеть
+  rootTranslation: to pity, to feel sorry
+  children:
+  - word: жалость
+    translation: pity, compassion
+    type: verb
+  - word: жалоба
+    translation: complaint
+    type: noun
+  - word: жалкий
+    translation: pitiful, pathetic
+    type: adjective
+  - word: сожаление
+    translation: regret
+    type: noun
+  - word: пожалуйста
+    translation: please
+    type: noun
+  - word: жало
+    translation: sting
+    type: noun
+  - word: жалить
+    translation: to sting
+    type: verb
+  - word: жалованье
+    translation: salary (archaic)
+    type: noun
+  - word: жалостливый
+    translation: compassionate
+    type: adjective
+  - word: пожалеть
+    translation: to take pity on
+    type: verb
+- rootKey: корень_страх
+  rootWord: страх
+  rootTranslation: fear
+  children:
+  - word: страшный
+    translation: terrible, scary
+    type: adjective
+  - word: страхование
+    translation: insurance
+    type: noun
+  - word: устрашить
+    translation: to frighten
+    type: verb
+  - word: бесстрашный
+    translation: fearless
+    type: adjective
+  - word: застраховать
+    translation: to insure
+    type: verb
+  - word: страховка
+    translation: insurance, safety net
+    type: noun
+  - word: устрашающий
+    translation: intimidating
+    type: adjective
+  - word: бесстрашие
+    translation: fearlessness
+    type: adjective
+  - word: перестраховаться
+    translation: to play it safe
+    type: verb
+  - word: страховщик
+    translation: insurance agent
+    type: noun
+- rootKey: корень_серд
+  rootWord: сердце
+  rootTranslation: heart
+  children:
+  - word: сердечный
+    translation: heartfelt, cardiac
+    type: adjective
+  - word: сердитый
+    translation: angry
+    type: adjective
+  - word: сердиться
+    translation: to be angry
+    type: verb
+  - word: милосердие
+    translation: mercy, compassion
+    type: noun
+  - word: усердие
+    translation: diligence, zeal
+    type: noun
+  - word: рассердить
+    translation: to anger
+    type: verb
+  - word: добросердечный
+    translation: kind-hearted
+    type: adjective
+  - word: сердцебиение
+    translation: heartbeat
+    type: noun
+  - word: бессердечный
+    translation: heartless
+    type: adjective
+  - word: сердцеед
+    translation: heartbreaker
+    type: noun
+- rootKey: корень_дух
+  rootWord: дух
+  rootTranslation: spirit
+  children:
+  - word: душа
+    translation: soul
+    type: noun
+  - word: духовный
+    translation: spiritual
+    type: adjective
+  - word: душевный
+    translation: soulful, sincere
+    type: adjective
+  - word: воздух
+    translation: air
+    type: noun
+  - word: дышать
+    translation: to breathe
+    type: verb
+  - word: дыхание
+    translation: breathing
+    type: noun
+  - word: вдохновение
+    translation: inspiration
+    type: noun
+  - word: одушевлённый
+    translation: animate
+    type: adjective
+  - word: равнодушный
+    translation: indifferent
+    type: adjective
+  - word: великодушный
+    translation: generous, magnanimous
+    type: adjective
+  - word: малодушный
+    translation: cowardly
+    type: adjective
+  - word: задушевный
+    translation: intimate, heartfelt
+    type: adjective
+  - word: отдушина
+    translation: vent, outlet
+    type: noun
+  - word: удушье
+    translation: suffocation
+    type: noun
+  - word: духовенство
+    translation: clergy
+    type: noun
+  - word: простодушный
+    translation: simple-hearted
+    type: adjective
+- rootKey: корень_бол
+  rootWord: боль
+  rootTranslation: pain
+  children:
+  - word: болеть
+    translation: to be sick, to hurt
+    type: verb
+  - word: больной
+    translation: sick, patient
+    type: adjective
+  - word: больница
+    translation: hospital
+    type: noun
+  - word: болезнь
+    translation: illness, disease
+    type: noun
+  - word: заболеть
+    translation: to fall ill
+    type: verb
+  - word: болезненный
+    translation: painful, sickly
+    type: adjective
+  - word: обезболивающее
+    translation: painkiller
+    type: adjective
+  - word: сочувствие
+    translation: sympathy
+    type: adjective
+  - word: соболезнование
+    translation: condolence
+    type: noun
+  - word: безболезненный
+    translation: painless
+    type: adjective
+- rootKey: корень_вод_вода
+  rootWord: вода
+  rootTranslation: water
+  children:
+  - word: водный
+    translation: water (adj)
+    type: adjective
+  - word: водяной
+    translation: water spirit, aquatic
+    type: adjective
+  - word: водопровод
+    translation: water supply, plumbing
+    type: noun
+  - word: водопад
+    translation: waterfall
+    type: noun
+  - word: наводнение
+    translation: flood
+    type: noun
+  - word: подводный
+    translation: underwater
+    type: adjective
+  - word: половодье
+    translation: spring flood
+    type: noun
+  - word: водоём
+    translation: body of water, reservoir
+    type: noun
+  - word: водоросль
+    translation: seaweed, algae
+    type: noun
+  - word: водолаз
+    translation: diver
+    type: noun
+  - word: водород
+    translation: hydrogen
+    type: noun
+  - word: паводок
+    translation: freshet, flood
+    type: noun
+  - word: безводный
+    translation: waterless, arid
+    type: adjective
+- rootKey: корень_зем
+  rootWord: земля
+  rootTranslation: earth, land
+  children:
+  - word: земной
+    translation: earthly
+    type: adjective
+  - word: землетрясение
+    translation: earthquake
+    type: noun
+  - word: земляника
+    translation: wild strawberry
+    type: noun
+  - word: землянка
+    translation: dugout
+    type: noun
+  - word: подземный
+    translation: underground
+    type: adjective
+  - word: приземлиться
+    translation: to land
+    type: verb
+  - word: наземный
+    translation: ground-level, overland
+    type: adjective
+  - word: земледелие
+    translation: agriculture
+    type: noun
+  - word: землевладелец
+    translation: landowner
+    type: noun
+  - word: чернозём
+    translation: black soil
+    type: noun
+  - word: земляк
+    translation: fellow countryman
+    type: noun
+  - word: заземление
+    translation: grounding (electrical)
+    type: noun
+- rootKey: корень_огн
+  rootWord: огонь
+  rootTranslation: fire
+  children:
+  - word: огненный
+    translation: fiery
+    type: adjective
+  - word: огнетушитель
+    translation: fire extinguisher
+    type: noun
+  - word: огнестрельный
+    translation: firearm (adj)
+    type: adjective
+  - word: огнеупорный
+    translation: fireproof
+    type: adjective
+  - word: огнеопасный
+    translation: flammable
+    type: adjective
+  - word: костёр
+    translation: bonfire, campfire
+    type: noun
+  - word: очаг
+    translation: hearth, center
+    type: noun
+  - word: огнедышащий
+    translation: fire-breathing
+    type: adjective
+  - word: огневой
+    translation: fire (adj), firing
+    type: adjective
+  - word: огнеборец
+    translation: firefighter
+    type: noun
+- rootKey: корень_свет
+  rootWord: свет
+  rootTranslation: light, world
+  children:
+  - word: светить
+    translation: to shine
+    type: verb
+  - word: светлый
+    translation: light, bright
+    type: adjective
+  - word: освещение
+    translation: lighting, illumination
+    type: noun
+  - word: просвещение
+    translation: enlightenment, education
+    type: noun
+  - word: рассвет
+    translation: dawn
+    type: noun
+  - word: свеча
+    translation: candle
+    type: noun
+  - word: светильник
+    translation: lamp, light fixture
+    type: noun
+  - word: светофор
+    translation: traffic light
+    type: noun
+  - word: подсветка
+    translation: backlight, illumination
+    type: noun
+  - word: засветить
+    translation: to expose (film), to shine
+    type: verb
+  - word: просвет
+    translation: gap, clearing
+    type: noun
+  - word: светский
+    translation: secular, social
+    type: adjective
+  - word: всесветный
+    translation: worldwide
+    type: adjective
+- rootKey: корень_лес
+  rootWord: лес
+  rootTranslation: forest
+  children:
+  - word: лесной
+    translation: forest (adj)
+    type: adjective
+  - word: лесник
+    translation: forester
+    type: noun
+  - word: лесничество
+    translation: forestry
+    type: noun
+  - word: перелесок
+    translation: copse, grove
+    type: noun
+  - word: лесоруб
+    translation: lumberjack
+    type: noun
+  - word: лесополоса
+    translation: forest belt
+    type: noun
+  - word: лесопилка
+    translation: sawmill
+    type: noun
+  - word: лесостепь
+    translation: forest-steppe
+    type: noun
+  - word: полесье
+    translation: woodland
+    type: noun
+  - word: лесоповал
+    translation: logging
+    type: noun
+- rootKey: корень_цвет
+  rootWord: цвет
+  rootTranslation: color, flower
+  children:
+  - word: цветок
+    translation: flower
+    type: noun
+  - word: цветной
+    translation: colored
+    type: adjective
+  - word: цвести
+    translation: to bloom
+    type: verb
+  - word: расцвет
+    translation: flourishing, heyday
+    type: noun
+  - word: цветение
+    translation: blooming
+    type: noun
+  - word: первоцвет
+    translation: primrose
+    type: noun
+  - word: соцветие
+    translation: inflorescence
+    type: noun
+  - word: одноцветный
+    translation: monochrome
+    type: adjective
+  - word: разноцветный
+    translation: multicolored
+    type: adjective
+  - word: цветник
+    translation: flower bed
+    type: noun
+  - word: цветовод
+    translation: flower grower
+    type: noun
+  - word: бесцветный
+    translation: colorless
+    type: adjective
+- rootKey: корень_кам
+  rootWord: камень
+  rootTranslation: stone
+  children:
+  - word: каменный
+    translation: stone (adj)
+    type: adjective
+  - word: каменщик
+    translation: mason, bricklayer
+    type: noun
+  - word: окаменеть
+    translation: to petrify
+    type: verb
+  - word: булыжник
+    translation: cobblestone
+    type: noun
+  - word: каменоломня
+    translation: quarry
+    type: noun
+  - word: каменистый
+    translation: rocky, stony
+    type: adjective
+  - word: каменноугольный
+    translation: coal (adj)
+    type: adjective
+  - word: камнепад
+    translation: rockfall
+    type: noun
+  - word: камнерез
+    translation: stone cutter
+    type: noun
+  - word: каменотёс
+    translation: stonecutter
+    type: noun
+- rootKey: корень_гор_гора
+  rootWord: гора
+  rootTranslation: mountain
+  children:
+  - word: горный
+    translation: mountain (adj)
+    type: adjective
+  - word: горец
+    translation: highlander
+    type: noun
+  - word: нагорье
+    translation: highland, plateau
+    type: noun
+  - word: предгорье
+    translation: foothills
+    type: noun
+  - word: пригорок
+    translation: hillock
+    type: noun
+  - word: горнолыжный
+    translation: alpine skiing (adj)
+    type: adjective
+  - word: плоскогорье
+    translation: plateau
+    type: noun
+  - word: взгорье
+    translation: hill, rise
+    type: noun
+  - word: горнодобывающий
+    translation: mining (adj)
+    type: adjective
+  - word: горняк
+    translation: miner
+    type: noun
+- rootKey: корень_род
+  rootWord: род
+  rootTranslation: genus, kin, gender
+  children:
+  - word: родина
+    translation: homeland
+    type: noun
+  - word: родитель
+    translation: parent
+    type: noun
+  - word: родной
+    translation: native, dear
+    type: adjective
+  - word: рождение
+    translation: birth
+    type: noun
+  - word: природа
+    translation: nature
+    type: noun
+  - word: народ
+    translation: people, nation
+    type: noun
+  - word: порода
+    translation: breed, rock
+    type: noun
+  - word: урожай
+    translation: harvest
+    type: noun
+  - word: происхождение
+    translation: origin
+    type: noun
+  - word: родственник
+    translation: relative
+    type: noun
+  - word: родословная
+    translation: genealogy, pedigree
+    type: adjective
+  - word: благородный
+    translation: noble
+    type: adjective
+  - word: сородич
+    translation: kinsman
+    type: noun
+  - word: новорождённый
+    translation: newborn
+    type: adjective
+  - word: возрождение
+    translation: renaissance, revival
+    type: noun
+  - word: вырождение
+    translation: degeneration
+    type: noun
+  - word: плодородный
+    translation: fertile
+    type: adjective
+- rootKey: корень_друг
+  rootWord: друг
+  rootTranslation: friend
+  children:
+  - word: дружба
+    translation: friendship
+    type: noun
+  - word: дружить
+    translation: to be friends
+    type: verb
+  - word: дружный
+    translation: friendly, united
+    type: adjective
+  - word: подруга
+    translation: female friend
+    type: noun
+  - word: содружество
+    translation: commonwealth
+    type: noun
+  - word: дружелюбный
+    translation: friendly
+    type: adjective
+  - word: недруг
+    translation: enemy
+    type: noun
+  - word: дружина
+    translation: squad, retinue
+    type: noun
+  - word: дружинник
+    translation: squad member
+    type: noun
+  - word: подружиться
+    translation: to become friends
+    type: verb
+- rootKey: корень_жи
+  rootWord: жить
+  rootTranslation: to live
+  children:
+  - word: жизнь
+    translation: life
+    type: noun
+  - word: живой
+    translation: alive, lively
+    type: adjective
+  - word: животное
+    translation: animal
+    type: adjective
+  - word: жилище
+    translation: dwelling
+    type: noun
+  - word: жилой
+    translation: residential
+    type: adjective
+  - word: житель
+    translation: resident, inhabitant
+    type: noun
+  - word: проживание
+    translation: residence
+    type: noun
+  - word: выживание
+    translation: survival
+    type: noun
+  - word: оживить
+    translation: to revive
+    type: verb
+  - word: пережить
+    translation: to survive, to experience
+    type: verb
+  - word: нажить
+    translation: to acquire
+    type: verb
+  - word: прожиточный
+    translation: subsistence
+    type: adjective
+  - word: жизнеспособный
+    translation: viable
+    type: adjective
+  - word: жизнерадостный
+    translation: cheerful
+    type: adjective
+  - word: живопись
+    translation: painting
+    type: noun
+  - word: животновод
+    translation: livestock breeder
+    type: noun
+  - word: долгожитель
+    translation: long-liver
+    type: noun
+- rootKey: корень_раб
+  rootWord: работа
+  rootTranslation: work
+  children:
+  - word: работать
+    translation: to work
+    type: verb
+  - word: рабочий
+    translation: worker, working
+    type: adjective
+  - word: раб
+    translation: slave
+    type: noun
+  - word: рабство
+    translation: slavery
+    type: noun
+  - word: разработка
+    translation: development
+    type: noun
+  - word: обработка
+    translation: processing
+    type: noun
+  - word: переработка
+    translation: recycling, processing
+    type: noun
+  - word: заработок
+    translation: earnings
+    type: noun
+  - word: безработица
+    translation: unemployment
+    type: noun
+  - word: сотрудник
+    translation: colleague, employee
+    type: noun
+  - word: работодатель
+    translation: employer
+    type: noun
+  - word: работоспособный
+    translation: able-bodied
+    type: adjective
+- rootKey: корень_дел
+  rootWord: дело
+  rootTranslation: deed, business, case
+  children:
+  - word: делать
+    translation: to do, to make
+    type: verb
+  - word: действие
+    translation: action, effect
+    type: adjective
+  - word: деятельность
+    translation: activity
+    type: verb
+  - word: деловой
+    translation: business (adj)
+    type: adjective
+  - word: поделка
+    translation: craft, handmade item
+    type: noun
+  - word: изделие
+    translation: product, article
+    type: noun
+  - word: сделка
+    translation: deal, transaction
+    type: noun
+  - word: бездельник
+    translation: idler, loafer
+    type: noun
+  - word: содействие
+    translation: assistance
+    type: adjective
+  - word: воздействие
+    translation: influence, impact
+    type: adjective
+  - word: противодействие
+    translation: counteraction
+    type: adjective
+  - word: действительный
+    translation: real, valid
+    type: adjective
+  - word: недействительный
+    translation: invalid
+    type: adjective
+  - word: делопроизводство
+    translation: office work
+    type: noun
+- rootKey: корень_власт
+  rootWord: власть
+  rootTranslation: power, authority
+  children:
+  - word: властный
+    translation: imperious, authoritative
+    type: adjective
+  - word: владеть
+    translation: to own, to possess
+    type: verb
+  - word: владелец
+    translation: owner
+    type: noun
+  - word: государство
+    translation: state, country
+    type: noun
+  - word: правительство
+    translation: government
+    type: noun
+  - word: самовластие
+    translation: autocracy
+    type: noun
+  - word: властелин
+    translation: ruler, lord
+    type: noun
+  - word: безвластие
+    translation: anarchy
+    type: noun
+  - word: властвовать
+    translation: to rule
+    type: verb
+  - word: обладать
+    translation: to possess
+    type: verb
+  - word: завладеть
+    translation: to seize
+    type: verb
+  - word: совладелец
+    translation: co-owner
+    type: noun
+- rootKey: корень_прав
+  rootWord: право
+  rootTranslation: right, law
+  children:
+  - word: правда
+    translation: truth
+    type: noun
+  - word: правый
+    translation: right (side), right (correct)
+    type: adjective
+  - word: правило
+    translation: rule
+    type: noun
+  - word: правильный
+    translation: correct
+    type: adjective
+  - word: управлять
+    translation: to manage, to control
+    type: verb
+  - word: направление
+    translation: direction
+    type: noun
+  - word: исправить
+    translation: to correct, to fix
+    type: verb
+  - word: справедливый
+    translation: fair, just
+    type: adjective
+  - word: оправдать
+    translation: to justify, to acquit
+    type: verb
+  - word: правительство
+    translation: government
+    type: noun
+  - word: правосудие
+    translation: justice
+    type: noun
+  - word: правонарушение
+    translation: offense
+    type: noun
+  - word: бесправный
+    translation: without rights
+    type: adjective
+  - word: праведный
+    translation: righteous
+    type: adjective
+  - word: неправда
+    translation: untruth, lie
+    type: noun
+  - word: справка
+    translation: certificate, reference
+    type: noun
+- rootKey: корень_стро
+  rootWord: строить
+  rootTranslation: to build
+  children:
+  - word: строение
+    translation: structure, building
+    type: noun
+  - word: строительство
+    translation: construction
+    type: noun
+  - word: строй
+    translation: formation, system
+    type: adjective
+  - word: устройство
+    translation: device, arrangement
+    type: noun
+  - word: перестройка
+    translation: restructuring
+    type: noun
+  - word: настроение
+    translation: mood
+    type: noun
+  - word: расстройство
+    translation: disorder, upset
+    type: noun
+  - word: построить
+    translation: to build, to construct
+    type: verb
+  - word: застройка
+    translation: development (building)
+    type: noun
+  - word: строитель
+    translation: builder
+    type: noun
+  - word: благоустройство
+    translation: improvement, landscaping
+    type: noun
+  - word: домостроение
+    translation: house building
+    type: noun
+- rootKey: корень_мир
+  rootWord: мир
+  rootTranslation: peace, world
+  children:
+  - word: мирный
+    translation: peaceful
+    type: adjective
+  - word: мировой
+    translation: world (adj)
+    type: adjective
+  - word: примирение
+    translation: reconciliation
+    type: noun
+  - word: перемирие
+    translation: ceasefire, truce
+    type: adjective
+  - word: всемирный
+    translation: worldwide
+    type: adjective
+  - word: миролюбивый
+    translation: peace-loving
+    type: adjective
+  - word: миротворец
+    translation: peacemaker
+    type: noun
+  - word: смирение
+    translation: humility
+    type: noun
+  - word: усмирить
+    translation: to pacify
+    type: verb
+  - word: замирать
+    translation: to freeze, to stand still
+    type: verb
+- rootKey: корень_врем
+  rootWord: время
+  rootTranslation: time
+  children:
+  - word: временный
+    translation: temporary
+    type: adjective
+  - word: временной
+    translation: temporal
+    type: adjective
+  - word: современный
+    translation: modern, contemporary
+    type: adjective
+  - word: своевременный
+    translation: timely
+    type: adjective
+  - word: преждевременный
+    translation: premature
+    type: adjective
+  - word: времяпрепровождение
+    translation: pastime
+    type: noun
+  - word: повременить
+    translation: to wait
+    type: verb
+  - word: одновременный
+    translation: simultaneous
+    type: adjective
+  - word: кратковременный
+    translation: short-term
+    type: adjective
+  - word: временщик
+    translation: temporary ruler, favorite
+    type: noun
+- rootKey: корень_год
+  rootWord: год
+  rootTranslation: year
+  children:
+  - word: годовой
+    translation: annual
+    type: adjective
+  - word: годовщина
+    translation: anniversary
+    type: noun
+  - word: погода
+    translation: weather
+    type: noun
+  - word: непогода
+    translation: bad weather
+    type: noun
+  - word: пригодный
+    translation: suitable
+    type: adjective
+  - word: негодный
+    translation: unfit, worthless
+    type: adjective
+  - word: выгода
+    translation: benefit, profit
+    type: noun
+  - word: угодить
+    translation: to please
+    type: verb
+  - word: негодование
+    translation: indignation
+    type: noun
+  - word: годность
+    translation: fitness, validity
+    type: verb
+  - word: ежегодный
+    translation: annual
+    type: adjective
+- rootKey: корень_дн
+  rootWord: день
+  rootTranslation: day
+  children:
+  - word: дневной
+    translation: daytime (adj)
+    type: adjective
+  - word: ежедневный
+    translation: daily
+    type: adjective
+  - word: полдень
+    translation: noon
+    type: noun
+  - word: будни
+    translation: weekdays
+    type: noun
+  - word: повседневный
+    translation: everyday
+    type: adjective
+  - word: сегодня
+    translation: today
+    type: noun
+  - word: однодневный
+    translation: one-day
+    type: adjective
+  - word: дневник
+    translation: diary
+    type: noun
+  - word: ежедневник
+    translation: daily planner
+    type: noun
+  - word: среднедневной
+    translation: average daily
+    type: adjective
+- rootKey: корень_нов
+  rootWord: новый
+  rootTranslation: new
+  children:
+  - word: новость
+    translation: news
+    type: verb
+  - word: новинка
+    translation: novelty
+    type: noun
+  - word: обновление
+    translation: update, renewal
+    type: noun
+  - word: нововведение
+    translation: innovation
+    type: noun
+  - word: новичок
+    translation: newcomer, beginner
+    type: noun
+  - word: новшество
+    translation: novelty, innovation
+    type: noun
+  - word: новобранец
+    translation: recruit
+    type: noun
+  - word: новоселье
+    translation: housewarming
+    type: noun
+  - word: возобновить
+    translation: to resume, to renew
+    type: verb
+  - word: обновить
+    translation: to update, to renew
+    type: verb
+  - word: новатор
+    translation: innovator
+    type: noun
+- rootKey: корень_стар
+  rootWord: старый
+  rootTranslation: old
+  children:
+  - word: старик
+    translation: old man
+    type: noun
+  - word: старость
+    translation: old age
+    type: verb
+  - word: старинный
+    translation: ancient, antique
+    type: adjective
+  - word: старший
+    translation: elder, senior
+    type: adjective
+  - word: старейшина
+    translation: elder, chief
+    type: noun
+  - word: устареть
+    translation: to become outdated
+    type: verb
+  - word: старомодный
+    translation: old-fashioned
+    type: adjective
+  - word: старожил
+    translation: old-timer
+    type: noun
+  - word: старательный
+    translation: diligent
+    type: adjective
+  - word: стараться
+    translation: to try, to endeavor
+    type: verb
+- rootKey: корень_дал
+  rootWord: далёкий
+  rootTranslation: far, distant
+  children:
+  - word: даль
+    translation: distance
+    type: noun
+  - word: дальний
+    translation: distant, far
+    type: adjective
+  - word: удалить
+    translation: to remove, to delete
+    type: verb
+  - word: отдалить
+    translation: to distance
+    type: verb
+  - word: дальнейший
+    translation: further
+    type: adjective
+  - word: дальновидный
+    translation: far-sighted
+    type: adjective
+  - word: дальнобойный
+    translation: long-range
+    type: adjective
+  - word: удалённый
+    translation: remote
+    type: adjective
+  - word: отдалённый
+    translation: remote, distant
+    type: adjective
+  - word: дальтоник
+    translation: color-blind person
+    type: noun
+- rootKey: корень_близ
+  rootWord: близкий
+  rootTranslation: close, near
+  children:
+  - word: близость
+    translation: closeness, proximity
+    type: verb
+  - word: приблизить
+    translation: to bring closer
+    type: verb
+  - word: сблизиться
+    translation: to become closer
+    type: verb
+  - word: приближение
+    translation: approach
+    type: noun
+  - word: ближайший
+    translation: nearest
+    type: adjective
+  - word: вблизи
+    translation: nearby
+    type: noun
+  - word: близнец
+    translation: twin
+    type: noun
+  - word: приблизительный
+    translation: approximate
+    type: adjective
+  - word: близорукий
+    translation: nearsighted
+    type: adjective
+  - word: близлежащий
+    translation: nearby
+    type: adjective
+- rootKey: корень_рук
+  rootWord: рука
+  rootTranslation: hand, arm
+  children:
+  - word: ручной
+    translation: manual, hand (adj)
+    type: adjective
+  - word: рукав
+    translation: sleeve
+    type: noun
+  - word: рукопись
+    translation: manuscript
+    type: noun
+  - word: рукоятка
+    translation: handle, grip
+    type: noun
+  - word: рукопожатие
+    translation: handshake
+    type: noun
+  - word: руководство
+    translation: leadership, manual
+    type: noun
+  - word: наручники
+    translation: handcuffs
+    type: noun
+  - word: безрукий
+    translation: armless
+    type: adjective
+  - word: поручение
+    translation: assignment, errand
+    type: noun
+  - word: поручитель
+    translation: guarantor
+    type: noun
+  - word: вручить
+    translation: to hand over
+    type: verb
+  - word: оружие
+    translation: weapon
+    type: adjective
+  - word: разоружение
+    translation: disarmament
+    type: noun
+  - word: рукоделие
+    translation: handicraft
+    type: noun
+- rootKey: корень_голов
+  rootWord: голова
+  rootTranslation: head
+  children:
+  - word: головной
+    translation: head (adj)
+    type: adjective
+  - word: головокружение
+    translation: dizziness
+    type: noun
+  - word: заголовок
+    translation: title, heading
+    type: noun
+  - word: изголовье
+    translation: headboard
+    type: noun
+  - word: главный
+    translation: main, chief
+    type: adjective
+  - word: глава
+    translation: chapter, head
+    type: noun
+  - word: возглавить
+    translation: to head, to lead
+    type: verb
+  - word: оглавление
+    translation: table of contents
+    type: noun
+  - word: обезглавить
+    translation: to behead
+    type: verb
+  - word: главнокомандующий
+    translation: commander-in-chief
+    type: adjective
+- rootKey: корень_глаз
+  rootWord: глаз
+  rootTranslation: eye
+  children:
+  - word: глазной
+    translation: eye (adj)
+    type: adjective
+  - word: одноглазый
+    translation: one-eyed
+    type: adjective
+  - word: глазомер
+    translation: eye estimation
+    type: noun
+  - word: глазурь
+    translation: glaze, icing
+    type: noun
+  - word: подглядывать
+    translation: to peep
+    type: verb
+  - word: наглядный
+    translation: visual, obvious
+    type: adjective
+  - word: заглядывать
+    translation: to peek
+    type: verb
+  - word: глазастый
+    translation: sharp-eyed
+    type: adjective
+  - word: глазунья
+    translation: fried eggs (sunny side up)
+    type: noun
+  - word: глазница
+    translation: eye socket
+    type: noun
+- rootKey: корень_кров
+  rootWord: кровь
+  rootTranslation: blood
+  children:
+  - word: кровный
+    translation: blood (adj)
+    type: adjective
+  - word: кровавый
+    translation: bloody
+    type: adjective
+  - word: кровотечение
+    translation: bleeding
+    type: noun
+  - word: кровеносный
+    translation: circulatory
+    type: adjective
+  - word: кровопролитие
+    translation: bloodshed
+    type: noun
+  - word: бескровный
+    translation: bloodless
+    type: adjective
+  - word: кровожадный
+    translation: bloodthirsty
+    type: adjective
+  - word: единокровный
+    translation: of the same blood
+    type: adjective
+  - word: кровоподтёк
+    translation: bruise
+    type: noun
+  - word: кровоточить
+    translation: to bleed
+    type: verb
+- rootKey: корень_здоров
+  rootWord: здоровье
+  rootTranslation: health
+  children:
+  - word: здоровый
+    translation: healthy
+    type: adjective
+  - word: выздороветь
+    translation: to recover
+    type: verb
+  - word: оздоровление
+    translation: recovery, improvement
+    type: noun
+  - word: нездоровый
+    translation: unhealthy
+    type: adjective
+  - word: здравоохранение
+    translation: healthcare
+    type: noun
+  - word: здравствовать
+    translation: to be well
+    type: verb
+  - word: здравый
+    translation: sound, sensible
+    type: adjective
+  - word: здравница
+    translation: health resort
+    type: noun
+  - word: здравомыслящий
+    translation: sensible, sane
+    type: adjective
+  - word: здоровяк
+    translation: healthy strong person
+    type: noun
+- rootKey: корень_сил
+  rootWord: сила
+  rootTranslation: strength, force
+  children:
+  - word: сильный
+    translation: strong
+    type: adjective
+  - word: усилие
+    translation: effort
+    type: noun
+  - word: насилие
+    translation: violence
+    type: noun
+  - word: бессилие
+    translation: powerlessness
+    type: noun
+  - word: усилить
+    translation: to strengthen
+    type: verb
+  - word: обессилеть
+    translation: to become exhausted
+    type: verb
+  - word: силач
+    translation: strongman
+    type: noun
+  - word: бессильный
+    translation: powerless
+    type: adjective
+  - word: пересилить
+    translation: to overcome
+    type: verb
+  - word: силовой
+    translation: power (adj), forceful
+    type: adjective
+- rootKey: корень_да
+  rootWord: дать
+  rootTranslation: to give
+  children:
+  - word: давать
+    translation: to give
+    type: verb
+  - word: подарок
+    translation: gift, present
+    type: noun
+  - word: задание
+    translation: task, assignment
+    type: noun
+  - word: передача
+    translation: transfer, broadcast
+    type: noun
+  - word: выдача
+    translation: issuance
+    type: noun
+  - word: отдать
+    translation: to give back
+    type: verb
+  - word: продать
+    translation: to sell
+    type: verb
+  - word: предать
+    translation: to betray
+    type: verb
+  - word: издать
+    translation: to publish
+    type: verb
+  - word: удача
+    translation: luck, success
+    type: noun
+  - word: неудача
+    translation: failure
+    type: noun
+  - word: сдача
+    translation: change (money), surrender
+    type: noun
+  - word: придание
+    translation: giving, imparting
+    type: noun
+  - word: задаток
+    translation: deposit, advance
+    type: noun
+  - word: данные
+    translation: data
+    type: adjective
+- rootKey: корень_бр
+  rootWord: брать
+  rootTranslation: to take
+  children:
+  - word: собрание
+    translation: meeting, collection
+    type: noun
+  - word: выбор
+    translation: choice
+    type: noun
+  - word: набор
+    translation: set, recruitment
+    type: noun
+  - word: разбор
+    translation: analysis
+    type: noun
+  - word: отбор
+    translation: selection
+    type: noun
+  - word: подбор
+    translation: selection, matching
+    type: noun
+  - word: сбор
+    translation: collection, gathering
+    type: noun
+  - word: забор
+    translation: fence
+    type: noun
+  - word: убор
+    translation: attire, decoration
+    type: noun
+  - word: прибор
+    translation: device, instrument
+    type: noun
+  - word: собеседник
+    translation: interlocutor
+    type: noun
+  - word: избранный
+    translation: chosen, selected
+    type: adjective
+  - word: разборчивый
+    translation: legible, picky
+    type: adjective
+  - word: собирать
+    translation: to collect
+    type: verb
+- rootKey: корень_клад
+  rootWord: класть
+  rootTranslation: to put, to lay
+  children:
+  - word: вклад
+    translation: contribution, deposit
+    type: noun
+  - word: склад
+    translation: warehouse, storage
+    type: noun
+  - word: расклад
+    translation: layout, situation
+    type: noun
+  - word: наклад
+    translation: expense
+    type: noun
+  - word: уклад
+    translation: way of life
+    type: noun
+  - word: доклад
+    translation: report, presentation
+    type: noun
+  - word: оклад
+    translation: salary, frame
+    type: noun
+  - word: накладная
+    translation: invoice
+    type: adjective
+  - word: прикладной
+    translation: applied
+    type: adjective
+  - word: складной
+    translation: folding
+    type: adjective
+  - word: кладовая
+    translation: pantry, storeroom
+    type: adjective
+  - word: кладбище
+    translation: cemetery
+    type: noun
+- rootKey: корень_рез
+  rootWord: резать
+  rootTranslation: to cut
+  children:
+  - word: резкий
+    translation: sharp, abrupt
+    type: adjective
+  - word: разрез
+    translation: cut, section
+    type: noun
+  - word: порез
+    translation: cut (wound)
+    type: noun
+  - word: надрез
+    translation: incision
+    type: noun
+  - word: обрезать
+    translation: to trim, to cut
+    type: verb
+  - word: вырезать
+    translation: to cut out
+    type: verb
+  - word: нарезка
+    translation: slicing, cutting
+    type: noun
+  - word: резьба
+    translation: carving, thread
+    type: noun
+  - word: резец
+    translation: cutter, chisel
+    type: noun
+  - word: резина
+    translation: rubber
+    type: noun
+  - word: резервуар
+    translation: reservoir
+    type: noun
+- rootKey: корень_вер
+  rootWord: верить
+  rootTranslation: to believe
+  children:
+  - word: вера
+    translation: faith, belief
+    type: noun
+  - word: верный
+    translation: faithful, correct
+    type: adjective
+  - word: доверие
+    translation: trust
+    type: adjective
+  - word: проверка
+    translation: check, verification
+    type: noun
+  - word: уверенный
+    translation: confident
+    type: adjective
+  - word: суеверие
+    translation: superstition
+    type: adjective
+  - word: неверный
+    translation: unfaithful, incorrect
+    type: adjective
+  - word: вероятность
+    translation: probability
+    type: verb
+  - word: достоверный
+    translation: reliable
+    type: adjective
+  - word: поверить
+    translation: to believe
+    type: verb
+  - word: невероятный
+    translation: incredible
+    type: adjective
+  - word: вероисповедание
+    translation: religion, faith
+    type: noun
+- rootKey: корень_верт
+  rootWord: вертеть
+  rootTranslation: to turn, to spin
+  children:
+  - word: вращать
+    translation: to rotate
+    type: verb
+  - word: ворота
+    translation: gate
+    type: noun
+  - word: возвращение
+    translation: return
+    type: noun
+  - word: обращение
+    translation: appeal, treatment
+    type: noun
+  - word: превращение
+    translation: transformation
+    type: noun
+  - word: вращение
+    translation: rotation
+    type: noun
+  - word: поворот
+    translation: turn
+    type: noun
+  - word: разворот
+    translation: U-turn, spread
+    type: noun
+  - word: переворот
+    translation: revolution, coup
+    type: noun
+  - word: круговорот
+    translation: cycle, circulation
+    type: noun
+  - word: водоворот
+    translation: whirlpool
+    type: noun
+  - word: оборот
+    translation: turnover, revolution
+    type: noun
+  - word: отвёртка
+    translation: screwdriver
+    type: noun
+- rootKey: корень_крыт
+  rootWord: крыть
+  rootTranslation: to cover
+  children:
+  - word: открыть
+    translation: to open, to discover
+    type: verb
+  - word: закрыть
+    translation: to close
+    type: verb
+  - word: покрыть
+    translation: to cover
+    type: verb
+  - word: скрыть
+    translation: to hide
+    type: verb
+  - word: раскрыть
+    translation: to reveal
+    type: verb
+  - word: обнаружить
+    translation: to discover
+    type: verb
+  - word: открытие
+    translation: discovery, opening
+    type: noun
+  - word: открытка
+    translation: postcard
+    type: noun
+  - word: покрытие
+    translation: covering, coating
+    type: noun
+  - word: укрытие
+    translation: shelter
+    type: noun
+  - word: сокровище
+    translation: treasure
+    type: noun
+  - word: сокровенный
+    translation: innermost, secret
+    type: adjective
+  - word: крыша
+    translation: roof
+    type: noun
+  - word: крышка
+    translation: lid, cover
+    type: noun
+- rootKey: корень_тян
+  rootWord: тянуть
+  rootTranslation: to pull, to drag
+  children:
+  - word: тяжёлый
+    translation: heavy
+    type: adjective
+  - word: тяжесть
+    translation: weight, heaviness
+    type: verb
+  - word: притяжение
+    translation: attraction, gravity
+    type: noun
+  - word: растяжение
+    translation: stretching, sprain
+    type: noun
+  - word: затяжной
+    translation: prolonged
+    type: adjective
+  - word: вытяжка
+    translation: extract, hood
+    type: noun
+  - word: протяжённость
+    translation: extent, length
+    type: verb
+  - word: тягач
+    translation: tractor, tow truck
+    type: noun
+  - word: тяга
+    translation: thrust, craving
+    type: noun
+  - word: подтяжки
+    translation: suspenders
+    type: noun
+  - word: натяжной
+    translation: stretch (adj)
+    type: adjective
+- rootKey: корень_бел
+  rootWord: белый
+  rootTranslation: white
+  children:
+  - word: белизна
+    translation: whiteness
+    type: noun
+  - word: белок
+    translation: protein, egg white
+    type: noun
+  - word: бельё
+    translation: linen, underwear
+    type: noun
+  - word: побелка
+    translation: whitewash
+    type: noun
+  - word: белоснежный
+    translation: snow-white
+    type: adjective
+  - word: белокурый
+    translation: blond
+    type: adjective
+  - word: добела
+    translation: white-hot
+    type: noun
+  - word: побелеть
+    translation: to turn white
+    type: verb
+  - word: белоручка
+    translation: person who avoids manual work
+    type: noun
+  - word: белобрысый
+    translation: towheaded, very blond
+    type: adjective
+- rootKey: корень_черн
+  rootWord: чёрный
+  rootTranslation: black
+  children:
+  - word: чернила
+    translation: ink
+    type: noun
+  - word: чернозём
+    translation: black soil
+    type: noun
+  - word: чернота
+    translation: blackness
+    type: noun
+  - word: очернить
+    translation: to slander, to blacken
+    type: verb
+  - word: черновик
+    translation: draft, rough copy
+    type: noun
+  - word: чернорабочий
+    translation: unskilled laborer
+    type: adjective
+  - word: черноморский
+    translation: Black Sea (adj)
+    type: adjective
+  - word: почернеть
+    translation: to turn black
+    type: verb
+  - word: чернослив
+    translation: prune
+    type: noun
+  - word: чернобровый
+    translation: dark-browed
+    type: adjective
+- rootKey: корень_красн
+  rootWord: красный
+  rootTranslation: red
+  children:
+  - word: красивый
+    translation: beautiful
+    type: adjective
+  - word: красота
+    translation: beauty
+    type: noun
+  - word: краска
+    translation: paint, dye
+    type: noun
+  - word: красноречие
+    translation: eloquence
+    type: adjective
+  - word: украшение
+    translation: decoration, ornament
+    type: noun
+  - word: прекрасный
+    translation: wonderful, beautiful
+    type: adjective
+  - word: раскрасить
+    translation: to color, to paint
+    type: verb
+  - word: красноречивый
+    translation: eloquent
+    type: adjective
+  - word: окраска
+    translation: coloring, painting
+    type: noun
+  - word: покраснеть
+    translation: to blush, to turn red
+    type: verb
+- rootKey: корень_добр
+  rootWord: добрый
+  rootTranslation: kind, good
+  children:
+  - word: доброта
+    translation: kindness
+    type: noun
+  - word: добро
+    translation: good, goodness
+    type: noun
+  - word: одобрить
+    translation: to approve
+    type: verb
+  - word: доброволец
+    translation: volunteer
+    type: noun
+  - word: добродетель
+    translation: virtue
+    type: noun
+  - word: добросовестный
+    translation: conscientious
+    type: adjective
+  - word: доброжелательный
+    translation: benevolent
+    type: adjective
+  - word: добродушный
+    translation: good-natured
+    type: adjective
+  - word: задобрить
+    translation: to appease
+    type: verb
+  - word: добросердечный
+    translation: kind-hearted
+    type: adjective
+- rootKey: корень_зл
+  rootWord: злой
+  rootTranslation: evil, angry
+  children:
+  - word: зло
+    translation: evil
+    type: noun
+  - word: злость
+    translation: anger, malice
+    type: verb
+  - word: злодей
+    translation: villain
+    type: noun
+  - word: злоупотребление
+    translation: abuse
+    type: noun
+  - word: злоба
+    translation: malice
+    type: noun
+  - word: злопамятный
+    translation: vindictive
+    type: adjective
+  - word: злорадство
+    translation: gloating
+    type: noun
+  - word: озлобить
+    translation: to embitter
+    type: verb
+  - word: разозлить
+    translation: to anger
+    type: verb
+  - word: озлобиться
+    translation: to become embittered
+    type: verb
+- rootKey: корень_тепл
+  rootWord: тёплый
+  rootTranslation: warm
+  children:
+  - word: тепло
+    translation: warmth
+    type: noun
+  - word: теплота
+    translation: warmth, heat
+    type: noun
+  - word: утеплить
+    translation: to insulate
+    type: verb
+  - word: потепление
+    translation: warming
+    type: noun
+  - word: теплица
+    translation: greenhouse
+    type: noun
+  - word: теплоход
+    translation: motor ship
+    type: noun
+  - word: теплоснабжение
+    translation: heat supply
+    type: noun
+  - word: теплокровный
+    translation: warm-blooded
+    type: adjective
+  - word: потеплеть
+    translation: to get warmer
+    type: verb
+  - word: теплоизоляция
+    translation: thermal insulation
+    type: noun
+- rootKey: корень_холод
+  rootWord: холод
+  rootTranslation: cold
+  children:
+  - word: холодный
+    translation: cold (adj)
+    type: adjective
+  - word: холодильник
+    translation: refrigerator
+    type: noun
+  - word: похолодание
+    translation: cold snap
+    type: noun
+  - word: охладить
+    translation: to cool
+    type: verb
+  - word: хладнокровный
+    translation: cold-blooded
+    type: adjective
+  - word: прохлада
+    translation: coolness
+    type: noun
+  - word: прохладный
+    translation: cool
+    type: adjective
+  - word: равнодушный
+    translation: indifferent
+    type: adjective
+  - word: холодостойкий
+    translation: cold-resistant
+    type: adjective
+  - word: холодец
+    translation: aspic, meat jelly
+    type: noun
+- rootKey: корень_твёрд
+  rootWord: твёрдый
+  rootTranslation: hard, firm, solid
+  children:
+  - word: твёрдость
+    translation: hardness, firmness
+    type: verb
+  - word: утвердить
+    translation: to approve, to affirm
+    type: verb
+  - word: подтвердить
+    translation: to confirm
+    type: verb
+  - word: затвердеть
+    translation: to harden
+    type: verb
+  - word: утверждение
+    translation: statement, approval
+    type: noun
+  - word: твердыня
+    translation: stronghold
+    type: noun
+  - word: твердолобый
+    translation: stubborn, thick-headed
+    type: adjective
+  - word: твердокаменный
+    translation: rock-hard
+    type: adjective
+  - word: подтверждение
+    translation: confirmation
+    type: noun
+  - word: отвердитель
+    translation: hardener
+    type: noun
+- rootKey: корень_мяг
+  rootWord: мягкий
+  rootTranslation: soft
+  children:
+  - word: мягкость
+    translation: softness
+    type: verb
+  - word: смягчить
+    translation: to soften
+    type: verb
+  - word: размягчить
+    translation: to soften
+    type: verb
+  - word: мякоть
+    translation: pulp, flesh
+    type: verb
+  - word: смягчение
+    translation: softening, mitigation
+    type: noun
+  - word: мягкосердечный
+    translation: soft-hearted
+    type: adjective
+  - word: мягкотелый
+    translation: spineless
+    type: adjective
+  - word: умягчитель
+    translation: softener
+    type: noun
+  - word: мягковатый
+    translation: somewhat soft
+    type: adjective
+  - word: мягкосердечие
+    translation: soft-heartedness
+    type: adjective
+- rootKey: корень_чист
+  rootWord: чистый
+  rootTranslation: clean, pure
+  children:
+  - word: чистота
+    translation: cleanliness, purity
+    type: noun
+  - word: очистить
+    translation: to clean, to purify
+    type: verb
+  - word: почистить
+    translation: to clean
+    type: verb
+  - word: чистка
+    translation: cleaning
+    type: noun
+  - word: очищение
+    translation: purification
+    type: noun
+  - word: чистилище
+    translation: purgatory
+    type: noun
+  - word: начистоту
+    translation: frankly
+    type: noun
+  - word: чистоплотный
+    translation: cleanly, tidy
+    type: adjective
+  - word: очистительный
+    translation: purifying
+    type: adjective
+  - word: чистосердечный
+    translation: sincere, frank
+    type: adjective
+- rootKey: корень_пуст
+  rootWord: пустой
+  rootTranslation: empty
+  children:
+  - word: пустота
+    translation: emptiness, void
+    type: noun
+  - word: пустыня
+    translation: desert
+    type: noun
+  - word: опустошить
+    translation: to devastate
+    type: verb
+  - word: пустырь
+    translation: wasteland
+    type: noun
+  - word: пустяк
+    translation: trifle
+    type: noun
+  - word: пускать
+    translation: to let, to release
+    type: verb
+  - word: выпуск
+    translation: release, issue
+    type: noun
+  - word: запуск
+    translation: launch, start
+    type: noun
+  - word: допуск
+    translation: admission, tolerance
+    type: noun
+  - word: отпуск
+    translation: vacation, leave
+    type: noun
+  - word: пропуск
+    translation: pass, omission
+    type: noun
+  - word: роспуск
+    translation: dissolution
+    type: noun
+- rootKey: корень_мер
+  rootWord: мера
+  rootTranslation: measure
+  children:
+  - word: мерить
+    translation: to measure
+    type: verb
+  - word: измерение
+    translation: measurement, dimension
+    type: noun
+  - word: размер
+    translation: size
+    type: noun
+  - word: примерный
+    translation: approximate, exemplary
+    type: adjective
+  - word: чрезмерный
+    translation: excessive
+    type: adjective
+  - word: умеренный
+    translation: moderate
+    type: adjective
+  - word: соразмерный
+    translation: proportionate
+    type: adjective
+  - word: безмерный
+    translation: immeasurable
+    type: adjective
+  - word: намерение
+    translation: intention
+    type: noun
+  - word: примерка
+    translation: fitting
+    type: noun
+- rootKey: корень_числ
+  rootWord: число
+  rootTranslation: number, date
+  children:
+  - word: числовой
+    translation: numerical
+    type: adjective
+  - word: численность
+    translation: number, quantity
+    type: verb
+  - word: исчислять
+    translation: to calculate
+    type: verb
+  - word: бесчисленный
+    translation: countless
+    type: adjective
+  - word: вычислить
+    translation: to calculate
+    type: verb
+  - word: перечислить
+    translation: to enumerate
+    type: verb
+  - word: числитель
+    translation: numerator
+    type: noun
+  - word: многочисленный
+    translation: numerous
+    type: adjective
+  - word: числительное
+    translation: numeral
+    type: adjective
+  - word: вычислительный
+    translation: computational
+    type: adjective
+- rootKey: корень_круг
+  rootWord: круг
+  rootTranslation: circle
+  children:
+  - word: круглый
+    translation: round
+    type: adjective
+  - word: кружок
+    translation: circle (group), small circle
+    type: noun
+  - word: окружение
+    translation: environment, encirclement
+    type: noun
+  - word: округ
+    translation: district
+    type: noun
+  - word: вокруг
+    translation: around
+    type: noun
+  - word: кругозор
+    translation: outlook, horizon
+    type: noun
+  - word: круговорот
+    translation: cycle
+    type: noun
+  - word: кружить
+    translation: to circle
+    type: verb
+  - word: окружность
+    translation: circumference
+    type: verb
+  - word: полукруг
+    translation: semicircle
+    type: noun
+  - word: круглосуточный
+    translation: round-the-clock
+    type: adjective
+- rootKey: корень_ключ
+  rootWord: ключ
+  rootTranslation: key, spring (water)
+  children:
+  - word: ключевой
+    translation: key (adj)
+    type: adjective
+  - word: включить
+    translation: to include, to turn on
+    type: verb
+  - word: выключить
+    translation: to turn off, to exclude
+    type: verb
+  - word: заключение
+    translation: conclusion, imprisonment
+    type: noun
+  - word: исключение
+    translation: exception
+    type: noun
+  - word: переключить
+    translation: to switch
+    type: verb
+  - word: подключить
+    translation: to connect
+    type: verb
+  - word: заключить
+    translation: to conclude
+    type: verb
+  - word: включительно
+    translation: inclusive
+    type: noun
+  - word: выключатель
+    translation: switch
+    type: noun
+- rootKey: корень_связ
+  rootWord: связь
+  rootTranslation: connection, communication
+  children:
+  - word: связать
+    translation: to tie, to connect
+    type: verb
+  - word: связка
+    translation: bundle, ligament
+    type: noun
+  - word: развязка
+    translation: denouement, junction
+    type: noun
+  - word: обязанность
+    translation: duty, obligation
+    type: verb
+  - word: обязательный
+    translation: obligatory
+    type: adjective
+  - word: привязанность
+    translation: attachment
+    type: verb
+  - word: завязка
+    translation: beginning, tie
+    type: noun
+  - word: повязка
+    translation: bandage
+    type: noun
+  - word: узел
+    translation: knot, node
+    type: noun
+  - word: союз
+    translation: union, alliance
+    type: noun
+- rootKey: корень_лом
+  rootWord: ломать
+  rootTranslation: to break
+  children:
+  - word: лом
+    translation: crowbar, scrap
+    type: noun
+  - word: излом
+    translation: fracture, break
+    type: noun
+  - word: перелом
+    translation: fracture, turning point
+    type: noun
+  - word: надлом
+    translation: crack, breakdown
+    type: noun
+  - word: обломок
+    translation: fragment, wreck
+    type: noun
+  - word: поломка
+    translation: breakdown, malfunction
+    type: noun
+  - word: сломать
+    translation: to break
+    type: verb
+  - word: разлом
+    translation: fault, rift
+    type: noun
+  - word: неутомимый
+    translation: tireless
+    type: adjective
+  - word: неломкий
+    translation: unbreakable
+    type: adjective
+- rootKey: корень_движ
+  rootWord: движение
+  rootTranslation: movement, traffic
+  children:
+  - word: двигатель
+    translation: engine, motor
+    type: noun
+  - word: двигать
+    translation: to move
+    type: verb
+  - word: движущий
+    translation: driving, moving
+    type: adjective
+  - word: продвижение
+    translation: promotion, advancement
+    type: noun
+  - word: передвижение
+    translation: movement, travel
+    type: noun
+  - word: подвижный
+    translation: mobile, active
+    type: adjective
+  - word: неподвижный
+    translation: motionless
+    type: adjective
+  - word: выдвижение
+    translation: nomination, advancement
+    type: noun
+  - word: задвижка
+    translation: bolt, valve
+    type: noun
+  - word: движимый
+    translation: movable, driven
+    type: adjective
+- rootKey: корень_дом
+  rootWord: дом
+  rootTranslation: house, home
+  children:
+  - word: домашний
+    translation: home (adj), domestic
+    type: adjective
+  - word: домовой
+    translation: house spirit
+    type: adjective
+  - word: домохозяйка
+    translation: housewife
+    type: noun
+  - word: домоуправление
+    translation: house management
+    type: noun
+  - word: бездомный
+    translation: homeless
+    type: adjective
+  - word: надомный
+    translation: home-based
+    type: adjective
+  - word: домосед
+    translation: homebody
+    type: noun
+  - word: домовладелец
+    translation: homeowner
+    type: noun
+  - word: многодомный
+    translation: multi-apartment
+    type: adjective
+  - word: домоседка
+    translation: homebody (female)
+    type: noun
+- rootKey: корень_двер
+  rootWord: дверь
+  rootTranslation: door
+  children:
+  - word: дверной
+    translation: door (adj)
+    type: adjective
+  - word: двери
+    translation: doors
+    type: noun
+  - word: дверца
+    translation: small door
+    type: noun
+  - word: задвижка
+    translation: bolt, latch
+    type: noun
+  - word: придверный
+    translation: near the door
+    type: adjective
+  - word: двустворчатый
+    translation: double-door
+    type: adjective
+  - word: дверной проём
+    translation: doorway
+    type: noun
+  - word: дверная ручка
+    translation: door handle
+    type: noun
+  - word: входная дверь
+    translation: front door
+    type: noun
+  - word: раздвижная дверь
+    translation: sliding door
+    type: noun
+- rootKey: корень_окн
+  rootWord: окно
+  rootTranslation: window
+  children:
+  - word: оконный
+    translation: window (adj)
+    type: adjective
+  - word: подоконник
+    translation: windowsill
+    type: noun
+  - word: окошко
+    translation: small window
+    type: noun
+  - word: оконце
+    translation: tiny window
+    type: noun
+  - word: заоконный
+    translation: beyond the window
+    type: adjective
+  - word: окошечко
+    translation: little window
+    type: noun
+  - word: оконная рама
+    translation: window frame
+    type: noun
+  - word: форточка
+    translation: ventilation window
+    type: noun
+  - word: наличник
+    translation: window frame (decorative)
+    type: noun
+  - word: остекление
+    translation: glazing
+    type: noun
+- rootKey: корень_куш
+  rootWord: кушать
+  rootTranslation: to eat
+  children:
+  - word: кусать
+    translation: to bite
+    type: verb
+  - word: кусок
+    translation: piece, chunk
+    type: noun
+  - word: вкус
+    translation: taste
+    type: noun
+  - word: вкусный
+    translation: tasty, delicious
+    type: adjective
+  - word: закуска
+    translation: appetizer, snack
+    type: noun
+  - word: искусство
+    translation: art
+    type: noun
+  - word: искусный
+    translation: skillful
+    type: adjective
+  - word: искушение
+    translation: temptation
+    type: noun
+  - word: безвкусный
+    translation: tasteless
+    type: adjective
+  - word: привкус
+    translation: aftertaste
+    type: noun
+- rootKey: корень_вар
+  rootWord: варить
+  rootTranslation: to cook, to boil
+  children:
+  - word: повар
+    translation: cook, chef
+    type: noun
+  - word: отвар
+    translation: broth, decoction
+    type: noun
+  - word: навар
+    translation: broth, profit
+    type: noun
+  - word: заварка
+    translation: tea leaves, brewing
+    type: noun
+  - word: самовар
+    translation: samovar
+    type: noun
+  - word: сварить
+    translation: to weld, to cook
+    type: verb
+  - word: варенье
+    translation: jam, preserves
+    type: noun
+  - word: пивовар
+    translation: brewer
+    type: noun
+  - word: наварить
+    translation: to cook a lot
+    type: verb
+  - word: переварить
+    translation: to overcook, to digest
+    type: verb
+- rootKey: корень_хлеб
+  rootWord: хлеб
+  rootTranslation: bread
+  children:
+  - word: хлебный
+    translation: bread (adj)
+    type: adjective
+  - word: хлебороб
+    translation: grain farmer
+    type: noun
+  - word: хлебосольный
+    translation: hospitable
+    type: adjective
+  - word: хлебопекарня
+    translation: bakery
+    type: noun
+  - word: нахлебник
+    translation: freeloader
+    type: noun
+  - word: хлебопёк
+    translation: baker
+    type: noun
+  - word: хлебозавод
+    translation: bread factory
+    type: noun
+  - word: хлебобулочный
+    translation: bakery (adj)
+    type: adjective
+  - word: хлебница
+    translation: bread box
+    type: noun
+  - word: хлебосол
+    translation: hospitable host
+    type: noun
+- rootKey: корень_бой
+  rootWord: бой
+  rootTranslation: battle, fight
+  children:
+  - word: боец
+    translation: fighter
+    type: noun
+  - word: бить
+    translation: to beat, to hit
+    type: verb
+  - word: битва
+    translation: battle
+    type: noun
+  - word: борьба
+    translation: struggle, fight
+    type: noun
+  - word: борец
+    translation: fighter, wrestler
+    type: noun
+  - word: убить
+    translation: to kill
+    type: verb
+  - word: побить
+    translation: to beat
+    type: verb
+  - word: разбить
+    translation: to break, to defeat
+    type: verb
+  - word: прибить
+    translation: to nail
+    type: verb
+  - word: забить
+    translation: to hammer, to score
+    type: verb
+  - word: отбить
+    translation: to repel
+    type: verb
+  - word: боевой
+    translation: combat, fighting
+    type: adjective
+  - word: боеприпасы
+    translation: ammunition
+    type: noun
+  - word: побоище
+    translation: massacre, battlefield
+    type: noun
+  - word: убийство
+    translation: murder
+    type: noun
+  - word: убийца
+    translation: killer
+    type: noun
+- rootKey: корень_воин
+  rootWord: война
+  rootTranslation: war
+  children:
+  - word: воин
+    translation: warrior
+    type: noun
+  - word: военный
+    translation: military
+    type: adjective
+  - word: воевать
+    translation: to wage war
+    type: verb
+  - word: завоевать
+    translation: to conquer
+    type: verb
+  - word: довоенный
+    translation: prewar
+    type: adjective
+  - word: послевоенный
+    translation: postwar
+    type: adjective
+  - word: воинский
+    translation: military (adj)
+    type: adjective
+  - word: воинство
+    translation: army, host
+    type: noun
+  - word: завоеватель
+    translation: conqueror
+    type: noun
+  - word: миролюбивый
+    translation: peace-loving
+    type: adjective
+- rootKey: корень_щит
+  rootWord: щит
+  rootTranslation: shield
+  children:
+  - word: защита
+    translation: defense, protection
+    type: noun
+  - word: защитник
+    translation: defender
+    type: noun
+  - word: защитить
+    translation: to protect
+    type: verb
+  - word: незащищённый
+    translation: unprotected
+    type: adjective
+  - word: щиток
+    translation: shield, visor
+    type: noun
+  - word: защитный
+    translation: protective
+    type: adjective
+  - word: щитовидный
+    translation: thyroid, shield-shaped
+    type: adjective
+  - word: защищать
+    translation: to defend
+    type: verb
+  - word: беззащитный
+    translation: defenseless
+    type: adjective
+  - word: щитовой
+    translation: shield (adj), panel (adj)
+    type: adjective
+- rootKey: корень_стрел
+  rootWord: стрела
+  rootTranslation: arrow
+  children:
+  - word: стрелять
+    translation: to shoot
+    type: verb
+  - word: стрелок
+    translation: shooter, marksman
+    type: noun
+  - word: выстрел
+    translation: shot
+    type: noun
+  - word: обстрел
+    translation: shelling
+    type: noun
+  - word: перестрелка
+    translation: shootout
+    type: noun
+  - word: стрелка
+    translation: arrow, hand (clock)
+    type: noun
+  - word: расстрел
+    translation: execution by shooting
+    type: noun
+  - word: застрелить
+    translation: to shoot dead
+    type: verb
+  - word: стрелочник
+    translation: switchman
+    type: noun
+  - word: стрелковый
+    translation: shooting, rifle (adj)
+    type: adjective
+- rootKey: корень_плат
+  rootWord: платить
+  rootTranslation: to pay
+  children:
+  - word: плата
+    translation: payment, fee
+    type: noun
+  - word: зарплата
+    translation: salary
+    type: noun
+  - word: оплата
+    translation: payment
+    type: noun
+  - word: расплата
+    translation: reckoning, payment
+    type: noun
+  - word: бесплатный
+    translation: free (of charge)
+    type: adjective
+  - word: платёж
+    translation: payment
+    type: noun
+  - word: платёжный
+    translation: payment (adj)
+    type: adjective
+  - word: доплата
+    translation: surcharge
+    type: noun
+  - word: переплата
+    translation: overpayment
+    type: noun
+  - word: выплата
+    translation: payout
+    type: noun
+  - word: неоплаченный
+    translation: unpaid
+    type: adjective
+- rootKey: корень_куп
+  rootWord: купить
+  rootTranslation: to buy
+  children:
+  - word: покупка
+    translation: purchase
+    type: noun
+  - word: покупатель
+    translation: buyer
+    type: noun
+  - word: купец
+    translation: merchant
+    type: noun
+  - word: купля
+    translation: purchase
+    type: noun
+  - word: закупка
+    translation: procurement
+    type: noun
+  - word: скупой
+    translation: stingy
+    type: adjective
+  - word: выкуп
+    translation: ransom, buyout
+    type: noun
+  - word: подкуп
+    translation: bribery
+    type: noun
+  - word: раскупить
+    translation: to buy up
+    type: verb
+  - word: перекупщик
+    translation: reseller
+    type: noun
+- rootKey: корень_цен
+  rootWord: цена
+  rootTranslation: price
+  children:
+  - word: ценный
+    translation: valuable
+    type: adjective
+  - word: ценность
+    translation: value
+    type: verb
+  - word: оценка
+    translation: assessment, grade
+    type: noun
+  - word: бесценный
+    translation: priceless
+    type: adjective
+  - word: обесценить
+    translation: to devalue
+    type: verb
+  - word: расценка
+    translation: rate, price
+    type: noun
+  - word: переоценка
+    translation: revaluation
+    type: noun
+  - word: недооценить
+    translation: to underestimate
+    type: verb
+  - word: ценитель
+    translation: connoisseur
+    type: noun
+  - word: ценообразование
+    translation: pricing
+    type: noun
+- rootKey: корень_торг
+  rootWord: торговля
+  rootTranslation: trade, commerce
+  children:
+  - word: торговать
+    translation: to trade
+    type: verb
+  - word: торг
+    translation: bargaining
+    type: noun
+  - word: торговец
+    translation: trader, merchant
+    type: noun
+  - word: торговый
+    translation: trade (adj), commercial
+    type: adjective
+  - word: сторговаться
+    translation: to strike a deal
+    type: verb
+  - word: расторгнуть
+    translation: to terminate (contract)
+    type: verb
+  - word: торжество
+    translation: celebration, triumph
+    type: noun
+  - word: торжественный
+    translation: solemn, festive
+    type: adjective
+  - word: торговаться
+    translation: to bargain
+    type: verb
+  - word: внешнеторговый
+    translation: foreign trade (adj)
+    type: adjective
+- rootKey: корень_вид
+  rootWord: видеть
+  rootTranslation: to see
+  children:
+  - word: вид
+    translation: view, type, appearance
+    type: noun
+  - word: видимый
+    translation: visible
+    type: adjective
+  - word: невидимый
+    translation: invisible
+    type: adjective
+  - word: очевидный
+    translation: obvious
+    type: adjective
+  - word: свидетель
+    translation: witness
+    type: noun
+  - word: предвидеть
+    translation: to foresee
+    type: verb
+  - word: завидовать
+    translation: to envy
+    type: verb
+  - word: зависть
+    translation: envy
+    type: verb
+  - word: видение
+    translation: vision
+    type: noun
+  - word: обзор
+    translation: review, overview
+    type: noun
+  - word: надзор
+    translation: supervision
+    type: noun
+  - word: взгляд
+    translation: glance, view
+    type: noun
+  - word: наглядный
+    translation: visual, illustrative
+    type: adjective
+  - word: ненавидеть
+    translation: to hate
+    type: verb
+  - word: ненависть
+    translation: hatred
+    type: verb
+  - word: провидение
+    translation: providence
+    type: noun
+- rootKey: корень_суд
+  rootWord: суд
+  rootTranslation: court
+  children:
+  - word: судья
+    translation: judge
+    type: noun
+  - word: судить
+    translation: to judge
+    type: verb
+  - word: судьба
+    translation: fate, destiny
+    type: noun
+  - word: осудить
+    translation: to condemn
+    type: verb
+  - word: рассудок
+    translation: reason, mind
+    type: noun
+  - word: правосудие
+    translation: justice
+    type: noun
+  - word: присудить
+    translation: to award
+    type: verb
+  - word: подсудимый
+    translation: defendant
+    type: adjective
+  - word: судебный
+    translation: judicial
+    type: adjective
+  - word: бессудный
+    translation: lawless
+    type: adjective
+  - word: предрассудок
+    translation: prejudice
+    type: noun
+  - word: рассудительный
+    translation: sensible
+    type: adjective
+- rootKey: корень_вин
+  rootWord: вина
+  rootTranslation: guilt, fault
+  children:
+  - word: виновный
+    translation: guilty
+    type: adjective
+  - word: обвинение
+    translation: accusation
+    type: noun
+  - word: извинение
+    translation: apology
+    type: noun
+  - word: невинный
+    translation: innocent
+    type: adjective
+  - word: повинность
+    translation: duty, obligation
+    type: verb
+  - word: провинность
+    translation: offense
+    type: verb
+  - word: виноватый
+    translation: guilty
+    type: adjective
+  - word: обвинитель
+    translation: prosecutor
+    type: noun
+  - word: безвинный
+    translation: innocent
+    type: adjective
+  - word: невинность
+    translation: innocence
+    type: verb
+- rootKey: корень_свобод
+  rootWord: свобода
+  rootTranslation: freedom
+  children:
+  - word: свободный
+    translation: free
+    type: adjective
+  - word: освободить
+    translation: to free, to liberate
+    type: verb
+  - word: освобождение
+    translation: liberation
+    type: noun
+  - word: высвободить
+    translation: to free, to release
+    type: verb
+  - word: несвободный
+    translation: not free
+    type: adjective
+  - word: свободолюбивый
+    translation: freedom-loving
+    type: adjective
+  - word: свободомыслие
+    translation: free thinking
+    type: noun
+  - word: вольноотпущенник
+    translation: freedman
+    type: noun
+  - word: освободительный
+    translation: liberation (adj)
+    type: adjective
+  - word: свободнорождённый
+    translation: freeborn
+    type: adjective
+- rootKey: корень_мог
+  rootWord: мочь
+  rootTranslation: can, to be able
+  children:
+  - word: могучий
+    translation: mighty, powerful
+    type: adjective
+  - word: мощь
+    translation: power, might
+    type: noun
+  - word: мощный
+    translation: powerful
+    type: adjective
+  - word: возможность
+    translation: possibility, opportunity
+    type: verb
+  - word: невозможный
+    translation: impossible
+    type: adjective
+  - word: помощь
+    translation: help
+    type: noun
+  - word: немощный
+    translation: infirm
+    type: adjective
+  - word: всемогущий
+    translation: almighty
+    type: adjective
+  - word: вельможа
+    translation: dignitary
+    type: noun
+  - word: помощник
+    translation: helper, assistant
+    type: noun
+  - word: беспомощный
+    translation: helpless
+    type: adjective
+- rootKey: корень_част
+  rootWord: часть
+  rootTranslation: part
+  children:
+  - word: частный
+    translation: private
+    type: adjective
+  - word: частица
+    translation: particle
+    type: noun
+  - word: участие
+    translation: participation
+    type: noun
+  - word: участок
+    translation: plot, section
+    type: noun
+  - word: частота
+    translation: frequency
+    type: noun
+  - word: частично
+    translation: partially
+    type: noun
+  - word: причастный
+    translation: involved
+    type: adjective
+  - word: соучастник
+    translation: accomplice
+    type: noun
+  - word: несчастье
+    translation: misfortune
+    type: noun
+  - word: счастье
+    translation: happiness
+    type: noun
+  - word: счастливый
+    translation: happy
+    type: adjective
+  - word: участник
+    translation: participant
+    type: noun
+- rootKey: корень_общ
+  rootWord: общий
+  rootTranslation: common, general
+  children:
+  - word: общество
+    translation: society
+    type: noun
+  - word: общение
+    translation: communication
+    type: noun
+  - word: общественный
+    translation: public, social
+    type: adjective
+  - word: сообщение
+    translation: message, report
+    type: noun
+  - word: общежитие
+    translation: dormitory
+    type: noun
+  - word: общность
+    translation: community
+    type: verb
+  - word: приобщить
+    translation: to involve
+    type: verb
+  - word: обобщить
+    translation: to generalize
+    type: verb
+  - word: необщительный
+    translation: unsociable
+    type: adjective
+  - word: общепринятый
+    translation: generally accepted
+    type: adjective
+- rootKey: корень_един
+  rootWord: единый
+  rootTranslation: united, single
+  children:
+  - word: единство
+    translation: unity
+    type: noun
+  - word: единица
+    translation: unit, one
+    type: noun
+  - word: объединить
+    translation: to unite
+    type: verb
+  - word: соединить
+    translation: to connect
+    type: verb
+  - word: единственный
+    translation: only, sole
+    type: adjective
+  - word: единогласный
+    translation: unanimous
+    type: adjective
+  - word: единомышленник
+    translation: like-minded person
+    type: noun
+  - word: единоборство
+    translation: single combat
+    type: noun
+  - word: воссоединение
+    translation: reunification
+    type: noun
+  - word: разъединить
+    translation: to disconnect
+    type: verb
+- rootKey: корень_полн
+  rootWord: полный
+  rootTranslation: full, complete
+  children:
+  - word: полнота
+    translation: fullness, completeness
+    type: noun
+  - word: наполнить
+    translation: to fill
+    type: verb
+  - word: выполнить
+    translation: to fulfill, to execute
+    type: verb
+  - word: заполнить
+    translation: to fill in
+    type: verb
+  - word: дополнить
+    translation: to supplement
+    type: verb
+  - word: исполнить
+    translation: to perform, to fulfill
+    type: verb
+  - word: пополнить
+    translation: to replenish
+    type: verb
+  - word: переполнить
+    translation: to overflow
+    type: verb
+  - word: неполный
+    translation: incomplete
+    type: adjective
+  - word: полноценный
+    translation: full-fledged
+    type: adjective
+  - word: полномочие
+    translation: authority, power
+    type: adjective
+- rootKey: корень_пуст_пуск
+  rootWord: пускать
+  rootTranslation: to let, to release
+  children:
+  - word: пуск
+    translation: launch, start
+    type: noun
+  - word: запуск
+    translation: launch
+    type: noun
+  - word: выпуск
+    translation: release, issue
+    type: noun
+  - word: отпуск
+    translation: vacation
+    type: noun
+  - word: допуск
+    translation: admission
+    type: noun
+  - word: пропуск
+    translation: pass, skip
+    type: noun
+  - word: роспуск
+    translation: dissolution
+    type: noun
+  - word: спуск
+    translation: descent
+    type: noun
+  - word: впуск
+    translation: intake
+    type: noun
+  - word: напуск
+    translation: letting in
+    type: noun
+  - word: распустить
+    translation: to dissolve, to dismiss
+    type: verb
+  - word: опустить
+    translation: to lower
+    type: verb
+- rootKey: корень_книг
+  rootWord: книга
+  rootTranslation: book
+  children:
+  - word: книжный
+    translation: book (adj)
+    type: adjective
+  - word: книжка
+    translation: booklet
+    type: noun
+  - word: книголюб
+    translation: book lover
+    type: noun
+  - word: книгопечатание
+    translation: book printing
+    type: noun
+  - word: книготорговля
+    translation: book trade
+    type: noun
+  - word: книгохранилище
+    translation: book depository
+    type: noun
+  - word: книговед
+    translation: bibliographer
+    type: noun
+  - word: книгоиздатель
+    translation: book publisher
+    type: noun
+  - word: книжник
+    translation: bookman, scribe
+    type: noun
+  - word: книгообмен
+    translation: book exchange
+    type: noun
+- rootKey: корень_игр
+  rootWord: игра
+  rootTranslation: game, play
+  children:
+  - word: играть
+    translation: to play
+    type: verb
+  - word: игрок
+    translation: player
+    type: noun
+  - word: игрушка
+    translation: toy
+    type: noun
+  - word: проигрыш
+    translation: loss
+    type: noun
+  - word: выигрыш
+    translation: win, prize
+    type: noun
+  - word: розыгрыш
+    translation: draw, prank
+    type: noun
+  - word: игривый
+    translation: playful
+    type: adjective
+  - word: проигрыватель
+    translation: player (device)
+    type: noun
+  - word: заигрывать
+    translation: to flirt
+    type: verb
+  - word: выиграть
+    translation: to win
+    type: verb
+- rootKey: корень_пе
+  rootWord: петь
+  rootTranslation: to sing
+  children:
+  - word: песня
+    translation: song
+    type: noun
+  - word: певец
+    translation: singer
+    type: noun
+  - word: пение
+    translation: singing
+    type: noun
+  - word: запеть
+    translation: to start singing
+    type: verb
+  - word: напев
+    translation: tune, melody
+    type: noun
+  - word: припев
+    translation: chorus, refrain
+    type: noun
+  - word: песенник
+    translation: songbook
+    type: noun
+  - word: распевать
+    translation: to sing loudly
+    type: verb
+  - word: воспевать
+    translation: to glorify in song
+    type: verb
+  - word: спеть
+    translation: to sing (completed)
+    type: verb
+- rootKey: корень_рис
+  rootWord: рисовать
+  rootTranslation: to draw
+  children:
+  - word: рисунок
+    translation: drawing
+    type: noun
+  - word: зарисовка
+    translation: sketch
+    type: noun
+  - word: нарисовать
+    translation: to draw
+    type: verb
+  - word: перерисовать
+    translation: to redraw
+    type: verb
+  - word: рисование
+    translation: drawing (activity)
+    type: noun
+  - word: дорисовать
+    translation: to finish drawing
+    type: verb
+  - word: срисовать
+    translation: to copy (drawing)
+    type: verb
+  - word: разрисовать
+    translation: to paint all over
+    type: verb
+  - word: рисовальщик
+    translation: draftsman
+    type: noun
+  - word: подрисовать
+    translation: to touch up (drawing)
+    type: verb
+- rootKey: корень_танц
+  rootWord: танец
+  rootTranslation: dance
+  children:
+  - word: танцевать
+    translation: to dance
+    type: verb
+  - word: танцор
+    translation: dancer
+    type: noun
+  - word: танцовщица
+    translation: female dancer
+    type: noun
+  - word: танцплощадка
+    translation: dance floor
+    type: noun
+  - word: танцевальный
+    translation: dance (adj)
+    type: adjective
+  - word: танцпол
+    translation: dance floor
+    type: noun
+  - word: танцкласс
+    translation: dance class
+    type: noun
+  - word: танцмейстер
+    translation: dance master
+    type: noun
+  - word: станцевать
+    translation: to dance (completed)
+    type: verb
+  - word: протанцевать
+    translation: to dance through
+    type: verb
+- rootKey: корень_город
+  rootWord: город
+  rootTranslation: city
+  children:
+  - word: городской
+    translation: urban, city (adj)
+    type: adjective
+  - word: пригород
+    translation: suburb
+    type: noun
+  - word: городок
+    translation: small town
+    type: noun
+  - word: загородный
+    translation: suburban, country
+    type: adjective
+  - word: градостроительство
+    translation: urban planning
+    type: noun
+  - word: ограда
+    translation: fence, enclosure
+    type: noun
+  - word: ограждение
+    translation: barrier, fencing
+    type: noun
+  - word: заграница
+    translation: abroad
+    type: noun
+  - word: иногородний
+    translation: from another city
+    type: adjective
+  - word: градоначальник
+    translation: city governor
+    type: noun
+- rootKey: корень_дорог
+  rootWord: дорога
+  rootTranslation: road
+  children:
+  - word: дорожный
+    translation: road (adj)
+    type: adjective
+  - word: дорогой
+    translation: dear, expensive
+    type: adjective
+  - word: бездорожье
+    translation: lack of roads
+    type: noun
+  - word: подорожник
+    translation: plantain
+    type: noun
+  - word: придорожный
+    translation: roadside
+    type: adjective
+  - word: железнодорожный
+    translation: railway (adj)
+    type: adjective
+  - word: дороговизна
+    translation: high cost
+    type: noun
+  - word: удорожание
+    translation: price increase
+    type: noun
+  - word: дорожник
+    translation: road worker
+    type: noun
+  - word: дорожка
+    translation: path, track, lane
+    type: noun
+- rootKey: корень_пол
+  rootWord: поле
+  rootTranslation: field
+  children:
+  - word: полевой
+    translation: field (adj)
+    type: adjective
+  - word: поляна
+    translation: clearing, glade
+    type: noun
+  - word: половина
+    translation: half
+    type: noun
+  - word: полоса
+    translation: strip, stripe
+    type: noun
+  - word: полюс
+    translation: pole
+    type: noun
+  - word: полководец
+    translation: military commander
+    type: noun
+  - word: заполярье
+    translation: polar region
+    type: noun
+  - word: полеводство
+    translation: field crop farming
+    type: noun
+  - word: полевод
+    translation: field crop farmer
+    type: noun
+  - word: полёвка
+    translation: field mouse
+    type: noun
+- rootKey: корень_бер
+  rootWord: берег
+  rootTranslation: shore, bank
+  children:
+  - word: береговой
+    translation: coastal
+    type: adjective
+  - word: побережье
+    translation: coast
+    type: noun
+  - word: набережная
+    translation: embankment
+    type: adjective
+  - word: прибрежный
+    translation: coastal
+    type: adjective
+  - word: оберегать
+    translation: to protect, to guard
+    type: verb
+  - word: сберечь
+    translation: to save, to preserve
+    type: verb
+  - word: береговая линия
+    translation: coastline
+    type: noun
+  - word: левобережный
+    translation: left-bank
+    type: adjective
+  - word: правобережный
+    translation: right-bank
+    type: adjective
+  - word: береговая охрана
+    translation: coast guard
+    type: noun
+- rootKey: корень_мест
+  rootWord: место
+  rootTranslation: place
+  children:
+  - word: местный
+    translation: local
+    type: adjective
+  - word: местность
+    translation: area, terrain
+    type: verb
+  - word: местоположение
+    translation: location
+    type: noun
+  - word: местожительство
+    translation: residence
+    type: noun
+  - word: местоимение
+    translation: pronoun
+    type: noun
+  - word: помещение
+    translation: room, premises
+    type: noun
+  - word: размещение
+    translation: placement
+    type: noun
+  - word: перемещение
+    translation: displacement
+    type: noun
+  - word: вместе
+    translation: together
+    type: noun
+  - word: наместник
+    translation: governor, viceroy
+    type: noun
+  - word: уместный
+    translation: appropriate
+    type: adjective
+- rootKey: корень_стран
+  rootWord: страна
+  rootTranslation: country
+  children:
+  - word: странный
+    translation: strange
+    type: adjective
+  - word: иностранный
+    translation: foreign
+    type: adjective
+  - word: иностранец
+    translation: foreigner
+    type: noun
+  - word: пространство
+    translation: space
+    type: noun
+  - word: странник
+    translation: wanderer
+    type: noun
+  - word: странствие
+    translation: journey, wandering
+    type: adjective
+  - word: пространный
+    translation: spacious, lengthy
+    type: adjective
+  - word: странствовать
+    translation: to wander, to travel
+    type: verb
+  - word: странноприимный
+    translation: hospitable (archaic)
+    type: adjective
+  - word: пространственный
+    translation: spatial
+    type: adjective
+- rootKey: корень_слух
+  rootWord: слух
+  rootTranslation: hearing, rumor
+  children:
+  - word: слушать
+    translation: to listen
+    type: verb
+  - word: слышать
+    translation: to hear
+    type: verb
+  - word: послушный
+    translation: obedient
+    type: adjective
+  - word: слушатель
+    translation: listener
+    type: noun
+  - word: наслаждение
+    translation: enjoyment
+    type: noun
+  - word: подслушать
+    translation: to eavesdrop
+    type: verb
+  - word: прислушаться
+    translation: to listen carefully
+    type: verb
+  - word: неслыханный
+    translation: unheard of
+    type: adjective
+  - word: ослушаться
+    translation: to disobey
+    type: verb
+  - word: глухой
+    translation: deaf
+    type: adjective
+  - word: послушание
+    translation: obedience
+    type: noun
+  - word: расслышать
+    translation: to make out (sound)
+    type: verb
+- rootKey: корень_смотр
+  rootWord: смотреть
+  rootTranslation: to look, to watch
+  children:
+  - word: осмотр
+    translation: inspection, examination
+    type: noun
+  - word: просмотр
+    translation: viewing, review
+    type: noun
+  - word: присмотр
+    translation: supervision
+    type: noun
+  - word: надсмотрщик
+    translation: overseer
+    type: noun
+  - word: досмотр
+    translation: inspection
+    type: noun
+  - word: усмотрение
+    translation: discretion
+    type: noun
+  - word: предусмотреть
+    translation: to foresee
+    type: verb
+  - word: пересмотреть
+    translation: to review
+    type: verb
+  - word: рассмотреть
+    translation: to examine
+    type: verb
+  - word: смотритель
+    translation: caretaker
+    type: noun
+- rootKey: корень_тих
+  rootWord: тихий
+  rootTranslation: quiet
+  children:
+  - word: тишина
+    translation: silence
+    type: noun
+  - word: затихнуть
+    translation: to quiet down
+    type: verb
+  - word: утихнуть
+    translation: to subside
+    type: verb
+  - word: притихнуть
+    translation: to become quiet
+    type: verb
+  - word: тихоня
+    translation: quiet person
+    type: noun
+  - word: потихоньку
+    translation: quietly, slowly
+    type: noun
+  - word: тихоокеанский
+    translation: Pacific (adj)
+    type: adjective
+  - word: утихомирить
+    translation: to calm down
+    type: verb
+  - word: тихоход
+    translation: slowpoke
+    type: noun
+  - word: затишье
+    translation: calm, lull
+    type: noun
+- rootKey: корень_громк
+  rootWord: громкий
+  rootTranslation: loud
+  children:
+  - word: гром
+    translation: thunder
+    type: noun
+  - word: громкость
+    translation: volume
+    type: verb
+  - word: громоздкий
+    translation: bulky
+    type: adjective
+  - word: громоотвод
+    translation: lightning rod
+    type: noun
+  - word: разгром
+    translation: rout, defeat
+    type: noun
+  - word: погром
+    translation: pogrom, destruction
+    type: noun
+  - word: огромный
+    translation: huge, enormous
+    type: adjective
+  - word: громкоговоритель
+    translation: loudspeaker
+    type: noun
+  - word: громогласный
+    translation: thunderous
+    type: adjective
+  - word: громыхать
+    translation: to rumble, to thunder
+    type: verb
+- rootKey: корень_тёмн
+  rootWord: тёмный
+  rootTranslation: dark
+  children:
+  - word: тьма
+    translation: darkness
+    type: noun
+  - word: темнота
+    translation: darkness
+    type: noun
+  - word: затемнение
+    translation: blackout, darkening
+    type: noun
+  - word: потемнеть
+    translation: to darken
+    type: verb
+  - word: темница
+    translation: dungeon
+    type: noun
+  - word: темнокожий
+    translation: dark-skinned
+    type: adjective
+  - word: темноволосый
+    translation: dark-haired
+    type: adjective
+  - word: полутёмный
+    translation: semi-dark
+    type: adjective
+  - word: потёмки
+    translation: darkness, gloom
+    type: noun
+  - word: затемно
+    translation: before dawn, in the dark
+    type: noun
+- rootKey: корень_ясн
+  rootWord: ясный
+  rootTranslation: clear
+  children:
+  - word: ясность
+    translation: clarity
+    type: verb
+  - word: объяснить
+    translation: to explain
+    type: verb
+  - word: объяснение
+    translation: explanation
+    type: noun
+  - word: выяснить
+    translation: to find out
+    type: verb
+  - word: прояснить
+    translation: to clarify
+    type: verb
+  - word: разъяснить
+    translation: to explain
+    type: verb
+  - word: невыясненный
+    translation: unclear
+    type: adjective
+  - word: разъяснение
+    translation: explanation
+    type: noun
+  - word: ясновидящий
+    translation: clairvoyant
+    type: adjective
+  - word: ясноглазый
+    translation: clear-eyed
+    type: adjective
+- rootKey: корень_мат
+  rootWord: мать
+  rootTranslation: mother
+  children:
+  - word: материнский
+    translation: maternal
+    type: adjective
+  - word: материнство
+    translation: motherhood
+    type: noun
+  - word: мачеха
+    translation: stepmother
+    type: noun
+  - word: матушка
+    translation: mother (affectionate)
+    type: noun
+  - word: праматерь
+    translation: foremother
+    type: noun
+  - word: по-матерински
+    translation: motherly
+    type: noun
+  - word: матриархат
+    translation: matriarchy
+    type: noun
+  - word: матерь
+    translation: mother (archaic)
+    type: noun
+  - word: материк
+    translation: continent, mainland
+    type: noun
+  - word: матка
+    translation: uterus, queen bee
+    type: noun
+- rootKey: корень_отц
+  rootWord: отец
+  rootTranslation: father
+  children:
+  - word: отечество
+    translation: fatherland
+    type: noun
+  - word: отечественный
+    translation: domestic, patriotic
+    type: adjective
+  - word: отцовский
+    translation: paternal
+    type: adjective
+  - word: отчество
+    translation: patronymic
+    type: noun
+  - word: отчизна
+    translation: homeland
+    type: noun
+  - word: отчим
+    translation: stepfather
+    type: noun
+  - word: отчий
+    translation: paternal
+    type: adjective
+  - word: отцовство
+    translation: fatherhood
+    type: noun
+  - word: отеческий
+    translation: fatherly
+    type: adjective
+  - word: отцеубийство
+    translation: patricide
+    type: noun
+- rootKey: корень_брат
+  rootWord: брат
+  rootTranslation: brother
+  children:
+  - word: братский
+    translation: brotherly
+    type: adjective
+  - word: братство
+    translation: brotherhood
+    type: noun
+  - word: собрат
+    translation: fellow, colleague
+    type: noun
+  - word: побратим
+    translation: blood brother
+    type: noun
+  - word: братец
+    translation: brother (affectionate)
+    type: noun
+  - word: братоубийство
+    translation: fratricide
+    type: noun
+  - word: побрататься
+    translation: to become blood brothers
+    type: verb
+  - word: братание
+    translation: fraternization
+    type: noun
+  - word: братушка
+    translation: brother (Slavic endearment)
+    type: noun
+  - word: братишка
+    translation: little brother
+    type: noun
+- rootKey: корень_сестр
+  rootWord: сестра
+  rootTranslation: sister
+  children:
+  - word: сестринский
+    translation: sisterly
+    type: adjective
+  - word: медсестра
+    translation: nurse
+    type: noun
+  - word: сестрица
+    translation: sister (affectionate)
+    type: noun
+  - word: сестричка
+    translation: little sister
+    type: noun
+  - word: старшая сестра
+    translation: older sister
+    type: noun
+  - word: младшая сестра
+    translation: younger sister
+    type: noun
+  - word: сводная сестра
+    translation: stepsister
+    type: noun
+  - word: двоюродная сестра
+    translation: cousin (female)
+    type: noun
+  - word: сестринская
+    translation: nurses' station
+    type: adjective
+  - word: единоутробная сестра
+    translation: half-sister (same mother)
+    type: noun
+- rootKey: корень_дет
+  rootWord: дети
+  rootTranslation: children
+  children:
+  - word: детский
+    translation: children's
+    type: adjective
+  - word: детство
+    translation: childhood
+    type: noun
+  - word: ребёнок
+    translation: child
+    type: noun
+  - word: детёныш
+    translation: baby animal
+    type: noun
+  - word: детсад
+    translation: kindergarten
+    type: noun
+  - word: бездетный
+    translation: childless
+    type: adjective
+  - word: многодетный
+    translation: having many children
+    type: adjective
+  - word: детдом
+    translation: orphanage
+    type: noun
+  - word: детвора
+    translation: kids, children (collective)
+    type: noun
+  - word: детище
+    translation: brainchild, creation
+    type: noun
+- rootKey: корень_муж
+  rootWord: муж
+  rootTranslation: husband
+  children:
+  - word: мужчина
+    translation: man
+    type: noun
+  - word: мужской
+    translation: male, masculine
+    type: adjective
+  - word: мужество
+    translation: courage
+    type: noun
+  - word: мужественный
+    translation: courageous
+    type: adjective
+  - word: замужем
+    translation: married (woman)
+    type: noun
+  - word: возмужать
+    translation: to mature
+    type: verb
+  - word: мужик
+    translation: man (colloquial)
+    type: noun
+  - word: замужество
+    translation: marriage (for woman)
+    type: noun
+  - word: мужеложство
+    translation: sodomy
+    type: noun
+  - word: мужеубийство
+    translation: husband murder
+    type: noun
+- rootKey: корень_жен
+  rootWord: жена
+  rootTranslation: wife
+  children:
+  - word: женщина
+    translation: woman
+    type: noun
+  - word: женский
+    translation: female, feminine
+    type: adjective
+  - word: женитьба
+    translation: marriage
+    type: noun
+  - word: жених
+    translation: groom, fiancé
+    type: noun
+  - word: женственный
+    translation: feminine
+    type: adjective
+  - word: женоненавистник
+    translation: misogynist
+    type: noun
+  - word: многожёнство
+    translation: polygamy
+    type: noun
+  - word: женоподобный
+    translation: effeminate
+    type: adjective
+  - word: жениться
+    translation: to get married (man)
+    type: verb
+  - word: женолюб
+    translation: ladies' man
+    type: noun
+- rootKey: корень_сам
+  rootWord: сам
+  rootTranslation: self
+  children:
+  - word: самый
+    translation: the most
+    type: adjective
+  - word: самостоятельный
+    translation: independent
+    type: adjective
+  - word: самолёт
+    translation: airplane
+    type: noun
+  - word: самовар
+    translation: samovar
+    type: noun
+  - word: самоуверенный
+    translation: self-confident
+    type: adjective
+  - word: самооборона
+    translation: self-defense
+    type: noun
+  - word: самоуправление
+    translation: self-government
+    type: noun
+  - word: самообразование
+    translation: self-education
+    type: noun
+  - word: самочувствие
+    translation: well-being
+    type: adjective
+  - word: самосознание
+    translation: self-awareness
+    type: noun
+  - word: самоубийство
+    translation: suicide
+    type: noun
+  - word: самодельный
+    translation: homemade
+    type: adjective
+  - word: самозванец
+    translation: impostor
+    type: noun
+- rootKey: корень_перв
+  rootWord: первый
+  rootTranslation: first
+  children:
+  - word: первенство
+    translation: championship, primacy
+    type: noun
+  - word: первоначальный
+    translation: initial, original
+    type: adjective
+  - word: первобытный
+    translation: primitive
+    type: adjective
+  - word: первоклассный
+    translation: first-class
+    type: adjective
+  - word: первопроходец
+    translation: pioneer
+    type: noun
+  - word: первоисточник
+    translation: primary source
+    type: noun
+  - word: первенец
+    translation: firstborn
+    type: noun
+  - word: первоочередной
+    translation: top-priority
+    type: adjective
+  - word: первозданный
+    translation: pristine, primeval
+    type: adjective
+  - word: первопечатник
+    translation: first printer
+    type: noun
+- rootKey: корень_мног
+  rootWord: много
+  rootTranslation: many, much
+  children:
+  - word: множество
+    translation: multitude
+    type: noun
+  - word: многочисленный
+    translation: numerous
+    type: adjective
+  - word: многообразие
+    translation: diversity
+    type: noun
+  - word: многозначный
+    translation: ambiguous
+    type: adjective
+  - word: многолетний
+    translation: perennial
+    type: adjective
+  - word: многоэтажный
+    translation: multi-story
+    type: adjective
+  - word: размножение
+    translation: reproduction
+    type: noun
+  - word: умножить
+    translation: to multiply
+    type: verb
+  - word: преумножить
+    translation: to increase greatly
+    type: verb
+  - word: многоуважаемый
+    translation: highly respected
+    type: adjective
+- rootKey: корень_мал
+  rootWord: малый
+  rootTranslation: small
+  children:
+  - word: маленький
+    translation: little
+    type: adjective
+  - word: малость
+    translation: trifle
+    type: verb
+  - word: мало
+    translation: little, few
+    type: noun
+  - word: малыш
+    translation: baby, kid
+    type: noun
+  - word: помалу
+    translation: little by little
+    type: noun
+  - word: малодушный
+    translation: cowardly
+    type: adjective
+  - word: малоизвестный
+    translation: little-known
+    type: adjective
+  - word: мелкий
+    translation: small, petty
+    type: adjective
+  - word: мелочь
+    translation: small change, trifle
+    type: verb
+  - word: маловероятный
+    translation: unlikely
+    type: adjective
+- rootKey: корень_велик
+  rootWord: великий
+  rootTranslation: great
+  children:
+  - word: величие
+    translation: greatness
+    type: adjective
+  - word: величина
+    translation: size, quantity
+    type: noun
+  - word: великан
+    translation: giant
+    type: noun
+  - word: великолепный
+    translation: magnificent
+    type: adjective
+  - word: увеличить
+    translation: to increase
+    type: verb
+  - word: преувеличить
+    translation: to exaggerate
+    type: verb
+  - word: великодушный
+    translation: magnanimous
+    type: adjective
+  - word: величественный
+    translation: majestic
+    type: adjective
+  - word: великомученик
+    translation: great martyr
+    type: noun
+  - word: великосветский
+    translation: high-society
+    type: adjective
+- rootKey: корень_долг
+  rootWord: долгий
+  rootTranslation: long (time)
+  children:
+  - word: долго
+    translation: for a long time
+    type: noun
+  - word: длинный
+    translation: long (physical)
+    type: adjective
+  - word: длина
+    translation: length
+    type: noun
+  - word: продолжить
+    translation: to continue
+    type: verb
+  - word: продолжительный
+    translation: prolonged
+    type: adjective
+  - word: долг
+    translation: debt, duty
+    type: noun
+  - word: должен
+    translation: must, owe
+    type: noun
+  - word: должность
+    translation: position, post
+    type: verb
+  - word: задолженность
+    translation: debt, arrears
+    type: verb
+  - word: одолжить
+    translation: to lend, to borrow
+    type: verb
+  - word: удлинить
+    translation: to lengthen
+    type: verb
+- rootKey: корень_кор
+  rootWord: короткий
+  rootTranslation: short
+  children:
+  - word: коротко
+    translation: briefly
+    type: noun
+  - word: сокращение
+    translation: reduction, abbreviation
+    type: noun
+  - word: укоротить
+    translation: to shorten
+    type: verb
+  - word: вкратце
+    translation: briefly
+    type: noun
+  - word: краткий
+    translation: brief
+    type: adjective
+  - word: краткость
+    translation: brevity
+    type: verb
+  - word: короткометражный
+    translation: short (film)
+    type: adjective
+  - word: коротковолновый
+    translation: shortwave
+    type: adjective
+  - word: короткозамкнутый
+    translation: short-circuited
+    type: adjective
+  - word: коротышка
+    translation: shorty
+    type: noun
+- rootKey: корень_жд
+  rootWord: ждать
+  rootTranslation: to wait
+  children:
+  - word: ожидание
+    translation: expectation, waiting
+    type: noun
+  - word: неожиданный
+    translation: unexpected
+    type: adjective
+  - word: поджидать
+    translation: to wait for
+    type: verb
+  - word: выжидать
+    translation: to bide one's time
+    type: verb
+  - word: ожидаемый
+    translation: expected
+    type: adjective
+  - word: дождаться
+    translation: to wait until
+    type: verb
+  - word: выжидательный
+    translation: wait-and-see
+    type: adjective
+  - word: нежданный
+    translation: unexpected
+    type: adjective
+  - word: неожиданность
+    translation: surprise
+    type: verb
+  - word: ожидальня
+    translation: waiting room (archaic)
+    type: noun
+- rootKey: корень_спеш
+  rootWord: спешить
+  rootTranslation: to hurry
+  children:
+  - word: успех
+    translation: success
+    type: noun
+  - word: успешный
+    translation: successful
+    type: adjective
+  - word: успеть
+    translation: to have time, to manage
+    type: verb
+  - word: поспешный
+    translation: hasty
+    type: adjective
+  - word: неуспеваемость
+    translation: poor academic performance
+    type: verb
+  - word: преуспеть
+    translation: to succeed
+    type: verb
+  - word: поспешить
+    translation: to hurry up
+    type: verb
+  - word: заспешить
+    translation: to start hurrying
+    type: verb
+  - word: поспешность
+    translation: haste
+    type: verb
+  - word: неспешный
+    translation: unhurried
+    type: adjective
+- rootKey: корень_тр
+  rootWord: труд
+  rootTranslation: labor, work
+  children:
+  - word: трудный
+    translation: difficult
+    type: adjective
+  - word: трудиться
+    translation: to work, to labor
+    type: verb
+  - word: трудолюбивый
+    translation: hardworking
+    type: adjective
+  - word: сотрудник
+    translation: colleague
+    type: noun
+  - word: затруднение
+    translation: difficulty
+    type: noun
+  - word: трудоспособный
+    translation: able-bodied
+    type: adjective
+  - word: нетрудоспособный
+    translation: disabled
+    type: adjective
+  - word: трудоёмкий
+    translation: labor-intensive
+    type: adjective
+  - word: трудоустройство
+    translation: employment
+    type: noun
+  - word: трудяга
+    translation: hard worker (colloquial)
+    type: noun
+- rootKey: корень_леч
+  rootWord: лечить
+  rootTranslation: to treat, to cure
+  children:
+  - word: лечение
+    translation: treatment
+    type: noun
+  - word: лекарство
+    translation: medicine
+    type: noun
+  - word: лекарь
+    translation: healer (archaic)
+    type: noun
+  - word: излечить
+    translation: to cure
+    type: verb
+  - word: неизлечимый
+    translation: incurable
+    type: adjective
+  - word: лечебный
+    translation: medical, therapeutic
+    type: adjective
+  - word: лечебница
+    translation: clinic
+    type: noun
+  - word: излечимый
+    translation: curable
+    type: adjective
+  - word: самолечение
+    translation: self-treatment
+    type: noun
+  - word: подлечиться
+    translation: to get some treatment
+    type: verb
+- rootKey: корень_сон
+  rootWord: сон
+  rootTranslation: sleep, dream
+  children:
+  - word: спать
+    translation: to sleep
+    type: verb
+  - word: сонный
+    translation: sleepy
+    type: adjective
+  - word: бессонница
+    translation: insomnia
+    type: noun
+  - word: сновидение
+    translation: dream
+    type: noun
+  - word: усыпить
+    translation: to put to sleep
+    type: verb
+  - word: проснуться
+    translation: to wake up
+    type: verb
+  - word: засыпать
+    translation: to fall asleep
+    type: verb
+  - word: сонливый
+    translation: drowsy
+    type: adjective
+  - word: недосыпание
+    translation: lack of sleep
+    type: noun
+  - word: полусонный
+    translation: half-asleep
+    type: adjective
+- rootKey: корень_ест
+  rootWord: есть
+  rootTranslation: to eat
+  children:
+  - word: еда
+    translation: food
+    type: noun
+  - word: едок
+    translation: eater
+    type: noun
+  - word: обед
+    translation: lunch, dinner
+    type: noun
+  - word: ужин
+    translation: supper
+    type: noun
+  - word: съедобный
+    translation: edible
+    type: adjective
+  - word: несъедобный
+    translation: inedible
+    type: adjective
+  - word: объедение
+    translation: delicacy
+    type: noun
+  - word: обжора
+    translation: glutton
+    type: noun
+  - word: прожорливый
+    translation: voracious
+    type: adjective
+  - word: поедать
+    translation: to devour
+    type: verb
+- rootKey: корень_пит
+  rootWord: питать
+  rootTranslation: to feed, to nourish
+  children:
+  - word: питание
+    translation: nutrition, food
+    type: noun
+  - word: напиток
+    translation: drink, beverage
+    type: noun
+  - word: пить
+    translation: to drink
+    type: verb
+  - word: питьевой
+    translation: drinking (adj)
+    type: adjective
+  - word: воспитание
+    translation: upbringing, education
+    type: noun
+  - word: воспитатель
+    translation: educator
+    type: noun
+  - word: пропитание
+    translation: sustenance
+    type: noun
+  - word: упитанный
+    translation: well-fed
+    type: adjective
+  - word: питомец
+    translation: pet, ward
+    type: noun
+  - word: питомник
+    translation: nursery, kennel
+    type: noun
+- rootKey: корень_ход_погод
+  rootWord: погода
+  rootTranslation: weather
+  children:
+  - word: непогода
+    translation: bad weather
+    type: noun
+  - word: погодный
+    translation: weather (adj)
+    type: adjective
+  - word: погодные условия
+    translation: weather conditions
+    type: noun
+  - word: распогодиться
+    translation: to clear up (weather)
+    type: verb
+  - word: погодка
+    translation: weather (colloquial)
+    type: noun
+  - word: всепогодный
+    translation: all-weather
+    type: adjective
+  - word: метеопрогноз
+    translation: weather forecast
+    type: noun
+  - word: погожий
+    translation: fine, fair (weather)
+    type: adjective
+  - word: погодозависимый
+    translation: weather-dependent
+    type: adjective
+  - word: ненастье
+    translation: foul weather
+    type: noun
+- rootKey: корень_путь
+  rootWord: путь
+  rootTranslation: way, path
+  children:
+  - word: путешествие
+    translation: journey, travel
+    type: adjective
+  - word: путешественник
+    translation: traveler
+    type: noun
+  - word: путник
+    translation: traveler, wayfarer
+    type: noun
+  - word: попутный
+    translation: accompanying, favorable
+    type: adjective
+  - word: попутчик
+    translation: fellow traveler
+    type: noun
+  - word: распутье
+    translation: crossroads
+    type: noun
+  - word: беспутный
+    translation: dissolute
+    type: adjective
+  - word: путеводитель
+    translation: guidebook
+    type: noun
+  - word: путёвка
+    translation: voucher, pass
+    type: noun
+  - word: спутник
+    translation: satellite, companion
+    type: noun
+  - word: запутать
+    translation: to confuse, to tangle
+    type: verb
