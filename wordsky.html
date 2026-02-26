@@ -924,6 +924,12 @@ body{
     if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     return audioCtx;
   }
+  function ensureAudioResumed() {
+    var ctx = getAudioCtx();
+    if (ctx.state === 'suspended') {
+      ctx.resume();
+    }
+  }
   function unlockAudio() {
     if (audioUnlocked) return;
     var ctx = getAudioCtx();
@@ -935,6 +941,11 @@ body{
     s.start(0);
     audioUnlocked = true;
   }
+  // Keep unlocking on every gesture — mobile Safari can re-suspend the context
+  document.addEventListener('touchstart', ensureAudioResumed, true);
+  document.addEventListener('touchend', ensureAudioResumed, true);
+  document.addEventListener('click', ensureAudioResumed, true);
+  // First-time unlock with silent buffer
   document.addEventListener('touchstart', unlockAudio, { once: true });
   document.addEventListener('touchend', unlockAudio, { once: true });
   document.addEventListener('click', unlockAudio, { once: true });
@@ -944,6 +955,7 @@ body{
     vol = vol || 0.12;
     delay = delay || 0;
     var ctx = getAudioCtx();
+    // Always try to resume — critical for mobile setTimeout callbacks
     if (ctx.state === 'suspended') ctx.resume();
     var o = ctx.createOscillator();
     var g = ctx.createGain();
