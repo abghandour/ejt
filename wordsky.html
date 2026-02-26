@@ -367,6 +367,82 @@ body{
   animation:coinFlip 0.8s cubic-bezier(0.2,0.6,0.35,1);
 }
 
+/* ===== WORD LAUNCH ANIMATION ===== */
+
+.word-ghost{
+  position:fixed;
+  pointer-events:none;
+  z-index:200;
+  font-family:'Roboto Condensed',sans-serif;
+  font-weight:700;
+  color:#c8a830;
+  text-shadow:0 0 20px rgba(200,168,48,0.6),0 0 40px rgba(200,168,48,0.3);
+  white-space:nowrap;
+  will-change:transform,opacity;
+}
+
+.launch-particle{
+  position:fixed;
+  pointer-events:none;
+  z-index:199;
+  border-radius:50%;
+  will-change:transform,opacity;
+}
+
+.launch-trail{
+  position:fixed;
+  pointer-events:none;
+  z-index:198;
+  border-radius:50%;
+  will-change:transform,opacity;
+  filter:blur(2px);
+}
+
+@keyframes wordLand{
+  0%{transform:scale(1.4);opacity:0.7;text-shadow:0 0 30px rgba(200,168,48,0.8),0 0 60px rgba(200,168,48,0.4)}
+  50%{transform:scale(0.95);opacity:1;text-shadow:0 0 20px rgba(200,168,48,0.5)}
+  70%{transform:scale(1.05);opacity:1}
+  100%{transform:scale(1);opacity:1;text-shadow:0 0 20px rgba(200,168,48,0.3)}
+}
+
+#russian-word.word-landing{
+  animation:wordLand 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+@keyframes landingRing{
+  0%{transform:translate(-50%,-50%) scale(0.3);opacity:0.8;border-width:3px}
+  100%{transform:translate(-50%,-50%) scale(2.5);opacity:0;border-width:1px}
+}
+
+.landing-ring{
+  position:fixed;
+  pointer-events:none;
+  z-index:197;
+  border:3px solid rgba(200,168,48,0.5);
+  border-radius:50%;
+  width:60px;
+  height:60px;
+  will-change:transform,opacity;
+  animation:landingRing 0.6s ease-out forwards;
+}
+
+@keyframes sparkBurst{
+  0%{transform:translate(var(--sx),var(--sy)) scale(1);opacity:1}
+  100%{transform:translate(var(--ex),var(--ey)) scale(0);opacity:0}
+}
+
+.spark{
+  position:fixed;
+  pointer-events:none;
+  z-index:201;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#c8a830;
+  will-change:transform,opacity;
+  animation:sparkBurst var(--dur) ease-out forwards;
+}
+
 /* ===== MESSAGE / ERROR AREA ===== */
 #message-area{
   width:100%;
@@ -1384,16 +1460,204 @@ body{
   // ===== UI RENDERER MODULE (Task 5.3) =====
 
   function flipWord(renderFn) {
-    var el = document.getElementById('russian-word');
-    el.classList.remove('coin-flip');
-    void el.offsetWidth;
-    el.classList.add('coin-flip');
-    setTimeout(function() {
+    var targetWordIndex = isReviewMode ? reviewWordIndex : gameState.currentWordIndex;
+    launchWordFromTracker(targetWordIndex, renderFn);
+  }
+
+  function launchWordFromTracker(wordIndex, renderFn) {
+    var trackerBtn = document.querySelector('.tracker-btn[data-word-index="' + wordIndex + '"]');
+    var russianEl = document.getElementById('russian-word');
+    var displayArea = document.getElementById('word-display-area');
+
+    if (!trackerBtn || !russianEl || !displayArea) {
       renderFn();
-    }, 400);
+      return;
+    }
+
+    // Get positions
+    var srcRect = trackerBtn.getBoundingClientRect();
+    var destRect = russianEl.getBoundingClientRect();
+
+    var srcX = srcRect.left + srcRect.width / 2;
+    var srcY = srcRect.top + srcRect.height / 2;
+    var destX = destRect.left + destRect.width / 2;
+    var destY = destRect.top + destRect.height / 2;
+
+    // Hide the real word during animation
+    russianEl.style.opacity = '0';
+
+    // Flash the tracker button
+    trackerBtn.style.transition = 'none';
+    trackerBtn.style.boxShadow = '0 0 20px rgba(200,168,48,0.8), inset 0 0 15px rgba(200,168,48,0.3)';
+    trackerBtn.style.borderColor = '#f5e6c8';
     setTimeout(function() {
-      el.classList.remove('coin-flip');
-    }, 850);
+      trackerBtn.style.transition = 'all 0.6s ease';
+      trackerBtn.style.boxShadow = '';
+      trackerBtn.style.borderColor = '';
+    }, 300);
+
+    // Create ghost word element
+    var ghost = document.createElement('div');
+    ghost.className = 'word-ghost';
+    ghost.textContent = '?';
+    ghost.style.fontSize = '20px';
+    ghost.style.left = srcX + 'px';
+    ghost.style.top = srcY + 'px';
+    ghost.style.transform = 'translate(-50%,-50%) scale(0.5)';
+    ghost.style.opacity = '0';
+    document.body.appendChild(ghost);
+
+    // Spawn trail particles along the path
+    var trailCount = 12;
+    var trails = [];
+    for (var t = 0; t < trailCount; t++) {
+      var trail = document.createElement('div');
+      trail.className = 'launch-trail';
+      var size = 4 + Math.random() * 6;
+      trail.style.width = size + 'px';
+      trail.style.height = size + 'px';
+      var hue = 40 + Math.random() * 20;
+      trail.style.background = 'hsla(' + hue + ',80%,60%,0.6)';
+      trail.style.left = srcX + 'px';
+      trail.style.top = srcY + 'px';
+      trail.style.opacity = '0';
+      document.body.appendChild(trail);
+      trails.push({ el: trail, delay: t * 25 });
+    }
+
+    // Animate ghost from tracker to display area
+    var duration = 550;
+    var startTime = performance.now();
+
+    function easeOutCubic(x) { return 1 - Math.pow(1 - x, 3); }
+    function easeInOutBack(x) {
+      var c1 = 1.70158;
+      var c2 = c1 * 1.525;
+      return x < 0.5
+        ? (Math.pow(2 * x, 2) * ((c2 + 1) * 2 * x - c2)) / 2
+        : (Math.pow(2 * x - 2, 2) * ((c2 + 1) * (x * 2 - 2) + c2) + 2) / 2;
+    }
+
+    function animateFrame(now) {
+      var elapsed = now - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var ease = easeInOutBack(progress);
+
+      // Arc path — add a curve upward
+      var curveHeight = -60 - Math.abs(destY - srcY) * 0.3;
+      var linearX = srcX + (destX - srcX) * ease;
+      var linearY = srcY + (destY - srcY) * ease;
+      var arcOffset = curveHeight * Math.sin(progress * Math.PI);
+      var currentX = linearX;
+      var currentY = linearY + arcOffset;
+
+      // Scale up as it travels
+      var scale = 0.5 + progress * 1.2;
+      var fontSize = 20 + progress * (parseFloat(getComputedStyle(russianEl).fontSize) - 20);
+
+      ghost.style.left = currentX + 'px';
+      ghost.style.top = currentY + 'px';
+      ghost.style.transform = 'translate(-50%,-50%) scale(' + scale + ') rotate(' + (progress * 360) + 'deg)';
+      ghost.style.opacity = Math.min(progress * 3, 1);
+      ghost.style.fontSize = fontSize + 'px';
+
+      // Animate trail particles
+      for (var i = 0; i < trails.length; i++) {
+        var trailProgress = Math.max(0, Math.min((elapsed - trails[i].delay) / duration, 1));
+        if (trailProgress > 0) {
+          var te = easeOutCubic(trailProgress);
+          var tx = srcX + (destX - srcX) * te;
+          var ty = srcY + (destY - srcY) * te + curveHeight * Math.sin(trailProgress * Math.PI);
+          // Add some scatter
+          tx += (Math.random() - 0.5) * 20;
+          ty += (Math.random() - 0.5) * 20;
+          trails[i].el.style.left = tx + 'px';
+          trails[i].el.style.top = ty + 'px';
+          trails[i].el.style.opacity = (1 - trailProgress) * 0.7;
+          trails[i].el.style.transform = 'translate(-50%,-50%) scale(' + (1 - trailProgress * 0.5) + ')';
+        }
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(animateFrame);
+      } else {
+        // Animation complete — render the real word
+        renderFn();
+
+        // Remove ghost
+        ghost.style.opacity = '0';
+        setTimeout(function() { ghost.remove(); }, 100);
+
+        // Remove trails
+        for (var j = 0; j < trails.length; j++) {
+          (function(el) {
+            el.style.transition = 'opacity 0.3s';
+            el.style.opacity = '0';
+            setTimeout(function() { el.remove(); }, 300);
+          })(trails[j].el);
+        }
+
+        // Landing effect on the real word
+        russianEl.style.opacity = '1';
+        russianEl.classList.remove('word-landing');
+        void russianEl.offsetWidth;
+        russianEl.classList.add('word-landing');
+        setTimeout(function() {
+          russianEl.classList.remove('word-landing');
+        }, 600);
+
+        // Spawn landing sparks
+        spawnLandingSparks(destX, destY, 14);
+
+        // Spawn expanding ring
+        var ring = document.createElement('div');
+        ring.className = 'landing-ring';
+        ring.style.left = destX + 'px';
+        ring.style.top = destY + 'px';
+        document.body.appendChild(ring);
+        setTimeout(function() { ring.remove(); }, 700);
+
+        // Second ring with delay
+        setTimeout(function() {
+          var ring2 = document.createElement('div');
+          ring2.className = 'landing-ring';
+          ring2.style.left = destX + 'px';
+          ring2.style.top = destY + 'px';
+          ring2.style.borderColor = 'rgba(200,168,48,0.3)';
+          document.body.appendChild(ring2);
+          setTimeout(function() { ring2.remove(); }, 700);
+        }, 100);
+      }
+    }
+
+    requestAnimationFrame(animateFrame);
+  }
+
+  function spawnLandingSparks(cx, cy, count) {
+    for (var i = 0; i < count; i++) {
+      var spark = document.createElement('div');
+      spark.className = 'spark';
+      var angle = (Math.PI * 2 / count) * i + (Math.random() - 0.5) * 0.5;
+      var dist = 30 + Math.random() * 50;
+      var ex = Math.cos(angle) * dist;
+      var ey = Math.sin(angle) * dist;
+      var dur = 0.3 + Math.random() * 0.4;
+      var hue = 35 + Math.random() * 25;
+      spark.style.left = cx + 'px';
+      spark.style.top = cy + 'px';
+      spark.style.setProperty('--sx', '0px');
+      spark.style.setProperty('--sy', '0px');
+      spark.style.setProperty('--ex', ex + 'px');
+      spark.style.setProperty('--ey', ey + 'px');
+      spark.style.setProperty('--dur', dur + 's');
+      spark.style.background = 'hsl(' + hue + ',80%,60%)';
+      spark.style.width = (2 + Math.random() * 4) + 'px';
+      spark.style.height = spark.style.width;
+      document.body.appendChild(spark);
+      (function(el, d) {
+        setTimeout(function() { el.remove(); }, d * 1000 + 50);
+      })(spark, dur);
+    }
   }
 
   function renderWord(wordEntry, wordIndex, disabledOptions) {
@@ -2067,12 +2331,20 @@ body{
       gameState.started = true;
       saveGameState(gameState);
       hideStartScreen();
-      renderWord(currentWords[gameState.currentWordIndex], gameState.currentWordIndex, gameState.disabledOptions);
+      // Animate the first word launching from tracker
+      var russianEl = document.getElementById('russian-word');
+      if (russianEl) russianEl.style.opacity = '0';
       updateTopBar(getTotalScore(gameState.wordScores), gameState.currentWordIndex, 5);
       updateWordTracker();
       resetTimerState(gameState.elapsedMs);
       startTimer();
       soundNewWord();
+      // Small delay so the layout settles, then launch
+      setTimeout(function() {
+        launchWordFromTracker(gameState.currentWordIndex, function() {
+          renderWord(currentWords[gameState.currentWordIndex], gameState.currentWordIndex, gameState.disabledOptions);
+        });
+      }, 100);
     });
 
     var calBtn = document.getElementById('calendar-btn');
