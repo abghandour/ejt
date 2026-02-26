@@ -2296,29 +2296,61 @@ body{
     window.location.href = 'sms:?&body=' + encodeURIComponent(text);
   }
 
+  function inlineSvgUseElements(container) {
+    var uses = container.querySelectorAll('use');
+    for (var i = 0; i < uses.length; i++) {
+      var use = uses[i];
+      var href = use.getAttribute('href') || use.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
+      if (!href) continue;
+      var symbol = document.querySelector(href);
+      if (!symbol) continue;
+      var svgEl = use.closest('svg');
+      if (!svgEl) continue;
+      // Copy children from the symbol into the parent svg
+      var frag = document.createDocumentFragment();
+      for (var j = 0; j < symbol.childNodes.length; j++) {
+        frag.appendChild(symbol.childNodes[j].cloneNode(true));
+      }
+      // Copy viewBox from symbol to svg
+      var vb = symbol.getAttribute('viewBox');
+      if (vb) svgEl.setAttribute('viewBox', vb);
+      use.parentNode.replaceChild(frag, use);
+    }
+  }
+
   function captureResultsImage() {
     return new Promise(function(resolve) {
       if (typeof html2canvas === 'undefined') { resolve(null); return; }
       var popup = document.getElementById('results-popup');
       if (!popup) { resolve(null); return; }
-      // Hide elements we don't want in the screenshot
-      var actions = document.getElementById('results-actions');
-      var closeBtn = document.getElementById('results-close-btn');
-      if (actions) actions.style.display = 'none';
-      if (closeBtn) closeBtn.style.display = 'none';
-      html2canvas(popup, {
+
+      // Clone the popup so we can inline SVGs without affecting the live DOM
+      var clone = popup.cloneNode(true);
+      clone.style.position = 'fixed';
+      clone.style.left = '-9999px';
+      clone.style.top = '0';
+      clone.style.width = popup.offsetWidth + 'px';
+
+      // Remove elements we don't want in the screenshot
+      var actions = clone.querySelector('#results-actions');
+      var closeBtn = clone.querySelector('#results-close-btn');
+      if (actions) actions.remove();
+      if (closeBtn) closeBtn.remove();
+
+      document.body.appendChild(clone);
+      inlineSvgUseElements(clone);
+
+      html2canvas(clone, {
         backgroundColor: '#1e1e32',
         scale: 2,
         useCORS: true
       }).then(function(canvas) {
-        if (actions) actions.style.display = '';
-        if (closeBtn) closeBtn.style.display = '';
+        clone.remove();
         canvas.toBlob(function(blob) {
           resolve(blob);
         }, 'image/png');
       }).catch(function() {
-        if (actions) actions.style.display = '';
-        if (closeBtn) closeBtn.style.display = '';
+        clone.remove();
         resolve(null);
       });
     });
@@ -2338,7 +2370,7 @@ body{
     var blob = await captureResultsImage();
     if (blob) {
       var file = new File([blob], 'wordsky-results.png', { type: 'image/png' });
-      var shareData = { text: textFallback, files: [file] };
+      var shareData = { url: window.location.href, files: [file] };
       try {
         if (navigator.canShare(shareData)) {
           await navigator.share(shareData);
