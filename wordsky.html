@@ -43,7 +43,7 @@ body{
   width:100%;
   max-width:600px;
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-end;
   align-items:center;
   padding:12px 16px;
   font-size:14px;
@@ -51,15 +51,12 @@ body{
   border-bottom:1px solid rgba(200,168,48,0.2);
 }
 
-#top-bar .score-display{
+#date-row .score-display{
   font-weight:700;
   font-size:16px;
+  color:#c8a830;
 }
-
-#top-bar .word-counter{
-  font-size:14px;
-  color:#f5e6c8;
-}
+#date-row .score-display.hidden{display:none}
 
 #calendar-btn{
   background:none;
@@ -69,6 +66,7 @@ body{
   font-family:'Roboto Condensed',sans-serif;
   font-size:18px;
   padding:4px 10px;
+  margin-left:8px;
   cursor:pointer;
   transition:all 0.2s;
   line-height:1;
@@ -77,6 +75,22 @@ body{
   border-color:#c8a830;
   background:rgba(200,168,48,0.1);
 }
+
+#share-btn{
+  background:none;
+  border:1px solid #4a4a7e;
+  border-radius:6px;
+  color:#c8a830;
+  padding:4px 10px;
+  cursor:pointer;
+  transition:all 0.2s;
+  line-height:1;
+}
+#share-btn:hover{
+  border-color:#c8a830;
+  background:rgba(200,168,48,0.1);
+}
+#share-btn.hidden{display:none}
 
 /* ===== DATE DISPLAY ===== */
 #date-row{
@@ -98,7 +112,7 @@ body{
   font-weight:700;
   color:#c8a830;
   font-variant-numeric:tabular-nums;
-  min-width:40px;
+  min-width:72px;
   text-align:right;
 }
 #game-clock.hidden{display:none}
@@ -568,16 +582,6 @@ body{
   gap:6px;
 }
 
-#copy-results-btn{
-  background:linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
-  border:2px solid #4a4a7e;
-  color:#f5e6c8;
-}
-#copy-results-btn:hover{
-  border-color:#c8a830;
-  background:linear-gradient(180deg,#3a3a6e 0%,#2e2e52 100%);
-}
-
 .share-btn{
   background:linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
   border:2px solid #4a4a7e;
@@ -586,12 +590,6 @@ body{
 .share-btn:hover{
   border-color:#c8a830;
   background:linear-gradient(180deg,#3a3a6e 0%,#2e2e52 100%);
-}
-
-#copy-confirm{
-  font-size:13px;
-  color:#5a5;
-  min-height:20px;
 }
 
 /* ===== CALENDAR OVERLAY ===== */
@@ -820,19 +818,21 @@ body{
   <symbol id="ico-chevron-left" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></symbol>
   <symbol id="ico-chevron-right" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></symbol>
   <symbol id="ico-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
+  <symbol id="ico-share" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></symbol>
+  <symbol id="ico-message" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></symbol>
 </svg>
 
 <!-- Top Bar -->
 <div id="top-bar">
-  <span class="score-display" id="score-display">Score: 0</span>
-  <span class="word-counter" id="word-counter">Word: 1/5</span>
+  <button id="share-btn" class="hidden" aria-label="Share results"><svg class="icon icon-md"><use href="#ico-share"/></svg></button>
   <button id="calendar-btn" aria-label="Open calendar"><svg class="icon icon-md"><use href="#ico-calendar"/></svg></button>
 </div>
 
 <!-- Date Row with Clock -->
 <div id="date-row">
+  <span class="score-display hidden" id="score-display">⭐ 0</span>
   <div id="date-display"></div>
-  <span id="game-clock" class="hidden">0s</span>
+  <span id="game-clock" class="hidden">Time: 0s</span>
 </div>
 
 <!-- Word Tracker Row -->
@@ -883,12 +883,11 @@ body{
     <div id="results-total">Total: 0/25</div>
     <div id="results-actions">
       <span style="color:#6a6a8a;font-size:14px;font-weight:700;align-self:center">Share</span>
-      <button class="results-btn" id="copy-results-btn"><svg class="icon icon-sm"><use href="#ico-copy"/></svg></button>
+      <button class="results-btn share-btn" id="share-message" aria-label="Share via Message"><svg class="icon icon-sm"><use href="#ico-message"/></svg></button>
       <a class="results-btn share-btn" id="share-twitter" href="#" target="_blank" rel="noopener" aria-label="Share on X/Twitter"><svg class="icon icon-sm"><use href="#ico-x-twitter"/></svg></a>
       <a class="results-btn share-btn" id="share-facebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg class="icon icon-sm"><use href="#ico-facebook"/></svg></a>
       <a class="results-btn share-btn" id="share-patreon" href="#" target="_blank" rel="noopener" aria-label="Share on Patreon"><svg class="icon icon-sm"><use href="#ico-patreon"/></svg></a>
     </div>
-    <div id="copy-confirm"></div>
   </div>
 </div>
 
@@ -916,6 +915,7 @@ body{
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
   // ===== SOUND ENGINE =====
   var audioCtx = null;
@@ -1259,7 +1259,7 @@ body{
   function updateClockDisplay() {
     var el = document.getElementById('game-clock');
     if (!el) return;
-    el.textContent = formatTimer(getElapsedMs());
+    el.textContent = 'Time: ' + formatTimer(getElapsedMs());
   }
 
   function startTimer() {
@@ -1710,9 +1710,23 @@ body{
 
   function updateTopBar(score, wordIndex, totalWords) {
     var scoreEl = document.getElementById('score-display');
-    var counterEl = document.getElementById('word-counter');
-    scoreEl.textContent = 'Score: ' + score;
-    counterEl.textContent = 'Word: ' + (wordIndex + 1) + '/' + totalWords;
+    var shareBtn = document.getElementById('share-btn');
+    if (gameState.started || gameState.completed) {
+      scoreEl.classList.remove('hidden');
+      var wordsPlayed = gameState.completed ? totalWords : wordIndex;
+      var cumulativeScore = 0;
+      for (var i = 0; i < wordsPlayed; i++) {
+        cumulativeScore += gameState.wordScores[i];
+      }
+      scoreEl.textContent = '⭐ ' + cumulativeScore;
+    } else {
+      scoreEl.classList.add('hidden');
+    }
+    if (gameState.completed) {
+      shareBtn.classList.remove('hidden');
+    } else {
+      shareBtn.classList.add('hidden');
+    }
   }
 
   function showResults(wordScores, words) {
@@ -1831,6 +1845,13 @@ body{
           gameState.currentWordIndex++;
           saveGameState(gameState);
           resumeTimer();
+          // Clear answer button highlights before the animation starts
+          var allBtns2 = document.querySelectorAll('.answer-btn');
+          for (var k = 0; k < allBtns2.length; k++) {
+            allBtns2[k].className = 'answer-btn';
+            allBtns2[k].textContent = '';
+            allBtns2[k].disabled = true;
+          }
           flipWord(function() {
             renderWord(currentWords[gameState.currentWordIndex], gameState.currentWordIndex, gameState.disabledOptions);
             updateTopBar(getTotalScore(gameState.wordScores), gameState.currentWordIndex, 5);
@@ -2253,50 +2274,6 @@ body{
 
   // ===== SHARE MANAGER MODULE (Task 8.1) =====
 
-  function copyResultsToClipboard() {
-    var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
-    var confirmEl = document.getElementById('copy-confirm');
-
-    function showConfirm(msg) {
-      if (confirmEl) {
-        confirmEl.textContent = msg;
-        setTimeout(function() { confirmEl.textContent = ''; }, 2000);
-      }
-    }
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function() {
-        showConfirm('Copied!');
-      }).catch(function() {
-        fallbackCopy(text, showConfirm);
-      });
-    } else {
-      fallbackCopy(text, showConfirm);
-    }
-  }
-
-  function fallbackCopy(text, showConfirm) {
-    try {
-      var textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.style.position = 'fixed';
-      textarea.style.left = '-9999px';
-      textarea.style.top = '-9999px';
-      document.body.appendChild(textarea);
-      textarea.focus();
-      textarea.select();
-      var ok = document.execCommand('copy');
-      document.body.removeChild(textarea);
-      if (ok) {
-        showConfirm('Copied!');
-      } else {
-        showConfirm('Copy not supported');
-      }
-    } catch (e) {
-      showConfirm('Copy not supported');
-    }
-  }
-
   function shareOnTwitter() {
     var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
     var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
@@ -2312,6 +2289,67 @@ body{
   function shareOnPatreon() {
     var url = 'https://www.patreon.com/posts/new';
     window.open(url, '_blank', 'noopener');
+  }
+
+  function shareViaSMS() {
+    var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
+    window.location.href = 'sms:?&body=' + encodeURIComponent(text);
+  }
+
+  function captureResultsImage() {
+    return new Promise(function(resolve) {
+      if (typeof html2canvas === 'undefined') { resolve(null); return; }
+      var popup = document.getElementById('results-popup');
+      if (!popup) { resolve(null); return; }
+      // Hide elements we don't want in the screenshot
+      var actions = document.getElementById('results-actions');
+      var closeBtn = document.getElementById('results-close-btn');
+      if (actions) actions.style.display = 'none';
+      if (closeBtn) closeBtn.style.display = 'none';
+      html2canvas(popup, {
+        backgroundColor: '#1e1e32',
+        scale: 2,
+        useCORS: true
+      }).then(function(canvas) {
+        if (actions) actions.style.display = '';
+        if (closeBtn) closeBtn.style.display = '';
+        canvas.toBlob(function(blob) {
+          resolve(blob);
+        }, 'image/png');
+      }).catch(function() {
+        if (actions) actions.style.display = '';
+        if (closeBtn) closeBtn.style.display = '';
+        resolve(null);
+      });
+    });
+  }
+
+  function canShareWithImage() {
+    return navigator.share && navigator.canShare;
+  }
+
+  async function shareWithImage(textFallback, urlFallback) {
+    if (!canShareWithImage()) {
+      if (urlFallback) {
+        window.open(urlFallback, '_blank', 'noopener');
+      }
+      return;
+    }
+    var blob = await captureResultsImage();
+    if (blob) {
+      var file = new File([blob], 'wordsky-results.png', { type: 'image/png' });
+      var shareData = { text: textFallback, files: [file] };
+      try {
+        if (navigator.canShare(shareData)) {
+          await navigator.share(shareData);
+          return;
+        }
+      } catch (e) { /* user cancelled or not supported, fall through */ }
+    }
+    // Fallback to URL-based sharing
+    if (urlFallback) {
+      window.open(urlFallback, '_blank', 'noopener');
+    }
   }
 
   // ===== ENHANCED INIT: Load allGameData for calendar =====
@@ -2362,6 +2400,13 @@ body{
     var calBtn = document.getElementById('calendar-btn');
     if (calBtn) calBtn.addEventListener('click', openCalendar);
 
+    var shareBtn = document.getElementById('share-btn');
+    if (shareBtn) shareBtn.addEventListener('click', function() {
+      if (gameState.completed && currentWords) {
+        showResults(gameState.wordScores, currentWords);
+      }
+    });
+
     var tracker = document.getElementById('word-tracker');
     if (tracker) tracker.addEventListener('click', handleTrackerClick);
 
@@ -2380,9 +2425,6 @@ body{
       loadGameForDate(getTodayStr());
     });
 
-    var copyBtn = document.getElementById('copy-results-btn');
-    if (copyBtn) copyBtn.addEventListener('click', copyResultsToClipboard);
-
     var resultsCloseBtn = document.getElementById('results-close-btn');
     if (resultsCloseBtn) resultsCloseBtn.addEventListener('click', hideResults);
 
@@ -2390,7 +2432,9 @@ body{
     if (twitterBtn) {
       twitterBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        shareOnTwitter();
+        var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
+        var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
+        shareWithImage(text, url);
       });
     }
 
@@ -2398,7 +2442,9 @@ body{
     if (facebookBtn) {
       facebookBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        shareOnFacebook();
+        var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
+        var url = 'https://www.facebook.com/sharer/sharer.php?quote=' + encodeURIComponent(text);
+        shareWithImage(text, url);
       });
     }
 
@@ -2406,7 +2452,17 @@ body{
     if (patreonBtn) {
       patreonBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        shareOnPatreon();
+        var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
+        shareWithImage(text, 'https://www.patreon.com/posts/new');
+      });
+    }
+
+    var messageBtn = document.getElementById('share-message');
+    if (messageBtn) {
+      messageBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
+        shareWithImage(text, 'sms:?&body=' + encodeURIComponent(text));
       });
     }
 
