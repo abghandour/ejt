@@ -884,9 +884,6 @@ body{
     <div id="results-actions">
       <span style="color:#6a6a8a;font-size:14px;font-weight:700;align-self:center">Share</span>
       <button class="results-btn share-btn" id="share-message" aria-label="Share via Message"><svg class="icon icon-sm"><use href="#ico-message"/></svg></button>
-      <a class="results-btn share-btn" id="share-twitter" href="#" target="_blank" rel="noopener" aria-label="Share on X/Twitter"><svg class="icon icon-sm"><use href="#ico-x-twitter"/></svg></a>
-      <a class="results-btn share-btn" id="share-facebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg class="icon icon-sm"><use href="#ico-facebook"/></svg></a>
-      <a class="results-btn share-btn" id="share-patreon" href="#" target="_blank" rel="noopener" aria-label="Share on Patreon"><svg class="icon icon-sm"><use href="#ico-patreon"/></svg></a>
     </div>
   </div>
 </div>
@@ -1772,19 +1769,6 @@ body{
     var total = getTotalScore(wordScores);
     totalEl.textContent = 'Total: ' + total + '/25';
 
-    var shareText = formatShareText(gameState.date, wordScores, words);
-    var encodedText = encodeURIComponent(shareText);
-
-    var twitterLink = document.getElementById('share-twitter');
-    if (twitterLink) {
-      twitterLink.href = 'https://twitter.com/intent/tweet?text=' + encodedText;
-    }
-
-    var facebookLink = document.getElementById('share-facebook');
-    if (facebookLink) {
-      facebookLink.href = 'https://www.facebook.com/sharer/sharer.php?quote=' + encodedText;
-    }
-
     soundModalOpen();
     overlay.classList.remove('hidden');
   }
@@ -1833,6 +1817,7 @@ body{
         stopTimer();
         saveGameState(gameState);
         saveToHistory(gameState.date, gameState.wordScores, true);
+        updateTopBar(getTotalScore(gameState.wordScores), gameState.currentWordIndex, 5);
 
         setTimeout(function() {
           isGameActive = false;
@@ -2274,26 +2259,8 @@ body{
 
   // ===== SHARE MANAGER MODULE (Task 8.1) =====
 
-  function shareOnTwitter() {
-    var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
-    var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
-    window.open(url, '_blank', 'noopener');
-  }
-
-  function shareOnFacebook() {
-    var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
-    var url = 'https://www.facebook.com/sharer/sharer.php?quote=' + encodeURIComponent(text);
-    window.open(url, '_blank', 'noopener');
-  }
-
-  function shareOnPatreon() {
-    var url = 'https://www.patreon.com/posts/new';
-    window.open(url, '_blank', 'noopener');
-  }
-
-  function shareViaSMS() {
-    var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
-    window.location.href = 'sms:?&body=' + encodeURIComponent(text);
+  function formatShareTextForShare() {
+    return formatShareText(gameState.date, gameState.wordScores, currentWords);
   }
 
   function inlineSvgUseElements(container) {
@@ -2459,35 +2426,6 @@ body{
 
     var resultsCloseBtn = document.getElementById('results-close-btn');
     if (resultsCloseBtn) resultsCloseBtn.addEventListener('click', hideResults);
-
-    var twitterBtn = document.getElementById('share-twitter');
-    if (twitterBtn) {
-      twitterBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
-        var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
-        shareWithImage(text, url);
-      });
-    }
-
-    var facebookBtn = document.getElementById('share-facebook');
-    if (facebookBtn) {
-      facebookBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
-        var url = 'https://www.facebook.com/sharer/sharer.php?quote=' + encodeURIComponent(text);
-        shareWithImage(text, url);
-      });
-    }
-
-    var patreonBtn = document.getElementById('share-patreon');
-    if (patreonBtn) {
-      patreonBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
-        shareWithImage(text, 'https://www.patreon.com/posts/new');
-      });
-    }
 
     var messageBtn = document.getElementById('share-message');
     if (messageBtn) {
