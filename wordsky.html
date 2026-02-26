@@ -79,14 +79,158 @@ body{
 }
 
 /* ===== DATE DISPLAY ===== */
-#date-display{
+#date-row{
   width:100%;
   max-width:600px;
-  text-align:center;
+  display:flex;
+  align-items:center;
   padding:8px 16px 0;
+}
+#date-display{
+  flex:1;
+  text-align:center;
   font-size:13px;
   color:#6a6a8a;
   letter-spacing:1px;
+}
+#game-clock{
+  font-size:14px;
+  font-weight:700;
+  color:#c8a830;
+  font-variant-numeric:tabular-nums;
+  min-width:40px;
+  text-align:right;
+}
+#game-clock.hidden{display:none}
+
+/* ===== START SCREEN ===== */
+#start-screen{
+  width:100%;
+  max-width:600px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  flex:1 1 0;
+  min-height:0;
+  gap:20px;
+}
+#start-screen.hidden{display:none}
+
+#start-btn{
+  padding:16px 48px;
+  font-size:22px;
+  font-family:'Roboto Condensed',sans-serif;
+  font-weight:700;
+  background:linear-gradient(180deg,#3a5a2a 0%,#2a4a1a 100%);
+  border:2px solid #5a8a3a;
+  border-radius:12px;
+  color:#f5e6c8;
+  cursor:pointer;
+  transition:all 0.25s;
+  box-shadow:0 4px 16px rgba(90,138,58,0.3);
+}
+#start-btn:hover{
+  background:linear-gradient(180deg,#4a6a3a 0%,#3a5a2a 100%);
+  border-color:#8aba5a;
+  transform:translateY(-2px);
+  box-shadow:0 6px 24px rgba(90,138,58,0.4);
+}
+
+#start-label{
+  font-size:14px;
+  color:#6a6a8a;
+  text-align:center;
+}
+
+/* ===== WORD TRACKER ROW ===== */
+#word-tracker{
+  width:100%;
+  max-width:600px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:10px 16px 0;
+}
+
+.tracker-btn{
+  flex:1;
+  max-width:100px;
+  min-height:52px;
+  background:linear-gradient(180deg,#3a3a10 0%,#2a2a08 100%);
+  border:2px solid #8a8a00;
+  border-radius:8px;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:4px 4px;
+  transition:all 0.25s;
+  gap:1px;
+}
+.tracker-btn:hover{
+  border-color:#c8a830;
+  background:linear-gradient(180deg,#4a4a18 0%,#3a3a10 100%);
+  transform:translateY(-1px);
+}
+.tracker-btn.active{
+  border-color:#c8a830;
+  box-shadow:0 0 10px rgba(200,168,48,0.3);
+}
+.tracker-btn.played{
+  background:linear-gradient(180deg,#2a3a2a 0%,#1a2a1a 100%);
+  border-color:#5a8a5a;
+}
+.tracker-btn:disabled{
+  cursor:not-allowed;
+  opacity:0.5;
+}
+
+.tracker-mystery{
+  font-size:20px;
+  color:#c8a830;
+  font-weight:700;
+  line-height:1;
+}
+
+.tracker-word{
+  font-size:11px;
+  font-weight:700;
+  color:#f5e6c8;
+  line-height:1.1;
+  text-align:center;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width:90px;
+}
+
+.tracker-translation{
+  font-size:9px;
+  color:#6a9ec0;
+  line-height:1.1;
+  text-align:center;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width:90px;
+}
+
+.tracker-stars{
+  display:flex;
+  gap:0;
+  line-height:1;
+}
+.tracker-stars .icon-star{
+  width:10px;
+  height:10px;
+}
+
+.tracker-time{
+  font-size:9px;
+  color:#6a6a8a;
+  line-height:1.1;
 }
 
 /* ===== WORD DISPLAY ===== */
@@ -122,6 +266,16 @@ body{
   transition:opacity 0.3s;
 }
 #word-translation.hidden{opacity:0}
+
+#word-stars{
+  display:flex;
+  align-items:center;
+  gap:2px;
+  min-height:20px;
+  margin-bottom:8px;
+}
+#word-stars.hidden{display:none}
+#word-stars .icon-star{width:20px;height:20px}
 
 #tts-btn{
   background:none;
@@ -293,14 +447,20 @@ body{
   padding:6px 0;
   border-bottom:1px solid rgba(58,58,94,0.3);
   font-size:16px;
+  gap:8px;
 }
 .result-row .result-word{
   color:#f5e6c8;
   font-weight:700;
+  flex:1;
+  min-width:0;
 }
 .result-row .result-stars{
   font-size:16px;
   letter-spacing:2px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
 }
 
 #results-total{
@@ -454,67 +614,88 @@ body{
   border-radius:6px;
   cursor:pointer;
   transition:all 0.2s;
-  border:1px solid transparent;
-  color:#f5e6c8;
+  border:2px solid transparent;
+  color:#3a3a5a;
+  font-weight:400;
 }
 .cal-day:hover:not(.disabled):not(.empty){
   border-color:#c8a830;
-  background:rgba(200,168,48,0.1);
+  background:rgba(200,168,48,0.08);
 }
 .cal-day.empty{cursor:default}
+/* Non-playable / disabled / future */
 .cal-day.disabled{
   color:#3a3a5a;
   cursor:not-allowed;
 }
+/* Playable but not started */
 .cal-day.has-data{
-  color:#c8a830;
-  font-weight:700;
-}
-.cal-day.played{
-  background:rgba(85,170,85,0.15);
   color:#5a5;
   font-weight:700;
 }
-.cal-day.today{
-  border:1px solid #c8a830;
-}
-
-/* ===== REVIEW MODE NAV ARROWS ===== */
-#review-nav{
-  width:100%;
-  max-width:600px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 16px 12px;
-}
-#review-nav.hidden{display:none}
-
-.review-nav-btn{
-  background:none;
-  border:1px solid #4a4a7e;
-  border-radius:6px;
-  color:#c8a830;
-  font-size:20px;
-  padding:6px 14px;
-  cursor:pointer;
-  transition:all 0.2s;
-  font-family:'Roboto Condensed',sans-serif;
-}
-.review-nav-btn:hover:not(:disabled){
-  border-color:#c8a830;
-  background:rgba(200,168,48,0.1);
-}
-.review-nav-btn:disabled{
-  opacity:0.3;
-  cursor:not-allowed;
-}
-
-#review-score{
-  font-size:14px;
-  color:#c8a830;
+/* Started but not finished */
+.cal-day.partial{
+  color:#8ab4f8;
   font-weight:700;
-  cursor:pointer;
+  background:rgba(100,140,220,0.25);
+}
+/* Finished / completed */
+.cal-day.played{
+  color:#5a5;
+  font-weight:700;
+  background:rgba(85,170,85,0.25);
+}
+/* Current date (today) — yellow border, other colors from above */
+.cal-day.today{
+  border:2px solid #c8a830;
+}
+/* Currently selected/loaded game date — circle */
+.cal-day.selected{
+  border:2px solid #f5e6c8;
+  border-radius:50%;
+  box-shadow:0 0 8px rgba(245,230,200,0.3);
+}
+/* Selected + today combo */
+.cal-day.selected.today{
+  border:2px solid #c8a830;
+  border-radius:50%;
+  box-shadow:0 0 8px rgba(200,168,48,0.4);
+}
+
+/* Calendar legend */
+#calendar-legend{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  padding:6px 0 2px;
+  margin-top:4px;
+  border-top:1px solid rgba(58,58,94,0.3);
+}
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-size:11px;
+  color:#6a6a8a;
+}
+.legend-swatch{
+  width:12px;
+  height:12px;
+  border-radius:3px;
+  display:inline-block;
+}
+.legend-available{
+  border:2px solid #5a5;
+  background:transparent;
+}
+.legend-partial{
+  background:rgba(100,140,220,0.25);
+  border:1px solid rgba(138,180,248,0.4);
+}
+.legend-played{
+  background:rgba(85,170,85,0.25);
+  border:1px solid rgba(85,170,85,0.4);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -526,7 +707,12 @@ body{
   #results-popup h2{font-size:18px}
   .results-btn{padding:8px 14px;font-size:13px}
   #word-display-area{padding:8px 16px 4px}
-  #date-display{padding:4px 16px 0}
+  #date-row{padding:4px 10px 0}
+  #word-tracker{gap:6px;padding:6px 10px 0}
+  .tracker-btn{min-height:44px;padding:3px 2px}
+  .tracker-word{font-size:10px;max-width:60px}
+  .tracker-translation{font-size:8px;max-width:60px}
+  .tracker-stars .icon-star{width:8px;height:8px}
 }
 
 @media(min-width:768px){
@@ -567,13 +753,32 @@ body{
   <button id="calendar-btn" aria-label="Open calendar"><svg class="icon icon-md"><use href="#ico-calendar"/></svg></button>
 </div>
 
-<!-- Date Display -->
-<div id="date-display"></div>
+<!-- Date Row with Clock -->
+<div id="date-row">
+  <div id="date-display"></div>
+  <span id="game-clock" class="hidden">0s</span>
+</div>
+
+<!-- Word Tracker Row -->
+<div id="word-tracker">
+  <button class="tracker-btn" data-word-index="0"><span class="tracker-mystery">?</span></button>
+  <button class="tracker-btn" data-word-index="1"><span class="tracker-mystery">?</span></button>
+  <button class="tracker-btn" data-word-index="2"><span class="tracker-mystery">?</span></button>
+  <button class="tracker-btn" data-word-index="3"><span class="tracker-mystery">?</span></button>
+  <button class="tracker-btn" data-word-index="4"><span class="tracker-mystery">?</span></button>
+</div>
+
+<!-- Start Screen (replaces word display before game starts) -->
+<div id="start-screen" class="hidden">
+  <span id="start-label">Ready to play?</span>
+  <button id="start-btn">Start</button>
+</div>
 
 <!-- Word Display Area -->
 <div id="word-display-area">
   <div id="russian-word">—</div>
   <div id="word-translation" class="hidden"></div>
+  <div id="word-stars" class="hidden"></div>
   <button id="tts-btn" aria-label="Listen to pronunciation"><svg class="icon icon-md"><use href="#ico-speaker"/></svg></button>
 </div>
 
@@ -588,13 +793,6 @@ body{
   <button class="answer-btn" data-index="3"></button>
   <button class="answer-btn" data-index="4"></button>
   <button class="answer-btn" data-index="5"></button>
-</div>
-
-<!-- Review Mode Navigation (hidden by default) -->
-<div id="review-nav" class="hidden">
-  <button class="review-nav-btn" id="review-prev" aria-label="Previous word"><svg class="icon icon-md"><use href="#ico-chevron-left"/></svg></button>
-  <span id="review-score"></span>
-  <button class="review-nav-btn" id="review-next" aria-label="Next word"><svg class="icon icon-md"><use href="#ico-chevron-right"/></svg></button>
 </div>
 
 <!-- Results Popup Overlay (hidden by default) -->
@@ -632,6 +830,12 @@ body{
     </div>
     <div id="calendar-grid">
       <!-- Populated by JS: .cal-day cells -->
+    </div>
+    <button id="cal-today-btn" class="cal-nav-btn" style="width:100%;margin-top:4px;padding:8px 0;font-size:14px;font-weight:700">Today</button>
+    <div id="calendar-legend">
+      <span class="legend-item"><span class="legend-swatch legend-available"></span>Available</span>
+      <span class="legend-item"><span class="legend-swatch legend-partial"></span>In progress</span>
+      <span class="legend-item"><span class="legend-swatch legend-played"></span>Completed</span>
     </div>
   </div>
 </div>
@@ -934,11 +1138,248 @@ body{
     currentWordIndex: 0,
     wordScores: [5, 5, 5, 5, 5],
     disabledOptions: [[], [], [], [], []],
-    completed: false
+    completed: false,
+    started: false,
+    elapsedMs: 0,
+    wordTimes: [0, 0, 0, 0, 0]
   };
   let currentWords = null;
   let isReviewMode = false;
   let allGameData = null;
+
+  // ===== TIMER MODULE =====
+
+  var timerInterval = null;
+  var timerStartedAt = 0;
+  var timerPaused = true;
+  var timerBaseMs = 0;
+  var wordStartMs = 0;
+
+  function getElapsedMs() {
+    if (timerPaused) return timerBaseMs;
+    return timerBaseMs + (Date.now() - timerStartedAt);
+  }
+
+  function formatTimer(ms) {
+    var totalSec = Math.floor(ms / 1000);
+    var min = Math.floor(totalSec / 60);
+    var sec = totalSec % 60;
+    if (min > 0) return min + ':' + String(sec).padStart(2, '0');
+    return sec + 's';
+  }
+
+  function updateClockDisplay() {
+    var el = document.getElementById('game-clock');
+    if (!el) return;
+    el.textContent = formatTimer(getElapsedMs());
+  }
+
+  function startTimer() {
+    timerPaused = false;
+    timerStartedAt = Date.now();
+    wordStartMs = getElapsedMs();
+    if (!timerInterval) {
+      timerInterval = setInterval(updateClockDisplay, 250);
+    }
+    var el = document.getElementById('game-clock');
+    if (el) el.classList.remove('hidden');
+    updateClockDisplay();
+  }
+
+  function pauseTimer() {
+    if (!timerPaused) {
+      timerBaseMs = getElapsedMs();
+      timerPaused = true;
+    }
+  }
+
+  function resumeTimer() {
+    if (timerPaused) {
+      timerStartedAt = Date.now();
+      timerPaused = false;
+      wordStartMs = getElapsedMs();
+    }
+    if (!timerInterval) {
+      timerInterval = setInterval(updateClockDisplay, 250);
+    }
+    var el = document.getElementById('game-clock');
+    if (el) el.classList.remove('hidden');
+  }
+
+  function stopTimer() {
+    pauseTimer();
+    if (timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+    updateClockDisplay();
+  }
+
+  function resetTimerState(baseMs) {
+    stopTimer();
+    timerBaseMs = baseMs || 0;
+    timerPaused = true;
+    wordStartMs = timerBaseMs;
+    updateClockDisplay();
+  }
+
+  function recordWordTime() {
+    var now = getElapsedMs();
+    var elapsed = Math.round((now - wordStartMs) / 1000);
+    gameState.wordTimes[gameState.currentWordIndex] = elapsed;
+    gameState.elapsedMs = now;
+    wordStartMs = now;
+  }
+
+  // ===== START / PLAY SCREEN =====
+
+  var isGameActive = false;
+
+  function showStartScreen(label) {
+    var startScreen = document.getElementById('start-screen');
+    var wordArea = document.getElementById('word-display-area');
+    var gridEl = document.getElementById('answer-grid');
+    var startLabel = document.getElementById('start-label');
+    var startBtnEl = document.getElementById('start-btn');
+
+    if (startScreen) startScreen.classList.remove('hidden');
+    if (wordArea) wordArea.style.display = 'none';
+    if (gridEl) gridEl.style.display = 'none';
+    if (startLabel) startLabel.textContent = label || 'Ready to play?';
+    if (startBtnEl) startBtnEl.textContent = (gameState.started) ? 'Resume' : 'Start';
+    isGameActive = false;
+  }
+
+  function hideStartScreen() {
+    var startScreen = document.getElementById('start-screen');
+    var wordArea = document.getElementById('word-display-area');
+    var gridEl = document.getElementById('answer-grid');
+
+    if (startScreen) startScreen.classList.add('hidden');
+    if (wordArea) wordArea.style.display = '';
+    if (gridEl) gridEl.style.display = '';
+    isGameActive = true;
+  }
+
+  // ===== WORD TRACKER MODULE =====
+
+  function updateWordTracker() {
+    var buttons = document.querySelectorAll('.tracker-btn');
+    for (var i = 0; i < buttons.length; i++) {
+      var btn = buttons[i];
+      var wordIndex = parseInt(btn.dataset.wordIndex);
+      var isPlayed = false;
+
+      // A word is "played" if it's before the current word index, or if the game is completed
+      if (gameState.completed) {
+        isPlayed = true;
+      } else if (wordIndex < gameState.currentWordIndex) {
+        isPlayed = true;
+      }
+
+      // In review mode, all words are played
+      if (isReviewMode) {
+        isPlayed = true;
+      }
+
+      btn.innerHTML = '';
+      btn.classList.remove('active', 'played');
+      btn.disabled = false;
+
+      if (isPlayed && currentWords && currentWords[wordIndex]) {
+        btn.classList.add('played');
+
+        var wordEl = document.createElement('span');
+        wordEl.className = 'tracker-word';
+        wordEl.textContent = currentWords[wordIndex].wordOfTheDay;
+
+        var transEl = document.createElement('span');
+        transEl.className = 'tracker-translation';
+        transEl.textContent = currentWords[wordIndex].translation;
+
+        var starsEl = document.createElement('span');
+        starsEl.className = 'tracker-stars';
+        starsEl.innerHTML = getStarRatingHTML(gameState.wordScores[wordIndex]);
+
+        btn.appendChild(wordEl);
+        btn.appendChild(transEl);
+        btn.appendChild(starsEl);
+
+        // Show time if recorded
+        if (gameState.wordTimes && gameState.wordTimes[wordIndex] > 0) {
+          var timeEl = document.createElement('span');
+          timeEl.className = 'tracker-time';
+          timeEl.textContent = gameState.wordTimes[wordIndex] + 's';
+          btn.appendChild(timeEl);
+        }
+
+        // Disable played tracker buttons for unfinished games
+        if (!gameState.completed && !isReviewMode) {
+          btn.disabled = true;
+        }
+      } else {
+        var mystery = document.createElement('span');
+        mystery.className = 'tracker-mystery';
+        mystery.textContent = '?';
+        btn.appendChild(mystery);
+        btn.disabled = true;
+      }
+
+      // Highlight the active word
+      var activeIndex = isReviewMode ? reviewWordIndex : gameState.currentWordIndex;
+      if (wordIndex === activeIndex) {
+        btn.classList.add('active');
+      }
+    }
+  }
+
+  function handleTrackerClick(e) {
+    var btn = e.target.closest('.tracker-btn');
+    if (!btn || btn.disabled) return;
+    var wordIndex = parseInt(btn.dataset.wordIndex);
+
+    // In review mode, allow clicking any word
+    if (isReviewMode) {
+      reviewWordIndex = wordIndex;
+      flipWord(function() {
+        renderReviewWord(reviewWordIndex);
+        updateTopBar(getTotalScore(gameState.wordScores), reviewWordIndex, 5);
+        updateWordTracker();
+      });
+      return;
+    }
+  }
+
+  // Show a previously-played word as read-only peek during gameplay
+  function renderPeekWord(index) {
+    if (!currentWords || !currentWords[index]) return;
+    var wordEntry = currentWords[index];
+
+    var russianEl = document.getElementById('russian-word');
+    russianEl.textContent = wordEntry.wordOfTheDay;
+
+    var transEl = document.getElementById('word-translation');
+    if (transEl) {
+      transEl.textContent = wordEntry.translation;
+      transEl.classList.remove('hidden');
+    }
+
+    var starsEl = document.getElementById('word-stars');
+    if (starsEl) {
+      starsEl.innerHTML = getStarRatingHTML(gameState.wordScores[index]);
+      starsEl.classList.remove('hidden');
+    }
+
+    // Disable all answer buttons and clear them
+    var buttons = document.querySelectorAll('.answer-btn');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].textContent = '';
+      buttons[i].disabled = true;
+      buttons[i].className = 'answer-btn';
+    }
+
+    updateTopBar(getTotalScore(gameState.wordScores), index, 5);
+  }
 
   // ===== UI RENDERER MODULE (Task 5.3) =====
 
@@ -963,6 +1404,12 @@ body{
     if (transEl) {
       transEl.textContent = '';
       transEl.classList.add('hidden');
+    }
+
+    var starsEl = document.getElementById('word-stars');
+    if (starsEl) {
+      starsEl.innerHTML = '';
+      starsEl.classList.add('hidden');
     }
 
     var shuffled = shuffleAnswers(wordEntry.translation, wordEntry.wordOptions);
@@ -1020,6 +1467,15 @@ body{
 
       row.appendChild(wordSpan);
       row.appendChild(starsSpan);
+
+      // Show word time if available
+      if (gameState.wordTimes && gameState.wordTimes[i] > 0) {
+        var timeSpan = document.createElement('span');
+        timeSpan.style.cssText = 'font-size:12px;color:#6a6a8a;min-width:30px;text-align:right';
+        timeSpan.textContent = gameState.wordTimes[i] + 's';
+        row.appendChild(timeSpan);
+      }
+
       wordsContainer.appendChild(row);
     }
 
@@ -1064,6 +1520,10 @@ body{
       btn.classList.add('correct');
       soundCorrect();
 
+      // Record time for this word and pause timer
+      recordWordTime();
+      pauseTimer();
+
       // Show translation after correct answer
       var transEl = document.getElementById('word-translation');
       if (transEl) {
@@ -1080,10 +1540,13 @@ body{
 
       if (gameState.currentWordIndex >= 4) {
         gameState.completed = true;
+        stopTimer();
         saveGameState(gameState);
         saveToHistory(gameState.date, gameState.wordScores, true);
 
         setTimeout(function() {
+          isGameActive = false;
+          updateWordTracker();
           soundGameComplete();
           showResults(gameState.wordScores, currentWords);
         }, 1000);
@@ -1091,9 +1554,11 @@ body{
         setTimeout(function() {
           gameState.currentWordIndex++;
           saveGameState(gameState);
+          resumeTimer();
           flipWord(function() {
             renderWord(currentWords[gameState.currentWordIndex], gameState.currentWordIndex, gameState.disabledOptions);
             updateTopBar(getTotalScore(gameState.wordScores), gameState.currentWordIndex, 5);
+            updateWordTracker();
           });
           soundNewWord();
         }, 1000);
@@ -1109,6 +1574,7 @@ body{
       gameState.disabledOptions[idx].push(selectedAnswer);
 
       updateTopBar(getTotalScore(gameState.wordScores), gameState.currentWordIndex, 5);
+      updateWordTracker();
 
       saveGameState(gameState);
     }
@@ -1127,13 +1593,20 @@ body{
     var saved = loadGameState(today);
     if (saved) {
       gameState = saved;
+      // Ensure new fields exist for older saves
+      if (!gameState.wordTimes) gameState.wordTimes = [0, 0, 0, 0, 0];
+      if (gameState.elapsedMs === undefined) gameState.elapsedMs = 0;
+      if (gameState.started === undefined) gameState.started = false;
     } else {
       gameState = {
         date: today,
         currentWordIndex: 0,
         wordScores: [5, 5, 5, 5, 5],
         disabledOptions: [[], [], [], [], []],
-        completed: false
+        completed: false,
+        started: false,
+        elapsedMs: 0,
+        wordTimes: [0, 0, 0, 0, 0]
       };
       saveGameState(gameState);
     }
@@ -1143,15 +1616,23 @@ body{
     if (gameState.completed) {
       isReviewMode = true;
       reviewWordIndex = 0;
+      hideStartScreen();
       renderReviewWord(reviewWordIndex);
       updateTopBar(getTotalScore(gameState.wordScores), reviewWordIndex, 5);
-      showReviewNav();
+      resetTimerState(gameState.elapsedMs);
+      var clockEl = document.getElementById('game-clock');
+      if (clockEl) clockEl.classList.remove('hidden');
+      updateWordTracker();
       showResults(gameState.wordScores, currentWords);
       return;
     }
 
-    renderWord(currentWords[gameState.currentWordIndex], gameState.currentWordIndex, gameState.disabledOptions);
+    // Not completed — show start screen (whether new or in-progress)
+    var label = gameState.started ? 'Resume game — Word ' + (gameState.currentWordIndex + 1) + '/5' : 'Ready to play?';
+    showStartScreen(label);
+    resetTimerState(gameState.elapsedMs);
     updateTopBar(getTotalScore(gameState.wordScores), gameState.currentWordIndex, 5);
+    updateWordTracker();
   }
 
   // ===== TTS ENGINE MODULE (Task 6.1) =====
@@ -1240,12 +1721,22 @@ body{
       var played = !!(history[dateStr] && history[dateStr].completed);
       var isToday = dateObj.getTime() === today.getTime();
 
+      // Check for partially played (started but not completed)
+      var partial = false;
+      if (!played && hasData) {
+        var saved = loadGameState(dateStr);
+        if (saved && saved.started && !saved.completed) {
+          partial = true;
+        }
+      }
+
       grid.push({
         day: d,
         empty: false,
         disabled: isFuture,
         hasData: hasData,
         played: played,
+        partial: partial,
         isToday: isToday,
         dateStr: dateStr
       });
@@ -1282,12 +1773,18 @@ body{
           cell.classList.add('disabled');
         } else if (days[i].played) {
           cell.classList.add('played');
+        } else if (days[i].partial) {
+          cell.classList.add('partial');
         } else if (days[i].hasData) {
           cell.classList.add('has-data');
         }
 
         if (days[i].isToday) {
           cell.classList.add('today');
+        }
+
+        if (days[i].dateStr === gameState.date) {
+          cell.classList.add('selected');
         }
 
         if (!days[i].disabled && days[i].hasData) {
@@ -1315,6 +1812,7 @@ body{
   }
 
   function openCalendar() {
+    pauseTimer();
     var now = new Date();
     calendarMonth = { year: now.getFullYear(), month: now.getMonth() };
     showCalendar(calendarMonth, loadHistory());
@@ -1346,14 +1844,17 @@ body{
 
   function loadGameForDate(dateStr) {
     isReviewMode = false;
+    isGameActive = false;
     reviewWordIndex = 0;
+    stopTimer();
     hideResults();
-    hideReviewNav();
 
     var wordArea = document.getElementById('word-display-area');
     var gridEl = document.getElementById('answer-grid');
+    var startScreen = document.getElementById('start-screen');
     if (wordArea) wordArea.style.display = '';
     if (gridEl) gridEl.style.display = '';
+    if (startScreen) startScreen.classList.add('hidden');
     hideMessage();
 
     if (allGameData) {
@@ -1398,31 +1899,46 @@ body{
     var saved = loadGameState(dateStr);
     if (saved && saved.completed) {
       gameState = saved;
+      if (!gameState.wordTimes) gameState.wordTimes = [0, 0, 0, 0, 0];
+      if (gameState.elapsedMs === undefined) gameState.elapsedMs = 0;
       isReviewMode = true;
       reviewWordIndex = 0;
+      hideStartScreen();
       renderReviewWord(reviewWordIndex);
       updateTopBar(getTotalScore(gameState.wordScores), reviewWordIndex, 5);
-      showReviewNav();
+      resetTimerState(gameState.elapsedMs);
+      var clockEl = document.getElementById('game-clock');
+      if (clockEl) clockEl.classList.remove('hidden');
+      updateWordTracker();
     } else if (saved) {
       gameState = saved;
+      if (!gameState.wordTimes) gameState.wordTimes = [0, 0, 0, 0, 0];
+      if (gameState.elapsedMs === undefined) gameState.elapsedMs = 0;
+      if (gameState.started === undefined) gameState.started = false;
       isReviewMode = false;
-      hideReviewNav();
-      renderWord(currentWords[gameState.currentWordIndex], gameState.currentWordIndex, gameState.disabledOptions);
+      // Show start screen for in-progress games
+      var label = gameState.started ? 'Resume game — Word ' + (gameState.currentWordIndex + 1) + '/5' : 'Ready to play?';
+      showStartScreen(label);
+      resetTimerState(gameState.elapsedMs);
       updateTopBar(getTotalScore(gameState.wordScores), gameState.currentWordIndex, 5);
+      updateWordTracker();
     } else {
       gameState = {
         date: dateStr,
         currentWordIndex: 0,
         wordScores: [5, 5, 5, 5, 5],
         disabledOptions: [[], [], [], [], []],
-        completed: false
+        completed: false,
+        started: false,
+        elapsedMs: 0,
+        wordTimes: [0, 0, 0, 0, 0]
       };
       isReviewMode = false;
-      hideReviewNav();
       saveGameState(gameState);
-      renderWord(currentWords[0], 0, gameState.disabledOptions);
+      showStartScreen('Ready to play?');
+      resetTimerState(0);
       updateTopBar(getTotalScore(gameState.wordScores), 0, 5);
-      soundNewWord();
+      updateWordTracker();
     }
   }
 
@@ -1439,6 +1955,12 @@ body{
       transEl.classList.remove('hidden');
     }
 
+    var starsEl = document.getElementById('word-stars');
+    if (starsEl) {
+      starsEl.innerHTML = getStarRatingHTML(gameState.wordScores[index]);
+      starsEl.classList.remove('hidden');
+    }
+
     var shuffled = shuffleAnswers(wordEntry.translation, wordEntry.wordOptions);
     var buttons = document.querySelectorAll('.answer-btn');
     for (var i = 0; i < buttons.length; i++) {
@@ -1450,46 +1972,6 @@ body{
       if (shuffled[i] === wordEntry.translation) {
         buttons[i].classList.add('correct');
       }
-    }
-
-    var reviewScoreEl = document.getElementById('review-score');
-    if (reviewScoreEl) {
-      reviewScoreEl.innerHTML = getStarRatingHTML(gameState.wordScores[index]);
-    }
-
-    var prevBtn = document.getElementById('review-prev');
-    var nextBtn = document.getElementById('review-next');
-    if (prevBtn) prevBtn.disabled = (index <= 0);
-    if (nextBtn) nextBtn.disabled = (index >= 4);
-  }
-
-  function showReviewNav() {
-    var nav = document.getElementById('review-nav');
-    if (nav) nav.classList.remove('hidden');
-  }
-
-  function hideReviewNav() {
-    var nav = document.getElementById('review-nav');
-    if (nav) nav.classList.add('hidden');
-  }
-
-  function reviewPrev() {
-    if (reviewWordIndex > 0) {
-      reviewWordIndex--;
-      flipWord(function() {
-        renderReviewWord(reviewWordIndex);
-        updateTopBar(getTotalScore(gameState.wordScores), reviewWordIndex, 5);
-      });
-    }
-  }
-
-  function reviewNext() {
-    if (reviewWordIndex < 4) {
-      reviewWordIndex++;
-      flipWord(function() {
-        renderReviewWord(reviewWordIndex);
-        updateTopBar(getTotalScore(gameState.wordScores), reviewWordIndex, 5);
-      });
     }
   }
 
@@ -1578,8 +2060,26 @@ body{
 
     initTTS();
 
+    // Start button
+    var startBtn = document.getElementById('start-btn');
+    if (startBtn) startBtn.addEventListener('click', function() {
+      if (!currentWords) return;
+      gameState.started = true;
+      saveGameState(gameState);
+      hideStartScreen();
+      renderWord(currentWords[gameState.currentWordIndex], gameState.currentWordIndex, gameState.disabledOptions);
+      updateTopBar(getTotalScore(gameState.wordScores), gameState.currentWordIndex, 5);
+      updateWordTracker();
+      resetTimerState(gameState.elapsedMs);
+      startTimer();
+      soundNewWord();
+    });
+
     var calBtn = document.getElementById('calendar-btn');
     if (calBtn) calBtn.addEventListener('click', openCalendar);
+
+    var tracker = document.getElementById('word-tracker');
+    if (tracker) tracker.addEventListener('click', handleTrackerClick);
 
     var calCloseBtn = document.getElementById('calendar-close-btn');
     if (calCloseBtn) calCloseBtn.addEventListener('click', hideCalendar);
@@ -1590,15 +2090,10 @@ body{
     var calNext = document.getElementById('cal-next');
     if (calNext) calNext.addEventListener('click', calendarNextMonth);
 
-    var reviewPrevBtn = document.getElementById('review-prev');
-    if (reviewPrevBtn) reviewPrevBtn.addEventListener('click', reviewPrev);
-
-    var reviewNextBtn = document.getElementById('review-next');
-    if (reviewNextBtn) reviewNextBtn.addEventListener('click', reviewNext);
-
-    var reviewScoreEl = document.getElementById('review-score');
-    if (reviewScoreEl) reviewScoreEl.addEventListener('click', function() {
-      if (isReviewMode && currentWords) showResults(gameState.wordScores, currentWords);
+    var calTodayBtn = document.getElementById('cal-today-btn');
+    if (calTodayBtn) calTodayBtn.addEventListener('click', function() {
+      hideCalendar();
+      loadGameForDate(getTodayStr());
     });
 
     var copyBtn = document.getElementById('copy-results-btn');
@@ -1630,28 +2125,6 @@ body{
         shareOnPatreon();
       });
     }
-
-    // ===== SWIPE GESTURE SUPPORT =====
-    var touchStartX = 0;
-    var touchStartY = 0;
-    var touchStartTime = 0;
-    document.addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].clientX;
-      touchStartY = e.changedTouches[0].clientY;
-      touchStartTime = Date.now();
-    }, { passive: true });
-    document.addEventListener('touchend', function(e) {
-      if (!isReviewMode) return;
-      var dx = e.changedTouches[0].clientX - touchStartX;
-      var dy = e.changedTouches[0].clientY - touchStartY;
-      var dt = Date.now() - touchStartTime;
-      if (dt > 800 || Math.abs(dx) < 50 || Math.abs(dy) > Math.abs(dx)) return;
-      if (dx < 0) {
-        reviewNext();
-      } else {
-        reviewPrev();
-      }
-    }, { passive: true });
 
     initGame().then(function() {
       loadAllGameDataForCalendar();
