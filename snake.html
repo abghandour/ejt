@@ -6,7 +6,7 @@
 <title>Snakesky — Russian Word Snake</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{
@@ -53,6 +53,7 @@ body::before{
 #game-title{
   font-size:18px;font-weight:700;color:#c8a830;
   letter-spacing:1px;
+  font-family:'Press Start 2P',monospace;
 }
 #score-display{
   font-size:16px;font-weight:700;color:#c8a830;
@@ -211,6 +212,7 @@ body::before{
 #start-title{
   font-size:28px;font-weight:700;color:#c8a830;
   text-shadow:0 0 20px rgba(200,168,48,0.3);
+  font-family:'Press Start 2P',monospace;
 }
 
 /* DIFFICULTY TOGGLE */
@@ -237,6 +239,8 @@ body::before{
 .diff-btn .diff-icon{width:16px;height:16px;flex-shrink:0}
 
 /* DEATH MEDALLION */
+.icon-star{width:18px;height:18px;vertical-align:middle;flex-shrink:0}
+.icon-snake-title{width:28px;height:28px;vertical-align:middle}
 #death-medallion{
   width:72px;height:72px;
   transform:rotate(-12deg);
@@ -271,6 +275,18 @@ body::before{
 
 <!-- SVG Difficulty Icons -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!-- Star icon for score -->
+  <symbol id="ico-star" viewBox="0 0 24 24"><path fill="#c8a830" d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></symbol>
+  <!-- Snake icon — S-shaped serpent with head, tongue, eye -->
+  <symbol id="ico-snake" viewBox="0 0 32 32">
+    <path fill="#5a8a3a" d="M8 4c-3.3 0-6 2.7-6 6 0 3.3 2.7 6 6 6h8c2.2 0 4 1.8 4 4s-1.8 4-4 4H8c-2.2 0-4 1.8-4 4" stroke="#3a6a2a" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M8 4c-3.3 0-6 2.7-6 6 0 3.3 2.7 6 6 6h8c2.2 0 4 1.8 4 4s-1.8 4-4 4H8c-2.2 0-4 1.8-4 4" stroke="#5a8a3a" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="7" cy="4" r="3.5" fill="#4a7a2a"/>
+    <circle cx="7" cy="4" r="3" fill="#5a8a3a"/>
+    <circle cx="6" cy="3.2" r="1" fill="#fff"/>
+    <circle cx="6" cy="3.2" r="0.5" fill="#111"/>
+    <path d="M10 4.2l3-1.5M10 4.2l3 1.5" stroke="#c44" stroke-width="0.6" stroke-linecap="round"/>
+  </symbol>
   <!-- Easy: leaf/sprout -->
   <symbol id="ico-easy" viewBox="0 0 24 24"><path fill="#5a5" d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66C7.72 17.14 9.44 12 17 10V8z"/><path fill="#5a5" d="M20.59 2.41c-2.07-.49-7.11-.16-9.88 3.13C8.58 8.24 8.17 11.5 8.55 14.26c.2 1.42.6 2.65 1.09 3.67l1.41-1.41c-.38-.8-.66-1.72-.81-2.78-.26-1.92.06-4.15 1.35-5.94 1.87-2.6 5.21-3.72 7.41-4.07l-2.8 2.8c-.58.58-.86 1.34-.86 2.12 0 .78.28 1.56.86 2.12.56.56 1.34.86 2.12.86s1.54-.3 2.12-.86l2.8-2.8c-.35 2.2-1.47 5.54-4.07 7.41-1.79 1.29-4.02 1.61-5.94 1.35a10.1 10.1 0 0 1-2.78-.81L8.23 17.3c1.02.49 2.25.89 3.67 1.09 2.76.38 6.02-.03 8.72-2.16C23.93 13.52 24.24 8.48 23.75 6.41l-3.16 3.16c-.39.39-1.02.39-1.41 0s-.39-1.02 0-1.41l3.41-3.75z"/></symbol>
   <!-- Medium: balanced scales -->
@@ -279,12 +295,14 @@ body::before{
   <symbol id="ico-hard" viewBox="0 0 24 24"><path fill="#e07020" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></symbol>
   <!-- Extreme: skull -->
   <symbol id="ico-extreme" viewBox="0 0 24 24"><path fill="#c44" d="M12 2C6.48 2 2 6.48 2 12v4c0 1.1.9 2 2 2h1v2c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2h6v2c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2h1c1.1 0 2-.9 2-2v-4c0-5.52-4.48-10-10-10zm-3 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></symbol>
+  <!-- Play triangle -->
+  <symbol id="ico-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
 </svg>
 
 <!-- Top Bar -->
 <div id="top-bar">
   <span id="game-title">SNAKESKY</span>
-  <span id="score-display">⭐ 0</span>
+  <span id="score-display"><svg class="icon-star"><use href="#ico-star"/></svg> 0</span>
 </div>
 
 <!-- Word Display -->
@@ -307,14 +325,14 @@ body::before{
 <!-- Start Screen -->
 <div id="start-screen">
   <div id="start-inner">
-    <div id="start-title">🐍 SNAKESKY</div>
+    <div id="start-title"><svg class="icon-snake-title"><use href="#ico-snake"/></svg> SNAKESKY</div>
     <div id="difficulty-toggle">
       <button class="diff-btn" data-diff="easy"><svg class="diff-icon"><use href="#ico-easy"/></svg>Easy</button>
       <button class="diff-btn active" data-diff="medium"><svg class="diff-icon"><use href="#ico-medium"/></svg>Medium</button>
       <button class="diff-btn" data-diff="hard"><svg class="diff-icon"><use href="#ico-hard"/></svg>Hard</button>
       <button class="diff-btn" data-diff="extreme"><svg class="diff-icon"><use href="#ico-extreme"/></svg>Extreme</button>
     </div>
-    <button id="start-btn">▶ Play</button>
+    <button id="start-btn"><svg style="width:22px;height:22px;vertical-align:middle;margin-right:4px"><use href="#ico-play"/></svg>Play</button>
   </div>
 </div>
 
@@ -404,8 +422,8 @@ function buildChallengeUrl(seed) {
 
 function generateShareText(stats) {
   var stars = '';
-  for (var i = 0; i < stats.wordsCompleted; i++) stars += '🐍';
-  if (stats.wordsCompleted === 0) stars = '💀';
+  for (var i = 0; i < stats.wordsCompleted; i++) stars += '~';
+  if (stats.wordsCompleted === 0) stars = 'X';
   var diffLabel = DIFF_LABELS[stats.difficulty] || stats.difficulty;
   return 'Snakesky (' + diffLabel + ') ' + stars + '\n' +
     'Words: ' + stats.wordsCompleted + ' | Score: ' + stats.score + '\n' +
@@ -463,7 +481,7 @@ function soundDeath() {
 var GRID_SIZE = 15;
 var DIFFICULTY = 'medium'; // easy, medium, hardcore
 var TICK_SPEEDS = { easy: 275, medium: 220, hard: 220, extreme: 220 };
-var DIFF_LABELS = { easy: 'Easy 🟢', medium: 'Medium 🟡', hard: 'Hard 🟠', extreme: 'Extreme 🔴' };
+var DIFF_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard', extreme: 'Extreme' };
 var state = null;
 var dictionary = [];
 var loopId = null;
@@ -685,7 +703,7 @@ function render() {
   // Update word display
   updateWordDisplay();
   // Update score
-  document.getElementById('score-display').textContent = '⭐ ' + state.score;
+  document.getElementById('score-display').innerHTML = '<svg class="icon-star"><use href="#ico-star"/></svg> ' + state.score;
 }
 
 function updateWordDisplay() {
@@ -748,8 +766,10 @@ function showDeathModal() {
   var icoMap = { easy:'#ico-easy', medium:'#ico-medium', hard:'#ico-hard', extreme:'#ico-extreme' };
   medallion.querySelector('use').setAttribute('href', icoMap[state.difficulty] || '#ico-medium');
 
+  var diffColors = { easy:'#5a5', medium:'#c8a830', hard:'#e07020', extreme:'#c44' };
+  var diffColor = diffColors[state.difficulty] || '#c8a830';
   statsDiv.innerHTML =
-    '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Difficulty</span><span style="color:#f5e6c8;font-weight:700">' + DIFF_LABELS[state.difficulty] + '</span></div>' +
+    '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Difficulty</span><span style="color:' + diffColor + ';font-weight:700">' + DIFF_LABELS[state.difficulty] + '</span></div>' +
     '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Words</span><span style="color:#f5e6c8;font-weight:700">' + state.wordsCompleted + '</span></div>' +
     '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Score</span><span style="color:#c8a830;font-weight:700">' + state.score + '</span></div>' +
     '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Time</span><span style="color:#f5e6c8;font-weight:700">' + formatTime(elapsed) + '</span></div>';
