@@ -68,33 +68,38 @@ body.rays-swapped{
   width:100%;
   max-width:600px;
   display:flex;
-  justify-content:flex-end;
   align-items:center;
-  padding:12px 16px;
+  padding:8px 12px;
   font-size:14px;
   color:#c8a830;
   border-bottom:1px solid rgba(200,168,48,0.2);
+  gap:8px;
 }
 
-#date-row .score-display{
+#top-bar .score-display{
   font-weight:700;
-  font-size:16px;
+  font-size:14px;
   color:#c8a830;
+  white-space:nowrap;
 }
-#date-row .score-display.hidden{display:none}
+#top-bar .score-display.inactive{opacity:0.3}
 
 #calendar-btn{
   background:none;
-  border:1px solid #4a4a7e;
-  border-radius:6px;
+  border:none;
   color:#c8a830;
   font-family:'Roboto Condensed',sans-serif;
-  font-size:18px;
-  padding:4px 10px;
-  margin-left:8px;
+  font-size:12px;
+  padding:4px 8px;
   cursor:pointer;
   transition:all 0.2s;
   line-height:1;
+  display:inline-flex;
+  align-items:center;
+  gap:2px;
+  white-space:nowrap;
+  flex:1;
+  justify-content:center;
 }
 #calendar-btn:hover{
   border-color:#c8a830;
@@ -110,37 +115,34 @@ body.rays-swapped{
   cursor:pointer;
   transition:all 0.2s;
   line-height:1;
+  margin-left:4px;
 }
-#share-btn:hover{
+#share-btn:hover:not(:disabled){
   border-color:#c8a830;
   background:rgba(200,168,48,0.1);
 }
-#share-btn.hidden{display:none}
+#share-btn:disabled{
+  opacity:0.3;
+  cursor:not-allowed;
+}
 
 /* ===== DATE DISPLAY ===== */
-#date-row{
-  width:100%;
-  max-width:600px;
-  display:flex;
-  align-items:center;
-  padding:8px 16px 0;
-}
 #date-display{
-  flex:1;
-  text-align:center;
-  font-size:13px;
+  font-size:12px;
   color:#6a6a8a;
   letter-spacing:1px;
+  white-space:nowrap;
 }
 #game-clock{
-  font-size:14px;
+  font-size:12px;
   font-weight:700;
   color:#c8a830;
   font-variant-numeric:tabular-nums;
-  min-width:72px;
-  text-align:right;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
 }
-#game-clock.hidden{display:none}
+#game-clock.inactive{opacity:0.3}
 
 /* ===== START SCREEN ===== */
 #start-screen{
@@ -281,18 +283,19 @@ body.rays-swapped{
 /* Spiky starburst behind the medallion */
 #root-info-wrap{
   position:absolute;
-  top:4px;
-  left:8px;
+  top:19px;
+  left:23px;
   z-index:10;
   width:96px;
   height:96px;
   display:flex;
   align-items:center;
   justify-content:center;
+  transform:rotate(-15deg);
   transition:transform 0.3s ease;
 }
 #root-info-wrap:hover{
-  transform:scale(1.06) rotate(3deg);
+  transform:rotate(-15deg) scale(1.06);
 }
 /* Starburst spikes via clip-path */
 #root-info-wrap::before{
@@ -370,7 +373,7 @@ body.rays-swapped{
   line-height:1.1;
 }
 @media(max-width:400px){
-  #root-info-wrap{width:78px;height:78px;top:2px;left:4px}
+  #root-info-wrap{width:78px;height:78px;top:17px;left:19px}
   #root-info{width:66px;height:66px;padding:4px 2px}
   #root-word{font-size:16px}
   #root-label{font-size:5px}
@@ -391,8 +394,14 @@ body.rays-swapped{
   overflow:hidden;
 }
 
+#russian-word-wrap{
+  position:relative;
+  display:inline-flex;
+  align-items:flex-start;
+}
+
 #russian-word{
-  font-size:clamp(4px,10vw,72px);
+  font-size:clamp(40px,10vw,72px);
   font-weight:700;
   color:#f5e6c8;
   text-align:center;
@@ -423,22 +432,25 @@ body.rays-swapped{
 #word-stars .icon-star{width:20px;height:20px}
 
 #tts-btn{
-  background:none;
+  position:absolute;
+  top:-2px;
+  right:-30px;
+  background:rgba(30,30,50,0.8);
   border:1px solid #4a4a7e;
   border-radius:50%;
-  width:44px;
-  height:44px;
+  width:26px;
+  height:26px;
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
   color:#c8a830;
-  font-size:20px;
   transition:all 0.2s;
+  z-index:21;
 }
 #tts-btn:hover{
   border-color:#c8a830;
-  background:rgba(200,168,48,0.1);
+  background:rgba(200,168,48,0.15);
 }
 #tts-btn.hidden{
   display:none;
@@ -951,19 +963,15 @@ body.rays-swapped{
   <symbol id="ico-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
   <symbol id="ico-share" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></symbol>
   <symbol id="ico-message" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></symbol>
+  <symbol id="ico-stopwatch" viewBox="0 0 24 24"><path d="M9 1h6v2H9V1zm3 6a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm1-6h-2V9h2v6zm4.03-7.39 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A7.94 7.94 0 0 0 12 5a8.03 8.03 0 0 0-4.03 1.61"/></symbol>
 </svg>
 
 <!-- Top Bar -->
 <div id="top-bar">
-  <button id="share-btn" class="hidden" aria-label="Share results"><svg class="icon icon-md"><use href="#ico-share"/></svg></button>
-  <button id="calendar-btn" aria-label="Open calendar"><svg class="icon icon-md"><use href="#ico-calendar"/></svg></button>
-</div>
-
-<!-- Date Row with Clock -->
-<div id="date-row">
-  <span class="score-display hidden" id="score-display">⭐ 0</span>
-  <div id="date-display"></div>
-  <span id="game-clock" class="hidden">Time: 0s</span>
+  <span class="score-display inactive" id="score-display">⭐ 0</span>
+  <span id="game-clock" class="inactive"><svg class="icon icon-sm" style="margin-right:2px"><use href="#ico-stopwatch"/></svg><span id="clock-value">0s</span></span>
+  <button id="calendar-btn" aria-label="Open calendar"><span id="date-display"></span><svg class="icon icon-sm" style="margin-left:4px"><use href="#ico-calendar"/></svg></button>
+  <button id="share-btn" disabled aria-label="Share results"><svg class="icon icon-md"><use href="#ico-share"/></svg></button>
 </div>
 
 <!-- Word Tracker Row -->
@@ -984,10 +992,12 @@ body.rays-swapped{
 <!-- Word Display Area -->
 <div id="word-display-area">
   <div id="root-info-wrap"><div id="root-info"><span id="root-label">Word Root<br>of the day</span><span id="root-word"></span><span id="root-translation"></span></div></div>
-  <div id="russian-word">—</div>
+  <div id="russian-word-wrap">
+    <div id="russian-word">—</div>
+    <button id="tts-btn" aria-label="Listen to pronunciation"><svg class="icon icon-sm"><use href="#ico-speaker"/></svg></button>
+  </div>
   <div id="word-translation" class="hidden"></div>
   <div id="word-stars" class="hidden"></div>
-  <button id="tts-btn" aria-label="Listen to pronunciation"><svg class="icon icon-md"><use href="#ico-speaker"/></svg></button>
 </div>
 
 <!-- Message / Error Area -->
@@ -1391,9 +1401,9 @@ body.rays-swapped{
   }
 
   function updateClockDisplay() {
-    var el = document.getElementById('game-clock');
+    var el = document.getElementById('clock-value');
     if (!el) return;
-    el.textContent = 'Time: ' + formatTimer(getElapsedMs());
+    el.textContent = formatTimer(getElapsedMs());
   }
 
   function startTimer() {
@@ -1404,7 +1414,7 @@ body.rays-swapped{
       timerInterval = setInterval(updateClockDisplay, 250);
     }
     var el = document.getElementById('game-clock');
-    if (el) el.classList.remove('hidden');
+    if (el) el.classList.remove('inactive');
     updateClockDisplay();
   }
 
@@ -1425,7 +1435,7 @@ body.rays-swapped{
       timerInterval = setInterval(updateClockDisplay, 250);
     }
     var el = document.getElementById('game-clock');
-    if (el) el.classList.remove('hidden');
+    if (el) el.classList.remove('inactive');
   }
 
   function stopTimer() {
@@ -1853,7 +1863,7 @@ body.rays-swapped{
     var scoreEl = document.getElementById('score-display');
     var shareBtn = document.getElementById('share-btn');
     if (gameState.started || gameState.completed) {
-      scoreEl.classList.remove('hidden');
+      scoreEl.classList.remove('inactive');
       var wordsPlayed = gameState.completed ? totalWords : wordIndex;
       var cumulativeScore = 0;
       for (var i = 0; i < wordsPlayed; i++) {
@@ -1861,12 +1871,12 @@ body.rays-swapped{
       }
       scoreEl.textContent = '⭐ ' + cumulativeScore;
     } else {
-      scoreEl.classList.add('hidden');
+      scoreEl.classList.add('inactive');
     }
     if (gameState.completed) {
-      shareBtn.classList.remove('hidden');
+      shareBtn.disabled = false;
     } else {
-      shareBtn.classList.add('hidden');
+      shareBtn.disabled = true;
     }
   }
 
@@ -2047,7 +2057,7 @@ body.rays-swapped{
       updateTopBar(getTotalScore(gameState.wordScores), reviewWordIndex, 5);
       resetTimerState(gameState.elapsedMs);
       var clockEl = document.getElementById('game-clock');
-      if (clockEl) clockEl.classList.remove('hidden');
+      if (clockEl) clockEl.classList.remove('inactive');
       updateWordTracker();
       showResults(gameState.wordScores, currentWords);
       return;
@@ -2334,7 +2344,7 @@ body.rays-swapped{
       updateTopBar(getTotalScore(gameState.wordScores), reviewWordIndex, 5);
       resetTimerState(gameState.elapsedMs);
       var clockEl = document.getElementById('game-clock');
-      if (clockEl) clockEl.classList.remove('hidden');
+      if (clockEl) clockEl.classList.remove('inactive');
       updateWordTracker();
     } else if (saved) {
       gameState = saved;
