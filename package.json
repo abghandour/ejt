@@ -1,8 +1,0 @@
-{
-  "name": "korni-game",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "serve": "npx serve -l 8765 ."
-  }
-}

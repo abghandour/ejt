@@ -130,7 +130,7 @@ body{background:#0e0e1a;color:#f5e6c8;font-family:'Roboto Condensed',sans-serif;
 <div id="main-wrap">
 <div id="trivia-col">
   <div id="trivia-card">
-    <div id="trivia-img-wrap"><img id="trivia-img" src="hero.png" alt="City"></div>
+    <div id="trivia-img-wrap"><img id="trivia-img" src="../shared/assets/hero.png" alt="City"></div>
     <div id="trivia-card-body">
       <div id="trivia-city-name">Начните игру...<br><span class="en">(start the game...)</span></div>
       <div id="trivia-text">Путешествуйте по Советскому Союзу на поезде и учите корни русских слов.<br><span class="en" style="font-size:13px">travel across the Soviet Union by train and learn Russian word roots.</span></div>
@@ -148,7 +148,7 @@ body{background:#0e0e1a;color:#f5e6c8;font-family:'Roboto Condensed',sans-serif;
   <div id="city-list"><h4><svg class="icon icon-train"><use href="#ico-train"/></svg> ГОРОДА <span class="en">(cities visited)</span></h4><div id="visited-list"></div></div>
 </div>
 <div id="game-col">
-  <div id="banner-wrap"><img id="banner" src="banner.png" alt="Banner" onerror="this.parentElement.style.display='none'"></div>
+  <div id="banner-wrap"><img id="banner" src="../shared/assets/banner.png" alt="Banner" onerror="this.parentElement.style.display='none'"></div>
   <div id="hud">
     <div class="hud-section"><span id="root-label">Корень <span class="en-sm">(root)</span>: —</span></div>
     <div class="hud-section"><span id="depth-display">0 / 0</span> <span class="hud-label">слова <span class="en-sm">(words)</span></span></div>
@@ -451,7 +451,7 @@ function updateVisitedList(city) {
 // ==================== GAME DATA ====================
 let allRoots = [], allData = [];
 async function loadData() {
-  const resp = await fetch('russian-word-roots.json?v=' + Date.now());
+  const resp = await fetch('../shared/dictionaries/metro.json?v=' + Date.now());
   const data = await resp.json();
   allData = data.map(r => ({ rootName: r.rootKey, rootWord: r.rootWord, rootTranslation: r.rootTranslation, children: r.children }));
   allRoots = [...allData];

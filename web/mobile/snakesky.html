@@ -271,7 +271,7 @@ body::before{
 <body>
 
 <!-- Banner -->
-<a href="https://www.patreon.com/u63997582" target="_blank" rel="noopener"><img id="banner" src="banner.png" alt="Snakesky banner"></a>
+<a href="https://www.patreon.com/u63997582" target="_blank" rel="noopener"><img id="banner" src="../shared/assets/banner.png" alt="Snakesky banner"></a>
 
 <!-- SVG Difficulty Icons -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -848,7 +848,7 @@ async function init() {
 
   // Load dictionary
   try {
-    var resp = await fetch('snake-words.json');
+    var resp = await fetch('../shared/dictionaries/snakesky.json');
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     var data = await resp.json();
     dictionary = validateDictionary(data);

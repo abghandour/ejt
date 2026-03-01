@@ -8,3 +8,28 @@
 # Other pages not part of russian-word-roots
 game.html
 metro.html
+
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+xcuserdata/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.moved-aside
+*.xcuserstate
+
+# Swift Package Manager
+.build/
+.swiftpm/xcode/xcuserdata/
+Package.resolved
+
+# Xcode build
+build/
+
+# CocoaPods (if ever used)
+Pods/

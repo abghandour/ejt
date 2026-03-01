@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08AF14B0B9E5CCBB5D90DA85 /* PatreonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E9A301C852932188DAFBE /* PatreonModels.swift */; };
+		22C6C4576D710A9139620D26 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3CE98DDD82E65D78FB60D /* RootView.swift */; };
+		4825275C25ADEB822B299A90 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 68AE50BB20FB29549617F7CF /* Fonts */; };
+		536E6FA913B2C3FF52BADD4A /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021ADCB34CA1B1F6D3BEC56 /* KeychainStore.swift */; };
+		54850DD369DAA9001E2453CB /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD2F6AE9EB310BD83238BB /* Placeholder.swift */; };
+		706B26C86834B5C3720D3A59 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8589A72A992A18723DB21F0B /* LoginView.swift */; };
+		7CF2C495873840A8CC7F62E5 /* Games in Resources */ = {isa = PBXBuildFile; fileRef = 20EC4D0A1AA198FC514050B7 /* Games */; };
+		8C562C48BA00BC7ED40B1D86 /* MainGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828AAE4CC7401C19A1CA3F02 /* MainGameView.swift */; };
+		97496BBE26768EC9D89319AD /* GameWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B706AD108C079F7A9B551E /* GameWebView.swift */; };
+		B22EA51229FF31E849C05E45 /* LocalFileSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1CA044C9B75120950FE038 /* LocalFileSchemeHandler.swift */; };
+		B78034D79CFC597CB1CC428B /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12929B39D4CCD2EC99FEBEE3 /* NavigationBar.swift */; };
+		B9CB0711FC33748358343049 /* JSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0C493F9CB9D7D8B7BA6DC /* JSBridge.swift */; };
+		D6B82F32AB9BA85FE5A2F3B0 /* JTopGamesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AB1E32AC5D8659EBA505DE /* JTopGamesApp.swift */; };
+		F1EE23A4E4A0AC082D9053FC /* GameRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F52A85C0E7CAED1D179EC2 /* GameRegistry.swift */; };
+		F6EAE46F303EAD5A7C53DA4E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3410A66671016C41A220C5D /* AuthManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		800396A5C7D7D945CD5178A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7752FF50C7B62D88B3249E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19E4F7A587625BCB9E9D7643;
+			remoteInfo = JTopGames;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0021ADCB34CA1B1F6D3BEC56 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		0E1CA044C9B75120950FE038 /* LocalFileSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileSchemeHandler.swift; sourceTree = "<group>"; };
+		12929B39D4CCD2EC99FEBEE3 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		20C0C493F9CB9D7D8B7BA6DC /* JSBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSBridge.swift; sourceTree = "<group>"; };
+		20EC4D0A1AA198FC514050B7 /* Games */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Games; path = Sources/Games; sourceTree = SOURCE_ROOT; };
+		31AD2F6AE9EB310BD83238BB /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		5AB3CE98DDD82E65D78FB60D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		68AE50BB20FB29549617F7CF /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Sources/Fonts; sourceTree = SOURCE_ROOT; };
+		828AAE4CC7401C19A1CA3F02 /* MainGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameView.swift; sourceTree = "<group>"; };
+		8589A72A992A18723DB21F0B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8F2B27463B86300FECE019F4 /* JTopGamesTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = JTopGamesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96B706AD108C079F7A9B551E /* GameWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWebView.swift; sourceTree = "<group>"; };
+		96F52A85C0E7CAED1D179EC2 /* GameRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRegistry.swift; sourceTree = "<group>"; };
+		9728A9C08DF617DD03A49CB1 /* JTopGames.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = JTopGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3410A66671016C41A220C5D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		C8AB1E32AC5D8659EBA505DE /* JTopGamesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTopGamesApp.swift; sourceTree = "<group>"; };
+		E42E9A301C852932188DAFBE /* PatreonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatreonModels.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		18672FD97062BCAB1AD6F088 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				31AD2F6AE9EB310BD83238BB /* Placeholder.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		554123A70A8487802F06C538 = {
+			isa = PBXGroup;
+			children = (
+				68AE50BB20FB29549617F7CF /* Fonts */,
+				20EC4D0A1AA198FC514050B7 /* Games */,
+				72B07954BC1216F197B90277 /* Sources */,
+				18672FD97062BCAB1AD6F088 /* Tests */,
+				D0BA9969B53D0B61D5D0769F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		72B07954BC1216F197B90277 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B3410A66671016C41A220C5D /* AuthManager.swift */,
+				96F52A85C0E7CAED1D179EC2 /* GameRegistry.swift */,
+				96B706AD108C079F7A9B551E /* GameWebView.swift */,
+				20C0C493F9CB9D7D8B7BA6DC /* JSBridge.swift */,
+				C8AB1E32AC5D8659EBA505DE /* JTopGamesApp.swift */,
+				0021ADCB34CA1B1F6D3BEC56 /* KeychainStore.swift */,
+				0E1CA044C9B75120950FE038 /* LocalFileSchemeHandler.swift */,
+				8589A72A992A18723DB21F0B /* LoginView.swift */,
+				828AAE4CC7401C19A1CA3F02 /* MainGameView.swift */,
+				12929B39D4CCD2EC99FEBEE3 /* NavigationBar.swift */,
+				E42E9A301C852932188DAFBE /* PatreonModels.swift */,
+				5AB3CE98DDD82E65D78FB60D /* RootView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D0BA9969B53D0B61D5D0769F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9728A9C08DF617DD03A49CB1 /* JTopGames.app */,
+				8F2B27463B86300FECE019F4 /* JTopGamesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		19E4F7A587625BCB9E9D7643 /* JTopGames */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1485E785650559BD7D093D8B /* Build configuration list for PBXNativeTarget "JTopGames" */;
+			buildPhases = (
+				8603999DBFF0DBE025058F3D /* Sources */,
+				BC25D1A56A1425A4E38A9BC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JTopGames;
+			packageProductDependencies = (
+			);
+			productName = JTopGames;
+			productReference = 9728A9C08DF617DD03A49CB1 /* JTopGames.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D073E6F6AC8C7E64EB4EC96D /* JTopGamesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5072DD3A6401A63B109AB2D /* Build configuration list for PBXNativeTarget "JTopGamesTests" */;
+			buildPhases = (
+				0B96A52A6B40C7476C219DBC /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				133C05DA4D26E10B14DF8942 /* PBXTargetDependency */,
+			);
+			name = JTopGamesTests;
+			packageProductDependencies = (
+			);
+			productName = JTopGamesTests;
+			productReference = 8F2B27463B86300FECE019F4 /* JTopGamesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7752FF50C7B62D88B3249E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 4C8B53A5405485ADA36D2D2B /* Build configuration list for PBXProject "JTopGames" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 554123A70A8487802F06C538;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				19E4F7A587625BCB9E9D7643 /* JTopGames */,
+				D073E6F6AC8C7E64EB4EC96D /* JTopGamesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC25D1A56A1425A4E38A9BC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4825275C25ADEB822B299A90 /* Fonts in Resources */,
+				7CF2C495873840A8CC7F62E5 /* Games in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B96A52A6B40C7476C219DBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54850DD369DAA9001E2453CB /* Placeholder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8603999DBFF0DBE025058F3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6EAE46F303EAD5A7C53DA4E /* AuthManager.swift in Sources */,
+				F1EE23A4E4A0AC082D9053FC /* GameRegistry.swift in Sources */,
+				97496BBE26768EC9D89319AD /* GameWebView.swift in Sources */,
+				B9CB0711FC33748358343049 /* JSBridge.swift in Sources */,
+				D6B82F32AB9BA85FE5A2F3B0 /* JTopGamesApp.swift in Sources */,
+				536E6FA913B2C3FF52BADD4A /* KeychainStore.swift in Sources */,
+				B22EA51229FF31E849C05E45 /* LocalFileSchemeHandler.swift in Sources */,
+				706B26C86834B5C3720D3A59 /* LoginView.swift in Sources */,
+				8C562C48BA00BC7ED40B1D86 /* MainGameView.swift in Sources */,
+				B78034D79CFC597CB1CC428B /* NavigationBar.swift in Sources */,
+				08AF14B0B9E5CCBB5D90DA85 /* PatreonModels.swift in Sources */,
+				22C6C4576D710A9139620D26 /* RootView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		133C05DA4D26E10B14DF8942 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19E4F7A587625BCB9E9D7643 /* JTopGames */;
+			targetProxy = 800396A5C7D7D945CD5178A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		29AC8500098855EC77B8F556 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jtopgames.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JTopGames.app/JTopGames";
+			};
+			name = Release;
+		};
+		5C0E156F05E368359732FFD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jtopgames.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JTopGames.app/JTopGames";
+			};
+			name = Debug;
+		};
+		603526AD1E313DDBC989223A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B59D03FAFDF53BB8807DDBA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C8EEE23B9BD4CF3AF5D32149 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jtopgames.app;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CB1775A60CA70975196FF1AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jtopgames.app;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1485E785650559BD7D093D8B /* Build configuration list for PBXNativeTarget "JTopGames" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB1775A60CA70975196FF1AD /* Debug */,
+				C8EEE23B9BD4CF3AF5D32149 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4C8B53A5405485ADA36D2D2B /* Build configuration list for PBXProject "JTopGames" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B59D03FAFDF53BB8807DDBA0 /* Debug */,
+				603526AD1E313DDBC989223A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C5072DD3A6401A63B109AB2D /* Build configuration list for PBXNativeTarget "JTopGamesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C0E156F05E368359732FFD5 /* Debug */,
+				29AC8500098855EC77B8F556 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7752FF50C7B62D88B3249E1 /* Project object */;
+}

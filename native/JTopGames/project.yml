@@ -1,0 +1,73 @@
+name: JTopGames
+options:
+  bundleIdPrefix: com.jtopgames
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+
+targets:
+  JTopGames:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+        excludes:
+          - "**/.gitkeep"
+          - "Fonts/**"
+          - "Games/**"
+      - path: Sources/Fonts
+        type: folder
+        buildPhase: resources
+      - path: Sources/Games
+        type: folder
+        buildPhase: resources
+    info:
+      path: Info.plist
+      properties:
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+        CFBundleURLTypes:
+          - CFBundleURLName: com.jtopgames.oauth
+            CFBundleURLSchemes:
+              - JTopGames
+        UIAppFonts:
+          - Fonts/RobotoCondensed-VariableFont_wght.ttf
+          - Fonts/RobotoCondensed-Italic-VariableFont_wght.ttf
+        UIStatusBarStyle: UIStatusBarStyleLightContent
+        UIViewControllerBasedStatusBarAppearance: false
+        UILaunchScreen:
+          UIColorName: ""
+          UIImageName: ""
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jtopgames.app
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_FILE: Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+      configs:
+        Debug:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: -O
+
+  JTopGamesTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+        excludes:
+          - "**/.gitkeep"
+    dependencies:
+      - target: JTopGames
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jtopgames.tests
