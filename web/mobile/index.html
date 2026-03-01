@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>How Janey Learned Russian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow:hidden;touch-action:manipulation}
+body{
+  background:#0e0e1a;color:#f5e6c8;
+  font-family:'Roboto Condensed',sans-serif;
+  display:flex;flex-direction:column;align-items:center;
+  height:100vh;height:100dvh;overflow:hidden;
+  user-select:none;-webkit-user-select:none;
+}
+body::before{
+  content:'';position:fixed;top:50%;left:50%;
+  width:200vmax;height:200vmax;transform:translate(-50%,-50%);z-index:-1;
+  background:repeating-conic-gradient(from 0deg,#8b2020 0deg 10deg,#a33a3a 10deg 20deg);
+  opacity:0.35;
+}
+
+/* Banner */
+#banner-link{display:block;width:100%;max-width:600px;flex-shrink:0}
+#banner{width:100%;display:block}
+
+/* Title area */
+#title-area{
+  width:100%;max-width:600px;text-align:center;
+  padding:16px 16px 8px;flex-shrink:0;
+}
+#page-title{
+  font-family:'Press Start 2P',monospace;font-size:14px;
+  color:#c8a830;text-shadow:0 0 20px rgba(200,168,48,0.3);
+  line-height:1.6;
+}
+#page-subtitle{font-size:13px;color:#6a6a8a;margin-top:6px}
+
+/* Carousel */
+#carousel-wrap{
+  flex:1;width:100%;max-width:600px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:12px 0;min-height:0;
+}
+#carousel{
+  position:relative;
+  width:100%;height:100%;
+}
+
+/* Game card */
+.game-card{
+  position:absolute;top:50%;
+  width:240px;height:320px;
+  margin-top:-160px;
+  background:linear-gradient(180deg,#1e1e3a 0%,#16162a 100%);
+  border:2px solid #3a3a5a;border-radius:16px;
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:12px;
+  padding:20px;cursor:pointer;
+  transition:transform 0.35s cubic-bezier(0.25,0.8,0.25,1),opacity 0.35s,filter 0.35s;
+  overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
+  will-change:transform;
+}
+.game-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(200,168,48,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.game-card.active{
+  transform:scale(1.08);
+  border-color:#c8a830;
+  box-shadow:0 0 30px rgba(200,168,48,0.2),0 8px 32px rgba(0,0,0,0.4);
+}
+.game-card:not(.active){
+  transform:scale(0.88);opacity:0.5;
+  filter:brightness(0.7);
+}
+
+/* Card icon */
+.card-icon{
+  width:72px;height:72px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(200,168,48,0.15) 0%,rgba(200,168,48,0.05) 100%);
+  border:1px solid rgba(200,168,48,0.2);
+}
+.card-icon svg{width:40px;height:40px;fill:#c8a830}
+
+/* Card text */
+.card-name{
+  font-family:'Press Start 2P',monospace;font-size:13px;
+  color:#c8a830;text-align:center;line-height:1.4;
+}
+.card-desc{
+  font-size:13px;color:#8a8aaa;text-align:center;
+  line-height:1.5;max-width:200px;
+}
+
+/* New badge */
+.badge-new{
+  position:absolute;top:12px;right:12px;
+  padding:3px 8px;font-size:9px;
+  font-family:'Press Start 2P',monospace;
+  color:#0e0e1a;background:#c8a830;
+  border-radius:4px;letter-spacing:1px;
+}
+
+/* Dots */
+#dots{
+  display:flex;gap:8px;justify-content:center;
+  padding:8px 0 16px;flex-shrink:0;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#3a3a5a;transition:all 0.3s;
+}
+.dot.active{background:#c8a830;transform:scale(1.3)}
+
+/* Play button */
+#play-btn{
+  width:100%;max-width:600px;padding:0 20px 20px;flex-shrink:0;
+}
+#play-btn button{
+  width:100%;min-height:54px;font-size:18px;
+  font-family:'Roboto Condensed',sans-serif;font-weight:700;
+  background:linear-gradient(180deg,#3a5a2a 0%,#2a4a1a 100%);
+  border:2px solid #5a8a3a;border-radius:12px;
+  color:#f5e6c8;cursor:pointer;transition:all 0.2s;
+  box-shadow:0 4px 16px rgba(90,138,58,0.3);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  -webkit-tap-highlight-color:transparent;
+}
+#play-btn button:active{
+  transform:scale(0.97);
+  background:linear-gradient(180deg,#4a6a3a 0%,#3a5a2a 100%);
+}
+
+/* iframe game view */
+#game-frame{
+  position:fixed;left:0;width:100%;
+  border:none;z-index:100;background:#0e0e1a;
+  display:none;
+}
+
+/* Back bar shown over iframe */
+#back-bar{
+  position:fixed;top:0;left:0;right:0;z-index:101;
+  display:none;background:#0e0e1a;
+}
+#back-bar img{width:100%;max-width:600px;display:block;margin:0 auto;cursor:pointer}
+</style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="ico-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
+  <!-- Snakesky: snake -->
+  <symbol id="ico-snake" viewBox="0 0 24 24"><path d="M20 6c0-1.1-.9-2-2-2s-2 .9-2 2c0 .6.3 1.2.7 1.5C15.3 9.5 13 11 10 11c-2.2 0-4-.8-5.3-2H4c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1c1.3 1.2 3.1 2 5 2 4.4 0 8-2.7 9.6-6.5.2-.1.4-.2.4-.5V6zm-2-1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM4 18c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-1H4v1z"/></symbol>
+  <!-- Wordsky: letter grid -->
+  <symbol id="ico-grid" viewBox="0 0 24 24"><path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/></symbol>
+  <!-- Rootsky: tree/root -->
+  <symbol id="ico-root" viewBox="0 0 24 24"><path d="M12 2C9.2 2 7 4.2 7 7c0 1.9 1 3.5 2.5 4.3V13H8v2h1.5v2H8v2h1.5v3h5v-3H16v-2h-1.5v-2H16v-2h-1.5v-1.7C16 10.5 17 8.9 17 7c0-2.8-2.2-5-5-5z"/></symbol>
+  <!-- Scramblisky: shuffle -->
+  <symbol id="ico-scramble" viewBox="0 0 24 24"><path d="M10.6 4.1L9.2 2.7 2.4 9.5l6.8 6.8 1.4-1.4-4.4-4.4H16v6h2v-8H6.2l4.4-4.4zM20 4h-2v6h-5.8l4.4-4.4-1.4-1.4L8.4 11l6.8 6.8 1.4-1.4-4.4-4.4H20V4z"/></symbol>
+  <!-- Tetrisky: tetris block -->
+  <symbol id="ico-tetris" viewBox="0 0 24 24"><path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm0 6h4v4h-4v-4zm6-6h4v4h-4V4zm-6 12h4v4h-4v-4z"/></symbol>
+</svg>
+
+<a id="banner-link" href="https://www.patreon.com/u63997582" target="_blank" rel="noopener">
+  <img id="banner" src="../shared/assets/banner.png" alt="How Janey Learned Russian">
+</a>
+
+<div id="title-area">
+  <div id="page-title">How Janey Learned<br>Russian</div>
+  <div id="page-subtitle">Choose a game to play</div>
+</div>
+
+<div id="carousel-wrap">
+  <div id="carousel"></div>
+</div>
+
+<div id="dots"></div>
+
+<div id="play-btn">
+  <button id="btn-play" onclick="launchGame()">
+    <svg style="width:22px;height:22px;fill:currentColor"><use href="#ico-play"/></svg>
+    <span id="play-label">Play</span>
+  </button>
+</div>
+
+<!-- Back bar overlaid on iframe -->
+<div id="back-bar">
+  <img src="../shared/assets/banner.png" alt="Back to menu" id="back-banner">
+</div>
+
+<iframe id="game-frame" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+
+<script>
+var GAMES = [
+  {id:'rootsky',   name:'Rootsky',      file:'rootsky.html',     icon:'#ico-root',     desc:'Match Russian words to their roots', isNew:false},
+  {id:'scramblisky',name:'Scramblisky', file:'scramblisky.html', icon:'#ico-scramble',  desc:'Unscramble Russian words before time runs out', isNew:true},
+  {id:'snakesky',  name:'Snakesky',     file:'snakesky.html',    icon:'#ico-snake',     desc:'Guide the snake to eat the right Russian words', isNew:false},
+  {id:'tetrisky',  name:'Tetrisky',     file:'tetrisky.html',    icon:'#ico-tetris',    desc:'Drop letters to form Russian words', isNew:true},
+  {id:'wordsky',   name:'Wordsky',      file:'wordsky.html',     icon:'#ico-grid',      desc:'Guess the daily Russian word in 6 tries', isNew:false}
+];
+
+var currentIndex = 0;
+var startX = 0, isDragging = false, dragDelta = 0;
+var carousel = document.getElementById('carousel');
+var carouselWrap = document.getElementById('carousel-wrap');
+var STORAGE_KEY = 'hjlr_last_game';
+var CARD_W = 240, CARD_GAP = 16;
+var N = GAMES.length;
+
+function getLastPlayed() {
+  try { return localStorage.getItem(STORAGE_KEY) || ''; } catch(e) { return ''; }
+}
+function setLastPlayed(id) {
+  try { localStorage.setItem(STORAGE_KEY, id); } catch(e) {}
+}
+
+// Wrap index into [0, N)
+function wrap(i) { return ((i % N) + N) % N; }
+
+// Shortest circular distance from a to b
+function circDist(a, b) {
+  var d = ((b - a) % N + N) % N;
+  return d > N / 2 ? d - N : d;
+}
+
+function buildCards() {
+  carousel.innerHTML = '';
+  var dotsEl = document.getElementById('dots');
+  dotsEl.innerHTML = '';
+  for (var i = 0; i < N; i++) {
+    var g = GAMES[i];
+    var card = document.createElement('div');
+    card.className = 'game-card';
+    card.setAttribute('data-index', i);
+    card.innerHTML =
+      (g.isNew ? '<div class="badge-new">NEW</div>' : '') +
+      '<div class="card-icon"><svg><use href="' + g.icon + '"/></svg></div>' +
+      '<div class="card-name">' + g.name + '</div>' +
+      '<div class="card-desc">' + g.desc + '</div>';
+    (function(idx) {
+      card.addEventListener('click', function() {
+        if (idx === currentIndex) { launchGame(); }
+        else { goTo(idx); }
+      });
+    })(i);
+    carousel.appendChild(card);
+
+    var dot = document.createElement('div');
+    dot.className = 'dot';
+    dotsEl.appendChild(dot);
+  }
+}
+
+function goTo(idx) {
+  currentIndex = wrap(idx);
+  updateCarousel();
+}
+
+function updateCarousel() {
+  var cards = carousel.querySelectorAll('.game-card');
+  var wrapWidth = carouselWrap.offsetWidth;
+  var centerX = wrapWidth / 2;
+  var step = CARD_W + CARD_GAP;
+
+  // Position each card relative to the center using circular distance
+  for (var i = 0; i < N; i++) {
+    var offset = circDist(currentIndex, i);
+    var x = centerX - CARD_W / 2 + offset * step + dragDelta;
+    var card = cards[i];
+    card.style.position = 'absolute';
+    card.style.left = '0';
+    card.style.transform = 'translateX(' + x + 'px)';
+    card.classList.toggle('active', i === currentIndex);
+  }
+
+  var dots = document.querySelectorAll('.dot');
+  for (var j = 0; j < N; j++) {
+    dots[j].classList.toggle('active', j === currentIndex);
+  }
+  document.getElementById('play-label').textContent = 'Play ' + GAMES[currentIndex].name;
+}
+
+// Touch/swipe handling
+carouselWrap.addEventListener('touchstart', function(e) {
+  isDragging = true;
+  startX = e.touches[0].clientX;
+  dragDelta = 0;
+  setCarouselTransition(false);
+}, {passive:true});
+
+carouselWrap.addEventListener('touchmove', function(e) {
+  if (!isDragging) return;
+  dragDelta = e.touches[0].clientX - startX;
+  updateCarousel();
+}, {passive:true});
+
+carouselWrap.addEventListener('touchend', function() {
+  if (!isDragging) return;
+  isDragging = false;
+  setCarouselTransition(true);
+  var threshold = 60;
+  if (dragDelta < -threshold) { currentIndex = wrap(currentIndex + 1); }
+  else if (dragDelta > threshold) { currentIndex = wrap(currentIndex - 1); }
+  dragDelta = 0;
+  updateCarousel();
+});
+
+// Mouse drag for desktop testing
+carouselWrap.addEventListener('mousedown', function(e) {
+  isDragging = true;
+  startX = e.clientX;
+  dragDelta = 0;
+  setCarouselTransition(false);
+  e.preventDefault();
+});
+document.addEventListener('mousemove', function(e) {
+  if (!isDragging) return;
+  dragDelta = e.clientX - startX;
+  updateCarousel();
+});
+document.addEventListener('mouseup', function() {
+  if (!isDragging) return;
+  isDragging = false;
+  setCarouselTransition(true);
+  var threshold = 60;
+  if (dragDelta < -threshold) { currentIndex = wrap(currentIndex + 1); }
+  else if (dragDelta > threshold) { currentIndex = wrap(currentIndex - 1); }
+  dragDelta = 0;
+  updateCarousel();
+});
+
+function setCarouselTransition(on) {
+  var cards = carousel.querySelectorAll('.game-card');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].style.transition = on
+      ? 'transform 0.35s cubic-bezier(0.25,0.8,0.25,1), opacity 0.35s, filter 0.35s'
+      : 'opacity 0.35s, filter 0.35s';
+  }
+}
+
+// Launch game in iframe
+function launchGame() {
+  var g = GAMES[currentIndex];
+  setLastPlayed(g.id);
+  var frame = document.getElementById('game-frame');
+  var backBar = document.getElementById('back-bar');
+  backBar.style.display = 'block';
+  // Position iframe below the back-bar banner
+  var barH = backBar.offsetHeight;
+  frame.style.top = barH + 'px';
+  frame.style.height = 'calc(100% - ' + barH + 'px)';
+  frame.src = g.file;
+  frame.style.display = 'block';
+}
+
+function closeGame() {
+  var frame = document.getElementById('game-frame');
+  var backBar = document.getElementById('back-bar');
+  frame.src = '';
+  frame.style.display = 'none';
+  backBar.style.display = 'none';
+  // Re-center on last played
+  var lastId = getLastPlayed();
+  if (lastId) {
+    for (var i = 0; i < GAMES.length; i++) {
+      if (GAMES[i].id === lastId) { currentIndex = i; break; }
+    }
+  }
+  updateCarousel();
+}
+
+document.getElementById('back-banner').addEventListener('click', function(e) {
+  e.preventDefault();
+  closeGame();
+});
+
+// Init
+function init() {
+  buildCards();
+  setCarouselTransition(true);
+  // Start with last played game centered, or first
+  var lastId = getLastPlayed();
+  if (lastId) {
+    for (var i = 0; i < GAMES.length; i++) {
+      if (GAMES[i].id === lastId) { currentIndex = i; break; }
+    }
+  }
+  updateCarousel();
+}
+
+init();
+window.addEventListener('resize', function() { updateCarousel(); });
+</script>
+</body>
+</html>
