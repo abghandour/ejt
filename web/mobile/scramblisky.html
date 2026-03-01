@@ -31,9 +31,12 @@
 
 /* HINT AREA */
 #hint-area{
-  width:100%;max-width:600px;text-align:center;padding:4px 16px;flex-shrink:0;min-height:28px;
+  width:100%;max-width:600px;text-align:center;padding:6px 16px;flex-shrink:0;min-height:42px;
 }
-#translation-hint{font-size:15px;color:#6a9ec0;font-style:italic}
+#translation-hint{font-size:30px;color:#6a9ec0;font-style:italic}
+#translation-hint .hint-icon{cursor:pointer;opacity:0.8;transition:opacity 0.2s}
+#translation-hint .hint-icon:hover{opacity:1}
+#translation-hint .hint-text{margin-left:6px}
 
 /* SCRAMBLE AREA */
 #scramble-area{
@@ -44,13 +47,16 @@
 
 /* Letter tiles */
 #letter-rack{
-  display:flex;gap:6px;justify-content:center;flex-wrap:wrap;
+  display:flex;flex-direction:column;gap:12px;align-items:center;
   padding:8px;min-height:64px;
 }
+.rack-row{
+  display:flex;gap:12px;justify-content:center;
+}
 .letter-tile{
-  width:clamp(40px,11vw,56px);height:clamp(40px,11vw,56px);
+  width:clamp(60px,16.5vw,84px);height:clamp(60px,16.5vw,84px);
   display:flex;align-items:center;justify-content:center;
-  font-size:clamp(20px,5.5vw,30px);font-weight:700;
+  font-size:clamp(30px,8vw,45px);font-weight:700;
   background:linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
   border:2px solid #4a4a7e;border-radius:10px;
   cursor:pointer;transition:all 0.2s;
@@ -152,17 +158,6 @@
 #start-screen.hidden{display:none}
 #start-title{font-size:18px}
 #start-btn{padding:16px 52px;font-size:24px}
-#difficulty-toggle{display:flex;gap:0;border-radius:8px;overflow:hidden;border:2px solid #4a4a7e}
-.diff-btn{
-  padding:8px 16px;font-size:13px;
-  font-family:'Roboto Condensed',sans-serif;font-weight:700;
-  background:linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
-  border:none;color:#6a6a8a;cursor:pointer;transition:all 0.2s;
-  -webkit-tap-highlight-color:transparent;
-}
-.diff-btn.active{background:linear-gradient(180deg,#3a5a2a 0%,#2a4a1a 100%);color:#f5e6c8}
-.diff-btn:not(:last-child){border-right:1px solid #4a4a7e}
-
 /* GAME OVER MODAL */
 #end-overlay{
   position:fixed;top:0;left:0;right:0;bottom:0;
@@ -170,6 +165,11 @@
   z-index:100;backdrop-filter:blur(8px);padding:20px;
 }
 #end-overlay.hidden{display:none}
+#end-popup{
+  width:100%;max-width:400px;background:rgba(30,30,50,0.95);
+  border:1px solid #3a3a5a;border-radius:12px;padding:24px 20px;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+}
 #end-popup h2{font-size:22px;font-weight:700;color:#c8a830}
 #end-stats{width:100%;display:flex;flex-direction:column;gap:8px;font-size:15px}
 #end-words{width:100%;max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;font-size:13px;border-top:1px solid rgba(58,58,94,0.3);padding-top:8px}
@@ -192,7 +192,8 @@
   #top-bar{padding:6px 10px}
   #info-row{padding:4px 10px}
   #action-row{padding:6px 10px 10px}
-  .letter-tile,.answer-slot{width:36px;height:36px;font-size:18px;border-radius:8px}
+  .letter-tile{width:54px;height:54px;font-size:27px;border-radius:8px}
+  .answer-slot{width:36px;height:36px;font-size:18px;border-radius:8px}
 }
 </style>
 </head>
@@ -202,6 +203,14 @@
   <symbol id="ico-star" viewBox="0 0 24 24"><path fill="#c8a830" d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></symbol>
   <symbol id="ico-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
   <symbol id="ico-hint" viewBox="0 0 24 24"><path fill="#6a9ec0" d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/></symbol>
+  <!-- Easy: leaf/sprout -->
+  <symbol id="ico-easy" viewBox="0 0 24 24"><path fill="#5a5" d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66C7.72 17.14 9.44 12 17 10V8z"/><path fill="#5a5" d="M20.59 2.41c-2.07-.49-7.11-.16-9.88 3.13C8.58 8.24 8.17 11.5 8.55 14.26c.2 1.42.6 2.65 1.09 3.67l1.41-1.41c-.38-.8-.66-1.72-.81-2.78-.26-1.92.06-4.15 1.35-5.94 1.87-2.6 5.21-3.72 7.41-4.07l-2.8 2.8c-.58.58-.86 1.34-.86 2.12 0 .78.28 1.56.86 2.12.56.56 1.34.86 2.12.86s1.54-.3 2.12-.86l2.8-2.8c-.35 2.2-1.47 5.54-4.07 7.41-1.79 1.29-4.02 1.61-5.94 1.35a10.1 10.1 0 0 1-2.78-.81L8.23 17.3c1.02.49 2.25.89 3.67 1.09 2.76.38 6.02-.03 8.72-2.16C23.93 13.52 24.24 8.48 23.75 6.41l-3.16 3.16c-.39.39-1.02.39-1.41 0s-.39-1.02 0-1.41l3.41-3.75z"/></symbol>
+  <!-- Medium: balanced scales -->
+  <symbol id="ico-medium" viewBox="0 0 24 24"><path fill="#c8a830" d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></symbol>
+  <!-- Hard: flame -->
+  <symbol id="ico-hard" viewBox="0 0 24 24"><path fill="#e07020" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></symbol>
+  <!-- Extreme: skull -->
+  <symbol id="ico-extreme" viewBox="0 0 24 24"><path fill="#c44" d="M12 2C6.48 2 2 6.48 2 12v4c0 1.1.9 2 2 2h1v2c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2h6v2c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2h1c1.1 0 2-.9 2-2v-4c0-5.52-4.48-10-10-10zm-3 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></symbol>
 </svg>
 
 <div id="top-bar">
@@ -236,9 +245,10 @@
     <div id="start-title">SCRAMBLISKY</div>
     <div id="start-hint">Unscramble as many Russian words as you can in 90s. <br>Wrong answers and skipping cost precious seconds.</div>
     <div id="difficulty-toggle">
-      <button class="diff-btn" data-diff="easy">Easy</button>
-      <button class="diff-btn active" data-diff="medium">Medium</button>
-      <button class="diff-btn" data-diff="hard">Hard</button>
+      <button class="diff-btn" data-diff="easy"><svg class="diff-icon"><use href="#ico-easy"/></svg>Easy</button>
+      <button class="diff-btn active" data-diff="medium"><svg class="diff-icon"><use href="#ico-medium"/></svg>Medium</button>
+      <button class="diff-btn" data-diff="hard"><svg class="diff-icon"><use href="#ico-hard"/></svg>Hard</button>
+      <button class="diff-btn" data-diff="extreme"><svg class="diff-icon"><use href="#ico-extreme"/></svg>Extreme</button>
     </div>
     <button id="start-btn"><svg style="width:20px;height:20px;vertical-align:middle;margin-right:4px"><use href="#ico-play"/></svg>Play</button>
   </div>
@@ -293,7 +303,7 @@ var DIFFICULTY = 'medium';
 var STARTING_TIME = 90;
 var SKIP_PENALTY = 10;
 var WRONG_PENALTY = 20;
-var WORD_LEN_RANGES = { easy: [3, 4], medium: [5, 7], hard: [8, 99] };
+var WORD_LEN_RANGES = { easy: [3, 4], medium: [5, 7], hard: [8, 99], extreme: [8, 99] };
 
 // ===== DICTIONARY =====
 var dictionary = [];
@@ -512,6 +522,7 @@ function selectLetter(idx) {
 
 function removeFromAnswer(pos) {
   if (!game || !game.isRunning || isTransitioning) return;
+  if (DIFFICULTY === 'extreme') return;
   if (pos < 0 || pos >= game.selectedIndices.length) return;
   game.selectedIndices.splice(pos, 1);
   soundRemove();
@@ -528,7 +539,7 @@ function checkAnswer() {
     soundCorrect();
     flashCorrect();
     var points = word.length * 10;
-    if (DIFFICULTY === 'hard') points = Math.round(points * 1.5);
+    if (DIFFICULTY === 'hard' || DIFFICULTY === 'extreme') points = Math.round(points * 1.5);
     game.score += points;
     game.wordsCompleted++;
     game.completedWords.push(game.currentWord);
@@ -581,21 +592,36 @@ function flashCorrect() {
 function renderRack(animate) {
   var rack = document.getElementById('letter-rack');
   rack.innerHTML = '';
-  for (var i = 0; i < game.scrambledLetters.length; i++) {
-    var tile = document.createElement('div');
-    tile.className = 'letter-tile';
-    if (animate) {
-      tile.classList.add('growing');
-      tile.style.animationDelay = (i * 50) + 'ms';
+  var letters = game.scrambledLetters;
+  var total = letters.length;
+  // Split into rows: max 5 per row, distribute evenly
+  var maxPerRow = 5;
+  var numRows = Math.ceil(total / maxPerRow);
+  var basePerRow = Math.floor(total / numRows);
+  var extra = total % numRows;
+  var idx = 0;
+  for (var r = 0; r < numRows; r++) {
+    var rowDiv = document.createElement('div');
+    rowDiv.className = 'rack-row';
+    var count = basePerRow + (r < extra ? 1 : 0);
+    for (var c = 0; c < count; c++) {
+      var tile = document.createElement('div');
+      tile.className = 'letter-tile';
+      if (animate) {
+        tile.classList.add('growing');
+        tile.style.animationDelay = (idx * 50) + 'ms';
+      }
+      tile.textContent = letters[idx];
+      if (game.selectedIndices.indexOf(idx) !== -1) {
+        tile.classList.add('used');
+      }
+      (function(i) {
+        tile.addEventListener('click', function() { selectLetter(i); });
+      })(idx);
+      rowDiv.appendChild(tile);
+      idx++;
     }
-    tile.textContent = game.scrambledLetters[i];
-    if (game.selectedIndices.indexOf(i) !== -1) {
-      tile.classList.add('used');
-    }
-    (function(idx) {
-      tile.addEventListener('click', function() { selectLetter(idx); });
-    })(i);
-    rack.appendChild(tile);
+    rack.appendChild(rowDiv);
   }
 }
 
@@ -603,19 +629,35 @@ function renderAnswer(animate) {
   var area = document.getElementById('answer-area');
   area.innerHTML = '';
   var len = game.currentWord.word.length;
+  var allFilled = game.selectedIndices.length === len;
+  var isExtreme = DIFFICULTY === 'extreme';
+
+  // In extreme mode, hide the area until all letters are picked
+  if (isExtreme && !allFilled) {
+    area.style.visibility = 'hidden';
+  } else {
+    area.style.visibility = 'visible';
+  }
+
   for (var i = 0; i < len; i++) {
     var slot = document.createElement('div');
     slot.className = 'answer-slot';
-    if (animate) {
+    if (animate && !isExtreme) {
+      slot.classList.add('growing');
+      slot.style.animationDelay = (i * 50) + 'ms';
+    }
+    if (allFilled && isExtreme) {
       slot.classList.add('growing');
       slot.style.animationDelay = (i * 50) + 'ms';
     }
     if (i < game.selectedIndices.length) {
       slot.classList.add('filled');
       slot.textContent = game.scrambledLetters[game.selectedIndices[i]];
-      (function(pos) {
-        slot.addEventListener('click', function() { removeFromAnswer(pos); });
-      })(i);
+      if (!isExtreme) {
+        (function(pos) {
+          slot.addEventListener('click', function() { removeFromAnswer(pos); });
+        })(i);
+      }
     }
     area.appendChild(slot);
   }
@@ -635,8 +677,20 @@ function renderFoundWords() {
 function updateHint() {
   var hintEl = document.getElementById('translation-hint');
   if (!game || !game.currentWord) { hintEl.textContent = ''; return; }
-  if (DIFFICULTY === 'easy' || DIFFICULTY === 'medium') {
-    hintEl.innerHTML = '<svg class="icon-star" style="fill:#6a9ec0;vertical-align:middle;margin-right:4px"><use href="#ico-hint"/></svg>' + game.currentWord.translation;
+  var iconSvg = '<svg class="icon-star hint-icon" style="fill:#6a9ec0;vertical-align:middle;width:30px;height:30px"><use href="#ico-hint"/></svg>';
+  if (DIFFICULTY === 'easy') {
+    hintEl.innerHTML = iconSvg + '<span class="hint-text">' + game.currentWord.translation + '</span>';
+  } else if (DIFFICULTY === 'medium') {
+    hintEl.innerHTML = iconSvg;
+    hintEl.querySelector('.hint-icon').addEventListener('click', function() {
+      var existing = hintEl.querySelector('.hint-text');
+      if (!existing) {
+        var span = document.createElement('span');
+        span.className = 'hint-text';
+        span.textContent = game.currentWord.translation;
+        hintEl.appendChild(span);
+      }
+    });
   } else {
     hintEl.textContent = '';
   }
@@ -663,7 +717,7 @@ function showEndModal() {
   var statsDiv = document.getElementById('end-stats');
   var wordsDiv = document.getElementById('end-words');
 
-  var diffLabel = {easy:'Easy',medium:'Medium',hard:'Hard'}[game.difficulty];
+  var diffLabel = {easy:'Easy',medium:'Medium',hard:'Hard',extreme:'Extreme'}[game.difficulty];
 
   statsDiv.innerHTML =
     '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Difficulty</span><span style="color:#c8a830;font-weight:700">' + diffLabel + '</span></div>' +
@@ -703,7 +757,7 @@ document.getElementById('btn-play-again').addEventListener('click', function() {
 });
 
 document.getElementById('btn-share').addEventListener('click', function() {
-  var diffLabel = {easy:'Easy',medium:'Medium',hard:'Hard'}[game.difficulty];
+  var diffLabel = {easy:'Easy',medium:'Medium',hard:'Hard',extreme:'Extreme'}[game.difficulty];
   var text = 'Scramblisky (' + diffLabel + ')\n' +
     'Words: ' + game.wordsCompleted + ' | Score: ' + game.score + '\n' +
     'Skipped: ' + game.wordsSkipped + ' | Wrong: ' + game.wrongAttempts;
@@ -744,7 +798,7 @@ function startGame() {
 
   // Show/hide clear button based on difficulty
   var clearBtn = document.getElementById('btn-clear');
-  clearBtn.style.display = (DIFFICULTY === 'hard') ? 'none' : 'flex';
+  clearBtn.style.display = (DIFFICULTY === 'hard' || DIFFICULTY === 'extreme') ? 'none' : 'flex';
 
   renderRack(true);
   renderAnswer(true);
