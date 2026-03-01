@@ -848,7 +848,7 @@ body::before{
 
 <!-- Date Row with Clock -->
 <div id="date-row">
-  <span class="score-display hidden" id="score-display">⭐ 0</span>
+  <span class="score-display hidden" id="score-display"><svg class="icon icon-star filled" style="width:16px;height:16px"><use href="#ico-star-filled"/></svg> 0</span>
   <div id="date-display"></div>
   <span id="game-clock" class="hidden">Time: 0s</span>
 </div>
@@ -1199,8 +1199,8 @@ body::before{
 
   function getStarRating(wordScore) {
     let s = '';
-    for (let i = 0; i < wordScore; i++) s += '⭐';
-    for (let i = 0; i < 5 - wordScore; i++) s += '☆';
+    for (let i = 0; i < wordScore; i++) s += '\u2605';
+    for (let i = 0; i < 5 - wordScore; i++) s += '\u2606';
     return s;
   }
 
@@ -1228,7 +1228,7 @@ body::before{
         while (w.length < padLen) w += ' ';
       }
       var stars = '';
-      for (let j = 0; j < wordScores[i]; j++) stars += '⭐';
+      for (let j = 0; j < wordScores[i]; j++) stars += '\u2605';
       text += w + stars + '\n';
     }
     return text;
@@ -1733,7 +1733,7 @@ body::before{
       for (var i = 0; i < wordsPlayed; i++) {
         cumulativeScore += gameState.wordScores[i];
       }
-      scoreEl.textContent = '⭐ ' + cumulativeScore;
+      scoreEl.innerHTML = '<svg class="icon icon-star filled" style="width:16px;height:16px"><use href="#ico-star-filled"/></svg> ' + cumulativeScore;
     } else {
       scoreEl.classList.add('hidden');
     }

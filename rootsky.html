@@ -987,7 +987,7 @@ body.rays-swapped{
 
 <!-- Top Bar -->
 <div id="top-bar">
-  <span class="score-display inactive" id="score-display">⭐ 0</span>
+  <span class="score-display inactive" id="score-display"><svg class="icon icon-star filled" style="width:16px;height:16px"><use href="#ico-star-filled"/></svg> 0</span>
   <span id="game-clock" class="inactive"><svg class="icon icon-sm" style="margin-right:2px"><use href="#ico-stopwatch"/></svg><span id="clock-value">0s</span></span>
   <button id="calendar-btn" aria-label="Open calendar"><span id="date-display"></span><svg class="icon icon-sm" style="margin-left:4px"><use href="#ico-calendar"/></svg></button>
   <button id="share-btn" disabled aria-label="Share results"><svg class="icon icon-md"><use href="#ico-share"/></svg></button>
@@ -1347,8 +1347,8 @@ body.rays-swapped{
 
   function getStarRating(wordScore) {
     let s = '';
-    for (let i = 0; i < wordScore; i++) s += '⭐';
-    for (let i = 0; i < 5 - wordScore; i++) s += '☆';
+    for (let i = 0; i < wordScore; i++) s += '\u2605';
+    for (let i = 0; i < 5 - wordScore; i++) s += '\u2606';
     return s;
   }
 
@@ -1376,7 +1376,7 @@ body.rays-swapped{
         while (w.length < padLen) w += ' ';
       }
       var stars = '';
-      for (let j = 0; j < wordScores[i]; j++) stars += '⭐';
+      for (let j = 0; j < wordScores[i]; j++) stars += '\u2605';
       text += w + stars + '\n';
     }
     return text;
@@ -1925,7 +1925,7 @@ body.rays-swapped{
       for (var i = 0; i < wordsPlayed; i++) {
         cumulativeScore += gameState.wordScores[i];
       }
-      scoreEl.textContent = '⭐ ' + cumulativeScore;
+      scoreEl.innerHTML = '<svg class="icon icon-star filled" style="width:16px;height:16px"><use href="#ico-star-filled"/></svg> ' + cumulativeScore;
     } else {
       scoreEl.classList.add('inactive');
     }
