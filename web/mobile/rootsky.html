@@ -7,54 +7,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/base.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  background:#0e0e1a;
-  color:#f5e6c8;
-  font-family:'Roboto Condensed',sans-serif;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  height:100vh;
-  height:100dvh;
-  overflow:hidden;
-}
-
-/* Soviet propaganda sunburst background */
+/* Rootsky sunburst override — slightly different red */
 body::before{
-  content:'';
-  position:fixed;
-  top:50%;
-  left:50%;
-  width:200vmax;
-  height:200vmax;
-  transform:translate(-50%,-50%);
-  z-index:-1;
   background:repeating-conic-gradient(
     from 0deg,
     #941f1f 0deg 10deg,
     #a33a3a 10deg 20deg
   );
-  opacity:0.35;
 }
-body.rays-swapped{
+body.rays-swapped::before{
   background:repeating-conic-gradient(
     from 0deg,
-    #a33a3a 10deg 20deg
-    #941f1f 0deg 10deg,
+    #a33a3a 0deg 10deg,
+    #941f1f 10deg 20deg
   );
 }
-
-/* ===== ICON CLASSES ===== */
-.icon{display:inline-block;vertical-align:middle;fill:currentColor}
-.icon-sm{width:16px;height:16px}
-.icon-md{width:20px;height:20px}
-.icon-lg{width:24px;height:24px}
-.icon-star{width:18px;height:18px}
-.icon-star.filled{fill:#c8a830}
-.icon-star.empty{fill:none;stroke:#6a6a8a;stroke-width:1.5px}
 
 /* ===== TOP BAR ===== */
 #top-bar{
@@ -148,6 +117,8 @@ body.rays-swapped{
   flex:1 1 0;
   min-height:0;
   gap:20px;
+  position:static;
+  pointer-events:auto;
 }
 #start-screen.hidden{display:none}
 
@@ -1064,59 +1035,9 @@ body.rays-swapped{
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../shared/engine.js"></script>
 <script>
-  // ===== SOUND ENGINE =====
-  var audioCtx = null;
-  var audioUnlocked = false;
-  function getAudioCtx() {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    return audioCtx;
-  }
-  function ensureAudioResumed() {
-    var ctx = getAudioCtx();
-    if (ctx.state === 'suspended') {
-      ctx.resume();
-    }
-  }
-  function unlockAudio() {
-    if (audioUnlocked) return;
-    var ctx = getAudioCtx();
-    if (ctx.state === 'suspended') ctx.resume();
-    var b = ctx.createBuffer(1, 1, 22050);
-    var s = ctx.createBufferSource();
-    s.buffer = b;
-    s.connect(ctx.destination);
-    s.start(0);
-    audioUnlocked = true;
-  }
-  // Keep unlocking on every gesture — mobile Safari can re-suspend the context
-  document.addEventListener('touchstart', ensureAudioResumed, true);
-  document.addEventListener('touchend', ensureAudioResumed, true);
-  document.addEventListener('click', ensureAudioResumed, true);
-  // First-time unlock with silent buffer
-  document.addEventListener('touchstart', unlockAudio, { once: true });
-  document.addEventListener('touchend', unlockAudio, { once: true });
-  document.addEventListener('click', unlockAudio, { once: true });
-
-  function playTone(freq, dur, type, vol, delay) {
-    type = type || 'sine';
-    vol = vol || 0.12;
-    delay = delay || 0;
-    var ctx = getAudioCtx();
-    // Always try to resume — critical for mobile setTimeout callbacks
-    if (ctx.state === 'suspended') ctx.resume();
-    var o = ctx.createOscillator();
-    var g = ctx.createGain();
-    o.type = type;
-    o.frequency.value = freq;
-    g.gain.setValueAtTime(0.001, ctx.currentTime + delay);
-    g.gain.linearRampToValueAtTime(vol, ctx.currentTime + delay + 0.02);
-    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + dur);
-    o.connect(g).connect(ctx.destination);
-    o.start(ctx.currentTime + delay);
-    o.stop(ctx.currentTime + delay + dur);
-  }
-
+  // ===== GAME-SPECIFIC SOUNDS =====
   function soundCorrect() {
     playTone(523, 0.2, 'sine', 0.12);
     playTone(659, 0.2, 'sine', 0.12, 0.08);

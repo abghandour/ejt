@@ -1,0 +1,132 @@
+/* ===== SHARED BASE STYLES ===== */
+/* Used by all mobile games — Soviet propaganda aesthetic */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap');
+
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow:hidden;touch-action:manipulation}
+
+/* Body */
+body{
+  background:#0e0e1a;color:#f5e6c8;
+  font-family:'Roboto Condensed',sans-serif;
+  display:flex;flex-direction:column;align-items:center;
+  height:100vh;height:100dvh;overflow:hidden;
+  user-select:none;-webkit-user-select:none;
+}
+
+/* Sunburst background */
+body::before{
+  content:'';position:fixed;top:50%;left:50%;
+  width:200vmax;height:200vmax;transform:translate(-50%,-50%);z-index:-1;
+  background:repeating-conic-gradient(from 0deg,#8b2020 0deg 10deg,#a33a3a 10deg 20deg);
+  opacity:0.35;
+}
+
+/* ===== ICON CLASSES ===== */
+.icon{display:inline-block;vertical-align:middle;fill:currentColor}
+.icon-sm{width:16px;height:16px}
+.icon-md{width:20px;height:20px}
+.icon-lg{width:24px;height:24px}
+.icon-star{width:18px;height:18px;vertical-align:middle}
+.icon-star.filled{fill:#c8a830}
+.icon-star.empty{fill:none;stroke:#6a6a8a;stroke-width:1.5px}
+
+/* ===== TOP BAR ===== */
+#top-bar{
+  width:100%;max-width:600px;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 16px;
+  border-bottom:1px solid rgba(200,168,48,0.2);
+  flex-shrink:0;
+}
+#game-title{
+  font-weight:700;color:#c8a830;
+  letter-spacing:1px;
+  font-family:'Press Start 2P',monospace;
+}
+#score-display{font-size:16px;font-weight:700;color:#c8a830}
+
+/* ===== BUTTONS ===== */
+.action-btn,.ctrl-btn{
+  font-family:'Roboto Condensed',sans-serif;font-weight:700;
+  background:linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
+  border:2px solid #4a4a7e;border-radius:12px;
+  color:#f5e6c8;cursor:pointer;transition:all 0.15s;
+  display:flex;align-items:center;justify-content:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.action-btn:active,.ctrl-btn:active{
+  background:linear-gradient(180deg,#3a3a6e 0%,#2e2e52 100%);
+  border-color:#c8a830;transform:scale(0.96);
+}
+
+/* ===== START SCREEN ===== */
+#start-screen{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  background:transparent;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;z-index:50;pointer-events:none;
+}
+#start-screen.hidden{display:none}
+#start-inner{
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  pointer-events:auto;background:rgba(14,14,26,0.88);
+  border:1px solid rgba(200,168,48,0.2);border-radius:16px;
+  padding:20px 32px;backdrop-filter:blur(6px);
+}
+#start-title{
+  font-weight:700;color:#c8a830;
+  text-shadow:0 0 20px rgba(200,168,48,0.3);
+  font-family:'Press Start 2P',monospace;
+}
+#start-hint{font-size:13px;color:#6a6a8a;text-align:center;max-width:280px;line-height:1.4}
+#start-btn{
+  font-family:'Roboto Condensed',sans-serif;font-weight:700;
+  background:linear-gradient(180deg,#3a5a2a 0%,#2a4a1a 100%);
+  border:2px solid #5a8a3a;border-radius:12px;
+  color:#f5e6c8;cursor:pointer;transition:all 0.25s;
+  box-shadow:0 4px 16px rgba(90,138,58,0.3);
+}
+#start-btn:hover{
+  background:linear-gradient(180deg,#4a6a3a 0%,#3a5a2a 100%);
+  border-color:#8aba5a;transform:translateY(-2px);
+}
+
+/* ===== DIFFICULTY TOGGLE ===== */
+#difficulty-toggle{display:flex;gap:0;border-radius:8px;overflow:hidden;border:2px solid #4a4a7e}
+.diff-btn{
+  padding:8px 16px;font-size:13px;
+  font-family:'Roboto Condensed',sans-serif;font-weight:700;
+  background:linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
+  border:none;color:#6a6a8a;cursor:pointer;transition:all 0.2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.diff-btn.active{background:linear-gradient(180deg,#3a5a2a 0%,#2a4a1a 100%);color:#f5e6c8}
+.diff-btn:not(:last-child){border-right:1px solid #4a4a7e}
+
+/* ===== MODAL / OVERLAY ===== */
+.game-overlay{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(8,8,16,0.22);display:flex;align-items:center;justify-content:center;
+  z-index:100;backdrop-filter:blur(8px);padding:20px;
+}
+.game-overlay.hidden{display:none}
+.game-popup{
+  width:100%;max-width:400px;background:rgba(30,30,50,0.95);
+  border:1px solid #3a3a5a;border-radius:12px;padding:24px 20px;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+}
+.game-popup h2{font-size:22px;font-weight:700;color:#c8a830}
+
+/* ===== SHARED ANIMATIONS ===== */
+@keyframes wrongShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+
+/* ===== ERROR MESSAGE ===== */
+#error-msg{
+  display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:rgba(30,30,50,0.95);border:1px solid #c44;border-radius:12px;
+  padding:24px;color:#f88;font-size:16px;text-align:center;z-index:200;max-width:300px;
+}

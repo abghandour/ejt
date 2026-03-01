@@ -7,31 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/base.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{overflow:hidden;touch-action:manipulation}
-body{
-  background:#0e0e1a;color:#f5e6c8;
-  font-family:'Roboto Condensed',sans-serif;
-  display:flex;flex-direction:column;align-items:center;
-  height:100vh;height:100dvh;overflow:hidden;
-  user-select:none;-webkit-user-select:none;
-}
-body::before{
-  content:'';position:fixed;top:50%;left:50%;
-  width:200vmax;height:200vmax;transform:translate(-50%,-50%);z-index:-1;
-  background:repeating-conic-gradient(from 0deg,#8b2020 0deg 10deg,#a33a3a 10deg 20deg);
-  opacity:0.35;
-}
-
-/* TOP BAR */
-#top-bar{
-  width:100%;max-width:600px;display:flex;justify-content:space-between;align-items:center;
-  padding:8px 16px;border-bottom:1px solid rgba(200,168,48,0.2);flex-shrink:0;
-}
-#game-title{font-size:14px;font-weight:700;color:#c8a830;letter-spacing:1px;font-family:'Press Start 2P',monospace}
-#score-display{font-size:16px;font-weight:700;color:#c8a830}
-.icon-star{width:18px;height:18px;vertical-align:middle}
 
 /* INFO ROW */
 #info-row{
@@ -159,19 +136,7 @@ body::before{
   width:100%;max-width:600px;display:flex;gap:8px;
   padding:8px 16px 12px;flex-shrink:0;
 }
-.action-btn{
-  flex:1;min-height:50px;font-size:15px;
-  font-family:'Roboto Condensed',sans-serif;font-weight:700;
-  background:linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
-  border:2px solid #4a4a7e;border-radius:12px;
-  color:#f5e6c8;cursor:pointer;transition:all 0.15s;
-  display:flex;align-items:center;justify-content:center;
-  -webkit-tap-highlight-color:transparent;
-}
-.action-btn:active{
-  background:linear-gradient(180deg,#3a3a6e 0%,#2e2e52 100%);
-  border-color:#c8a830;transform:scale(0.96);
-}
+.action-btn{flex:1;min-height:50px;font-size:15px}
 #btn-skip{
   background:linear-gradient(180deg,#4a2a1a 0%,#3a1a0a 100%);
   border-color:#8a5a2a;
@@ -184,24 +149,9 @@ body::before{
 }
 
 /* START SCREEN */
-#start-screen{
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  background:transparent;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;z-index:50;pointer-events:none;
-}
 #start-screen.hidden{display:none}
-#start-inner{
-  display:flex;flex-direction:column;align-items:center;gap:14px;
-  pointer-events:auto;background:rgba(14,14,26,0.88);
-  border:1px solid rgba(200,168,48,0.2);border-radius:16px;
-  padding:20px 32px;backdrop-filter:blur(6px);
-}
-#start-title{
-  font-size:18px;font-weight:700;color:#c8a830;
-  text-shadow:0 0 20px rgba(200,168,48,0.3);
-  font-family:'Press Start 2P',monospace;
-}
-#start-hint{font-size:13px;color:#6a6a8a;text-align:center;max-width:280px;line-height:1.4}
+#start-title{font-size:18px}
+#start-btn{padding:16px 52px;font-size:24px}
 #difficulty-toggle{display:flex;gap:0;border-radius:8px;overflow:hidden;border:2px solid #4a4a7e}
 .diff-btn{
   padding:8px 16px;font-size:13px;
@@ -212,18 +162,6 @@ body::before{
 }
 .diff-btn.active{background:linear-gradient(180deg,#3a5a2a 0%,#2a4a1a 100%);color:#f5e6c8}
 .diff-btn:not(:last-child){border-right:1px solid #4a4a7e}
-#start-btn{
-  padding:16px 52px;font-size:24px;
-  font-family:'Roboto Condensed',sans-serif;font-weight:700;
-  background:linear-gradient(180deg,#3a5a2a 0%,#2a4a1a 100%);
-  border:2px solid #5a8a3a;border-radius:12px;
-  color:#f5e6c8;cursor:pointer;transition:all 0.25s;
-  box-shadow:0 4px 16px rgba(90,138,58,0.3);
-}
-#start-btn:hover{
-  background:linear-gradient(180deg,#4a6a3a 0%,#3a5a2a 100%);
-  border-color:#8aba5a;transform:translateY(-2px);
-}
 
 /* GAME OVER MODAL */
 #end-overlay{
@@ -232,11 +170,6 @@ body::before{
   z-index:100;backdrop-filter:blur(8px);padding:20px;
 }
 #end-overlay.hidden{display:none}
-#end-popup{
-  width:100%;max-width:400px;background:rgba(30,30,50,0.95);
-  border:1px solid #3a3a5a;border-radius:12px;padding:24px 20px;
-  display:flex;flex-direction:column;align-items:center;gap:14px;
-}
 #end-popup h2{font-size:22px;font-weight:700;color:#c8a830}
 #end-stats{width:100%;display:flex;flex-direction:column;gap:8px;font-size:15px}
 #end-words{width:100%;max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;font-size:13px;border-top:1px solid rgba(58,58,94,0.3);padding-top:8px}
@@ -323,34 +256,11 @@ body::before{
   </div>
 </div>
 
-<div id="error-msg" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(30,30,50,0.95);border:1px solid #c44;border-radius:12px;padding:24px;color:#f88;font-size:16px;text-align:center;z-index:200;max-width:300px"></div>
+<div id="error-msg"></div>
 
+<script src="../shared/engine.js"></script>
 <script>
-// ===== AUDIO ENGINE =====
-var audioCtx = null;
-function getAudioCtx() {
-  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  return audioCtx;
-}
-function ensureAudio() {
-  var ctx = getAudioCtx();
-  if (ctx.state === 'suspended') ctx.resume();
-}
-document.addEventListener('touchstart', ensureAudio, true);
-document.addEventListener('click', ensureAudio, true);
-
-function playTone(freq, dur, type, vol, delay) {
-  var ctx = getAudioCtx();
-  if (ctx.state === 'suspended') ctx.resume();
-  var o = ctx.createOscillator(), g = ctx.createGain();
-  o.type = type || 'sine'; o.frequency.value = freq;
-  delay = delay || 0; vol = vol || 0.1;
-  g.gain.setValueAtTime(0.001, ctx.currentTime + delay);
-  g.gain.linearRampToValueAtTime(vol, ctx.currentTime + delay + 0.02);
-  g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + dur);
-  o.connect(g).connect(ctx.destination);
-  o.start(ctx.currentTime + delay); o.stop(ctx.currentTime + delay + dur);
-}
+// ===== GAME-SPECIFIC SOUNDS =====
 function soundTap() { playTone(600, 0.08, 'sine', 0.05); }
 function soundRemove() { playTone(400, 0.08, 'sine', 0.04); }
 function soundCorrect() {
@@ -378,27 +288,9 @@ function soundExplode() {
   playTone(100, 0.2, 'sawtooth', 0.04, 0.05);
 }
 
-// ===== SEED ENGINE =====
-function SeedEngine(seed) { this._state = seed | 0; }
-SeedEngine.prototype.next = function() {
-  this._state |= 0;
-  this._state = this._state + 0x6D2B79F5 | 0;
-  var t = Math.imul(this._state ^ this._state >>> 15, 1 | this._state);
-  t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-  return ((t ^ t >>> 14) >>> 0) / 4294967296;
-};
-SeedEngine.prototype.nextInt = function(max) { return Math.floor(this.next() * max); };
-SeedEngine.prototype.shuffle = function(arr) {
-  var a = arr.slice();
-  for (var i = a.length - 1; i > 0; i--) {
-    var j = this.nextInt(i + 1); var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
-  }
-  return a;
-};
-
 // ===== CONFIG =====
 var DIFFICULTY = 'medium';
-var STARTING_TIME = 90; // 1.5 minutes
+var STARTING_TIME = 90;
 var SKIP_PENALTY = 10;
 var WRONG_PENALTY = 20;
 var WORD_LEN_RANGES = { easy: [3, 4], medium: [5, 7], hard: [8, 99] };
@@ -406,23 +298,6 @@ var WORD_LEN_RANGES = { easy: [3, 4], medium: [5, 7], hard: [8, 99] };
 // ===== DICTIONARY =====
 var dictionary = [];
 var wordSet = new Set();
-
-function isValidEntry(e) {
-  if (!e || typeof e !== 'object') return false;
-  if (typeof e.word !== 'string' || typeof e.translation !== 'string') return false;
-  var w = e.word.trim().toLowerCase();
-  if (w.length < 3 || w.length > 8) return false;
-  return /^[а-яё]+$/.test(w);
-}
-
-function shuffleArray(arr) {
-  var a = arr.slice();
-  for (var i = a.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
-  }
-  return a;
-}
 
 // ===== GAME STATE =====
 var game = null;
@@ -832,13 +707,7 @@ document.getElementById('btn-share').addEventListener('click', function() {
   var text = 'Scramblisky (' + diffLabel + ')\n' +
     'Words: ' + game.wordsCompleted + ' | Score: ' + game.score + '\n' +
     'Skipped: ' + game.wordsSkipped + ' | Wrong: ' + game.wrongAttempts;
-  if (navigator.share) {
-    navigator.share({ text: text }).catch(function(){});
-  } else if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() { alert('Copied!'); });
-  } else {
-    prompt('Copy:', text);
-  }
+  shareText(text);
 });
 
 // Keyboard support
@@ -887,12 +756,8 @@ function startGame() {
 // ===== INIT =====
 async function init() {
   try {
-    var resp = await fetch('../shared/dictionaries/snakesky.json');
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    var data = await resp.json();
-    dictionary = data.filter(isValidEntry);
+    dictionary = await loadDictionary('../shared/dictionaries/snakesky.json');
     dictionary.forEach(function(e) { e.word = e.word.toLowerCase(); });
-    if (dictionary.length < 20) throw new Error('Dictionary too small');
     dictionary.forEach(function(e) { wordSet.add(e.word); });
   } catch (e) {
     document.getElementById('error-msg').style.display = 'block';
@@ -901,14 +766,7 @@ async function init() {
     return;
   }
 
-  var diffBtns = document.querySelectorAll('.diff-btn');
-  diffBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      diffBtns.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      DIFFICULTY = btn.getAttribute('data-diff');
-    });
-  });
+  setupDifficultyToggle(function(diff) { DIFFICULTY = diff; });
 
   document.getElementById('start-screen').classList.remove('hidden');
   document.getElementById('start-btn').addEventListener('click', function() {
