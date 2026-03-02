@@ -607,8 +607,8 @@ function renderRack(animate) {
   rack.innerHTML = '';
   var letters = game.scrambledLetters;
   var total = letters.length;
-  // Split into rows: max 5 per row, distribute evenly
-  var maxPerRow = 5;
+  // Split into rows: max 4 per row, distribute evenly
+  var maxPerRow = 4;
   var numRows = Math.ceil(total / maxPerRow);
   var basePerRow = Math.floor(total / numRows);
   var extra = total % numRows;
