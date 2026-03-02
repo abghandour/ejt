@@ -113,46 +113,9 @@ body.rays-swapped::before{
 #game-clock.inactive{opacity:0.3}
 
 /* ===== START SCREEN ===== */
-#start-screen{
-  width:100%;
-  max-width:600px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  flex:1 1 0;
-  min-height:0;
-  gap:20px;
-  position:static;
-  pointer-events:auto;
-}
 #start-screen.hidden{display:none}
-
-#start-btn{
-  padding:16px 48px;
-  font-size:22px;
-  font-family:'Roboto Condensed',sans-serif;
-  font-weight:700;
-  background:linear-gradient(180deg,#3a5a2a 0%,#2a4a1a 100%);
-  border:2px solid #5a8a3a;
-  border-radius:12px;
-  color:#f5e6c8;
-  cursor:pointer;
-  transition:all 0.25s;
-  box-shadow:0 4px 16px rgba(90,138,58,0.3);
-}
-#start-btn:hover{
-  background:linear-gradient(180deg,#4a6a3a 0%,#3a5a2a 100%);
-  border-color:#8aba5a;
-  transform:translateY(-2px);
-  box-shadow:0 6px 24px rgba(90,138,58,0.4);
-}
-
-#start-label{
-  font-size:14px;
-  color:#6a6a8a;
-  text-align:center;
-}
+#start-inner{margin:0 16px}
+#start-btn{padding:16px 52px;font-size:24px}
 
 /* ===== WORD TRACKER ROW ===== */
 #word-tracker{
@@ -641,20 +604,6 @@ body.rays-swapped::before{
   text-align:center;
 }
 
-#results-close-btn{
-  position:absolute;
-  top:12px;
-  right:14px;
-  background:none;
-  border:none;
-  color:#6a6a8a;
-  font-size:22px;
-  cursor:pointer;
-  padding:2px 6px;
-  transition:color 0.2s;
-}
-#results-close-btn:hover{color:#f5e6c8}
-
 #results-words{
   width:100%;
   display:flex;
@@ -948,6 +897,7 @@ body.rays-swapped::before{
   <symbol id="ico-chevron-right" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></symbol>
   <symbol id="ico-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
   <symbol id="ico-share" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></symbol>
+  <symbol id="ico-root" viewBox="0 0 40 36"><circle cx="20" cy="3" r="2.5" fill="currentColor"/><line x1="20" y1="5.5" x2="10" y2="13" stroke="currentColor" stroke-width="1.4"/><line x1="20" y1="5.5" x2="30" y2="13" stroke="currentColor" stroke-width="1.4"/><circle cx="10" cy="14" r="2.2" fill="currentColor"/><circle cx="30" cy="14" r="2.2" fill="currentColor"/><line x1="10" y1="16.2" x2="5" y2="24" stroke="currentColor" stroke-width="1.2"/><line x1="10" y1="16.2" x2="15" y2="24" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="25" r="1.8" fill="currentColor"/><circle cx="15" cy="25" r="1.8" fill="currentColor"/><line x1="30" y1="16.2" x2="25" y2="24" stroke="currentColor" stroke-width="1.2"/><line x1="30" y1="16.2" x2="35" y2="24" stroke="currentColor" stroke-width="1.2"/><circle cx="25" cy="25" r="1.8" fill="currentColor"/><circle cx="35" cy="25" r="1.8" fill="currentColor"/><line x1="25" y1="26.8" x2="23" y2="32" stroke="currentColor" stroke-width="1"/><line x1="25" y1="26.8" x2="27" y2="32" stroke="currentColor" stroke-width="1"/><line x1="35" y1="26.8" x2="33" y2="32" stroke="currentColor" stroke-width="1"/><line x1="35" y1="26.8" x2="37" y2="32" stroke="currentColor" stroke-width="1"/><circle cx="23" cy="33" r="1.4" fill="currentColor"/><circle cx="27" cy="33" r="1.4" fill="currentColor"/><circle cx="33" cy="33" r="1.4" fill="currentColor"/><circle cx="37" cy="33" r="1.4" fill="currentColor"/></symbol>
   <symbol id="ico-message" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></symbol>
   <symbol id="ico-stopwatch" viewBox="0 0 24 24"><path d="M9 1h6v2H9V1zm3 6a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm1-6h-2V9h2v6zm4.03-7.39 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A7.94 7.94 0 0 0 12 5a8.03 8.03 0 0 0-4.03 1.61"/></symbol>
 </svg>
@@ -971,8 +921,11 @@ body.rays-swapped::before{
 
 <!-- Start Screen (replaces word display before game starts) -->
 <div id="start-screen" class="hidden">
-  <span id="start-label">Ready to play?</span>
-  <button id="start-btn">Start</button>
+  <div id="start-inner">
+    <div id="start-title"><svg style="width:28px;height:28px;fill:#c8a830;vertical-align:middle;margin-right:6px"><use href="#ico-root"/></svg>ROOTSKY</div>
+    <div id="start-hint">Match Russian words to their roots. 5 words, daily challenge.</div>
+    <button id="start-btn"><svg style="width:22px;height:22px;vertical-align:middle;margin-right:4px"><use href="#ico-play"/></svg>Play</button>
+  </div>
 </div>
 
 <!-- Word Display Area -->
@@ -1002,16 +955,19 @@ body.rays-swapped::before{
 <!-- Results Popup Overlay (hidden by default) -->
 <div id="results-overlay" class="hidden">
   <div id="results-popup">
-    <button id="results-close-btn" aria-label="Close results"><svg class="icon icon-md"><use href="#ico-close"/></svg></button>
-    <h2>Rootsky Results</h2>
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg style="width:32px;height:32px;fill:#c8a830"><use href="#ico-root"/></svg>
+      <span style="font-size:20px;font-weight:700;color:#c8a830;letter-spacing:2px;text-transform:uppercase">Rootsky</span>
+    </div>
+    <h2>Game Over</h2>
     <div id="results-date" style="font-size:13px;color:#6a6a8a;letter-spacing:1px;margin-top:-8px"></div>
     <div id="results-words">
       <!-- Populated by JS: one .result-row per word -->
     </div>
     <div id="results-total">Total: 0/25</div>
     <div id="results-actions">
-      <span style="color:#6a6a8a;font-size:14px;font-weight:700;align-self:center">Share</span>
-      <button class="results-btn share-btn" id="share-message" aria-label="Share via Message"><svg class="icon icon-sm"><use href="#ico-message"/></svg></button>
+      <button class="results-btn share-btn" id="results-close-btn" aria-label="Close"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-close"/></svg>Close</button>
+      <button class="results-btn share-btn" id="share-message" aria-label="Share"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-share"/></svg>Share</button>
     </div>
   </div>
 </div>

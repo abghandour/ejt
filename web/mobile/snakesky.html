@@ -117,6 +117,7 @@
 
 /* START SCREEN */
 #start-screen.hidden{display:none}
+#start-inner{margin:0 16px}
 #start-btn{padding:18px 56px;font-size:26px}
 #start-title{font-size:28px}
 
@@ -126,13 +127,6 @@
 /* DEATH MEDALLION */
 .icon-star{width:18px;height:18px;vertical-align:middle;flex-shrink:0}
 .icon-snake-title{width:28px;height:28px;vertical-align:middle}
-#death-medallion{
-  width:72px;height:72px;
-  transform:rotate(-12deg);
-  filter:drop-shadow(0 0 12px rgba(200,168,48,0.4));
-  margin-bottom:-4px;
-}
-
 /* DEATH MODAL */
 #death-overlay{
   position:fixed;top:0;left:0;right:0;bottom:0;
@@ -170,6 +164,7 @@
   <symbol id="ico-extreme" viewBox="0 0 24 24"><path fill="#c44" d="M12 2C6.48 2 2 6.48 2 12v4c0 1.1.9 2 2 2h1v2c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2h6v2c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2h1c1.1 0 2-.9 2-2v-4c0-5.52-4.48-10-10-10zm-3 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></symbol>
   <!-- Play triangle -->
   <symbol id="ico-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
+  <symbol id="ico-share" viewBox="0 0 24 24"><path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></symbol>
 </svg>
 
 <!-- Top Bar -->
@@ -198,7 +193,8 @@
 <!-- Start Screen -->
 <div id="start-screen">
   <div id="start-inner">
-    <div id="start-title"><svg class="icon-snake-title"><use href="#ico-snake"/></svg> SNAKESKY</div>
+    <div id="start-title"><svg style="width:28px;height:28px;fill:#c8a830;vertical-align:middle;margin-right:6px"><use href="#ico-snake"/></svg>SNAKESKY</div>
+    <div id="start-hint">Guide the snake to eat Russian letters in order. Don't hit the walls or yourself.</div>
     <div id="difficulty-toggle">
       <button class="diff-btn" data-diff="easy"><svg class="diff-icon"><use href="#ico-easy"/></svg>Easy</button>
       <button class="diff-btn active" data-diff="medium"><svg class="diff-icon"><use href="#ico-medium"/></svg>Medium</button>
@@ -211,15 +207,17 @@
 
 <!-- Death Modal -->
 <div id="death-overlay" class="hidden">
-  <div id="death-popup">
-    <svg id="death-medallion"><use href="#ico-medium"/></svg>
+  <div id="death-popup" class="game-popup">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg style="width:32px;height:32px;fill:#c8a830"><use href="#ico-snake"/></svg>
+      <span style="font-size:20px;font-weight:700;color:#c8a830;letter-spacing:2px;text-transform:uppercase">Snakesky</span>
+    </div>
     <h2>Game Over</h2>
     <div id="death-stats" style="width:100%;display:flex;flex-direction:column;gap:8px;font-size:15px"></div>
     <div id="death-words" style="width:100%;max-height:150px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;font-size:13px;border-top:1px solid rgba(58,58,94,0.3);padding-top:8px"></div>
     <div style="display:flex;gap:8px;width:100%;justify-content:center;flex-wrap:wrap;margin-top:4px">
-      <button class="ctrl-btn" id="btn-play-again" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px">Play Again</button>
-      <button class="ctrl-btn" id="btn-challenge" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px">Challenge</button>
-      <button class="ctrl-btn" id="btn-share" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px">Share</button>
+      <button class="ctrl-btn" id="btn-play-again" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px"><svg style="width:18px;height:18px;fill:currentColor;margin-right:6px"><use href="#ico-play"/></svg>Play Again</button>
+      <button class="ctrl-btn" id="btn-share" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px"><svg style="width:16px;height:16px;fill:currentColor;margin-right:6px"><use href="#ico-share"/></svg>Share</button>
     </div>
   </div>
 </div>
@@ -565,11 +563,6 @@ function showDeathModal() {
   var wordsDiv = document.getElementById('death-words');
   var elapsed = Date.now() - state.startTime;
 
-  // Set medallion icon
-  var medallion = document.getElementById('death-medallion');
-  var icoMap = { easy:'#ico-easy', medium:'#ico-medium', hard:'#ico-hard', extreme:'#ico-extreme' };
-  medallion.querySelector('use').setAttribute('href', icoMap[state.difficulty] || '#ico-medium');
-
   var diffColors = { easy:'#5a5', medium:'#c8a830', hard:'#e07020', extreme:'#c44' };
   var diffColor = diffColors[state.difficulty] || '#c8a830';
   statsDiv.innerHTML =
@@ -598,17 +591,6 @@ document.getElementById('btn-play-again').addEventListener('click', function() {
   hideDeathModal();
   // Show start screen again so user can pick difficulty
   document.getElementById('start-screen').classList.remove('hidden');
-});
-
-document.getElementById('btn-challenge').addEventListener('click', function() {
-  var url = buildChallengeUrl(state.seed);
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(function() {
-      alert('Challenge link copied!');
-    });
-  } else {
-    prompt('Copy this challenge link:', url);
-  }
 });
 
 document.getElementById('btn-share').addEventListener('click', function() {
