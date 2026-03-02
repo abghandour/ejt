@@ -764,9 +764,12 @@ document.getElementById('btn-play-again').addEventListener('click', function() {
 
 document.getElementById('btn-share').addEventListener('click', function() {
   var diffLabel = {easy:'Easy',medium:'Medium',hard:'Hard',extreme:'Extreme'}[game.difficulty];
+  var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/index.html');
+  var url = base + '?game=scramblisky';
   var text = 'Scramblisky (' + diffLabel + ')\n' +
     'Words: ' + game.wordsCompleted + ' | Score: ' + game.score + '\n' +
-    'Skipped: ' + game.wordsSkipped + ' | Wrong: ' + game.wrongAttempts;
+    'Skipped: ' + game.wordsSkipped + ' | Wrong: ' + game.wrongAttempts + '\n' +
+    url;
   shareText(text);
 });
 

@@ -465,7 +465,41 @@ function init() {
   updateCarousel();
 }
 
+// Auto-launch game from URL param (e.g. ?game=rootsky&d=20260302)
+function checkDeepLink() {
+  var params = new URLSearchParams(window.location.search);
+  var gameId = params.get('game');
+  if (!gameId) return;
+  for (var i = 0; i < GAMES.length; i++) {
+    if (GAMES[i].id === gameId) {
+      currentIndex = i;
+      updateCarousel();
+      // Forward all params except 'game' to the game page
+      var gameParams = new URLSearchParams();
+      params.forEach(function(val, key) {
+        if (key !== 'game') gameParams.set(key, val);
+      });
+      var qs = gameParams.toString();
+      var frame = document.getElementById('game-frame');
+      var backBar = document.getElementById('back-bar');
+      backBar.style.display = 'block';
+      var barH = backBar.offsetHeight;
+      frame.style.top = barH + 'px';
+      frame.style.height = 'calc(100% - ' + barH + 'px)';
+      frame.src = GAMES[i].file + (qs ? '?' + qs : '');
+      frame.style.display = 'block';
+      setLastPlayed(gameId);
+      // Clean URL without reloading
+      if (window.history.replaceState) {
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+      return;
+    }
+  }
+}
+
 init();
+checkDeepLink();
 window.addEventListener('resize', function() { updateCarousel(); });
 </script>
 </body>

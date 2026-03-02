@@ -2472,8 +2472,8 @@ body.rays-swapped::before{
   }
 
   function getShareUrl() {
-    var url = window.location.origin + window.location.pathname;
-    return url + '?d=' + gameState.date;
+    var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/index.html');
+    return base + '?game=rootsky&d=' + gameState.date;
   }
 
   async function shareWithImage(textFallback, urlFallback) {

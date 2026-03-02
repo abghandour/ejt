@@ -263,7 +263,9 @@ function formatTime(ms) {
 }
 
 function buildChallengeUrl(seed) {
-  var url = new URL(window.location.href.split('?')[0]);
+  var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/index.html');
+  var url = new URL(base);
+  url.searchParams.set('game', 'snakesky');
   url.searchParams.set('seed', seed);
   return url.toString();
 }

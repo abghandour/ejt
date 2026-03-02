@@ -2253,6 +2253,11 @@
     return navigator.share && navigator.canShare;
   }
 
+  function getShareUrl() {
+    var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/index.html');
+    return base + '?game=wordsky&d=' + gameState.date;
+  }
+
   async function shareWithImage(textFallback, urlFallback) {
     if (!canShareWithImage()) {
       if (urlFallback) {
@@ -2263,7 +2268,7 @@
     var blob = await captureResultsImage();
     if (blob) {
       var file = new File([blob], 'wordsky-results.png', { type: 'image/png' });
-      var shareData = { url: window.location.href, files: [file] };
+      var shareData = { url: getShareUrl(), files: [file] };
       try {
         if (navigator.canShare(shareData)) {
           await navigator.share(shareData);
@@ -2358,6 +2363,7 @@
       messageBtn.addEventListener('click', function(e) {
         e.preventDefault();
         var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
+        text += getShareUrl() + '\n';
         shareWithImage(text, 'sms:?&body=' + encodeURIComponent(text));
       });
     }
