@@ -13,6 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/theme.css">
+<script src="../shared/theme.js"></script>
 <link rel="stylesheet" href="../shared/base.css">
 <style>
 /* TOP BAR */
@@ -186,8 +188,8 @@
 
 <!-- Controls -->
 <div id="controls">
-  <button class="ctrl-btn" id="btn-left" aria-label="Turn left">↶</button>
-  <button class="ctrl-btn" id="btn-right" aria-label="Turn right">↷</button>
+  <button class="ctrl-btn" id="btn-left" aria-label="Turn left"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button class="ctrl-btn" id="btn-right" aria-label="Turn right"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
 </div>
 
 <!-- Start Screen -->
@@ -603,7 +605,7 @@ document.getElementById('btn-share').addEventListener('click', function() {
     difficulty: state.difficulty
   };
   var text = generateShareText(stats);
-  shareText(text);
+  shareWithScreenshot(text);
 });
 
 // ===== GAME START =====
@@ -654,6 +656,17 @@ async function init() {
     startGame(seed);
   });
 }
+
+// Pause/resume hooks
+onGamePause(function() {
+  if (loopId) { clearInterval(loopId); loopId = null; }
+});
+onGameResume(function() {
+  if (state && state.isRunning && !loopId) {
+    var tickMs = TICK_SPEEDS[DIFFICULTY] || 220;
+    loopId = setInterval(tick, tickMs);
+  }
+});
 
 window.addEventListener('resize', resizeGrid);
 init();

@@ -1,0 +1,740 @@
+/* ===== THEME SYSTEM ===== */
+/* CSS custom properties for each theme. Applied via data-theme on <html>. */
+
+/* Soviet Russia (default) */
+:root, [data-theme="soviet"] {
+  --bg-primary: #0e0e1a;
+  --bg-secondary: #16162a;
+  --bg-card: #1e1e3a;
+  --bg-card-end: #16162a;
+  --bg-surface: rgba(30,30,50,0.95);
+  --bg-overlay: rgba(8,8,16,0.85);
+  --bg-start-inner: rgba(14,14,26,0.88);
+
+  --text-primary: #f5e6c8;
+  --text-secondary: #6a6a8a;
+  --text-muted: #8a8aaa;
+
+  --accent: #c8a830;
+  --accent-glow: rgba(200,168,48,0.3);
+  --accent-subtle: rgba(200,168,48,0.1);
+  --accent-border: rgba(200,168,48,0.2);
+
+  --info: #6a9ec0;
+  --success: #5a8a3a;
+  --success-text: #8f8;
+  --success-bg: linear-gradient(180deg,#2a3a2a 0%,#1a2a1a 100%);
+  --danger: #c44;
+  --danger-text: #f88;
+
+  --btn-bg: linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
+  --btn-bg-active: linear-gradient(180deg,#3a3a6e 0%,#2e2e52 100%);
+  --btn-border: #4a4a7e;
+  --btn-play-bg: linear-gradient(180deg,#3a5a2a 0%,#2a4a1a 100%);
+  --btn-play-border: #5a8a3a;
+  --btn-play-shadow: rgba(90,138,58,0.3);
+
+  --border-subtle: #3a3a5a;
+  --border-divider: rgba(58,58,94,0.3);
+
+  --tile-bg: linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
+  --tile-border: #4a4a7e;
+  --tile-selected-bg: linear-gradient(180deg,#3a3a10 0%,#2a2a08 100%);
+  --tile-selected-border: #c8a830;
+  --tile-correct-bg: linear-gradient(180deg,#2a5a2a 0%,#1a3a1a 100%);
+  --tile-correct-border: #5a5;
+  --tile-wrong-bg: linear-gradient(180deg,#5a2a2a 0%,#3a1a1a 100%);
+  --tile-wrong-border: #c44;
+
+  --sunburst-1: #8b2020;
+  --sunburst-2: #a33a3a;
+  --sunburst-opacity: 0.35;
+
+  --star-filled: #c8a830;
+  --star-empty-stroke: #6a6a8a;
+
+  --menu-bg: rgba(22,22,42,0.95);
+  --menu-border: #3a3a5a;
+  --menu-hover: rgba(200,168,48,0.1);
+  --hamburger-bg: rgba(14,14,26,0.6);
+  --hamburger-border: rgba(200,168,48,0.3);
+  --hamburger-line: #c8a830;
+}
+
+/* Dark */
+[data-theme="dark"] {
+  --bg-primary: #121218;
+  --bg-secondary: #1a1a24;
+  --bg-card: #1e1e28;
+  --bg-card-end: #18181f;
+  --bg-surface: rgba(28,28,38,0.95);
+  --bg-overlay: rgba(6,6,12,0.88);
+  --bg-start-inner: rgba(18,18,24,0.92);
+
+  --text-primary: #d8d8e0;
+  --text-secondary: #6a6a78;
+  --text-muted: #8888a0;
+
+  --accent: #5a9abf;
+  --accent-glow: rgba(90,154,191,0.25);
+  --accent-subtle: rgba(90,154,191,0.1);
+  --accent-border: rgba(90,154,191,0.2);
+
+  --info: #5a9abf;
+  --success: #4a8a4a;
+  --success-text: #7cc87c;
+  --success-bg: linear-gradient(180deg,#1e2e1e 0%,#162016 100%);
+  --danger: #b44;
+  --danger-text: #e88;
+
+  --btn-bg: linear-gradient(180deg,#252530 0%,#1e1e28 100%);
+  --btn-bg-active: linear-gradient(180deg,#30303e 0%,#252530 100%);
+  --btn-border: #3a3a4a;
+  --btn-play-bg: linear-gradient(180deg,#2a4a3a 0%,#1e3a2a 100%);
+  --btn-play-border: #4a7a5a;
+  --btn-play-shadow: rgba(74,122,90,0.25);
+
+  --border-subtle: #2e2e3a;
+  --border-divider: rgba(50,50,65,0.4);
+
+  --tile-bg: linear-gradient(180deg,#252530 0%,#1e1e28 100%);
+  --tile-border: #3a3a4a;
+  --tile-selected-bg: linear-gradient(180deg,#1a2a3a 0%,#142030 100%);
+  --tile-selected-border: #5a9abf;
+  --tile-correct-bg: linear-gradient(180deg,#1e2e1e 0%,#162016 100%);
+  --tile-correct-border: #4a8a4a;
+  --tile-wrong-bg: linear-gradient(180deg,#3a1e1e 0%,#2e1616 100%);
+  --tile-wrong-border: #b44;
+
+  --sunburst-1: transparent;
+  --sunburst-2: transparent;
+  --sunburst-opacity: 0;
+
+  --star-filled: #5a9abf;
+  --star-empty-stroke: #4a4a5a;
+
+  --menu-bg: rgba(24,24,32,0.96);
+  --menu-border: #2e2e3a;
+  --menu-hover: rgba(90,154,191,0.1);
+  --hamburger-bg: rgba(18,18,24,0.7);
+  --hamburger-border: rgba(90,154,191,0.3);
+  --hamburger-line: #5a9abf;
+}
+
+/* Light */
+[data-theme="light"] {
+  --bg-primary: #f0ece4;
+  --bg-secondary: #e6e0d6;
+  --bg-card: #ffffff;
+  --bg-card-end: #f5f2ec;
+  --bg-surface: rgba(255,255,255,0.96);
+  --bg-overlay: rgba(240,236,228,0.88);
+  --bg-start-inner: rgba(255,255,255,0.94);
+
+  --text-primary: #2a2a30;
+  --text-secondary: #7a7a88;
+  --text-muted: #9a9aa8;
+
+  --accent: #b8860b;
+  --accent-glow: rgba(184,134,11,0.2);
+  --accent-subtle: rgba(184,134,11,0.08);
+  --accent-border: rgba(184,134,11,0.2);
+
+  --info: #3a7ca5;
+  --success: #3a7a3a;
+  --success-text: #2a6a2a;
+  --success-bg: linear-gradient(180deg,#e8f5e8 0%,#d8ecd8 100%);
+  --danger: #c44;
+  --danger-text: #a33;
+
+  --btn-bg: linear-gradient(180deg,#e8e4dc 0%,#ddd8d0 100%);
+  --btn-bg-active: linear-gradient(180deg,#ddd8d0 0%,#d0ccc4 100%);
+  --btn-border: #c0bab0;
+  --btn-play-bg: linear-gradient(180deg,#4a8a4a 0%,#3a7a3a 100%);
+  --btn-play-border: #3a7a3a;
+  --btn-play-shadow: rgba(58,122,58,0.2);
+
+  --border-subtle: #d0ccc4;
+  --border-divider: rgba(0,0,0,0.08);
+
+  --tile-bg: linear-gradient(180deg,#ffffff 0%,#f5f2ec 100%);
+  --tile-border: #c0bab0;
+  --tile-selected-bg: linear-gradient(180deg,#fff8e0 0%,#f5ecd0 100%);
+  --tile-selected-border: #b8860b;
+  --tile-correct-bg: linear-gradient(180deg,#e8f5e8 0%,#d8ecd8 100%);
+  --tile-correct-border: #3a7a3a;
+  --tile-wrong-bg: linear-gradient(180deg,#fde8e8 0%,#f5d8d8 100%);
+  --tile-wrong-border: #c44;
+
+  --sunburst-1: transparent;
+  --sunburst-2: transparent;
+  --sunburst-opacity: 0;
+
+  --star-filled: #b8860b;
+  --star-empty-stroke: #c0bab0;
+
+  --menu-bg: rgba(255,255,255,0.96);
+  --menu-border: #d0ccc4;
+  --menu-hover: rgba(184,134,11,0.08);
+  --hamburger-bg: rgba(255,255,255,0.8);
+  --hamburger-border: rgba(184,134,11,0.3);
+  --hamburger-line: #b8860b;
+}
+
+/* Black & White */
+[data-theme="bw"] {
+  --bg-primary: #111111;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #222222;
+  --bg-card-end: #1a1a1a;
+  --bg-surface: rgba(30,30,30,0.96);
+  --bg-overlay: rgba(8,8,8,0.88);
+  --bg-start-inner: rgba(17,17,17,0.92);
+
+  --text-primary: #e0e0e0;
+  --text-secondary: #777777;
+  --text-muted: #999999;
+
+  --accent: #cccccc;
+  --accent-glow: rgba(200,200,200,0.2);
+  --accent-subtle: rgba(200,200,200,0.08);
+  --accent-border: rgba(200,200,200,0.2);
+
+  --info: #aaaaaa;
+  --success: #888888;
+  --success-text: #bbbbbb;
+  --success-bg: linear-gradient(180deg,#252525 0%,#1e1e1e 100%);
+  --danger: #888;
+  --danger-text: #bbb;
+
+  --btn-bg: linear-gradient(180deg,#2a2a2a 0%,#222222 100%);
+  --btn-bg-active: linear-gradient(180deg,#333333 0%,#2a2a2a 100%);
+  --btn-border: #444444;
+  --btn-play-bg: linear-gradient(180deg,#3a3a3a 0%,#2e2e2e 100%);
+  --btn-play-border: #555555;
+  --btn-play-shadow: rgba(80,80,80,0.2);
+
+  --border-subtle: #333333;
+  --border-divider: rgba(255,255,255,0.08);
+
+  --tile-bg: linear-gradient(180deg,#2a2a2a 0%,#222222 100%);
+  --tile-border: #444444;
+  --tile-selected-bg: linear-gradient(180deg,#3a3a3a 0%,#303030 100%);
+  --tile-selected-border: #cccccc;
+  --tile-correct-bg: linear-gradient(180deg,#303030 0%,#282828 100%);
+  --tile-correct-border: #888888;
+  --tile-wrong-bg: linear-gradient(180deg,#2e2222 0%,#261a1a 100%);
+  --tile-wrong-border: #888;
+
+  --sunburst-1: transparent;
+  --sunburst-2: transparent;
+  --sunburst-opacity: 0;
+
+  --star-filled: #cccccc;
+  --star-empty-stroke: #555555;
+
+  --menu-bg: rgba(26,26,26,0.96);
+  --menu-border: #333333;
+  --menu-hover: rgba(200,200,200,0.06);
+  --hamburger-bg: rgba(17,17,17,0.7);
+  --hamburger-border: rgba(200,200,200,0.25);
+  --hamburger-line: #cccccc;
+}
+
+/* ===== FESTIVUS — Holiday-rotating themes ===== */
+
+/* New Year's — midnight blue, gold, silver */
+[data-theme="festivus-newyear"] {
+  --bg-primary: #0a0a1e;
+  --bg-secondary: #10102a;
+  --bg-card: #161636;
+  --bg-card-end: #10102a;
+  --bg-surface: rgba(20,20,46,0.95);
+  --bg-overlay: rgba(6,6,18,0.88);
+  --bg-start-inner: rgba(12,12,30,0.92);
+  --text-primary: #e8e0d0;
+  --text-secondary: #7a7a9a;
+  --text-muted: #9a9ab8;
+  --accent: #d4af37;
+  --accent-glow: rgba(212,175,55,0.3);
+  --accent-subtle: rgba(212,175,55,0.1);
+  --accent-border: rgba(212,175,55,0.2);
+  --info: #a0b8d0;
+  --success: #5a8a5a;
+  --success-text: #8fc88f;
+  --success-bg: linear-gradient(180deg,#1a2a1a 0%,#142014 100%);
+  --danger: #c44;
+  --danger-text: #f88;
+  --btn-bg: linear-gradient(180deg,#1e1e40 0%,#161630 100%);
+  --btn-bg-active: linear-gradient(180deg,#2a2a50 0%,#1e1e40 100%);
+  --btn-border: #3a3a6a;
+  --btn-play-bg: linear-gradient(180deg,#3a4a2a 0%,#2a3a1a 100%);
+  --btn-play-border: #5a7a3a;
+  --btn-play-shadow: rgba(90,122,58,0.3);
+  --border-subtle: #2a2a50;
+  --border-divider: rgba(58,58,100,0.3);
+  --tile-bg: linear-gradient(180deg,#1e1e40 0%,#161630 100%);
+  --tile-border: #3a3a6a;
+  --tile-selected-bg: linear-gradient(180deg,#2a2a10 0%,#202008 100%);
+  --tile-selected-border: #d4af37;
+  --tile-correct-bg: linear-gradient(180deg,#1a2a1a 0%,#142014 100%);
+  --tile-correct-border: #5a5;
+  --tile-wrong-bg: linear-gradient(180deg,#3a1a1a 0%,#2e1212 100%);
+  --tile-wrong-border: #c44;
+  --sunburst-1: #0f0f3a;
+  --sunburst-2: #1a1a50;
+  --sunburst-opacity: 0.25;
+  --star-filled: #d4af37;
+  --star-empty-stroke: #5a5a7a;
+  --menu-bg: rgba(16,16,36,0.96);
+  --menu-border: #2a2a50;
+  --menu-hover: rgba(212,175,55,0.1);
+  --hamburger-bg: rgba(10,10,30,0.7);
+  --hamburger-border: rgba(212,175,55,0.3);
+  --hamburger-line: #d4af37;
+}
+
+/* Valentine's Day — deep rose, pink, cream */
+[data-theme="festivus-valentine"] {
+  --bg-primary: #1a0a10;
+  --bg-secondary: #241018;
+  --bg-card: #2e1420;
+  --bg-card-end: #241018;
+  --bg-surface: rgba(40,16,28,0.95);
+  --bg-overlay: rgba(16,6,10,0.88);
+  --bg-start-inner: rgba(26,10,16,0.92);
+  --text-primary: #f0d8e0;
+  --text-secondary: #8a6a7a;
+  --text-muted: #a88898;
+  --accent: #e05080;
+  --accent-glow: rgba(224,80,128,0.3);
+  --accent-subtle: rgba(224,80,128,0.1);
+  --accent-border: rgba(224,80,128,0.2);
+  --info: #d090b0;
+  --success: #7a5a6a;
+  --success-text: #e0a0c0;
+  --success-bg: linear-gradient(180deg,#2a1a22 0%,#201418 100%);
+  --danger: #c44;
+  --danger-text: #f88;
+  --btn-bg: linear-gradient(180deg,#2e1828 0%,#241020 100%);
+  --btn-bg-active: linear-gradient(180deg,#3a2030 0%,#2e1828 100%);
+  --btn-border: #5a3048;
+  --btn-play-bg: linear-gradient(180deg,#8a3060 0%,#6a2048 100%);
+  --btn-play-border: #a04070;
+  --btn-play-shadow: rgba(160,64,112,0.3);
+  --border-subtle: #3a2030;
+  --border-divider: rgba(90,48,72,0.3);
+  --tile-bg: linear-gradient(180deg,#2e1828 0%,#241020 100%);
+  --tile-border: #5a3048;
+  --tile-selected-bg: linear-gradient(180deg,#3a1830 0%,#2e1028 100%);
+  --tile-selected-border: #e05080;
+  --tile-correct-bg: linear-gradient(180deg,#2a1a22 0%,#201418 100%);
+  --tile-correct-border: #a06080;
+  --tile-wrong-bg: linear-gradient(180deg,#3a1a1a 0%,#2e1212 100%);
+  --tile-wrong-border: #c44;
+  --sunburst-1: #3a0a1a;
+  --sunburst-2: #4a1428;
+  --sunburst-opacity: 0.2;
+  --star-filled: #e05080;
+  --star-empty-stroke: #5a3048;
+  --menu-bg: rgba(30,12,20,0.96);
+  --menu-border: #3a2030;
+  --menu-hover: rgba(224,80,128,0.1);
+  --hamburger-bg: rgba(26,10,16,0.7);
+  --hamburger-border: rgba(224,80,128,0.3);
+  --hamburger-line: #e05080;
+}
+
+/* Easter — soft pastels: lavender, mint, soft yellow */
+[data-theme="festivus-easter"] {
+  --bg-primary: #f4f0f8;
+  --bg-secondary: #ece6f2;
+  --bg-card: #ffffff;
+  --bg-card-end: #f8f4fc;
+  --bg-surface: rgba(255,255,255,0.96);
+  --bg-overlay: rgba(244,240,248,0.88);
+  --bg-start-inner: rgba(255,255,255,0.94);
+  --text-primary: #3a2a4a;
+  --text-secondary: #8a7a9a;
+  --text-muted: #a898b8;
+  --accent: #9b6bb0;
+  --accent-glow: rgba(155,107,176,0.2);
+  --accent-subtle: rgba(155,107,176,0.08);
+  --accent-border: rgba(155,107,176,0.2);
+  --info: #6aaa8a;
+  --success: #5a9a5a;
+  --success-text: #3a7a3a;
+  --success-bg: linear-gradient(180deg,#e8f5e8 0%,#d8ecd8 100%);
+  --danger: #c46a6a;
+  --danger-text: #a04040;
+  --btn-bg: linear-gradient(180deg,#ece6f2 0%,#e2dae8 100%);
+  --btn-bg-active: linear-gradient(180deg,#e2dae8 0%,#d8d0e0 100%);
+  --btn-border: #c8b8d8;
+  --btn-play-bg: linear-gradient(180deg,#6aaa8a 0%,#5a9a7a 100%);
+  --btn-play-border: #5a9a7a;
+  --btn-play-shadow: rgba(90,154,122,0.2);
+  --border-subtle: #d0c4e0;
+  --border-divider: rgba(0,0,0,0.06);
+  --tile-bg: linear-gradient(180deg,#ffffff 0%,#f8f4fc 100%);
+  --tile-border: #c8b8d8;
+  --tile-selected-bg: linear-gradient(180deg,#f0e8ff 0%,#e8ddf8 100%);
+  --tile-selected-border: #9b6bb0;
+  --tile-correct-bg: linear-gradient(180deg,#e8f5e8 0%,#d8ecd8 100%);
+  --tile-correct-border: #5a9a5a;
+  --tile-wrong-bg: linear-gradient(180deg,#fde8e8 0%,#f5d8d8 100%);
+  --tile-wrong-border: #c46a6a;
+  --sunburst-1: transparent;
+  --sunburst-2: transparent;
+  --sunburst-opacity: 0;
+  --star-filled: #d4a830;
+  --star-empty-stroke: #c8b8d8;
+  --menu-bg: rgba(255,255,255,0.96);
+  --menu-border: #d0c4e0;
+  --menu-hover: rgba(155,107,176,0.08);
+  --hamburger-bg: rgba(255,255,255,0.8);
+  --hamburger-border: rgba(155,107,176,0.3);
+  --hamburger-line: #9b6bb0;
+}
+
+/* 4th of July — red, white, blue */
+[data-theme="festivus-july4th"] {
+  --bg-primary: #0a0e1e;
+  --bg-secondary: #101828;
+  --bg-card: #141e34;
+  --bg-card-end: #101828;
+  --bg-surface: rgba(18,26,46,0.95);
+  --bg-overlay: rgba(6,8,18,0.88);
+  --bg-start-inner: rgba(12,16,30,0.92);
+  --text-primary: #e8e4f0;
+  --text-secondary: #7a8098;
+  --text-muted: #9a9eb8;
+  --accent: #e8e8f0;
+  --accent-glow: rgba(232,232,240,0.2);
+  --accent-subtle: rgba(232,232,240,0.08);
+  --accent-border: rgba(232,232,240,0.15);
+  --info: #4a8ad0;
+  --success: #4a7a4a;
+  --success-text: #8fc88f;
+  --success-bg: linear-gradient(180deg,#1a2a1a 0%,#142014 100%);
+  --danger: #c83030;
+  --danger-text: #f08080;
+  --btn-bg: linear-gradient(180deg,#1a2440 0%,#141c34 100%);
+  --btn-bg-active: linear-gradient(180deg,#222e4e 0%,#1a2440 100%);
+  --btn-border: #2a3a5e;
+  --btn-play-bg: linear-gradient(180deg,#b02020 0%,#901818 100%);
+  --btn-play-border: #c83030;
+  --btn-play-shadow: rgba(176,32,32,0.3);
+  --border-subtle: #2a3454;
+  --border-divider: rgba(42,52,84,0.4);
+  --tile-bg: linear-gradient(180deg,#1a2440 0%,#141c34 100%);
+  --tile-border: #2a3a5e;
+  --tile-selected-bg: linear-gradient(180deg,#1a2a4a 0%,#142040 100%);
+  --tile-selected-border: #e8e8f0;
+  --tile-correct-bg: linear-gradient(180deg,#1a2a1a 0%,#142014 100%);
+  --tile-correct-border: #4a7a4a;
+  --tile-wrong-bg: linear-gradient(180deg,#3a1414 0%,#2e0e0e 100%);
+  --tile-wrong-border: #c83030;
+  --sunburst-1: #1a1040;
+  --sunburst-2: #20184a;
+  --sunburst-opacity: 0.2;
+  --star-filled: #e8e8f0;
+  --star-empty-stroke: #3a4060;
+  --menu-bg: rgba(14,18,34,0.96);
+  --menu-border: #2a3454;
+  --menu-hover: rgba(74,138,208,0.1);
+  --hamburger-bg: rgba(10,14,30,0.7);
+  --hamburger-border: rgba(232,232,240,0.25);
+  --hamburger-line: #e8e8f0;
+}
+
+/* Halloween — orange, purple, black */
+[data-theme="festivus-halloween"] {
+  --bg-primary: #0e0a0a;
+  --bg-secondary: #181010;
+  --bg-card: #201414;
+  --bg-card-end: #181010;
+  --bg-surface: rgba(30,16,16,0.95);
+  --bg-overlay: rgba(10,6,6,0.88);
+  --bg-start-inner: rgba(14,10,10,0.92);
+  --text-primary: #f0dcc8;
+  --text-secondary: #8a7060;
+  --text-muted: #a88a78;
+  --accent: #e08020;
+  --accent-glow: rgba(224,128,32,0.3);
+  --accent-subtle: rgba(224,128,32,0.1);
+  --accent-border: rgba(224,128,32,0.2);
+  --info: #9060b0;
+  --success: #6a8a3a;
+  --success-text: #a0c060;
+  --success-bg: linear-gradient(180deg,#1e2a14 0%,#162010 100%);
+  --danger: #c44;
+  --danger-text: #f88;
+  --btn-bg: linear-gradient(180deg,#201418 0%,#180e12 100%);
+  --btn-bg-active: linear-gradient(180deg,#2a1a20 0%,#201418 100%);
+  --btn-border: #4a2a3a;
+  --btn-play-bg: linear-gradient(180deg,#b06010 0%,#904a08 100%);
+  --btn-play-border: #c87020;
+  --btn-play-shadow: rgba(176,96,16,0.3);
+  --border-subtle: #3a2020;
+  --border-divider: rgba(60,30,30,0.4);
+  --tile-bg: linear-gradient(180deg,#201418 0%,#180e12 100%);
+  --tile-border: #4a2a3a;
+  --tile-selected-bg: linear-gradient(180deg,#302010 0%,#281808 100%);
+  --tile-selected-border: #e08020;
+  --tile-correct-bg: linear-gradient(180deg,#1e2a14 0%,#162010 100%);
+  --tile-correct-border: #6a8a3a;
+  --tile-wrong-bg: linear-gradient(180deg,#3a1a1a 0%,#2e1212 100%);
+  --tile-wrong-border: #c44;
+  --sunburst-1: #2a1010;
+  --sunburst-2: #3a1818;
+  --sunburst-opacity: 0.25;
+  --star-filled: #e08020;
+  --star-empty-stroke: #4a3030;
+  --menu-bg: rgba(20,12,12,0.96);
+  --menu-border: #3a2020;
+  --menu-hover: rgba(224,128,32,0.1);
+  --hamburger-bg: rgba(14,10,10,0.7);
+  --hamburger-border: rgba(224,128,32,0.3);
+  --hamburger-line: #e08020;
+}
+
+/* Thanksgiving — warm orange, brown, gold */
+[data-theme="festivus-thanksgiving"] {
+  --bg-primary: #12100a;
+  --bg-secondary: #1c1810;
+  --bg-card: #242016;
+  --bg-card-end: #1c1810;
+  --bg-surface: rgba(32,28,18,0.95);
+  --bg-overlay: rgba(10,8,4,0.88);
+  --bg-start-inner: rgba(18,16,10,0.92);
+  --text-primary: #f0e4d0;
+  --text-secondary: #8a7a60;
+  --text-muted: #a89878;
+  --accent: #c89030;
+  --accent-glow: rgba(200,144,48,0.3);
+  --accent-subtle: rgba(200,144,48,0.1);
+  --accent-border: rgba(200,144,48,0.2);
+  --info: #a08060;
+  --success: #6a7a3a;
+  --success-text: #a0b860;
+  --success-bg: linear-gradient(180deg,#1e2414 0%,#161c10 100%);
+  --danger: #b44;
+  --danger-text: #e88;
+  --btn-bg: linear-gradient(180deg,#242018 0%,#1c1810 100%);
+  --btn-bg-active: linear-gradient(180deg,#2e2820 0%,#242018 100%);
+  --btn-border: #4a3e28;
+  --btn-play-bg: linear-gradient(180deg,#8a6a20 0%,#6a5018 100%);
+  --btn-play-border: #a07a28;
+  --btn-play-shadow: rgba(138,106,32,0.3);
+  --border-subtle: #3a3020;
+  --border-divider: rgba(58,48,32,0.4);
+  --tile-bg: linear-gradient(180deg,#242018 0%,#1c1810 100%);
+  --tile-border: #4a3e28;
+  --tile-selected-bg: linear-gradient(180deg,#302810 0%,#282008 100%);
+  --tile-selected-border: #c89030;
+  --tile-correct-bg: linear-gradient(180deg,#1e2414 0%,#161c10 100%);
+  --tile-correct-border: #6a7a3a;
+  --tile-wrong-bg: linear-gradient(180deg,#3a1a1a 0%,#2e1212 100%);
+  --tile-wrong-border: #b44;
+  --sunburst-1: #2a1e0a;
+  --sunburst-2: #3a2a12;
+  --sunburst-opacity: 0.2;
+  --star-filled: #c89030;
+  --star-empty-stroke: #4a3e28;
+  --menu-bg: rgba(22,20,12,0.96);
+  --menu-border: #3a3020;
+  --menu-hover: rgba(200,144,48,0.1);
+  --hamburger-bg: rgba(18,16,10,0.7);
+  --hamburger-border: rgba(200,144,48,0.3);
+  --hamburger-line: #c89030;
+}
+
+/* Christmas — red, green, gold */
+[data-theme="festivus-christmas"] {
+  --bg-primary: #0e0a0a;
+  --bg-secondary: #161010;
+  --bg-card: #1e1414;
+  --bg-card-end: #161010;
+  --bg-surface: rgba(28,16,16,0.95);
+  --bg-overlay: rgba(10,6,6,0.88);
+  --bg-start-inner: rgba(14,10,10,0.92);
+  --text-primary: #f0e8d8;
+  --text-secondary: #8a7a6a;
+  --text-muted: #a89888;
+  --accent: #d4a830;
+  --accent-glow: rgba(212,168,48,0.3);
+  --accent-subtle: rgba(212,168,48,0.1);
+  --accent-border: rgba(212,168,48,0.2);
+  --info: #4a9a4a;
+  --success: #4a8a4a;
+  --success-text: #80c880;
+  --success-bg: linear-gradient(180deg,#1a2a1a 0%,#142014 100%);
+  --danger: #c03030;
+  --danger-text: #f08080;
+  --btn-bg: linear-gradient(180deg,#221418 0%,#1a0e12 100%);
+  --btn-bg-active: linear-gradient(180deg,#2c1c20 0%,#221418 100%);
+  --btn-border: #4a2028;
+  --btn-play-bg: linear-gradient(180deg,#2a5a2a 0%,#1e4a1e 100%);
+  --btn-play-border: #3a7a3a;
+  --btn-play-shadow: rgba(58,122,58,0.3);
+  --border-subtle: #3a1e1e;
+  --border-divider: rgba(58,30,30,0.4);
+  --tile-bg: linear-gradient(180deg,#221418 0%,#1a0e12 100%);
+  --tile-border: #4a2028;
+  --tile-selected-bg: linear-gradient(180deg,#2a2a10 0%,#222208 100%);
+  --tile-selected-border: #d4a830;
+  --tile-correct-bg: linear-gradient(180deg,#1a2a1a 0%,#142014 100%);
+  --tile-correct-border: #4a8a4a;
+  --tile-wrong-bg: linear-gradient(180deg,#3a1414 0%,#2e0e0e 100%);
+  --tile-wrong-border: #c03030;
+  --sunburst-1: #3a0a0a;
+  --sunburst-2: #1a3a1a;
+  --sunburst-opacity: 0.2;
+  --star-filled: #d4a830;
+  --star-empty-stroke: #4a3020;
+  --menu-bg: rgba(20,12,12,0.96);
+  --menu-border: #3a1e1e;
+  --menu-hover: rgba(212,168,48,0.1);
+  --hamburger-bg: rgba(14,10,10,0.7);
+  --hamburger-border: rgba(212,168,48,0.3);
+  --hamburger-line: #d4a830;
+}
+
+/* ===== THEME BACKGROUND PATTERNS ===== */
+/* Each theme gets a unique body::before background. Soviet keeps sunburst (defined in base.css / inline). */
+
+/* Dark — subtle grid */
+[data-theme="dark"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:
+    linear-gradient(rgba(90,154,191,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90,154,191,0.04) 1px, transparent 1px);
+  background-size:32px 32px;
+  opacity:1;
+}
+
+/* Light — soft diagonal stripes */
+[data-theme="light"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:repeating-linear-gradient(
+    135deg,
+    rgba(184,134,11,0.04) 0px,
+    rgba(184,134,11,0.04) 1px,
+    transparent 1px,
+    transparent 16px
+  );
+  opacity:1;
+}
+
+/* B&W — dot grid */
+[data-theme="bw"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:radial-gradient(circle, rgba(200,200,200,0.08) 1px, transparent 1px);
+  background-size:20px 20px;
+  opacity:1;
+}
+
+/* Festivus — New Year's: sparkle/starburst */
+[data-theme="festivus-newyear"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(212,175,55,0.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(192,192,208,0.08) 0%, transparent 40%),
+    radial-gradient(circle, rgba(212,175,55,0.05) 1px, transparent 1px);
+  background-size:100% 100%, 100% 100%, 24px 24px;
+  opacity:1;
+}
+
+/* Festivus — Valentine's: floating hearts pattern */
+[data-theme="festivus-valentine"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(224,80,128,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(208,144,176,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(224,80,128,0.03) 0%, transparent 70%);
+  background-size:100% 100%;
+  opacity:1;
+}
+
+/* Festivus — Easter: pastel eggs / soft bubbles */
+[data-theme="festivus-easter"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:
+    radial-gradient(ellipse 18px 22px at 15% 20%, rgba(155,107,176,0.08) 0%, transparent 100%),
+    radial-gradient(ellipse 14px 18px at 45% 60%, rgba(106,170,138,0.07) 0%, transparent 100%),
+    radial-gradient(ellipse 16px 20px at 75% 35%, rgba(212,168,48,0.06) 0%, transparent 100%),
+    radial-gradient(ellipse 12px 16px at 85% 80%, rgba(155,107,176,0.06) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 24px at 30% 85%, rgba(106,170,138,0.05) 0%, transparent 100%);
+  background-size:100% 100%;
+  opacity:1;
+}
+
+/* Festivus — 4th of July: diagonal stars & stripes */
+[data-theme="festivus-july4th"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(176,32,32,0.06) 0px,
+      rgba(176,32,32,0.06) 3px,
+      transparent 3px,
+      transparent 18px
+    ),
+    radial-gradient(circle, rgba(232,232,240,0.04) 1.5px, transparent 1.5px);
+  background-size:100% 21px, 28px 28px;
+  opacity:1;
+}
+
+/* Festivus — Halloween: spooky fog */
+[data-theme="festivus-halloween"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:
+    radial-gradient(ellipse at 20% 80%, rgba(224,128,32,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(144,96,176,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(224,128,32,0.03) 0%, transparent 80%);
+  background-size:100% 100%;
+  opacity:1;
+}
+
+/* Festivus — Thanksgiving: warm woven texture */
+[data-theme="festivus-thanksgiving"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:
+    linear-gradient(rgba(200,144,48,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,144,48,0.04) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(138,96,32,0.03) 1px, transparent 1px);
+  background-size:24px 24px, 24px 24px, 17px 17px;
+  opacity:1;
+}
+
+/* Festivus — Christmas: falling snow dots */
+[data-theme="festivus-christmas"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:none;transform:none;
+  background-image:
+    radial-gradient(circle, rgba(212,168,48,0.06) 1px, transparent 1px),
+    radial-gradient(circle, rgba(58,122,58,0.05) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 30% 20%, rgba(192,48,48,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(58,122,58,0.05) 0%, transparent 50%);
+  background-size:30px 30px, 22px 22px, 100% 100%, 100% 100%;
+  background-position:0 0, 11px 11px, 0 0, 0 0;
+  opacity:1;
+}
+
+/* ===== GALLERY BACKGROUND MODE ===== */
+/* When data-bg="gallery" is on body, show a rotating image instead of theme pattern */
+body[data-bg="gallery"]::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:var(--gallery-bg, none) center/cover no-repeat;
+  transform:none;
+  opacity:0.15;
+}

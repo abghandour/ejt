@@ -13,6 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/theme.css">
+<script src="../shared/theme.js"></script>
 <link rel="stylesheet" href="../shared/base.css">
 <style>
 
@@ -21,10 +23,10 @@
   width:100%;max-width:600px;display:flex;justify-content:space-between;align-items:center;
   padding:6px 16px;flex-shrink:0;
 }
-#timer-display{font-size:22px;font-weight:700;color:#c8a830;font-variant-numeric:tabular-nums;transition:color 0.3s}
-#timer-display.danger{color:#c44;animation:timerPulse 0.5s ease-in-out infinite}
+#timer-display{font-size:22px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;transition:color 0.3s}
+#timer-display.danger{color:var(--danger);animation:timerPulse 0.5s ease-in-out infinite}
 @keyframes timerPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
-#words-found-display{font-size:14px;color:#6a9ec0}
+#words-found-display{font-size:14px;color:var(--info)}
 
 /* PENALTY FLASH */
 .penalty-flash{
@@ -777,7 +779,7 @@ document.getElementById('btn-share').addEventListener('click', function() {
     'Words: ' + game.wordsCompleted + ' | Score: ' + game.score + '\n' +
     'Skipped: ' + game.wordsSkipped + ' | Wrong: ' + game.wrongAttempts + '\n' +
     url;
-  shareText(text);
+  shareWithScreenshot(text);
 });
 
 // Keyboard support
@@ -844,6 +846,10 @@ async function init() {
     startGame();
   });
 }
+
+// Pause/resume hooks
+onGamePause(function() { if (game && game.isRunning) stopTimer(); });
+onGameResume(function() { if (game && game.isRunning) startTimer(); });
 
 init();
 </script>

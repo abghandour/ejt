@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 700">
+<rect fill="#140a0a" width="400" height="700"/>
+<defs><pattern id="h" width="60" height="60" patternUnits="userSpaceOnUse">
+  <polygon points="30,5 55,20 55,50 30,65 5,50 5,20" fill="none" stroke="#8b2020" stroke-width="0.6" opacity="0.25"/>
+</pattern></defs>
+<rect width="400" height="700" fill="url(#h)"/>
+<polygon points="200,250 220,310 280,310 230,345 250,405 200,370 150,405 170,345 120,310 180,310" fill="#c8a830" opacity="0.06"/>
+</svg>

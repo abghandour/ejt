@@ -115,6 +115,60 @@ function shareText(text) {
   }
 }
 
+// ===== SHARE WITH SCREENSHOT =====
+function shareWithScreenshot(text, overlaySelector) {
+  var overlay = document.querySelector(overlaySelector || '#death-overlay');
+  if (!overlay) { shareText(text); return; }
+
+  // Use html2canvas if available, otherwise try canvas capture
+  _captureElement(overlay).then(function(blob) {
+    if (blob && navigator.share && navigator.canShare) {
+      var file = new File([blob], 'result.png', { type: 'image/png' });
+      var shareData = { text: text, files: [file] };
+      if (navigator.canShare(shareData)) {
+        navigator.share(shareData).catch(function(){});
+        return;
+      }
+    }
+    // Fallback to text-only share
+    shareText(text);
+  }).catch(function() {
+    shareText(text);
+  });
+}
+
+function _captureElement(el) {
+  // Try html2canvas first (loaded dynamically)
+  if (window.html2canvas) {
+    return window.html2canvas(el, {
+      backgroundColor: '#0a0a14',
+      scale: 2,
+      useCORS: true
+    }).then(function(canvas) {
+      return new Promise(function(resolve) {
+        canvas.toBlob(function(b) { resolve(b); }, 'image/png');
+      });
+    });
+  }
+
+  // Dynamically load html2canvas
+  return new Promise(function(resolve, reject) {
+    var script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+    script.onload = function() {
+      window.html2canvas(el, {
+        backgroundColor: '#0a0a14',
+        scale: 2,
+        useCORS: true
+      }).then(function(canvas) {
+        canvas.toBlob(function(b) { resolve(b); }, 'image/png');
+      }).catch(reject);
+    };
+    script.onerror = function() { resolve(null); };
+    document.head.appendChild(script);
+  });
+}
+
 // ===== DIFFICULTY TOGGLE SETUP =====
 function setupDifficultyToggle(callback) {
   var diffBtns = document.querySelectorAll('.diff-btn');
@@ -126,3 +180,48 @@ function setupDifficultyToggle(callback) {
     });
   });
 }
+
+// ===== PAUSE / RESUME SUPPORT =====
+// Parent (index.html) sends {type:'pause'} via postMessage when banner is clicked.
+// Games can register callbacks via onGamePause / onGameResume for custom logic (e.g. stop timers).
+
+var _pauseCallbacks = [];
+var _resumeCallbacks = [];
+function onGamePause(fn) { _pauseCallbacks.push(fn); }
+function onGameResume(fn) { _resumeCallbacks.push(fn); }
+
+var _pauseOverlay = null;
+function _createPauseOverlay() {
+  if (_pauseOverlay) return _pauseOverlay;
+  var ov = document.createElement('div');
+  ov.id = 'pause-overlay';
+  ov.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg-overlay);display:flex;align-items:center;justify-content:center;z-index:200;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);';
+  ov.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;gap:16px;">' +
+    '<div style="font-family:\'Press Start 2P\',monospace;font-size:20px;color:var(--accent);text-shadow:0 0 20px var(--accent-glow);">PAUSED</div>' +
+    '<button id="resume-btn" style="font-family:\'Roboto Condensed\',sans-serif;font-weight:700;font-size:18px;padding:14px 40px;background:var(--btn-play-bg);border:2px solid var(--btn-play-border);border-radius:12px;color:var(--text-primary);cursor:pointer;box-shadow:0 4px 16px var(--btn-play-shadow);-webkit-tap-highlight-color:transparent;">Resume</button>' +
+    '</div>';
+  ov.style.display = 'none';
+  document.body.appendChild(ov);
+  ov.querySelector('#resume-btn').addEventListener('click', function() {
+    _hidePause();
+  });
+  _pauseOverlay = ov;
+  return ov;
+}
+
+function _showPause() {
+  var ov = _createPauseOverlay();
+  ov.style.display = 'flex';
+  _pauseCallbacks.forEach(function(fn) { try { fn(); } catch(e){} });
+}
+
+function _hidePause() {
+  if (_pauseOverlay) _pauseOverlay.style.display = 'none';
+  _resumeCallbacks.forEach(function(fn) { try { fn(); } catch(e){} });
+}
+
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.type === 'pause') {
+    _showPause();
+  }
+});

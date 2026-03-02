@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/theme.css">
+<script src="../shared/theme.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body::before{
+  content:'';position:fixed;top:50%;left:50%;
+  width:200vmax;height:200vmax;transform:translate(-50%,-50%);z-index:-1;
+  background:repeating-conic-gradient(from 0deg,var(--sunburst-1) 0deg 10deg,var(--sunburst-2) 10deg 20deg);
+  opacity:var(--sunburst-opacity);
+}
+body{
+  background:var(--bg-primary);color:var(--text-primary);
+  font-family:'Roboto Condensed',sans-serif;
+  display:flex;flex-direction:column;align-items:center;
+  height:100vh;height:100dvh;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  user-select:none;-webkit-user-select:none;
+}
+
+.settings-wrap{
+  width:100%;max-width:500px;padding:24px 20px;
+}
+
+h1{
+  font-family:'Press Start 2P',monospace;
+  font-size:14px;color:var(--accent);
+  text-shadow:0 0 20px var(--accent-glow);
+  margin-bottom:24px;text-align:center;
+}
+
+.section-label{
+  font-size:12px;font-weight:700;
+  color:var(--text-secondary);
+  text-transform:uppercase;letter-spacing:1.5px;
+  margin-bottom:12px;
+}
+</style>
+</head>
+<body>
+<div class="settings-wrap">
+  <h1>Settings</h1>
+
+  <div class="section-label">Color Theme</div>
+  <div id="theme-grid"></div>
+
+  <div class="section-label" style="margin-top:24px">Font Size</div>
+  <div id="fontsize-toggle"></div>
+
+  <div class="section-label" style="margin-top:24px">Background</div>
+  <div id="bg-toggle"></div>
+</div>
+
+<style>
+#theme-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.theme-card{
+  position:relative;
+  border-radius:12px;padding:14px;cursor:pointer;
+  border:2px solid var(--border-subtle);
+  transition:all 0.2s;
+  -webkit-tap-highlight-color:transparent;
+  display:flex;flex-direction:column;gap:8px;
+}
+.theme-card:active{transform:scale(0.97)}
+.theme-card.active{
+  border-color:var(--accent);
+  box-shadow:0 0 16px var(--accent-glow);
+}
+.theme-card .check{
+  position:absolute;top:8px;right:8px;
+  width:20px;height:20px;border-radius:50%;
+  border:2px solid var(--border-subtle);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.theme-card.active .check{
+  border-color:var(--accent);background:var(--accent);
+}
+.theme-card.active .check::after{
+  content:'';display:block;width:10px;height:10px;
+  background:var(--bg-primary);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.theme-name{font-size:14px;font-weight:700}
+
+/* Theme preview swatches */
+.theme-preview{
+  display:flex;gap:4px;height:24px;border-radius:6px;overflow:hidden;
+}
+.theme-preview span{flex:1}
+
+/* Soviet preview */
+.theme-card[data-theme="soviet"]{background:linear-gradient(180deg,#1e1e3a,#16162a)}
+.theme-card[data-theme="soviet"] .theme-name{color:#c8a830}
+.theme-card[data-theme="soviet"] .theme-preview span:nth-child(1){background:#0e0e1a}
+.theme-card[data-theme="soviet"] .theme-preview span:nth-child(2){background:#8b2020}
+.theme-card[data-theme="soviet"] .theme-preview span:nth-child(3){background:#c8a830}
+.theme-card[data-theme="soviet"] .theme-preview span:nth-child(4){background:#5a8a3a}
+
+/* Dark preview */
+.theme-card[data-theme="dark"]{background:linear-gradient(180deg,#1e1e28,#18181f)}
+.theme-card[data-theme="dark"] .theme-name{color:#5a9abf}
+.theme-card[data-theme="dark"] .theme-preview span:nth-child(1){background:#121218}
+.theme-card[data-theme="dark"] .theme-preview span:nth-child(2){background:#252530}
+.theme-card[data-theme="dark"] .theme-preview span:nth-child(3){background:#5a9abf}
+.theme-card[data-theme="dark"] .theme-preview span:nth-child(4){background:#4a8a4a}
+
+/* Light preview */
+.theme-card[data-theme="light"]{background:linear-gradient(180deg,#ffffff,#f5f2ec)}
+.theme-card[data-theme="light"] .theme-name{color:#b8860b}
+.theme-card[data-theme="light"] .theme-preview span:nth-child(1){background:#f0ece4}
+.theme-card[data-theme="light"] .theme-preview span:nth-child(2){background:#e6e0d6}
+.theme-card[data-theme="light"] .theme-preview span:nth-child(3){background:#b8860b}
+.theme-card[data-theme="light"] .theme-preview span:nth-child(4){background:#3a7a3a}
+
+/* B&W preview */
+.theme-card[data-theme="bw"]{background:linear-gradient(180deg,#222222,#1a1a1a)}
+.theme-card[data-theme="bw"] .theme-name{color:#cccccc}
+.theme-card[data-theme="bw"] .theme-preview span:nth-child(1){background:#111111}
+.theme-card[data-theme="bw"] .theme-preview span:nth-child(2){background:#333333}
+.theme-card[data-theme="bw"] .theme-preview span:nth-child(3){background:#cccccc}
+.theme-card[data-theme="bw"] .theme-preview span:nth-child(4){background:#888888}
+
+/* Festivus — spans full width, dynamic holiday colors */
+.theme-card[data-theme="festivus"]{grid-column:1/-1}
+.theme-card[data-theme="festivus"] .theme-subtitle{
+  font-size:11px;color:var(--text-secondary);margin-top:-4px;
+}
+
+/* Font size toggle */
+#fontsize-toggle{
+  display:flex;gap:0;border-radius:10px;overflow:hidden;
+  border:2px solid var(--border-subtle);
+}
+.fs-btn{
+  flex:1;padding:10px 0;font-size:14px;
+  font-family:'Roboto Condensed',sans-serif;font-weight:700;
+  background:var(--bg-card);border:none;
+  color:var(--text-secondary);cursor:pointer;
+  transition:all 0.2s;text-align:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.fs-btn:not(:last-child){border-right:1px solid var(--border-subtle)}
+.fs-btn.active{background:var(--accent);color:var(--bg-primary)}
+.fs-btn:active{transform:scale(0.97)}
+
+/* Background toggle — reuses fs-btn style */
+#bg-toggle{
+  display:flex;gap:0;border-radius:10px;overflow:hidden;
+  border:2px solid var(--border-subtle);
+}
+.bg-btn{
+  flex:1;padding:10px 0;font-size:14px;
+  font-family:'Roboto Condensed',sans-serif;font-weight:700;
+  background:var(--bg-card);border:none;
+  color:var(--text-secondary);cursor:pointer;
+  transition:all 0.2s;text-align:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.bg-btn:not(:last-child){border-right:1px solid var(--border-subtle)}
+.bg-btn.active{background:var(--accent);color:var(--bg-primary)}
+.bg-btn:active{transform:scale(0.97)}
+</style>
+
+<script>
+var THEMES = [
+  {id:'soviet', name:'Soviet Russia'},
+  {id:'dark',   name:'Dark'},
+  {id:'light',  name:'Light'},
+  {id:'bw',     name:'Black & White'},
+  {id:'festivus', name:'Festivus'}
+];
+
+/* Holiday-specific preview colors for the Festivus card */
+var FESTIVUS_PREVIEWS = {
+  newyear:      {bg:['#0a0a1e','#10102a'], name:'#d4af37', s:['#0a0a1e','#10102a','#d4af37','#c0c0d0']},
+  valentine:    {bg:['#1a0a10','#241018'], name:'#e05080', s:['#1a0a10','#2e1420','#e05080','#d090b0']},
+  easter:       {bg:['#f4f0f8','#ece6f2'], name:'#9b6bb0', s:['#f4f0f8','#ece6f2','#9b6bb0','#6aaa8a']},
+  july4th:      {bg:['#0a0e1e','#101828'], name:'#e8e8f0', s:['#0a0e1e','#b02020','#e8e8f0','#1a2a5a']},
+  halloween:    {bg:['#0e0a0a','#181010'], name:'#e08020', s:['#0e0a0a','#201414','#e08020','#9060b0']},
+  thanksgiving: {bg:['#12100a','#1c1810'], name:'#c89030', s:['#12100a','#242016','#c89030','#8a6020']},
+  christmas:    {bg:['#0e0a0a','#161010'], name:'#d4a830', s:['#0e0a0a','#c03030','#d4a830','#2a5a2a']}
+};
+
+var grid = document.getElementById('theme-grid');
+var current = hjlrGetTheme();
+
+THEMES.forEach(function(t) {
+  var card = document.createElement('div');
+  card.className = 'theme-card' + (t.id === current ? ' active' : '');
+  card.setAttribute('data-theme', t.id);
+
+  var inner = '<div class="check"></div>' +
+    '<div class="theme-name">' + t.name + '</div>';
+
+  if (t.id === 'festivus') {
+    var hol = hjlrGetCurrentHoliday();
+    var holName = hjlrHolidayNames[hol] || hol;
+    var fp = FESTIVUS_PREVIEWS[hol] || FESTIVUS_PREVIEWS.easter;
+    inner += '<div class="theme-subtitle">Currently: ' + holName + '</div>';
+    inner += '<div class="theme-preview"><span></span><span></span><span></span><span></span></div>';
+    card.innerHTML = inner;
+    card.style.background = 'linear-gradient(180deg,' + fp.bg[0] + ',' + fp.bg[1] + ')';
+    card.querySelector('.theme-name').style.color = fp.name;
+    var spans = card.querySelectorAll('.theme-preview span');
+    for (var i = 0; i < 4; i++) spans[i].style.background = fp.s[i];
+  } else {
+    inner += '<div class="theme-preview"><span></span><span></span><span></span><span></span></div>';
+    card.innerHTML = inner;
+  }
+
+  card.addEventListener('click', function() {
+    document.querySelectorAll('.theme-card').forEach(function(c) { c.classList.remove('active'); });
+    card.classList.add('active');
+    hjlrSetTheme(t.id);
+    if (window.parent !== window) {
+      window.parent.postMessage({type:'themeChange', theme: t.id}, '*');
+    }
+  });
+  grid.appendChild(card);
+});
+
+// Font size toggle
+var FONT_SIZES = [
+  {id:'small',  label:'Small'},
+  {id:'medium', label:'Medium'},
+  {id:'large',  label:'Large'}
+];
+var fsToggle = document.getElementById('fontsize-toggle');
+var currentFs = hjlrGetFontSize();
+
+FONT_SIZES.forEach(function(f) {
+  var btn = document.createElement('button');
+  btn.className = 'fs-btn' + (f.id === currentFs ? ' active' : '');
+  btn.textContent = f.label;
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.fs-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    hjlrSetFontSize(f.id);
+    if (window.parent !== window) {
+      window.parent.postMessage({type:'fontSizeChange', fontSize: f.id}, '*');
+    }
+  });
+  fsToggle.appendChild(btn);
+});
+
+// Background toggle
+var BG_MODES = [
+  {id:'colors',  label:'Colors'},
+  {id:'gallery', label:'Gallery'}
+];
+var bgToggle = document.getElementById('bg-toggle');
+var currentBg = hjlrGetBgMode();
+
+BG_MODES.forEach(function(b) {
+  var btn = document.createElement('button');
+  btn.className = 'bg-btn' + (b.id === currentBg ? ' active' : '');
+  btn.textContent = b.label;
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.bg-btn').forEach(function(x) { x.classList.remove('active'); });
+    btn.classList.add('active');
+    hjlrSetBgMode(b.id);
+    if (window.parent !== window) {
+      window.parent.postMessage({type:'bgModeChange', bgMode: b.id}, '*');
+    }
+  });
+  bgToggle.appendChild(btn);
+});
+</script>
+</body>
+</html>

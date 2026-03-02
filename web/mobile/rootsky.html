@@ -13,22 +13,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/theme.css">
+<script src="../shared/theme.js"></script>
 <link rel="stylesheet" href="../shared/base.css">
 <style>
-/* Rootsky sunburst override — slightly different red */
+/* Rootsky sunburst override — slightly different red for soviet theme */
 body::before{
   background:repeating-conic-gradient(
     from 0deg,
-    #941f1f 0deg 10deg,
-    #a33a3a 10deg 20deg
+    var(--sunburst-1) 0deg 10deg,
+    var(--sunburst-2) 10deg 20deg
   );
+  opacity:var(--sunburst-opacity);
 }
 body.rays-swapped::before{
   background:repeating-conic-gradient(
     from 0deg,
-    #a33a3a 0deg 10deg,
-    #941f1f 10deg 20deg
+    var(--sunburst-2) 0deg 10deg,
+    var(--sunburst-1) 10deg 20deg
   );
+  opacity:var(--sunburst-opacity);
 }
 
 /* ===== TOP BAR ===== */
@@ -2556,6 +2560,10 @@ body.rays-swapped::before{
       loadAllGameDataForCalendar();
     });
   });
+
+// Pause/resume hooks
+onGamePause(function() { if (isGameActive) pauseTimer(); });
+onGameResume(function() { if (isGameActive) resumeTimer(); });
 </script>
 </body>
 </html>

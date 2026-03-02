@@ -13,6 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/theme.css">
+<script src="../shared/theme.js"></script>
 <link rel="stylesheet" href="../shared/base.css">
 <style>
 /* TOP BAR */
@@ -141,9 +143,9 @@
 </div>
 
 <div id="controls">
-  <button class="ctrl-btn" id="btn-left" aria-label="Move left">←</button>
-  <button class="ctrl-btn" id="btn-drop" aria-label="Drop">▼</button>
-  <button class="ctrl-btn" id="btn-right" aria-label="Move right">→</button>
+  <button class="ctrl-btn" id="btn-left" aria-label="Move left"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button class="ctrl-btn" id="btn-drop" aria-label="Drop"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+  <button class="ctrl-btn" id="btn-right" aria-label="Move right"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
 </div>
 
 <div id="start-screen">
@@ -673,13 +675,7 @@ document.getElementById('btn-share').addEventListener('click', function() {
   var text = 'Tetrisky (' + DIFF_LABELS[state.difficulty] + ')\n' +
     'Words: ' + state.wordsCompleted + ' | Score: ' + state.score + '\n' +
     'Time: ' + formatTime(elapsed);
-  if (navigator.share) {
-    navigator.share({ text: text }).catch(function(){});
-  } else if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() { alert('Copied!'); });
-  } else {
-    prompt('Copy:', text);
-  }
+  shareWithScreenshot(text);
 });
 
 // ===== GAME START =====
@@ -721,6 +717,16 @@ async function init() {
     startGame();
   });
 }
+
+// Pause/resume hooks
+onGamePause(function() {
+  if (loopId) { clearInterval(loopId); loopId = null; }
+});
+onGameResume(function() {
+  if (state && state.isRunning && !loopId) {
+    loopId = setInterval(tick, state.tickSpeed);
+  }
+});
 
 window.addEventListener('resize', resizeGrid);
 init();
