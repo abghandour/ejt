@@ -574,7 +574,11 @@ async function init() {
   var activeLang = getActiveLanguage();
   var langConfig = getLanguageConfig(activeLang);
   if (langConfig) {
-    filteredGames = GAMES.filter(function(g) { return langConfig.games.indexOf(g.id) !== -1; });
+    filteredGames = GAMES.filter(function(g) { return langConfig.games.indexOf(g.id) !== -1; }).map(function(g) {
+      var override = resolveGameName(activeLang, g.id);
+      if (override) return Object.assign({}, g, { name: override.name || g.name, desc: override.desc || g.desc });
+      return g;
+    });
   } else {
     filteredGames = GAMES.slice();
   }
@@ -701,7 +705,11 @@ window.addEventListener('message', function(e) {
     setActiveLanguage(e.data.language);
     var lc = getLanguageConfig(e.data.language);
     if (lc) {
-      filteredGames = GAMES.filter(function(g) { return lc.games.indexOf(g.id) !== -1; });
+      filteredGames = GAMES.filter(function(g) { return lc.games.indexOf(g.id) !== -1; }).map(function(g) {
+        var override = resolveGameName(e.data.language, g.id);
+        if (override) return Object.assign({}, g, { name: override.name || g.name, desc: override.desc || g.desc });
+        return g;
+      });
       N = filteredGames.length;
       currentIndex = 0;
       document.getElementById('page-title').innerHTML = 'How Janey Learned<br>' + lc.displayName;

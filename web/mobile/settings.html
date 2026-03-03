@@ -211,40 +211,59 @@ var FESTIVUS_PREVIEWS = {
 var grid = document.getElementById('theme-grid');
 var current = hjlrGetTheme();
 
-THEMES.forEach(function(t) {
-  var card = document.createElement('div');
-  card.className = 'theme-card' + (t.id === current ? ' active' : '');
-  card.setAttribute('data-theme', t.id);
+function buildThemeGrid(allowedThemes) {
+  grid.innerHTML = '';
+  var current = hjlrGetTheme();
+  var filtered = allowedThemes
+    ? THEMES.filter(function(t) { return allowedThemes.indexOf(t.id) !== -1; })
+    : THEMES;
 
-  var inner = '<div class="check"></div>' +
-    '<div class="theme-name">' + t.name + '</div>';
-
-  if (t.id === 'festivus') {
-    var hol = hjlrGetCurrentHoliday();
-    var holName = hjlrHolidayNames[hol] || hol;
-    var fp = FESTIVUS_PREVIEWS[hol] || FESTIVUS_PREVIEWS.easter;
-    inner += '<div class="theme-subtitle">Currently: ' + holName + '</div>';
-    inner += '<div class="theme-preview"><span></span><span></span><span></span><span></span></div>';
-    card.innerHTML = inner;
-    card.style.background = 'linear-gradient(180deg,' + fp.bg[0] + ',' + fp.bg[1] + ')';
-    card.querySelector('.theme-name').style.color = fp.name;
-    var spans = card.querySelectorAll('.theme-preview span');
-    for (var i = 0; i < 4; i++) spans[i].style.background = fp.s[i];
-  } else {
-    inner += '<div class="theme-preview"><span></span><span></span><span></span><span></span></div>';
-    card.innerHTML = inner;
+  // If current theme is not in allowed list, switch to first allowed
+  if (allowedThemes && allowedThemes.indexOf(current) === -1 && filtered.length > 0) {
+    current = filtered[0].id;
+    hjlrSetTheme(current);
+    if (window.parent !== window) {
+      window.parent.postMessage({type:'themeChange', theme: current}, '*');
+    }
   }
 
-  card.addEventListener('click', function() {
-    document.querySelectorAll('.theme-card').forEach(function(c) { c.classList.remove('active'); });
-    card.classList.add('active');
-    hjlrSetTheme(t.id);
-    if (window.parent !== window) {
-      window.parent.postMessage({type:'themeChange', theme: t.id}, '*');
+  filtered.forEach(function(t) {
+    var card = document.createElement('div');
+    card.className = 'theme-card' + (t.id === current ? ' active' : '');
+    card.setAttribute('data-theme', t.id);
+
+    var inner = '<div class="check"></div>' +
+      '<div class="theme-name">' + t.name + '</div>';
+
+    if (t.id === 'festivus') {
+      var hol = hjlrGetCurrentHoliday();
+      var holName = hjlrHolidayNames[hol] || hol;
+      var fp = FESTIVUS_PREVIEWS[hol] || FESTIVUS_PREVIEWS.easter;
+      inner += '<div class="theme-subtitle">Currently: ' + holName + '</div>';
+      inner += '<div class="theme-preview"><span></span><span></span><span></span><span></span></div>';
+      card.innerHTML = inner;
+      card.style.background = 'linear-gradient(180deg,' + fp.bg[0] + ',' + fp.bg[1] + ')';
+      card.querySelector('.theme-name').style.color = fp.name;
+      var spans = card.querySelectorAll('.theme-preview span');
+      for (var i = 0; i < 4; i++) spans[i].style.background = fp.s[i];
+    } else {
+      inner += '<div class="theme-preview"><span></span><span></span><span></span><span></span></div>';
+      card.innerHTML = inner;
     }
+
+    card.addEventListener('click', function() {
+      grid.querySelectorAll('.theme-card').forEach(function(c) { c.classList.remove('active'); });
+      card.classList.add('active');
+      hjlrSetTheme(t.id);
+      if (window.parent !== window) {
+        window.parent.postMessage({type:'themeChange', theme: t.id}, '*');
+      }
+    });
+    grid.appendChild(card);
   });
-  grid.appendChild(card);
-});
+}
+
+buildThemeGrid(null);
 
 // Background toggle
 var BG_MODES = [
@@ -275,6 +294,12 @@ BG_MODES.forEach(function(b) {
   var langGrid = document.getElementById('lang-grid');
   var currentLang = getActiveLanguage();
 
+  // Rebuild theme grid with language-specific themes
+  var currentConfig = getLanguageConfig(currentLang);
+  if (currentConfig && currentConfig.themes) {
+    buildThemeGrid(currentConfig.themes);
+  }
+
   Object.keys(config).forEach(function(langId) {
     var lang = config[langId];
     var card = document.createElement('div');
@@ -286,6 +311,13 @@ BG_MODES.forEach(function(b) {
       document.querySelectorAll('.lang-card').forEach(function(c) { c.classList.remove('active'); });
       card.classList.add('active');
       setActiveLanguage(langId);
+      // Rebuild theme grid for the new language
+      var lc = getLanguageConfig(langId);
+      if (lc && lc.themes) {
+        buildThemeGrid(lc.themes);
+      } else {
+        buildThemeGrid(null);
+      }
       if (window.parent !== window) {
         window.parent.postMessage({type: 'languageChange', language: langId}, '*');
       }

@@ -250,9 +250,16 @@ var _FALLBACK_CONFIG = {
   "ru": {
     "displayName": "Russian",
     "games": ["rootsky", "scramblisky", "bogglesky", "snakesky"],
+    "themes": ["soviet", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/ru",
     "letterPool": "оооооооеееееееаааааааиииииинннннттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщэфъьёй",
-    "validationRegex": "^[а-яёА-ЯЁ]+$"
+    "validationRegex": "^[а-яёА-ЯЁ]+$",
+    "gameNames": {
+      "rootsky":     { "name": "Rootsky",     "desc": "Match Russian words to their roots" },
+      "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Russian words before time runs out" },
+      "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Russian words in a letter grid" },
+      "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Russian words" }
+    }
   }
 };
 
@@ -317,5 +324,13 @@ function resolveLetterPool(langId) {
     return config.letterPool;
   }
   return 'оооооооеееееееаааааааиииииинннннттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщэфъьёй';
+}
+
+function resolveGameName(langId, gameId) {
+  var config = getLanguageConfig(langId);
+  if (config && config.gameNames && config.gameNames[gameId]) {
+    return config.gameNames[gameId];
+  }
+  return null;
 }
 
