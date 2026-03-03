@@ -301,6 +301,66 @@
   --hamburger-line: #c8a830;
 }
 
+/* Slava Ukraini — blue and yellow, Ukrainian flag */
+[data-theme="ukraine"] {
+  --bg-primary: #0a1a30;
+  --bg-secondary: #102040;
+  --bg-card: #142850;
+  --bg-card-end: #102040;
+  --bg-surface: rgba(16,32,64,0.95);
+  --bg-overlay: rgba(6,12,28,0.88);
+  --bg-start-inner: rgba(10,26,48,0.92);
+
+  --text-primary: #f0edd8;
+  --text-secondary: #7a90b0;
+  --text-muted: #9ab0c8;
+
+  --accent: #ffd700;
+  --accent-glow: rgba(255,215,0,0.3);
+  --accent-subtle: rgba(255,215,0,0.1);
+  --accent-border: rgba(255,215,0,0.2);
+
+  --info: #5090d0;
+  --success: #4a8a4a;
+  --success-text: #80c880;
+  --success-bg: linear-gradient(180deg,#1a2a1a 0%,#142014 100%);
+  --danger: #c44;
+  --danger-text: #f88;
+
+  --btn-bg: linear-gradient(180deg,#142850 0%,#102040 100%);
+  --btn-bg-active: linear-gradient(180deg,#1a3060 0%,#142850 100%);
+  --btn-border: #2a4a70;
+  --btn-play-bg: linear-gradient(180deg,#c8a800 0%,#a08800 100%);
+  --btn-play-border: #ddb800;
+  --btn-play-shadow: rgba(255,215,0,0.3);
+
+  --border-subtle: #1e3858;
+  --border-divider: rgba(30,56,88,0.4);
+
+  --tile-bg: linear-gradient(180deg,#142850 0%,#102040 100%);
+  --tile-border: #2a4a70;
+  --tile-selected-bg: linear-gradient(180deg,#2a3010 0%,#222808 100%);
+  --tile-selected-border: #ffd700;
+  --tile-correct-bg: linear-gradient(180deg,#1a2a1a 0%,#142014 100%);
+  --tile-correct-border: #4a8a4a;
+  --tile-wrong-bg: linear-gradient(180deg,#3a1a1a 0%,#2e1212 100%);
+  --tile-wrong-border: #c44;
+
+  --sunburst-1: #0050a0;
+  --sunburst-2: #003878;
+  --sunburst-opacity: 0.3;
+
+  --star-filled: #ffd700;
+  --star-empty-stroke: #2a4a70;
+
+  --menu-bg: rgba(14,28,52,0.96);
+  --menu-border: #1e3858;
+  --menu-hover: rgba(255,215,0,0.1);
+  --hamburger-bg: rgba(10,26,48,0.7);
+  --hamburger-border: rgba(255,215,0,0.3);
+  --hamburger-line: #ffd700;
+}
+
 /* ===== FESTIVUS — Holiday-rotating themes ===== */
 
 /* New Year's — midnight blue, gold, silver */
@@ -770,6 +830,18 @@ body::before{
   content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
   background:url('assets/backgrounds/festivus-christmas.svg') repeat;
   background-size:200px 200px;
+  transform:none;
+  opacity:1;
+}
+
+/* Ukraine — flag-inspired split: blue sky top, golden wheat bottom */
+[data-theme="ukraine"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:
+    linear-gradient(180deg, rgba(0,87,183,0.18) 0%, rgba(0,87,183,0.12) 45%, rgba(255,215,0,0.10) 55%, rgba(255,215,0,0.15) 100%),
+    repeating-conic-gradient(from 0deg at 50% 50%, rgba(0,87,183,0.06) 0deg 10deg, rgba(255,215,0,0.04) 10deg 20deg);
+  background-size:100% 100%, 200vmax 200vmax;
+  background-position:center, center;
   transform:none;
   opacity:1;
 }

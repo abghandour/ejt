@@ -113,6 +113,14 @@ h1{
 .theme-card[data-theme="brazil"] .theme-preview span:nth-child(3){background:#002776}
 .theme-card[data-theme="brazil"] .theme-preview span:nth-child(4){background:#f0f0f0}
 
+/* Ukraine preview */
+.theme-card[data-theme="ukraine"]{background:linear-gradient(180deg,#0057b7,#0a1a30)}
+.theme-card[data-theme="ukraine"] .theme-name{color:#ffd700}
+.theme-card[data-theme="ukraine"] .theme-preview span:nth-child(1){background:#0057b7}
+.theme-card[data-theme="ukraine"] .theme-preview span:nth-child(2){background:#0040a0}
+.theme-card[data-theme="ukraine"] .theme-preview span:nth-child(3){background:#ffd700}
+.theme-card[data-theme="ukraine"] .theme-preview span:nth-child(4){background:#c8a800}
+
 /* Dark preview */
 .theme-card[data-theme="dark"]{background:linear-gradient(180deg,#1e1e28,#18181f)}
 .theme-card[data-theme="dark"] .theme-name{color:#5a9abf}
@@ -172,6 +180,8 @@ h1{
   -webkit-tap-highlight-color:transparent;
   display:flex;flex-direction:column;gap:8px;
 }
+.lang-card .lang-label{display:flex;align-items:center;gap:8px}
+.lang-card .lang-flag{width:28px;height:20px;border-radius:3px;flex-shrink:0;overflow:hidden;box-shadow:0 0 2px rgba(0,0,0,0.3)}
 .lang-card:active{transform:scale(0.97)}
 .lang-card.active{
   border-color:var(--accent);
@@ -200,6 +210,7 @@ h1{
 var THEMES = [
   {id:'soviet', name:'Soviet Russia'},
   {id:'brazil', name:'Aquarela do Brasil'},
+  {id:'ukraine', name:'Слава Україні'},
   {id:'dark',   name:'Dark'},
   {id:'light',  name:'Light'},
   {id:'bw',     name:'Black & White'},
@@ -309,12 +320,19 @@ BG_MODES.forEach(function(b) {
     buildThemeGrid(currentConfig.themes);
   }
 
+  var FLAGS = {
+    'ru': '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="6.67" fill="#fff"/><rect y="6.67" width="28" height="6.67" fill="#0039a6"/><rect y="13.33" width="28" height="6.67" fill="#d52b1e"/></svg>',
+    'pt-br': '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="20" fill="#009739"/><polygon points="14,2 26,10 14,18 2,10" fill="#FEDD00"/><circle cx="14" cy="10" r="4.5" fill="#002776"/><path d="M9.5 10.5 Q14 7.5 18.5 10.5" fill="none" stroke="#fff" stroke-width="0.6"/></svg>',
+    'uk': '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="10" fill="#0057b7"/><rect y="10" width="28" height="10" fill="#ffd700"/></svg>'
+  };
+
   Object.keys(config).forEach(function(langId) {
     var lang = config[langId];
     var card = document.createElement('div');
     card.className = 'lang-card' + (langId === currentLang ? ' active' : '');
     card.setAttribute('data-lang', langId);
-    card.innerHTML = '<div class="check"></div><div class="lang-name">' + lang.displayName + '</div>';
+    var flag = FLAGS[langId] || '';
+    card.innerHTML = '<div class="check"></div><div class="lang-label"><span class="lang-flag">' + flag + '</span><span class="lang-name">' + lang.displayName + '</span></div>';
 
     card.addEventListener('click', function() {
       document.querySelectorAll('.lang-card').forEach(function(c) { c.classList.remove('active'); });

@@ -14,7 +14,7 @@
     }
   },
   "pt-br": {
-    "displayName": "Português (Brasil)",
+    "displayName": "Portuguese",
     "games": ["scramblisky", "bogglesky", "snakesky"],
     "themes": ["brazil", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/pt-br",
@@ -24,6 +24,19 @@
       "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Portuguese words before time runs out" },
       "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Portuguese words in a letter grid" },
       "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Portuguese words" }
+    }
+  },
+  "uk": {
+    "displayName": "Ukranian",
+    "games": ["scramblisky", "bogglesky", "snakesky"],
+    "themes": ["ukraine", "dark", "light", "bw", "festivus"],
+    "dictionaryBasePath": "../shared/dictionaries/uk",
+    "letterPool": "оооооооеееееееаааааааиииииінннннніііііттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщьїєфґй",
+    "validationRegex": "^[а-яіїєґА-ЯІЇЄҐ]+$",
+    "gameNames": {
+      "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Ukrainian words before time runs out" },
+      "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Ukrainian words in a letter grid" },
+      "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Ukrainian words" }
     }
   }
 }
