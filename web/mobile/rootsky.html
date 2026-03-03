@@ -17,23 +17,6 @@
 <script src="../shared/theme.js"></script>
 <link rel="stylesheet" href="../shared/base.css">
 <style>
-/* Rootsky sunburst override — slightly different red for soviet theme */
-body::before{
-  background:repeating-conic-gradient(
-    from 0deg,
-    var(--sunburst-1) 0deg 10deg,
-    var(--sunburst-2) 10deg 20deg
-  );
-  opacity:var(--sunburst-opacity);
-}
-body.rays-swapped::before{
-  background:repeating-conic-gradient(
-    from 0deg,
-    var(--sunburst-2) 0deg 10deg,
-    var(--sunburst-1) 10deg 20deg
-  );
-  opacity:var(--sunburst-opacity);
-}
 
 /* ===== TOP BAR ===== */
 #top-bar{
@@ -1044,11 +1027,6 @@ body.rays-swapped::before{
 
   // ===== HELPER FUNCTIONS =====
 
-  // Ray color swap — toggle light/dark shades
-  function swapRayColors() {
-    document.body.classList.toggle('rays-swapped');
-  }
-
   function getTodayStr() {
     const d = new Date();
     const yyyy = d.getFullYear();
@@ -1750,7 +1728,6 @@ body.rays-swapped::before{
   }
 
   function renderWord(wordEntry, wordIndex, disabledOptions) {
-    swapRayColors();
     var russianEl = document.getElementById('russian-word');
     russianEl.textContent = wordEntry.wordOfTheDay;
 
@@ -2316,7 +2293,6 @@ body.rays-swapped::before{
   }
 
   function renderReviewWord(index) {
-    swapRayColors();
     if (!currentWords || !currentWords[index]) return;
     var wordEntry = currentWords[index];
 

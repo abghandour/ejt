@@ -167,48 +167,14 @@
   // Apply immediately
   applyBgMode(getBgMode());
 
-  // ===== FONT SIZE =====
-  var FONT_KEY = 'hjlr_fontsize';
-  var FONT_VALID = ['small','medium','large'];
-  var FONT_SCALE = {small:'1', medium:'1.15', large:'1.25'};
-
-  function getFontSize() {
-    try {
-      var f = localStorage.getItem(FONT_KEY);
-      if (f && FONT_VALID.indexOf(f) !== -1) return f;
-    } catch(e) {}
-    return 'small';
-  }
-
-  function applyFontSize(f) {
-    var scale = FONT_SCALE[f] || '1';
-    // Apply to body if available, otherwise queue for DOMContentLoaded
-    if (document.body) {
-      document.body.style.zoom = scale;
-    } else {
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.style.zoom = scale;
-      });
-    }
-  }
-
-  function setFontSize(f) {
-    if (FONT_VALID.indexOf(f) === -1) return;
-    try { localStorage.setItem(FONT_KEY, f); } catch(e) {}
-    applyFontSize(f);
-  }
-
   // Apply immediately
   document.documentElement.setAttribute('data-theme', resolveThemeAttr(getTheme()));
-  applyFontSize(getFontSize());
 
   // Expose globally
   window.hjlrGetTheme = getTheme;
   window.hjlrSetTheme = setTheme;
   window.hjlrGetCurrentHoliday = getCurrentHoliday;
   window.hjlrHolidayNames = HOLIDAY_NAMES;
-  window.hjlrGetFontSize = getFontSize;
-  window.hjlrSetFontSize = setFontSize;
   window.hjlrGetBgMode = getBgMode;
   window.hjlrSetBgMode = setBgMode;
 })();

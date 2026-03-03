@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.12">
+  <!-- Snowman -->
+  <circle cx="60" cy="150" r="22" fill="#e0d8d0"/>
+  <circle cx="60" cy="115" r="16" fill="#e0d8d0"/>
+  <circle cx="60" cy="88" r="12" fill="#e0d8d0"/>
+  <!-- Snowman face -->
+  <circle cx="55" cy="85" r="2" fill="#0e0a0a"/>
+  <circle cx="65" cy="85" r="2" fill="#0e0a0a"/>
+  <path d="M57,92 L60,96 L63,92" fill="none" stroke="#e08020" stroke-width="2"/>
+  <!-- Hat -->
+  <rect x="48" y="72" width="24" height="3" rx="1" fill="#0e0a0a"/>
+  <rect x="52" y="56" width="16" height="16" rx="2" fill="#0e0a0a"/>
+  <!-- Scarf -->
+  <path d="M44,102 Q60,108 76,102" fill="none" stroke="#c03030" stroke-width="3"/>
+  <line x1="70" y1="104" x2="74" y2="118" stroke="#c03030" stroke-width="3"/>
+  <!-- Buttons -->
+  <circle cx="60" cy="118" r="2" fill="#0e0a0a"/>
+  <circle cx="60" cy="130" r="2" fill="#0e0a0a"/>
+  <circle cx="60" cy="142" r="2" fill="#0e0a0a"/>
+  <!-- Arms (sticks) -->
+  <line x1="38" y1="115" x2="20" y2="100" stroke="#5a3010" stroke-width="2"/>
+  <line x1="82" y1="115" x2="100" y2="100" stroke="#5a3010" stroke-width="2"/>
+  <!-- Devil/Krampus (fun twist) -->
+  <ellipse cx="155" cy="130" rx="14" ry="18" fill="#c03030"/>
+  <!-- Horns -->
+  <path d="M145,112 Q142,98 138,95" fill="none" stroke="#c03030" stroke-width="3"/>
+  <path d="M165,112 Q168,98 172,95" fill="none" stroke="#c03030" stroke-width="3"/>
+  <!-- Devil face -->
+  <circle cx="150" cy="125" r="2.5" fill="#d4a830"/>
+  <circle cx="160" cy="125" r="2.5" fill="#d4a830"/>
+  <path d="M148,135 Q155,140 162,135" fill="none" stroke="#d4a830" stroke-width="1.5"/>
+  <!-- Pointy beard -->
+  <path d="M150,140 L155,155 L160,140" fill="#c03030"/>
+  <!-- Devil tail -->
+  <path d="M155,148 Q170,160 175,150 Q178,145 180,148" fill="none" stroke="#c03030" stroke-width="2"/>
+  <path d="M180,148 L183,144 L178,146 Z" fill="#c03030"/>
+  <!-- Trident -->
+  <line x1="140" y1="105" x2="140" y2="165" stroke="#5a3010" stroke-width="2"/>
+  <path d="M134,105 L140,95 L146,105" fill="none" stroke="#5a3010" stroke-width="2"/>
+  <line x1="134" y1="105" x2="134" y2="100" stroke="#5a3010" stroke-width="2"/>
+  <line x1="146" y1="105" x2="146" y2="100" stroke="#5a3010" stroke-width="2"/>
+  <!-- Snowflakes -->
+  <text x="20" y="40" font-size="16" fill="#e0d8d0">❄</text>
+  <text x="100" y="30" font-size="12" fill="#e0d8d0">❄</text>
+  <text x="170" y="55" font-size="14" fill="#e0d8d0">❄</text>
+  <text x="85" y="185" font-size="10" fill="#e0d8d0">❄</text>
+  <text x="130" y="190" font-size="12" fill="#e0d8d0">❄</text>
+  <!-- Christmas tree -->
+  <polygon points="105,40 95,65 115,65" fill="#2a5a2a"/>
+  <polygon points="105,55 92,75 118,75" fill="#2a5a2a"/>
+  <rect x="102" y="75" width="6" height="8" fill="#5a3010"/>
+  <!-- Star on tree -->
+  <text x="101" y="42" font-size="8" fill="#d4a830">★</text>
+  <!-- Ornaments -->
+  <circle cx="100" cy="60" r="2.5" fill="#c03030"/>
+  <circle cx="112" cy="68" r="2.5" fill="#d4a830"/>
+</svg>

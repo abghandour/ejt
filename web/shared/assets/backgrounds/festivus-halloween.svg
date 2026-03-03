@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.12">
+  <!-- Pumpkin -->
+  <ellipse cx="60" cy="130" rx="28" ry="24" fill="#e08020"/>
+  <path d="M60,106 Q60,96 55,92" fill="none" stroke="#5a3010" stroke-width="2.5"/>
+  <path d="M38,120 Q60,115 82,120" fill="none" stroke="#c06010" stroke-width="2"/>
+  <path d="M38,140 Q60,145 82,140" fill="none" stroke="#c06010" stroke-width="2"/>
+  <!-- Pumpkin face -->
+  <polygon points="48,122 52,118 56,124" fill="#201414"/>
+  <polygon points="64,122 68,118 72,124" fill="#201414"/>
+  <path d="M48,136 Q54,142 60,136 Q66,142 72,136" fill="none" stroke="#201414" stroke-width="2"/>
+  <!-- Skeleton -->
+  <circle cx="155" cy="40" r="14" fill="none" stroke="#e0d0c0" stroke-width="2"/>
+  <!-- Skull eyes -->
+  <ellipse cx="150" cy="38" rx="4" ry="5" fill="#201414"/>
+  <ellipse cx="160" cy="38" rx="4" ry="5" fill="#201414"/>
+  <!-- Skull nose -->
+  <polygon points="155,43 153,47 157,47" fill="#201414"/>
+  <!-- Skull teeth -->
+  <line x1="149" y1="50" x2="161" y2="50" stroke="#e0d0c0" stroke-width="1.5"/>
+  <line x1="152" y1="48" x2="152" y2="53" stroke="#e0d0c0" stroke-width="1"/>
+  <line x1="155" y1="48" x2="155" y2="53" stroke="#e0d0c0" stroke-width="1"/>
+  <line x1="158" y1="48" x2="158" y2="53" stroke="#e0d0c0" stroke-width="1"/>
+  <!-- Skeleton body -->
+  <line x1="155" y1="54" x2="155" y2="90" stroke="#e0d0c0" stroke-width="2"/>
+  <!-- Ribs -->
+  <line x1="145" y1="64" x2="165" y2="64" stroke="#e0d0c0" stroke-width="1.5"/>
+  <line x1="146" y1="70" x2="164" y2="70" stroke="#e0d0c0" stroke-width="1.5"/>
+  <line x1="147" y1="76" x2="163" y2="76" stroke="#e0d0c0" stroke-width="1.5"/>
+  <!-- Arms -->
+  <line x1="155" y1="62" x2="138" y2="80" stroke="#e0d0c0" stroke-width="1.5"/>
+  <line x1="155" y1="62" x2="172" y2="80" stroke="#e0d0c0" stroke-width="1.5"/>
+  <!-- Legs -->
+  <line x1="155" y1="90" x2="142" y2="115" stroke="#e0d0c0" stroke-width="1.5"/>
+  <line x1="155" y1="90" x2="168" y2="115" stroke="#e0d0c0" stroke-width="1.5"/>
+  <!-- Bat -->
+  <path d="M30,40 Q20,30 10,38 Q18,35 25,38 L30,40 L35,38 Q42,35 50,38 Q40,30 30,40Z" fill="#9060b0"/>
+  <circle cx="30" cy="42" r="3" fill="#9060b0"/>
+  <!-- Spider web corner -->
+  <path d="M190,0 Q180,10 190,20" fill="none" stroke="#9060b0" stroke-width="0.8"/>
+  <path d="M200,0 Q185,15 200,30" fill="none" stroke="#9060b0" stroke-width="0.8"/>
+  <line x1="190" y1="0" x2="200" y2="0" stroke="#9060b0" stroke-width="0.8"/>
+  <line x1="200" y1="0" x2="200" y2="10" stroke="#9060b0" stroke-width="0.8"/>
+  <line x1="195" y1="0" x2="200" y2="5" stroke="#9060b0" stroke-width="0.5"/>
+  <line x1="192" y1="0" x2="200" y2="12" stroke="#9060b0" stroke-width="0.5"/>
+  <!-- Ghost -->
+  <path d="M110,160 Q110,140 120,140 Q130,140 130,160 L128,155 L125,160 L122,155 L118,160 L115,155 L112,160Z" fill="#e0d0c0"/>
+  <circle cx="117" cy="148" r="2" fill="#201414"/>
+  <circle cx="125" cy="148" r="2" fill="#201414"/>
+  <ellipse cx="121" cy="154" rx="2" ry="3" fill="#201414"/>
+  <!-- Moon -->
+  <circle cx="170" cy="170" r="18" fill="#e08020" opacity="0.4"/>
+  <circle cx="176" cy="165" r="15" fill="#0e0a0a"/>
+</svg>

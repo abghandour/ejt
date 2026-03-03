@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.12">
+  <!-- Bunny -->
+  <ellipse cx="55" cy="110" rx="18" ry="22" fill="#9b6bb0"/>
+  <!-- Bunny ears -->
+  <ellipse cx="45" cy="72" rx="6" ry="20" fill="#9b6bb0"/>
+  <ellipse cx="45" cy="74" rx="3" ry="14" fill="#d8b0e8"/>
+  <ellipse cx="65" cy="72" rx="6" ry="20" fill="#9b6bb0"/>
+  <ellipse cx="65" cy="74" rx="3" ry="14" fill="#d8b0e8"/>
+  <!-- Bunny face -->
+  <circle cx="48" cy="102" r="2" fill="#3a2a4a"/>
+  <circle cx="62" cy="102" r="2" fill="#3a2a4a"/>
+  <ellipse cx="55" cy="108" rx="3" ry="2" fill="#d8b0e8"/>
+  <!-- Bunny tail -->
+  <circle cx="73" cy="115" r="5" fill="#d8b0e8"/>
+  <!-- Easter egg 1 -->
+  <ellipse cx="120" cy="140" rx="14" ry="18" fill="#6aaa8a"/>
+  <path d="M108,135 Q120,128 132,135" fill="none" stroke="#d4a830" stroke-width="2"/>
+  <path d="M108,145 Q120,152 132,145" fill="none" stroke="#9b6bb0" stroke-width="2"/>
+  <circle cx="120" cy="140" r="3" fill="#d4a830"/>
+  <!-- Easter egg 2 -->
+  <ellipse cx="160" cy="70" rx="12" ry="16" fill="#d4a830"/>
+  <line x1="148" y1="65" x2="172" y2="65" stroke="#9b6bb0" stroke-width="2"/>
+  <line x1="148" y1="75" x2="172" y2="75" stroke="#6aaa8a" stroke-width="2"/>
+  <circle cx="155" cy="70" r="2" fill="#9b6bb0"/>
+  <circle cx="165" cy="70" r="2" fill="#6aaa8a"/>
+  <!-- Easter egg 3 small -->
+  <ellipse cx="30" cy="170" rx="10" ry="13" fill="#d8b0e8"/>
+  <path d="M22,167 C26,162 34,162 38,167" fill="none" stroke="#6aaa8a" stroke-width="1.5"/>
+  <path d="M22,173 C26,178 34,178 38,173" fill="none" stroke="#d4a830" stroke-width="1.5"/>
+  <!-- Flowers -->
+  <circle cx="100" cy="40" r="5" fill="#d8b0e8"/>
+  <circle cx="95" cy="35" r="4" fill="#d8b0e8"/>
+  <circle cx="105" cy="35" r="4" fill="#d8b0e8"/>
+  <circle cx="100" cy="38" r="3" fill="#d4a830"/>
+  <line x1="100" y1="45" x2="100" y2="60" stroke="#6aaa8a" stroke-width="1.5"/>
+  <!-- Grass tufts -->
+  <path d="M0,195 Q5,180 10,195 Q15,178 20,195" fill="none" stroke="#6aaa8a" stroke-width="1.5"/>
+  <path d="M80,195 Q85,182 90,195 Q95,180 100,195" fill="none" stroke="#6aaa8a" stroke-width="1.5"/>
+  <path d="M170,195 Q175,183 180,195 Q185,180 190,195" fill="none" stroke="#6aaa8a" stroke-width="1.5"/>
+</svg>

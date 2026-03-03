@@ -17,13 +17,7 @@ body{
   user-select:none;-webkit-user-select:none;
 }
 
-/* Sunburst background */
-body::before{
-  content:'';position:fixed;top:50%;left:50%;
-  width:200vmax;height:200vmax;transform:translate(-50%,-50%);z-index:-1;
-  background:repeating-conic-gradient(from 0deg,var(--sunburst-1) 0deg 10deg,var(--sunburst-2) 10deg 20deg);
-  opacity:var(--sunburst-opacity);
-}
+/* Sunburst background — now handled by theme.css */
 
 /* ===== ICON CLASSES ===== */
 .icon{display:inline-block;vertical-align:middle;fill:currentColor}

@@ -11,12 +11,6 @@
 <script src="../shared/theme.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body::before{
-  content:'';position:fixed;top:50%;left:50%;
-  width:200vmax;height:200vmax;transform:translate(-50%,-50%);z-index:-1;
-  background:repeating-conic-gradient(from 0deg,var(--sunburst-1) 0deg 10deg,var(--sunburst-2) 10deg 20deg);
-  opacity:var(--sunburst-opacity);
-}
 body{
   background:var(--bg-primary);color:var(--text-primary);
   font-family:'Roboto Condensed',sans-serif;
@@ -52,11 +46,8 @@ h1{
   <div class="section-label">Color Theme</div>
   <div id="theme-grid"></div>
 
-  <div class="section-label" style="margin-top:24px">Font Size</div>
-  <div id="fontsize-toggle"></div>
-
-  <div class="section-label" style="margin-top:24px">Background</div>
-  <div id="bg-toggle"></div>
+  <div class="section-label" style="margin-top:24px;display:none">Background</div>
+  <div id="bg-toggle" style="display:none"></div>
 </div>
 
 <style>
@@ -138,23 +129,6 @@ h1{
   font-size:11px;color:var(--text-secondary);margin-top:-4px;
 }
 
-/* Font size toggle */
-#fontsize-toggle{
-  display:flex;gap:0;border-radius:10px;overflow:hidden;
-  border:2px solid var(--border-subtle);
-}
-.fs-btn{
-  flex:1;padding:10px 0;font-size:14px;
-  font-family:'Roboto Condensed',sans-serif;font-weight:700;
-  background:var(--bg-card);border:none;
-  color:var(--text-secondary);cursor:pointer;
-  transition:all 0.2s;text-align:center;
-  -webkit-tap-highlight-color:transparent;
-}
-.fs-btn:not(:last-child){border-right:1px solid var(--border-subtle)}
-.fs-btn.active{background:var(--accent);color:var(--bg-primary)}
-.fs-btn:active{transform:scale(0.97)}
-
 /* Background toggle — reuses fs-btn style */
 #bg-toggle{
   display:flex;gap:0;border-radius:10px;overflow:hidden;
@@ -229,30 +203,6 @@ THEMES.forEach(function(t) {
     }
   });
   grid.appendChild(card);
-});
-
-// Font size toggle
-var FONT_SIZES = [
-  {id:'small',  label:'Small'},
-  {id:'medium', label:'Medium'},
-  {id:'large',  label:'Large'}
-];
-var fsToggle = document.getElementById('fontsize-toggle');
-var currentFs = hjlrGetFontSize();
-
-FONT_SIZES.forEach(function(f) {
-  var btn = document.createElement('button');
-  btn.className = 'fs-btn' + (f.id === currentFs ? ' active' : '');
-  btn.textContent = f.label;
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.fs-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    hjlrSetFontSize(f.id);
-    if (window.parent !== window) {
-      window.parent.postMessage({type:'fontSizeChange', fontSize: f.id}, '*');
-    }
-  });
-  fsToggle.appendChild(btn);
 });
 
 // Background toggle

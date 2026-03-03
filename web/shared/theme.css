@@ -106,9 +106,9 @@
   --tile-wrong-bg: linear-gradient(180deg,#3a1e1e 0%,#2e1616 100%);
   --tile-wrong-border: #b44;
 
-  --sunburst-1: transparent;
-  --sunburst-2: transparent;
-  --sunburst-opacity: 0;
+  --sunburst-1: #1a2a3a;
+  --sunburst-2: #0a1828;
+  --sunburst-opacity: 0.18;
 
   --star-filled: #5a9abf;
   --star-empty-stroke: #4a4a5a;
@@ -166,9 +166,9 @@
   --tile-wrong-bg: linear-gradient(180deg,#fde8e8 0%,#f5d8d8 100%);
   --tile-wrong-border: #c44;
 
-  --sunburst-1: transparent;
-  --sunburst-2: transparent;
-  --sunburst-opacity: 0;
+  --sunburst-1: #e8dcc0;
+  --sunburst-2: #f0e8d4;
+  --sunburst-opacity: 0.25;
 
   --star-filled: #b8860b;
   --star-empty-stroke: #c0bab0;
@@ -226,9 +226,9 @@
   --tile-wrong-bg: linear-gradient(180deg,#2e2222 0%,#261a1a 100%);
   --tile-wrong-border: #888;
 
-  --sunburst-1: transparent;
-  --sunburst-2: transparent;
-  --sunburst-opacity: 0;
+  --sunburst-1: #1a1a1a;
+  --sunburst-2: #222222;
+  --sunburst-opacity: 0.3;
 
   --star-filled: #cccccc;
   --star-empty-stroke: #555555;
@@ -383,9 +383,9 @@
   --tile-correct-border: #5a9a5a;
   --tile-wrong-bg: linear-gradient(180deg,#fde8e8 0%,#f5d8d8 100%);
   --tile-wrong-border: #c46a6a;
-  --sunburst-1: transparent;
-  --sunburst-2: transparent;
-  --sunburst-opacity: 0;
+  --sunburst-1: #e8ddf0;
+  --sunburst-2: #f0e8f8;
+  --sunburst-opacity: 0.2;
   --star-filled: #d4a830;
   --star-empty-stroke: #c8b8d8;
   --menu-bg: rgba(255,255,255,0.96);
@@ -601,132 +601,116 @@
 }
 
 /* ===== THEME BACKGROUND PATTERNS ===== */
-/* Each theme gets a unique body::before background. Soviet keeps sunburst (defined in base.css / inline). */
+/* Default sunburst for Soviet / base theme */
+body::before{
+  content:'';position:fixed;top:50%;left:50%;
+  width:200vmax;height:200vmax;transform:translate(-50%,-50%);z-index:-1;
+  background:repeating-conic-gradient(from 0deg,var(--sunburst-1) 0deg 10deg,var(--sunburst-2) 10deg 20deg);
+  opacity:var(--sunburst-opacity);
+}
 
-/* Dark — subtle grid */
+/* Each non-Soviet theme overrides body::before with a unique pattern. */
+
+/* Dark — neon circuit board grid with glowing intersections */
 [data-theme="dark"] body::before{
   content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
   background:none;transform:none;
   background-image:
-    linear-gradient(rgba(90,154,191,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(90,154,191,0.04) 1px, transparent 1px);
-  background-size:32px 32px;
+    radial-gradient(circle 2px at 32px 32px, rgba(90,154,191,0.18) 0%, transparent 100%),
+    linear-gradient(rgba(90,154,191,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90,154,191,0.08) 1px, transparent 1px),
+    radial-gradient(ellipse at 15% 85%, rgba(90,154,191,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgba(74,138,74,0.10) 0%, transparent 50%);
+  background-size:32px 32px, 32px 32px, 32px 32px, 100% 100%, 100% 100%;
   opacity:1;
 }
 
-/* Light — soft diagonal stripes */
+/* Light — warm sun rays with golden glow */
 [data-theme="light"] body::before{
-  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background:none;transform:none;
-  background-image:repeating-linear-gradient(
-    135deg,
-    rgba(184,134,11,0.04) 0px,
-    rgba(184,134,11,0.04) 1px,
-    transparent 1px,
-    transparent 16px
-  );
+  content:'';position:fixed;top:50%;left:50%;z-index:-1;
+  width:200vmax;height:200vmax;transform:translate(-50%,-50%);
+  background:repeating-conic-gradient(from 0deg,rgba(184,134,11,0.06) 0deg 10deg,rgba(58,122,58,0.03) 10deg 20deg);
   opacity:1;
 }
 
-/* B&W — dot grid */
+/* B&W — dramatic diagonal scanlines with vignette */
 [data-theme="bw"] body::before{
-  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background:none;transform:none;
-  background-image:radial-gradient(circle, rgba(200,200,200,0.08) 1px, transparent 1px);
-  background-size:20px 20px;
-  opacity:1;
-}
-
-/* Festivus — New Year's: sparkle/starburst */
-[data-theme="festivus-newyear"] body::before{
-  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background:none;transform:none;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(212,175,55,0.12) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(192,192,208,0.08) 0%, transparent 40%),
-    radial-gradient(circle, rgba(212,175,55,0.05) 1px, transparent 1px);
-  background-size:100% 100%, 100% 100%, 24px 24px;
-  opacity:1;
-}
-
-/* Festivus — Valentine's: floating hearts pattern */
-[data-theme="festivus-valentine"] body::before{
-  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background:none;transform:none;
-  background-image:
-    radial-gradient(circle at 25% 25%, rgba(224,80,128,0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(208,144,176,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(224,80,128,0.03) 0%, transparent 70%);
-  background-size:100% 100%;
-  opacity:1;
-}
-
-/* Festivus — Easter: pastel eggs / soft bubbles */
-[data-theme="festivus-easter"] body::before{
-  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background:none;transform:none;
-  background-image:
-    radial-gradient(ellipse 18px 22px at 15% 20%, rgba(155,107,176,0.08) 0%, transparent 100%),
-    radial-gradient(ellipse 14px 18px at 45% 60%, rgba(106,170,138,0.07) 0%, transparent 100%),
-    radial-gradient(ellipse 16px 20px at 75% 35%, rgba(212,168,48,0.06) 0%, transparent 100%),
-    radial-gradient(ellipse 12px 16px at 85% 80%, rgba(155,107,176,0.06) 0%, transparent 100%),
-    radial-gradient(ellipse 20px 24px at 30% 85%, rgba(106,170,138,0.05) 0%, transparent 100%);
-  background-size:100% 100%;
-  opacity:1;
-}
-
-/* Festivus — 4th of July: diagonal stars & stripes */
-[data-theme="festivus-july4th"] body::before{
   content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
   background:none;transform:none;
   background-image:
     repeating-linear-gradient(
-      0deg,
-      rgba(176,32,32,0.06) 0px,
-      rgba(176,32,32,0.06) 3px,
-      transparent 3px,
-      transparent 18px
+      -45deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 6px
     ),
-    radial-gradient(circle, rgba(232,232,240,0.04) 1.5px, transparent 1.5px);
-  background-size:100% 21px, 28px 28px;
+    radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(0,0,0,0.4) 100%),
+    radial-gradient(circle, rgba(200,200,200,0.06) 1px, transparent 1px);
+  background-size:8px 8px, 100% 100%, 16px 16px;
   opacity:1;
 }
 
-/* Festivus — Halloween: spooky fog */
+/* Festivus — New Year's: champagne, fireworks, clock */
+[data-theme="festivus-newyear"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:url('assets/backgrounds/festivus-newyear.svg') repeat;
+  background-size:200px 200px;
+  transform:none;
+  opacity:1;
+}
+
+/* Festivus — Valentine's: hearts, roses, cupid arrows */
+[data-theme="festivus-valentine"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:url('assets/backgrounds/festivus-valentine.svg') repeat;
+  background-size:200px 200px;
+  transform:none;
+  opacity:1;
+}
+
+/* Festivus — Easter: bunnies, decorated eggs, flowers */
+[data-theme="festivus-easter"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:url('assets/backgrounds/festivus-easter.svg') repeat;
+  background-size:200px 200px;
+  transform:none;
+  opacity:1;
+}
+
+/* Festivus — 4th of July: flags, fireworks, stars */
+[data-theme="festivus-july4th"] body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  background:url('assets/backgrounds/festivus-july4th.svg') repeat;
+  background-size:200px 200px;
+  transform:none;
+  opacity:1;
+}
+
+/* Festivus — Halloween: pumpkins, skeletons, bats, ghosts */
 [data-theme="festivus-halloween"] body::before{
   content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background:none;transform:none;
-  background-image:
-    radial-gradient(ellipse at 20% 80%, rgba(224,128,32,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(144,96,176,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 50%, rgba(224,128,32,0.03) 0%, transparent 80%);
-  background-size:100% 100%;
+  background:url('assets/backgrounds/festivus-halloween.svg') repeat;
+  background-size:200px 200px;
+  transform:none;
   opacity:1;
 }
 
-/* Festivus — Thanksgiving: warm woven texture */
+/* Festivus — Thanksgiving: turkey, autumn leaves, corn */
 [data-theme="festivus-thanksgiving"] body::before{
   content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background:none;transform:none;
-  background-image:
-    linear-gradient(rgba(200,144,48,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200,144,48,0.04) 1px, transparent 1px),
-    linear-gradient(45deg, rgba(138,96,32,0.03) 1px, transparent 1px);
-  background-size:24px 24px, 24px 24px, 17px 17px;
+  background:url('assets/backgrounds/festivus-thanksgiving.svg') repeat;
+  background-size:200px 200px;
+  transform:none;
   opacity:1;
 }
 
-/* Festivus — Christmas: falling snow dots */
+/* Festivus — Christmas: snowman, devil/krampus, tree, snowflakes */
 [data-theme="festivus-christmas"] body::before{
   content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-  background:none;transform:none;
-  background-image:
-    radial-gradient(circle, rgba(212,168,48,0.06) 1px, transparent 1px),
-    radial-gradient(circle, rgba(58,122,58,0.05) 1.5px, transparent 1.5px),
-    radial-gradient(circle at 30% 20%, rgba(192,48,48,0.06) 0%, transparent 50%),
-    radial-gradient(circle at 70% 80%, rgba(58,122,58,0.05) 0%, transparent 50%);
-  background-size:30px 30px, 22px 22px, 100% 100%, 100% 100%;
-  background-position:0 0, 11px 11px, 0 0, 0 0;
+  background:url('assets/backgrounds/festivus-christmas.svg') repeat;
+  background-size:200px 200px;
+  transform:none;
   opacity:1;
 }
 
