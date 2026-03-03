@@ -33,3 +33,5 @@ build/
 
 # CocoaPods (if ever used)
 Pods/
+
+node_modules

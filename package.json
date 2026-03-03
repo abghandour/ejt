@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "serve": "npx serve web"
+    "serve": "npx serve web",
+    "test": "vitest --run"
+  },
+  "devDependencies": {
+    "@fast-check/vitest": "^0.2.4",
+    "fast-check": "^4.5.3",
+    "vitest": "^4.0.18"
   }
 }

@@ -13,20 +13,35 @@ function getAudioCtx() {
 }
 
 function unlockAudio() {
-  var ctx = getAudioCtx();
-  if (ctx.state === 'suspended') {
-    ctx.resume().catch(function() {});
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   }
-  if (audioUnlocked) return;
-  // Play a silent buffer to fully unlock audio on iOS
-  try {
-    var b = ctx.createBuffer(1, 1, 22050);
-    var s = ctx.createBufferSource();
-    s.buffer = b;
-    s.connect(ctx.destination);
-    s.start(0);
-    audioUnlocked = true;
-  } catch(e) {}
+  var ctx = audioCtx;
+  if (ctx.state === 'suspended') {
+    try { ctx.resume(); } catch(e) {}
+    // If resume didn't synchronously unlock (iOS re-suspension or stuck context),
+    // recreate the AudioContext within this gesture context
+    if (ctx.state === 'suspended') {
+      try {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        ctx = audioCtx;
+        if (ctx.state === 'suspended') {
+          try { ctx.resume(); } catch(e) {}
+        }
+      } catch(e) {}
+    }
+  }
+  if (!audioUnlocked) {
+    // Play a silent buffer to fully unlock audio on iOS
+    try {
+      var b = ctx.createBuffer(1, 1, 22050);
+      var s = ctx.createBufferSource();
+      s.buffer = b;
+      s.connect(ctx.destination);
+      s.start(0);
+    } catch(e) {}
+  }
+  if (ctx.state === 'running') audioUnlocked = true;
 }
 
 // iOS requires resume on every user gesture — don't use { once: true }
@@ -36,10 +51,7 @@ function unlockAudio() {
 
 function playTone(freq, dur, type, vol, delay) {
   var ctx = getAudioCtx();
-  // Always try to resume — iOS can re-suspend after inactivity
-  if (ctx.state === 'suspended') {
-    ctx.resume().catch(function() {});
-  }
+  if (ctx.state === 'suspended') return;
   type = type || 'sine';
   vol = vol || 0.1;
   delay = delay || 0;
@@ -347,3 +359,16 @@ function resolveGameName(langId, gameId) {
   return null;
 }
 
+
+// ===== TEST EXPORTS =====
+if (typeof module !== 'undefined') {
+  module.exports = {
+    getAudioCtx: getAudioCtx,
+    unlockAudio: unlockAudio,
+    playTone: playTone,
+    get audioCtx() { return audioCtx; },
+    set audioCtx(v) { audioCtx = v; },
+    get audioUnlocked() { return audioUnlocked; },
+    set audioUnlocked(v) { audioUnlocked = v; }
+  };
+}
