@@ -59,22 +59,21 @@
   font-size:clamp(26px,7vw,38px);font-weight:700;
   background:var(--tile-bg);
   border:2px solid var(--tile-border);border-radius:10px;
-  transition:background 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.15s;
+  transition:background 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.15s, transform 0.2s ease;
   -webkit-tap-highlight-color:transparent;
   -webkit-user-select:none;user-select:none;
 }
-.grid-cell.selected{
+.grid-cell.selected, .grid-cell.path{
   border-color:var(--tile-selected-border);
   background:var(--tile-selected-bg);
   color:var(--accent);text-shadow:0 0 8px var(--accent-glow);
-  transform:scale(1.08);
   box-shadow:0 0 12px var(--accent-glow);
 }
-.grid-cell.path{
-  border-color:var(--info);
-  background:linear-gradient(180deg,#1a2a3a 0%,#162030 100%);
-  color:var(--info);
-}
+.grid-cell.twist-left{transform:scale(1.05) rotate(-5deg)}
+.grid-cell.twist-right{transform:scale(1.05) rotate(5deg)}
+/* Preview grow on neighbor approach */
+.grid-cell.preview-left{transform:scale(1.05) rotate(-5deg)}
+.grid-cell.preview-right{transform:scale(1.05) rotate(5deg)}
 .grid-cell.correct{
   border-color:var(--tile-correct-border);background:var(--tile-correct-bg);
   color:var(--success-text);box-shadow:0 0 16px rgba(85,170,85,0.3);
@@ -94,14 +93,6 @@
   60%{transform:scale(1.1);opacity:1}
   100%{transform:scale(1);opacity:1}
 }
-/* Twist on initial tap */
-@keyframes twistLeft{0%{transform:scale(1) rotate(0)}40%{transform:scale(1.05) rotate(-5deg)}100%{transform:scale(1) rotate(0)}}
-@keyframes twistRight{0%{transform:scale(1) rotate(0)}40%{transform:scale(1.05) rotate(5deg)}100%{transform:scale(1) rotate(0)}}
-.grid-cell.twist-left{animation:twistLeft 0.5s ease}
-.grid-cell.twist-right{animation:twistRight 0.5s ease}
-/* Preview grow on neighbor approach — uses transform so it cancels cleanly */
-.grid-cell.preview-left{transform:scale(1.05) rotate(-5deg);transition:transform 0.25s ease}
-.grid-cell.preview-right{transform:scale(1.05) rotate(5deg);transition:transform 0.25s ease}
 
 /* SVG line overlay for path */
 #path-svg{
@@ -113,20 +104,7 @@
   stroke-linecap:round;stroke-linejoin:round;
 }
 
-/* FOUND WORDS LIST */
-#found-words{
-  width:100%;max-width:600px;padding:0 16px;flex-shrink:0;
-  max-height:80px;overflow-y:auto;
-}
-#found-words-list{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
-.found-word-tag{
-  padding:4px 10px;font-size:12px;font-weight:700;
-  background:var(--success-bg);
-  border:1px solid var(--success);border-radius:6px;color:var(--success-text);
-}
-.found-word-tag .tag-translation{
-  color:var(--info);font-weight:400;font-style:italic;margin-left:4px;
-}
+
 
 /* ACTION BUTTONS */
 #action-row{
@@ -177,10 +155,11 @@
 }
 #hint-bar.visible{display:block}
 #hint-list{
-  display:flex;gap:6px;padding:2px 0;
+  display:flex;flex-wrap:wrap;gap:6px;padding:2px 0;
+  justify-content:space-evenly;
 }
 .hint-btn{
-  flex-shrink:0;
+  flex:1 1 0;min-width:0;
   padding:12px 18px;font-size:16px;
   font-family:'Roboto Condensed',sans-serif;font-weight:700;
   background:var(--tile-bg);
@@ -296,10 +275,6 @@
   <div id="letter-grid"></div>
 </div>
 
-<div id="found-words">
-  <div id="found-words-list"></div>
-</div>
-
 <div id="action-row">
   <button class="action-btn" id="btn-shuffle"><svg style="width:18px;height:18px;fill:currentColor;margin-right:6px;vertical-align:middle"><use href="#ico-shuffle"/></svg>Shuffle</button>
 </div>
@@ -373,25 +348,38 @@ var wordMap = {}; // word -> translation
 var game = null;
 var timerInterval = null;
 
-function initGame() {
-  var gridSize = GRID_SIZES[DIFFICULTY];
-  var totalCells = gridSize * gridSize;
+var MIN_FINDABLE_WORDS = 5;
+
+function generateLetters(totalCells) {
   var letters = [];
   for (var i = 0; i < totalCells; i++) {
     letters.push(LETTER_POOL[Math.floor(Math.random() * LETTER_POOL.length)]);
   }
+  return letters;
+}
 
-  // Build a set of all words findable on this grid
-  var findable = findAllWords(letters, gridSize);
+function generateBoard(gridSize) {
+  var totalCells = gridSize * gridSize;
+  var letters, findable;
+  do {
+    letters = generateLetters(totalCells);
+    findable = findAllWords(letters, gridSize);
+  } while (Object.keys(findable).length < MIN_FINDABLE_WORDS);
+  return { letters: letters, findable: findable };
+}
+
+function initGame() {
+  var gridSize = GRID_SIZES[DIFFICULTY];
+  var board = generateBoard(gridSize);
 
   return {
     gridSize: gridSize,
-    letters: letters,
+    letters: board.letters,
     selectedPath: [],
     score: 0,
     wordsFound: [],
     foundSet: new Set(),
-    findableWords: findable,
+    findableWords: board.findable,
     timeLeft: GAME_TIMES[DIFFICULTY],
     difficulty: DIFFICULTY,
     isRunning: false,
@@ -498,6 +486,9 @@ function renderGrid(animate) {
     if (animate) {
       cell.classList.add('growing');
       cell.style.animationDelay = (i * 30) + 'ms';
+      cell.addEventListener('animationend', function() {
+        this.classList.remove('growing');
+      }, { once: true });
     }
     grid.appendChild(cell);
   }
@@ -511,8 +502,21 @@ function updateGridSelection() {
   }
   cells.forEach(function(cell) {
     var idx = parseInt(cell.getAttribute('data-idx'));
-    cell.classList.toggle('selected', idx === game.selectedPath[game.selectedPath.length - 1] && game.selectedPath.length > 0);
-    cell.classList.toggle('path', !!pathSet[idx] && idx !== game.selectedPath[game.selectedPath.length - 1]);
+    var inPath = !!pathSet[idx];
+    var isHead = idx === game.selectedPath[game.selectedPath.length - 1] && game.selectedPath.length > 0;
+
+    cell.classList.toggle('selected', isHead);
+    cell.classList.toggle('path', inPath && !isHead);
+
+    if (inPath) {
+      // Assign a random twist direction if not already twisted
+      if (!cell.classList.contains('twist-left') && !cell.classList.contains('twist-right')) {
+        cell.classList.add(Math.random() < 0.5 ? 'twist-left' : 'twist-right');
+      }
+    } else {
+      // Remove twist when deselected — transition animates back
+      cell.classList.remove('twist-left', 'twist-right');
+    }
   });
 
   // Draw SVG line through selected tile centers
@@ -629,29 +633,11 @@ function commitCell(idx) {
   continueDrag(idx);
 }
 
-// --- Twist animation helper ---
-function applyTwist(cell, clientX) {
-  var rect = cell.getBoundingClientRect();
-  var centerX = rect.left + rect.width / 2;
-  cell.classList.remove('twist-left', 'twist-right', 'preview-grow');
-  void cell.offsetWidth;
-  cell.classList.add(clientX < centerX ? 'twist-left' : 'twist-right');
-  cell.addEventListener('animationend', function handler() {
-    cell.classList.remove('twist-left', 'twist-right');
-    cell.removeEventListener('animationend', handler);
-  });
-}
-
 function startDrag(idx, clientX) {
   if (!game || !game.isRunning) return;
   game.isDragging = true;
   game.selectedPath = [idx];
   cancelDwell();
-  // Twist animation on initial letter
-  if (clientX !== undefined) {
-    var cell = document.querySelector('.grid-cell[data-idx="' + idx + '"]');
-    if (cell) applyTwist(cell, clientX);
-  }
   soundSelect();
   updateGridSelection();
 }
@@ -759,13 +745,26 @@ function submitWord() {
     spawnParticlesFromPath(path);
     updateUI();
 
-    // Check if all findable words found — refresh board
+    // Check if all findable words found — pause timer & refresh board
     var allFound = true;
     for (var fw in game.findableWords) {
       if (!game.foundSet.has(fw)) { allFound = false; break; }
     }
     if (allFound) {
-      setTimeout(function() { refreshBoard(); }, 600);
+      stopTimer();
+      showToast('Board cleared!');
+      setTimeout(function() {
+        var board = generateBoard(game.gridSize);
+        game.letters = board.letters;
+        game.findableWords = board.findable;
+        game.foundSet = new Set();
+        game.selectedPath = [];
+        renderGrid(true);
+        updateGridSelection();
+        setupGridListeners();
+        renderHintBar();
+        startTimer();
+      }, 600);
     }
   } else {
     soundWrong();
@@ -864,27 +863,25 @@ function updateTimerDisplay() {
 function updateUI() {
   document.getElementById('score-value').textContent = game.score;
   document.getElementById('words-found-display').textContent = 'Words: ' + game.wordsFound.length;
-  renderFoundWords();
   updateHintBar();
-}
-
-function renderFoundWords() {
-  var list = document.getElementById('found-words-list');
-  list.innerHTML = '';
-  for (var i = game.wordsFound.length - 1; i >= Math.max(0, game.wordsFound.length - 12); i--) {
-    var tag = document.createElement('span');
-    tag.className = 'found-word-tag';
-    tag.innerHTML = game.wordsFound[i].word + '<span class="tag-translation">' + game.wordsFound[i].translation + '</span>';
-    list.appendChild(tag);
-  }
 }
 
 // ===== SHUFFLE =====
 function shuffleGrid() {
   if (!game || !game.isRunning) return;
   game.selectedPath = [];
-  game.letters = shuffleArray(game.letters);
-  game.findableWords = findAllWords(game.letters, game.gridSize);
+  var attempts = 0;
+  do {
+    game.letters = shuffleArray(game.letters);
+    game.findableWords = findAllWords(game.letters, game.gridSize);
+    attempts++;
+    if (attempts > 50) {
+      var board = generateBoard(game.gridSize);
+      game.letters = board.letters;
+      game.findableWords = board.findable;
+      break;
+    }
+  } while (Object.keys(game.findableWords).length < MIN_FINDABLE_WORDS);
   renderGrid(true);
   updateGridSelection();
   setupGridListeners();
@@ -913,12 +910,9 @@ function shuffleGrid() {
 function refreshBoard() {
   if (!game || !game.isRunning) return;
   showToast('Board cleared!');
-  var totalCells = game.gridSize * game.gridSize;
-  game.letters = [];
-  for (var i = 0; i < totalCells; i++) {
-    game.letters.push(LETTER_POOL[Math.floor(Math.random() * LETTER_POOL.length)]);
-  }
-  game.findableWords = findAllWords(game.letters, game.gridSize);
+  var board = generateBoard(game.gridSize);
+  game.letters = board.letters;
+  game.findableWords = board.findable;
   game.foundSet = new Set();
   game.selectedPath = [];
   renderGrid(true);
@@ -935,13 +929,9 @@ function renderHintBar() {
   var list = document.getElementById('hint-list');
   list.innerHTML = '';
 
-  if (game.difficulty === 'hard') {
-    bar.classList.remove('visible');
-    return;
-  }
-
   bar.classList.add('visible');
   var isEasy = game.difficulty === 'easy';
+  var isHard = game.difficulty === 'hard';
   var words = Object.keys(game.findableWords).sort(function(a, b) { return a.length - b.length; });
 
   words.forEach(function(word) {
@@ -955,7 +945,7 @@ function renderHintBar() {
     } else if (isEasy) {
       btn.innerHTML = '<svg class="hint-lamp" style="width:16px;height:16px;fill:#6a9ec0"><use href="#ico-lamp"/></svg><span class="hint-en">' + (wordMap[word] || word) + '</span>';
     } else {
-      // Medium: mystery button
+      // Medium & Hard: mystery button
       btn.classList.add('mystery');
       btn.textContent = '?';
     }
@@ -963,14 +953,11 @@ function renderHintBar() {
     btn.addEventListener('click', function() {
       if (!game || !game.isRunning) return;
       if (btn.classList.contains('found')) return;
-      if (!isEasy) return; // medium buttons are not clickable
+      if (!isEasy) return;
       if (btn.classList.contains('revealed')) return;
 
-      // Reveal the Russian word, remove lamp icon
       btn.classList.add('revealed');
       btn.innerHTML = '<span class="hint-ru">' + word + '</span><span class="hint-en">' + wordMap[word] + '</span>';
-
-      // Apply time penalty
       applyHintPenalty();
     });
 
@@ -979,7 +966,7 @@ function renderHintBar() {
 }
 
 function updateHintBar() {
-  if (!game || game.difficulty === 'hard') return;
+  if (!game) return;
   var btns = document.querySelectorAll('.hint-btn');
   btns.forEach(function(btn) {
     var word = btn.getAttribute('data-word');
