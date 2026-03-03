@@ -4,37 +4,50 @@
 // ===== AUDIO ENGINE =====
 var audioCtx = null;
 var audioUnlocked = false;
+var _audioDebug = [];
+
+function _alog(msg) {
+  _audioDebug.push(Date.now() + ': ' + msg);
+  if (_audioDebug.length > 30) _audioDebug.shift();
+}
+
+function getAudioDebug() { return _audioDebug.join('\n'); }
 
 function getAudioCtx() {
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    _alog('getAudioCtx created, state=' + audioCtx.state);
   }
   return audioCtx;
 }
 
 function unlockAudio() {
-  // Eagerly create AudioContext within user gesture context on iOS
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    _alog('unlockAudio created, state=' + audioCtx.state);
   }
   var ctx = audioCtx;
-  // Always attempt resume on every gesture — iOS can re-suspend after inactivity
+  _alog('unlockAudio called, state=' + ctx.state + ', unlocked=' + audioUnlocked);
   if (ctx.state === 'suspended') {
     ctx.resume().then(function() {
+      _alog('resume resolved, state=' + ctx.state);
       audioUnlocked = true;
-    }).catch(function() {});
+    }).catch(function(e) {
+      _alog('resume rejected: ' + e);
+    });
   }
   if (!audioUnlocked) {
-    // Play a silent buffer to fully unlock audio on iOS
     try {
       var b = ctx.createBuffer(1, 1, 22050);
       var s = ctx.createBufferSource();
       s.buffer = b;
       s.connect(ctx.destination);
       s.start(0);
-    } catch(e) {}
+      _alog('silent buffer played');
+    } catch(e) {
+      _alog('silent buffer error: ' + e);
+    }
   }
-  // Mark unlocked if context is already running (desktop, or sync resume)
   if (ctx.state === 'running') audioUnlocked = true;
 }
 
@@ -43,9 +56,24 @@ function unlockAudio() {
   document.addEventListener(evt, unlockAudio, true);
 });
 
+// Audio debug overlay — enabled via localStorage flag from Settings
+(function() {
+  var AUDIO_DBG_KEY = 'hjlr_audio_debug';
+  if (typeof localStorage === 'undefined') return;
+  try { if (localStorage.getItem(AUDIO_DBG_KEY) !== '1') return; } catch(e) { return; }
+  document.addEventListener('DOMContentLoaded', function() {
+    var el = document.createElement('div');
+    el.id = 'audio-dbg';
+    el.style.cssText = 'position:fixed;bottom:4px;left:4px;right:4px;max-height:35vh;overflow:auto;background:rgba(0,0,0,0.88);color:#0f0;font:10px monospace;padding:6px;border-radius:6px;z-index:9999;white-space:pre-wrap;-webkit-tap-highlight-color:transparent;';
+    el.textContent = 'Tap to refresh audio debug log';
+    el.addEventListener('click', function() { el.textContent = getAudioDebug(); });
+    document.body.appendChild(el);
+  });
+})();
+
 function playTone(freq, dur, type, vol, delay) {
   var ctx = getAudioCtx();
-  // On iOS, try to resume if suspended — won't work from timers but harmless
+  _alog('playTone f=' + freq + ' state=' + ctx.state);
   if (ctx.state === 'suspended') {
     ctx.resume().catch(function() {});
   }

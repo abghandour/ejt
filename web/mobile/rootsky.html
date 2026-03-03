@@ -2546,5 +2546,6 @@
 onGamePause(function() { if (isGameActive) pauseTimer(); });
 onGameResume(function() { if (isGameActive) resumeTimer(); });
 </script>
+<div id="audio-dbg" onclick="this.textContent=getAudioDebug()" style="position:fixed;bottom:4px;left:4px;right:4px;max-height:40vh;overflow:auto;background:rgba(0,0,0,0.85);color:#0f0;font:10px monospace;padding:6px;border-radius:6px;z-index:9999;white-space:pre-wrap;">Tap here for audio debug</div>
 </body>
 </html>

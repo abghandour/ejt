@@ -54,6 +54,13 @@ h1{
   <div id="bg-toggle" style="display:none"></div>
 
   <div style="margin-top:40px;text-align:center;color:var(--text-secondary);font-size:11px;opacity:0.6">v0.0.1</div>
+
+  <div style="margin-top:24px;padding:16px 0;border-top:1px solid var(--border-subtle);">
+    <label style="display:flex;align-items:center;gap:10px;cursor:pointer;-webkit-tap-highlight-color:transparent;">
+      <input type="checkbox" id="audio-debug-toggle" style="width:20px;height:20px;accent-color:var(--accent);flex-shrink:0;">
+      <span style="font-size:13px;color:var(--text-secondary);">Audio debug overlay</span>
+    </label>
+  </div>
 </div>
 
 <style>
@@ -350,6 +357,16 @@ BG_MODES.forEach(function(b) {
       }
     });
     langGrid.appendChild(card);
+  });
+})();
+
+// Audio debug toggle
+(function() {
+  var KEY = 'hjlr_audio_debug';
+  var cb = document.getElementById('audio-debug-toggle');
+  cb.checked = localStorage.getItem(KEY) === '1';
+  cb.addEventListener('change', function() {
+    localStorage.setItem(KEY, cb.checked ? '1' : '0');
   });
 })();
 </script>
