@@ -939,49 +939,39 @@ body::before{
     if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     return audioCtx;
   }
-  function ensureAudioResumed() {
-    var ctx = getAudioCtx();
-    if (ctx.state === 'suspended') {
-      ctx.resume();
-    }
-  }
   function unlockAudio() {
-    if (audioUnlocked) return;
     var ctx = getAudioCtx();
-    if (ctx.state === 'suspended') ctx.resume();
-    var b = ctx.createBuffer(1, 1, 22050);
-    var s = ctx.createBufferSource();
-    s.buffer = b;
-    s.connect(ctx.destination);
-    s.start(0);
-    audioUnlocked = true;
+    if (ctx.state === 'suspended') ctx.resume().catch(function(){});
+    if (audioUnlocked) return;
+    try {
+      var b = ctx.createBuffer(1, 1, 22050);
+      var s = ctx.createBufferSource();
+      s.buffer = b; s.connect(ctx.destination); s.start(0);
+      audioUnlocked = true;
+    } catch(e) {}
   }
-  // Keep unlocking on every gesture — mobile Safari can re-suspend the context
-  document.addEventListener('touchstart', ensureAudioResumed, true);
-  document.addEventListener('touchend', ensureAudioResumed, true);
-  document.addEventListener('click', ensureAudioResumed, true);
-  // First-time unlock with silent buffer
-  document.addEventListener('touchstart', unlockAudio, { once: true });
-  document.addEventListener('touchend', unlockAudio, { once: true });
-  document.addEventListener('click', unlockAudio, { once: true });
+  ['touchstart','touchend','click','keydown'].forEach(function(evt) {
+    document.addEventListener(evt, unlockAudio, true);
+  });
 
   function playTone(freq, dur, type, vol, delay) {
     type = type || 'sine';
     vol = vol || 0.12;
     delay = delay || 0;
     var ctx = getAudioCtx();
-    // Always try to resume — critical for mobile setTimeout callbacks
-    if (ctx.state === 'suspended') ctx.resume();
-    var o = ctx.createOscillator();
-    var g = ctx.createGain();
-    o.type = type;
-    o.frequency.value = freq;
-    g.gain.setValueAtTime(0.001, ctx.currentTime + delay);
-    g.gain.linearRampToValueAtTime(vol, ctx.currentTime + delay + 0.02);
-    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + dur);
-    o.connect(g).connect(ctx.destination);
-    o.start(ctx.currentTime + delay);
-    o.stop(ctx.currentTime + delay + dur);
+    if (ctx.state === 'suspended') ctx.resume().catch(function(){});
+    try {
+      var o = ctx.createOscillator();
+      var g = ctx.createGain();
+      o.type = type;
+      o.frequency.value = freq;
+      g.gain.setValueAtTime(0.001, ctx.currentTime + delay);
+      g.gain.linearRampToValueAtTime(vol, ctx.currentTime + delay + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + dur);
+      o.connect(g).connect(ctx.destination);
+      o.start(ctx.currentTime + delay);
+      o.stop(ctx.currentTime + delay + dur);
+    } catch(e) {}
   }
 
   function soundCorrect() {

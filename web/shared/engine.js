@@ -6,50 +6,55 @@ var audioCtx = null;
 var audioUnlocked = false;
 
 function getAudioCtx() {
-  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
   return audioCtx;
 }
 
-function ensureAudio() {
-  var ctx = getAudioCtx();
-  if (ctx.state === 'suspended') ctx.resume();
-}
-
 function unlockAudio() {
-  if (audioUnlocked) return;
   var ctx = getAudioCtx();
-  if (ctx.state === 'suspended') ctx.resume();
-  var b = ctx.createBuffer(1, 1, 22050);
-  var s = ctx.createBufferSource();
-  s.buffer = b;
-  s.connect(ctx.destination);
-  s.start(0);
-  audioUnlocked = true;
+  if (ctx.state === 'suspended') {
+    ctx.resume().catch(function() {});
+  }
+  if (audioUnlocked) return;
+  // Play a silent buffer to fully unlock audio on iOS
+  try {
+    var b = ctx.createBuffer(1, 1, 22050);
+    var s = ctx.createBufferSource();
+    s.buffer = b;
+    s.connect(ctx.destination);
+    s.start(0);
+    audioUnlocked = true;
+  } catch(e) {}
 }
 
-document.addEventListener('touchstart', ensureAudio, true);
-document.addEventListener('touchend', ensureAudio, true);
-document.addEventListener('click', ensureAudio, true);
-document.addEventListener('touchstart', unlockAudio, { once: true });
-document.addEventListener('touchend', unlockAudio, { once: true });
-document.addEventListener('click', unlockAudio, { once: true });
+// iOS requires resume on every user gesture — don't use { once: true }
+['touchstart', 'touchend', 'click', 'keydown'].forEach(function(evt) {
+  document.addEventListener(evt, unlockAudio, true);
+});
 
 function playTone(freq, dur, type, vol, delay) {
   var ctx = getAudioCtx();
-  if (ctx.state === 'suspended') ctx.resume();
+  // Always try to resume — iOS can re-suspend after inactivity
+  if (ctx.state === 'suspended') {
+    ctx.resume().catch(function() {});
+  }
   type = type || 'sine';
   vol = vol || 0.1;
   delay = delay || 0;
-  var o = ctx.createOscillator();
-  var g = ctx.createGain();
-  o.type = type;
-  o.frequency.value = freq;
-  g.gain.setValueAtTime(0.001, ctx.currentTime + delay);
-  g.gain.linearRampToValueAtTime(vol, ctx.currentTime + delay + 0.02);
-  g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + dur);
-  o.connect(g).connect(ctx.destination);
-  o.start(ctx.currentTime + delay);
-  o.stop(ctx.currentTime + delay + dur);
+  try {
+    var o = ctx.createOscillator();
+    var g = ctx.createGain();
+    o.type = type;
+    o.frequency.value = freq;
+    g.gain.setValueAtTime(0.001, ctx.currentTime + delay);
+    g.gain.linearRampToValueAtTime(vol, ctx.currentTime + delay + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + dur);
+    o.connect(g).connect(ctx.destination);
+    o.start(ctx.currentTime + delay);
+    o.stop(ctx.currentTime + delay + dur);
+  } catch(e) {}
 }
 
 // ===== SEED ENGINE (mulberry32) =====
