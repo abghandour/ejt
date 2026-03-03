@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared/theme.css">
 <script src="../shared/theme.js"></script>
+<script src="../shared/engine.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -43,7 +44,10 @@ h1{
 <div class="settings-wrap">
   <h1>Settings</h1>
 
-  <div class="section-label">Color Theme</div>
+  <div class="section-label">Language</div>
+  <div id="lang-grid"></div>
+
+  <div class="section-label" style="margin-top:24px;">Color Theme</div>
   <div id="theme-grid"></div>
 
   <div class="section-label" style="margin-top:24px;display:none">Background</div>
@@ -147,6 +151,41 @@ h1{
 .bg-btn:not(:last-child){border-right:1px solid var(--border-subtle)}
 .bg-btn.active{background:var(--accent);color:var(--bg-primary)}
 .bg-btn:active{transform:scale(0.97)}
+
+#lang-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.lang-card{
+  position:relative;
+  border-radius:12px;padding:14px;cursor:pointer;
+  border:2px solid var(--border-subtle);
+  background:var(--bg-card);
+  transition:all 0.2s;
+  -webkit-tap-highlight-color:transparent;
+  display:flex;flex-direction:column;gap:8px;
+}
+.lang-card:active{transform:scale(0.97)}
+.lang-card.active{
+  border-color:var(--accent);
+  box-shadow:0 0 16px var(--accent-glow);
+}
+.lang-card .check{
+  position:absolute;top:8px;right:8px;
+  width:20px;height:20px;border-radius:50%;
+  border:2px solid var(--border-subtle);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.lang-card.active .check{
+  border-color:var(--accent);background:var(--accent);
+}
+.lang-card.active .check::after{
+  content:'';display:block;width:10px;height:10px;
+  background:var(--bg-primary);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.lang-name{font-size:14px;font-weight:700}
 </style>
 
 <script>
@@ -229,6 +268,31 @@ BG_MODES.forEach(function(b) {
   });
   bgToggle.appendChild(btn);
 });
+
+// Language selector
+(async function() {
+  var config = await loadLanguageConfig();
+  var langGrid = document.getElementById('lang-grid');
+  var currentLang = getActiveLanguage();
+
+  Object.keys(config).forEach(function(langId) {
+    var lang = config[langId];
+    var card = document.createElement('div');
+    card.className = 'lang-card' + (langId === currentLang ? ' active' : '');
+    card.setAttribute('data-lang', langId);
+    card.innerHTML = '<div class="check"></div><div class="lang-name">' + lang.displayName + '</div>';
+
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.lang-card').forEach(function(c) { c.classList.remove('active'); });
+      card.classList.add('active');
+      setActiveLanguage(langId);
+      if (window.parent !== window) {
+        window.parent.postMessage({type: 'languageChange', language: langId}, '*');
+      }
+    });
+    langGrid.appendChild(card);
+  });
+})();
 </script>
 </body>
 </html>

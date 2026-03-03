@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared/theme.css">
 <script src="../shared/theme.js"></script>
+<script src="../shared/engine.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{overflow:hidden;touch-action:manipulation}
@@ -395,13 +396,14 @@ var GAMES = [
   //{id:'wordsky',   name:'Wordsky',      file:'./wordsky.html',     icon:'#ico-grid',      desc:'Guess the daily Russian word in 6 tries', isNew:false}
 ];
 
+var filteredGames = GAMES.slice();
 var currentIndex = 0;
 var startX = 0, isDragging = false, dragDelta = 0;
 var carousel = document.getElementById('carousel');
 var carouselWrap = document.getElementById('carousel-wrap');
 var STORAGE_KEY = 'hjlr_last_game';
 var CARD_W = 240, CARD_GAP = 16;
-var N = GAMES.length;
+var N = filteredGames.length;
 
 function getLastPlayed() {
   try { return localStorage.getItem(STORAGE_KEY) || ''; } catch(e) { return ''; }
@@ -424,7 +426,7 @@ function buildCards() {
   var dotsEl = document.getElementById('dots');
   dotsEl.innerHTML = '';
   for (var i = 0; i < N; i++) {
-    var g = GAMES[i];
+    var g = filteredGames[i];
     var card = document.createElement('div');
     card.className = 'game-card';
     card.setAttribute('data-index', i);
@@ -473,7 +475,7 @@ function updateCarousel() {
   for (var j = 0; j < N; j++) {
     dots[j].classList.toggle('active', j === currentIndex);
   }
-  document.getElementById('play-label').textContent = 'Play ' + GAMES[currentIndex].name;
+  document.getElementById('play-label').textContent = 'Play ' + filteredGames[currentIndex].name;
 }
 
 // Touch/swipe handling
@@ -536,7 +538,7 @@ function setCarouselTransition(on) {
 
 // Launch game in iframe
 function launchGame() {
-  var g = GAMES[currentIndex];
+  var g = filteredGames[currentIndex];
   setLastPlayed(g.id);
   openInFrame(g.file);
 }
@@ -550,8 +552,8 @@ function closeGame() {
   // Re-center on last played
   var lastId = getLastPlayed();
   if (lastId) {
-    for (var i = 0; i < GAMES.length; i++) {
-      if (GAMES[i].id === lastId) { currentIndex = i; break; }
+    for (var i = 0; i < filteredGames.length; i++) {
+      if (filteredGames[i].id === lastId) { currentIndex = i; break; }
     }
   }
   updateCarousel();
@@ -567,14 +569,26 @@ document.getElementById('back-banner').addEventListener('click', function(e) {
 });
 
 // Init
-function init() {
+async function init() {
+  await loadLanguageConfig();
+  var activeLang = getActiveLanguage();
+  var langConfig = getLanguageConfig(activeLang);
+  if (langConfig) {
+    filteredGames = GAMES.filter(function(g) { return langConfig.games.indexOf(g.id) !== -1; });
+  } else {
+    filteredGames = GAMES.slice();
+  }
+  N = filteredGames.length;
+  if (langConfig) {
+    document.getElementById('page-title').innerHTML = 'How Janey Learned<br>' + langConfig.displayName;
+  }
   buildCards();
   setCarouselTransition(true);
   // Start with last played game centered, or first
   var lastId = getLastPlayed();
   if (lastId) {
-    for (var i = 0; i < GAMES.length; i++) {
-      if (GAMES[i].id === lastId) { currentIndex = i; break; }
+    for (var i = 0; i < filteredGames.length; i++) {
+      if (filteredGames[i].id === lastId) { currentIndex = i; break; }
     }
   }
   updateCarousel();
@@ -585,8 +599,8 @@ function checkDeepLink() {
   var params = new URLSearchParams(window.location.search);
   var gameId = params.get('game');
   if (!gameId) return;
-  for (var i = 0; i < GAMES.length; i++) {
-    if (GAMES[i].id === gameId) {
+  for (var i = 0; i < filteredGames.length; i++) {
+    if (filteredGames[i].id === gameId) {
       currentIndex = i;
       updateCarousel();
       // Forward all params except 'game' to the game page
@@ -595,7 +609,7 @@ function checkDeepLink() {
         if (key !== 'game') gameParams.set(key, val);
       });
       var qs = gameParams.toString();
-      openInFrame(GAMES[i].file + (qs ? '?' + qs : ''));
+      openInFrame(filteredGames[i].file + (qs ? '?' + qs : ''));
       setLastPlayed(gameId);
       // Clean URL without reloading
       if (window.history.replaceState) {
@@ -682,6 +696,19 @@ window.addEventListener('message', function(e) {
   }
   if (e.data && e.data.type === 'bgModeChange' && e.data.bgMode) {
     hjlrSetBgMode(e.data.bgMode);
+  }
+  if (e.data && e.data.type === 'languageChange' && e.data.language) {
+    setActiveLanguage(e.data.language);
+    var lc = getLanguageConfig(e.data.language);
+    if (lc) {
+      filteredGames = GAMES.filter(function(g) { return lc.games.indexOf(g.id) !== -1; });
+      N = filteredGames.length;
+      currentIndex = 0;
+      document.getElementById('page-title').innerHTML = 'How Janey Learned<br>' + lc.displayName;
+      buildCards();
+      setCarouselTransition(true);
+      updateCarousel();
+    }
   }
 });
 </script>

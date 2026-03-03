@@ -1109,8 +1109,21 @@ function startGame() {
 
 // ===== INIT =====
 async function init() {
+  await loadLanguageConfig();
+
+  // Use language-specific letter pool, fall back to Russian default
+  var pool = resolveLetterPool(getActiveLanguage());
+  if (pool) LETTER_POOL = pool;
+
+  // Set validation regex for the active language before loading dictionary
+  var langConfig = getLanguageConfig(getActiveLanguage());
+  if (langConfig && langConfig.validationRegex) {
+    setValidationRegex(langConfig.validationRegex);
+  }
+
+  var dictUrl = resolveDictionaryUrl(getActiveLanguage(), 'bogglesky');
   try {
-    dictionary = await loadDictionary('../shared/dictionaries/bogglesky.json');
+    dictionary = await loadDictionary(dictUrl);
     dictionary.forEach(function(e) {
       var w = e.word.toLowerCase();
       wordMap[w] = e.translation;

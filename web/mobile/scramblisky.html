@@ -827,8 +827,14 @@ function startGame() {
 
 // ===== INIT =====
 async function init() {
+  await loadLanguageConfig();
+  var langConfig = getLanguageConfig(getActiveLanguage());
+  if (langConfig && langConfig.validationRegex) {
+    setValidationRegex(langConfig.validationRegex);
+  }
+  var dictUrl = resolveDictionaryUrl(getActiveLanguage(), 'snakesky');
   try {
-    dictionary = await loadDictionary('../shared/dictionaries/snakesky.json');
+    dictionary = await loadDictionary(dictUrl);
     dictionary.forEach(function(e) { e.word = e.word.toLowerCase(); });
     dictionary.forEach(function(e) { wordSet.add(e.word); });
   } catch (e) {

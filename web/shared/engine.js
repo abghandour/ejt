@@ -77,13 +77,23 @@ SeedEngine.prototype.shuffle = function(arr) {
 };
 
 // ===== DICTIONARY HELPERS =====
+var _activeValidationRegex = /^[а-яёА-ЯЁ]+$/;
+
+function setValidationRegex(pattern) {
+  try {
+    _activeValidationRegex = new RegExp(pattern);
+  } catch (e) {
+    _activeValidationRegex = /^[а-яёА-ЯЁ]+$/;
+  }
+}
+
 function isValidEntry(e) {
   if (!e || typeof e !== 'object') return false;
   if (typeof e.word !== 'string' || typeof e.translation !== 'string') return false;
   if (e.translation.trim() === '') return false;
   var w = e.word.trim().toLowerCase();
   if (w.length < 3 || w.length > 8) return false;
-  return /^[а-яёА-ЯЁ]+$/.test(w);
+  return _activeValidationRegex.test(w);
 }
 
 function validateDictionary(entries) {
@@ -230,3 +240,82 @@ window.addEventListener('message', function(e) {
     _showPause();
   }
 });
+
+// ===== LANGUAGE MANAGEMENT =====
+var LANG_KEY = 'hjlr_language';
+var DEFAULT_LANG = 'ru';
+var _langConfig = null;
+
+var _FALLBACK_CONFIG = {
+  "ru": {
+    "displayName": "Russian",
+    "games": ["rootsky", "scramblisky", "bogglesky", "snakesky"],
+    "dictionaryBasePath": "../shared/dictionaries/ru",
+    "letterPool": "оооооооеееееееаааааааиииииинннннттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщэфъьёй",
+    "validationRegex": "^[а-яёА-ЯЁ]+$"
+  }
+};
+
+async function loadLanguageConfig() {
+  if (_langConfig) return _langConfig;
+  try {
+    var resp = await fetch('../shared/languages.json');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    _langConfig = await resp.json();
+  } catch (e) {
+    console.warn('Failed to load languages.json, using fallback Russian config:', e);
+    _langConfig = JSON.parse(JSON.stringify(_FALLBACK_CONFIG));
+  }
+  return _langConfig;
+}
+
+function getActiveLanguage() {
+  var stored = localStorage.getItem(LANG_KEY);
+  if (!stored) {
+    localStorage.setItem(LANG_KEY, DEFAULT_LANG);
+    return DEFAULT_LANG;
+  }
+  if (_langConfig && !_langConfig[stored]) {
+    localStorage.setItem(LANG_KEY, DEFAULT_LANG);
+    return DEFAULT_LANG;
+  }
+  return stored;
+}
+
+function setActiveLanguage(langId) {
+  localStorage.setItem(LANG_KEY, langId);
+}
+
+function getLanguageConfig(langId) {
+  if (!_langConfig || !_langConfig[langId]) return null;
+  return _langConfig[langId];
+}
+
+function resolveValidationRegex(langId) {
+  var config = getLanguageConfig(langId);
+  if (config && config.validationRegex) {
+    try {
+      return new RegExp(config.validationRegex);
+    } catch (e) {
+      console.warn('Invalid validationRegex for language "' + langId + '", falling back to Russian:', e);
+    }
+  }
+  return /^[а-яёА-ЯЁ]+$/;
+}
+
+function resolveDictionaryUrl(langId, gameId) {
+  var config = getLanguageConfig(langId);
+  if (config && config.dictionaryBasePath) {
+    return config.dictionaryBasePath + '/' + gameId + '.json';
+  }
+  return '../shared/dictionaries/ru/' + gameId + '.json';
+}
+
+function resolveLetterPool(langId) {
+  var config = getLanguageConfig(langId);
+  if (config && config.letterPool) {
+    return config.letterPool;
+  }
+  return 'оооооооеееееееаааааааиииииинннннттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщэфъьёй';
+}
+

@@ -1,0 +1,9 @@
+{
+  "ru": {
+    "displayName": "Russian",
+    "games": ["rootsky", "scramblisky", "bogglesky", "snakesky"],
+    "dictionaryBasePath": "../shared/dictionaries/ru",
+    "letterPool": "оооооооеееееееаааааааиииииинннннттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщэфъьёй",
+    "validationRegex": "^[а-яёА-ЯЁ]+$"
+  }
+}
