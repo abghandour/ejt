@@ -13,23 +13,16 @@ function getAudioCtx() {
 }
 
 function unlockAudio() {
+  // Eagerly create AudioContext within user gesture context on iOS
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   }
   var ctx = audioCtx;
+  // Always attempt resume on every gesture — iOS can re-suspend after inactivity
   if (ctx.state === 'suspended') {
-    try { ctx.resume(); } catch(e) {}
-    // If resume didn't synchronously unlock (iOS re-suspension or stuck context),
-    // recreate the AudioContext within this gesture context
-    if (ctx.state === 'suspended') {
-      try {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        ctx = audioCtx;
-        if (ctx.state === 'suspended') {
-          try { ctx.resume(); } catch(e) {}
-        }
-      } catch(e) {}
-    }
+    ctx.resume().then(function() {
+      audioUnlocked = true;
+    }).catch(function() {});
   }
   if (!audioUnlocked) {
     // Play a silent buffer to fully unlock audio on iOS
@@ -41,6 +34,7 @@ function unlockAudio() {
       s.start(0);
     } catch(e) {}
   }
+  // Mark unlocked if context is already running (desktop, or sync resume)
   if (ctx.state === 'running') audioUnlocked = true;
 }
 
@@ -51,7 +45,10 @@ function unlockAudio() {
 
 function playTone(freq, dur, type, vol, delay) {
   var ctx = getAudioCtx();
-  if (ctx.state === 'suspended') return;
+  // On iOS, try to resume if suspended — won't work from timers but harmless
+  if (ctx.state === 'suspended') {
+    ctx.resume().catch(function() {});
+  }
   type = type || 'sine';
   vol = vol || 0.1;
   delay = delay || 0;
