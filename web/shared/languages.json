@@ -12,5 +12,18 @@
       "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Russian words in a letter grid" },
       "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Russian words" }
     }
+  },
+  "pt-br": {
+    "displayName": "Português (Brasil)",
+    "games": ["scramblisky", "bogglesky", "snakesky"],
+    "themes": ["brazil", "dark", "light", "bw", "festivus"],
+    "dictionaryBasePath": "../shared/dictionaries/pt-br",
+    "letterPool": "aaaaaaaaaaeeeeeeeeeoooooooossssssrrrrrrnnnnnnttttttllllddddmmmmccccppppuuuiiibbbggffvvhhjjqqxxzzçãõéêíóôúâà",
+    "validationRegex": "^[a-záàâãéêíóôõúüç]+$",
+    "gameNames": {
+      "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Portuguese words before time runs out" },
+      "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Portuguese words in a letter grid" },
+      "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Portuguese words" }
+    }
   }
 }

@@ -4,7 +4,7 @@
 
 (function() {
   var THEME_KEY = 'hjlr_theme';
-  var VALID = ['soviet','dark','light','bw','festivus'];
+  var VALID = ['soviet','brazil','dark','light','bw','festivus'];
 
   // Compute Easter Sunday for a given year (Anonymous Gregorian algorithm)
   function computeEaster(year) {

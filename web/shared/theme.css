@@ -241,6 +241,66 @@
   --hamburger-line: #cccccc;
 }
 
+/* Aquarela do Brasil — green, gold, blue, white */
+[data-theme="brazil"] {
+  --bg-primary: #021a0a;
+  --bg-secondary: #042e12;
+  --bg-card: #0a3d1a;
+  --bg-card-end: #042e12;
+  --bg-surface: rgba(10,61,26,0.95);
+  --bg-overlay: rgba(2,16,6,0.88);
+  --bg-start-inner: rgba(4,46,18,0.92);
+
+  --text-primary: #f0f0f0;
+  --text-secondary: #7a9a7a;
+  --text-muted: #a0bca0;
+
+  --accent: #c8a830;
+  --accent-glow: rgba(200,168,48,0.3);
+  --accent-subtle: rgba(200,168,48,0.1);
+  --accent-border: rgba(200,168,48,0.2);
+
+  --info: #4a80c0;
+  --success: #009739;
+  --success-text: #40c060;
+  --success-bg: linear-gradient(180deg,#0a3d1a 0%,#042e12 100%);
+  --danger: #c44;
+  --danger-text: #f88;
+
+  --btn-bg: linear-gradient(180deg,#0a3d1a 0%,#063010 100%);
+  --btn-bg-active: linear-gradient(180deg,#0e4a20 0%,#0a3d1a 100%);
+  --btn-border: #1a5a2a;
+  --btn-play-bg: linear-gradient(180deg,#2a6a2a 0%,#1a5a1a 100%);
+  --btn-play-border: #3a8a3a;
+  --btn-play-shadow: rgba(0,151,57,0.3);
+
+  --border-subtle: #1a4a2a;
+  --border-divider: rgba(26,74,42,0.4);
+
+  --tile-bg: linear-gradient(180deg,#0a3d1a 0%,#063010 100%);
+  --tile-border: #1a5a2a;
+  --tile-selected-bg: linear-gradient(180deg,#2a3008 0%,#1e2604 100%);
+  --tile-selected-border: #c8a830;
+  --tile-correct-bg: linear-gradient(180deg,#0a4a1a 0%,#063a10 100%);
+  --tile-correct-border: #40c060;
+  --tile-wrong-bg: linear-gradient(180deg,#3a1a1a 0%,#2e1212 100%);
+  --tile-wrong-border: #c44;
+
+  --sunburst-1: #ffffff;
+  --sunburst-2: #3ced86;
+  --sunburst-opacity: 0.25;
+
+  --star-filled: #c8a830;
+  --star-empty-stroke: #1a5a2a;
+
+  --menu-bg: rgba(4,46,18,0.96);
+  --menu-border: #1a4a2a;
+  --menu-hover: rgba(200,168,48,0.1);
+  --hamburger-bg: rgba(2,26,10,0.7);
+  --hamburger-border: rgba(200,168,48,0.3);
+  --hamburger-line: #c8a830;
+}
+
 /* ===== FESTIVUS — Holiday-rotating themes ===== */
 
 /* New Year's — midnight blue, gold, silver */
