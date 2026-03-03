@@ -59,7 +59,7 @@
   font-size:clamp(26px,7vw,38px);font-weight:700;
   background:var(--tile-bg);
   border:2px solid var(--tile-border);border-radius:10px;
-  transition:all 0.15s;
+  transition:background 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.15s;
   -webkit-tap-highlight-color:transparent;
   -webkit-user-select:none;user-select:none;
 }
@@ -94,6 +94,14 @@
   60%{transform:scale(1.1);opacity:1}
   100%{transform:scale(1);opacity:1}
 }
+/* Twist on initial tap */
+@keyframes twistLeft{0%{transform:scale(1) rotate(0)}40%{transform:scale(1.05) rotate(-5deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes twistRight{0%{transform:scale(1) rotate(0)}40%{transform:scale(1.05) rotate(5deg)}100%{transform:scale(1) rotate(0)}}
+.grid-cell.twist-left{animation:twistLeft 0.5s ease}
+.grid-cell.twist-right{animation:twistRight 0.5s ease}
+/* Preview grow on neighbor approach — uses transform so it cancels cleanly */
+.grid-cell.preview-left{transform:scale(1.05) rotate(-5deg);transition:transform 0.25s ease}
+.grid-cell.preview-right{transform:scale(1.05) rotate(5deg);transition:transform 0.25s ease}
 
 /* SVG line overlay for path */
 #path-svg{
@@ -544,10 +552,106 @@ function getCellFromPoint(x, y) {
   return -1;
 }
 
-function startDrag(idx) {
+// --- Preview state ---
+var previewIdx = -1;
+
+function clearPreview() {
+  if (previewIdx >= 0) {
+    var cell = document.querySelector('.grid-cell[data-idx="' + previewIdx + '"]');
+    if (cell) cell.classList.remove('preview-left', 'preview-right');
+    previewIdx = -1;
+  }
+}
+
+// --- Direction-biased nearest neighbor (option 1) ---
+function getCellCenter(idx) {
+  var cell = document.querySelector('.grid-cell[data-idx="' + idx + '"]');
+  if (!cell) return null;
+  var r = cell.getBoundingClientRect();
+  return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+}
+
+function findBestNeighbor(clientX, clientY) {
+  if (!game || game.selectedPath.length === 0) return -1;
+  var last = game.selectedPath[game.selectedPath.length - 1];
+  var lastCenter = getCellCenter(last);
+  if (!lastCenter) return -1;
+
+  // Direction from current cell center to pointer
+  var dirX = clientX - lastCenter.x;
+  var dirY = clientY - lastCenter.y;
+  var dirLen = Math.sqrt(dirX * dirX + dirY * dirY);
+  if (dirLen < 1) return -1;
+  dirX /= dirLen; dirY /= dirLen;
+
+  var neighbors = getNeighbors(last, game.gridSize);
+  var pathSet = {};
+  for (var i = 0; i < game.selectedPath.length; i++) pathSet[game.selectedPath[i]] = true;
+
+  var best = -1, bestScore = -Infinity;
+  for (var n = 0; n < neighbors.length; n++) {
+    var idx = neighbors[n];
+    if (pathSet[idx]) continue;
+    var nc = getCellCenter(idx);
+    if (!nc) continue;
+    // Direction from current cell to this neighbor
+    var nx = nc.x - lastCenter.x, ny = nc.y - lastCenter.y;
+    var nLen = Math.sqrt(nx * nx + ny * ny);
+    if (nLen < 1) continue;
+    nx /= nLen; ny /= nLen;
+    // Dot product = cosine of angle between pointer direction and neighbor direction
+    var dot = dirX * nx + dirY * ny;
+    // Distance from pointer to neighbor center
+    var dx = clientX - nc.x, dy = clientY - nc.y;
+    var dist = Math.sqrt(dx * dx + dy * dy);
+    // Score: heavily favor direction alignment, penalize distance
+    // dot ranges -1..1, we want high dot and low dist
+    var score = dot * 100 - dist * 0.5;
+    if (score > bestScore) { bestScore = score; best = idx; }
+  }
+  // Only return if pointer is roughly heading toward a neighbor (dot > 0)
+  return bestScore > 0 ? best : -1;
+}
+
+// --- Dwell threshold (option 4) ---
+var dwellIdx = -1;
+var dwellTimer = null;
+var DWELL_MS = 60;
+
+function cancelDwell() {
+  if (dwellTimer) { clearTimeout(dwellTimer); dwellTimer = null; }
+  dwellIdx = -1;
+}
+
+function commitCell(idx) {
+  clearPreview();
+  cancelDwell();
+  continueDrag(idx);
+}
+
+// --- Twist animation helper ---
+function applyTwist(cell, clientX) {
+  var rect = cell.getBoundingClientRect();
+  var centerX = rect.left + rect.width / 2;
+  cell.classList.remove('twist-left', 'twist-right', 'preview-grow');
+  void cell.offsetWidth;
+  cell.classList.add(clientX < centerX ? 'twist-left' : 'twist-right');
+  cell.addEventListener('animationend', function handler() {
+    cell.classList.remove('twist-left', 'twist-right');
+    cell.removeEventListener('animationend', handler);
+  });
+}
+
+function startDrag(idx, clientX) {
   if (!game || !game.isRunning) return;
   game.isDragging = true;
   game.selectedPath = [idx];
+  cancelDwell();
+  // Twist animation on initial letter
+  if (clientX !== undefined) {
+    var cell = document.querySelector('.grid-cell[data-idx="' + idx + '"]');
+    if (cell) applyTwist(cell, clientX);
+  }
   soundSelect();
   updateGridSelection();
 }
@@ -579,9 +683,50 @@ function continueDrag(idx) {
   updateGridSelection();
 }
 
+function handleDragMove(clientX, clientY) {
+  if (!game || !game.isDragging) return;
+  var idx = getCellFromPoint(clientX, clientY);
+
+  if (idx >= 0) {
+    // Pointer is over a cell
+    clearPreview();
+    // Dwell: if this is a new cell, start dwell timer
+    if (idx !== dwellIdx) {
+      cancelDwell();
+      // If it's the current last cell or going back, commit immediately
+      var path = game.selectedPath;
+      if (idx === path[path.length - 1]) return;
+      if (path.length >= 2 && path[path.length - 2] === idx) {
+        commitCell(idx);
+        return;
+      }
+      dwellIdx = idx;
+      dwellTimer = setTimeout(function() { commitCell(idx); }, DWELL_MS);
+    }
+    return;
+  }
+
+  // Pointer is in the gap — cancel any pending dwell
+  cancelDwell();
+
+  // Find best neighbor using direction bias
+  var nearest = findBestNeighbor(clientX, clientY);
+  if (nearest === previewIdx) return;
+  clearPreview();
+  if (nearest < 0) return;
+  previewIdx = nearest;
+  var cell = document.querySelector('.grid-cell[data-idx="' + nearest + '"]');
+  if (!cell) return;
+  var rect = cell.getBoundingClientRect();
+  var centerX = rect.left + rect.width / 2;
+  cell.classList.add(clientX < centerX ? 'preview-left' : 'preview-right');
+}
+
 function endDrag() {
   if (!game || !game.isDragging) return;
   game.isDragging = false;
+  clearPreview();
+  cancelDwell();
   submitWord();
 }
 
@@ -935,14 +1080,13 @@ function setupGridListeners() {
     e.preventDefault();
     var touch = e.touches[0];
     var idx = getCellFromPoint(touch.clientX, touch.clientY);
-    if (idx >= 0) startDrag(idx);
+    if (idx >= 0) startDrag(idx, touch.clientX);
   }, { passive: false });
 
   grid.addEventListener('touchmove', function(e) {
     e.preventDefault();
     var touch = e.touches[0];
-    var idx = getCellFromPoint(touch.clientX, touch.clientY);
-    if (idx >= 0) continueDrag(idx);
+    handleDragMove(touch.clientX, touch.clientY);
   }, { passive: false });
 
   grid.addEventListener('touchend', function(e) {
@@ -952,14 +1096,12 @@ function setupGridListeners() {
 
   grid.addEventListener('mousedown', function(e) {
     var idx = getCellFromPoint(e.clientX, e.clientY);
-    if (idx >= 0) startDrag(idx);
+    if (idx >= 0) startDrag(idx, e.clientX);
     e.preventDefault();
   });
 
   document.addEventListener('mousemove', function(e) {
-    if (!game || !game.isDragging) return;
-    var idx = getCellFromPoint(e.clientX, e.clientY);
-    if (idx >= 0) continueDrag(idx);
+    handleDragMove(e.clientX, e.clientY);
   });
 
   document.addEventListener('mouseup', function() {
