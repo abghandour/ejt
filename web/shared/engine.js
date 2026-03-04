@@ -71,12 +71,35 @@ function unlockAudio() {
   });
 })();
 
+// iOS mute switch hint — show once per session if iOS detected
+var _muteHintShown = false;
+function showMuteHint() {
+  if (_muteHintShown) return;
+  // Only show on iOS (iPhone/iPad/iPod in Safari or WKWebView)
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (!isIOS) return;
+  try { if (sessionStorage.getItem('hjlr_mute_hint') === '1') return; } catch(e) {}
+  _muteHintShown = true;
+  try { sessionStorage.setItem('hjlr_mute_hint', '1'); } catch(e) {}
+  var toast = document.createElement('div');
+  toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#fff;font:14px "Roboto Condensed",sans-serif;padding:12px 20px;border-radius:10px;z-index:9999;text-align:center;max-width:90%;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity 0.3s;';
+  toast.textContent = '🔇 No sound? Turn off silent mode (switch on the side of your iPhone)';
+  document.body.appendChild(toast);
+  requestAnimationFrame(function() { toast.style.opacity = '1'; });
+  setTimeout(function() {
+    toast.style.opacity = '0';
+    setTimeout(function() { toast.remove(); }, 400);
+  }, 5000);
+}
+
 function playTone(freq, dur, type, vol, delay) {
   var ctx = getAudioCtx();
   _alog('playTone f=' + freq + ' state=' + ctx.state);
   if (ctx.state === 'suspended') {
     ctx.resume().catch(function() {});
   }
+  showMuteHint();
   type = type || 'sine';
   vol = vol || 0.1;
   delay = delay || 0;

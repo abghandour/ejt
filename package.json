@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "serve": "npx serve web",
+    "serve": "python3 -m http.server 3124 -d web & sleep 1 && open http://localhost:3124/mobile/index.html",
     "test": "vitest --run"
   },
   "devDependencies": {
