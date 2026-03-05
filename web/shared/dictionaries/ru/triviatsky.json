@@ -1,0 +1,103 @@
+{
+  "20260301": [
+    {
+      "question": "Какой город является столицей России?",
+      "answers": ["Москва", "Санкт-Петербург", "Новосибирск", "Казань"],
+      "correctIndex": 0,
+      "questionTranslation": "What city is the capital of Russia?",
+      "answerTranslations": ["Moscow", "Saint Petersburg", "Novosibirsk", "Kazan"]
+    },
+    {
+      "question": "В каком году человек впервые полетел в космос?",
+      "answers": ["1957", "1961", "1965", "1969"],
+      "correctIndex": 1,
+      "questionTranslation": "In what year did a human first fly into space?",
+      "answerTranslations": ["1957", "1961", "1965", "1969"],
+      "timerSeconds": 15
+    },
+    {
+      "question": "Какая самая длинная река в России?",
+      "answers": ["Волга", "Обь", "Енисей", "Лена", "Амур"],
+      "correctIndex": 3,
+      "questionTranslation": "What is the longest river in Russia?",
+      "answerTranslations": ["Volga", "Ob", "Yenisei", "Lena", "Amur"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Lena_River_Delta_-_Landsat_2000.jpg/260px-Lena_River_Delta_-_Landsat_2000.jpg"
+    },
+    {
+      "question": "Кто написал «Войну и мир»?",
+      "answers": ["Достоевский", "Толстой", "Чехов", "Пушкин"],
+      "correctIndex": 1,
+      "questionTranslation": "Who wrote 'War and Peace'?",
+      "answerTranslations": ["Dostoevsky", "Tolstoy", "Chekhov", "Pushkin"],
+      "postAnswerImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/L.N.Tolstoy_Prokudin-Gorsky.jpg/220px-L.N.Tolstoy_Prokudin-Gorsky.jpg"
+    }
+  ],
+
+  "20260302": [
+    {
+      "question": "Какое озеро является самым глубоким в мире?",
+      "answers": ["Каспийское море", "Байкал", "Танганьика", "Ладожское"],
+      "correctIndex": 1,
+      "questionTranslation": "What lake is the deepest in the world?",
+      "answerTranslations": ["Caspian Sea", "Baikal", "Tanganyika", "Ladoga"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Lake_Baikal_-_Pair_of_Nerpa.jpg/260px-Lake_Baikal_-_Pair_of_Nerpa.jpg",
+      "timerSeconds": 20
+    },
+    {
+      "question": "Сколько часовых поясов в России?",
+      "answers": ["9", "11", "13", "7"],
+      "correctIndex": 1,
+      "questionTranslation": "How many time zones does Russia have?",
+      "answerTranslations": ["9", "11", "13", "7"]
+    },
+    {
+      "question": "Какой элемент обозначается символом «Fe»?",
+      "answers": ["Фтор", "Железо", "Фосфор", "Франций"],
+      "correctIndex": 1,
+      "questionTranslation": "What element is denoted by the symbol 'Fe'?",
+      "answerTranslations": ["Fluorine", "Iron", "Phosphorus", "Francium"],
+      "timerSeconds": 10
+    },
+    {
+      "question": "В каком городе находится Эрмитаж?",
+      "answers": ["Москва", "Санкт-Петербург", "Казань"],
+      "correctIndex": 1,
+      "questionTranslation": "In which city is the Hermitage located?",
+      "answerTranslations": ["Moscow", "Saint Petersburg", "Kazan"],
+      "postAnswerImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Hermitage_Museum%2C_Saint_Petersburg%2C_Russia.jpg/260px-Hermitage_Museum.jpg"
+    },
+    {
+      "question": "Какая планета ближе всего к Солнцу?",
+      "answers": ["Венера", "Земля", "Меркурий", "Марс", "Юпитер", "Сатурн"],
+      "correctIndex": 2,
+      "questionTranslation": "Which planet is closest to the Sun?",
+      "answerTranslations": ["Venus", "Earth", "Mercury", "Mars", "Jupiter", "Saturn"]
+    }
+  ],
+  "20260303": [
+    {
+      "question": "Какой газ составляет большую часть атмосферы Земли?",
+      "answers": ["Кислород", "Азот", "Углекислый газ", "Аргон"],
+      "correctIndex": 1,
+      "questionTranslation": "What gas makes up most of Earth's atmosphere?",
+      "answerTranslations": ["Oxygen", "Nitrogen", "Carbon dioxide", "Argon"]
+    },
+    {
+      "question": "Кто изобрёл периодическую таблицу?",
+      "answers": ["Ломоносов", "Менделеев", "Павлов", "Попов"],
+      "correctIndex": 1,
+      "questionTranslation": "Who invented the periodic table?",
+      "answerTranslations": ["Lomonosov", "Mendeleev", "Pavlov", "Popov"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/DIMendele  ev.jpg/220px-DIMendeleev.jpg",
+      "postAnswerImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Periodic_table_large.png/260px-Periodic_table_large.png",
+      "timerSeconds": 15
+    },
+    {
+      "question": "Какое животное изображено на гербе России?",
+      "answers": ["Медведь", "Орёл", "Лев", "Волк"],
+      "correctIndex": 1,
+      "questionTranslation": "What animal is depicted on the coat of arms of Russia?",
+      "answerTranslations": ["Bear", "Eagle", "Lion", "Wolf"]
+    }
+  ]
+}

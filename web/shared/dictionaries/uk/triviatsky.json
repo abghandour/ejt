@@ -1,0 +1,84 @@
+{
+  "20260301": [
+    {
+      "question": "Яка столиця України?",
+      "answers": ["Львів", "Одеса", "Київ", "Харків"],
+      "correctIndex": 2,
+      "questionTranslation": "What is the capital of Ukraine?",
+      "answerTranslations": ["Lviv", "Odesa", "Kyiv", "Kharkiv"],
+      "image": "../shared/assets/triviatsky/uk/kyiv.jpg"
+    },
+    {
+      "question": "Яка найдовша річка України?",
+      "answers": ["Дністер", "Дніпро", "Південний Буг", "Десна"],
+      "correctIndex": 1,
+      "questionTranslation": "What is the longest river in Ukraine?",
+      "answerTranslations": ["Dniester", "Dnipro", "Southern Bug", "Desna"]
+    },
+    {
+      "question": "Хто написав «Кобзар»?",
+      "answers": ["Іван Франко", "Леся Українка", "Тарас Шевченко", "Григорій Сковорода"],
+      "correctIndex": 2,
+      "questionTranslation": "Who wrote 'Kobzar'?",
+      "answerTranslations": ["Ivan Franko", "Lesya Ukrainka", "Taras Shevchenko", "Hryhorii Skovoroda"],
+      "timerSeconds": 15
+    },
+    {
+      "question": "В якому році Україна здобула незалежність?",
+      "answers": ["1989", "1991", "1993", "1990"],
+      "correctIndex": 1,
+      "questionTranslation": "In what year did Ukraine gain independence?",
+      "answerTranslations": ["1989", "1991", "1993", "1990"]
+    }
+  ],
+
+  "20260302": [
+    {
+      "question": "Скільки областей в Україні?",
+      "answers": ["22", "24", "25", "27"],
+      "correctIndex": 1,
+      "questionTranslation": "How many oblasts does Ukraine have?",
+      "answerTranslations": ["22", "24", "25", "27"]
+    },
+    {
+      "question": "Яке найбільше озеро України?",
+      "answers": ["Світязь", "Ялпуг", "Синевир", "Сасик"],
+      "correctIndex": 1,
+      "questionTranslation": "What is the largest lake in Ukraine?",
+      "answerTranslations": ["Svityaz", "Yalpuh", "Synevyr", "Sasyk"],
+      "image": "../shared/assets/triviatsky/uk/yalpuh.jpg"
+    },
+    {
+      "question": "Який хімічний символ у заліза?",
+      "answers": ["Zn", "Fe", "Au", "Ag"],
+      "correctIndex": 1,
+      "questionTranslation": "What is the chemical symbol for iron?",
+      "answerTranslations": ["Zn", "Fe", "Au", "Ag"],
+      "timerSeconds": 10
+    }
+  ],
+  "20260303": [
+    {
+      "question": "Яка валюта України?",
+      "answers": ["Рубль", "Злотий", "Гривня", "Крона"],
+      "correctIndex": 2,
+      "questionTranslation": "What is the currency of Ukraine?",
+      "answerTranslations": ["Ruble", "Zloty", "Hryvnia", "Krona"]
+    },
+    {
+      "question": "Яка найвища гора України?",
+      "answers": ["Петрос", "Говерла", "Піп Іван", "Бребенескул"],
+      "correctIndex": 1,
+      "questionTranslation": "What is the highest mountain in Ukraine?",
+      "answerTranslations": ["Petros", "Hoverla", "Pip Ivan", "Brebeneskul"],
+      "image": "../shared/assets/triviatsky/uk/hoverla.jpg"
+    },
+    {
+      "question": "Хто є автором «Лісової пісні»?",
+      "answers": ["Тарас Шевченко", "Іван Франко", "Леся Українка", "Михайло Коцюбинський"],
+      "correctIndex": 2,
+      "questionTranslation": "Who is the author of 'Forest Song'?",
+      "answerTranslations": ["Taras Shevchenko", "Ivan Franko", "Lesya Ukrainka", "Mykhailo Kotsiubynsky"]
+    }
+  ]
+}

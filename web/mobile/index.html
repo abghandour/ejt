@@ -323,6 +323,10 @@ body{
   <symbol id="ico-sword" viewBox="0 0 24 24">
     <path d="M6.92 5H5L3.5 6.5 5 8l1.5-1.5L14 14l-1 1-3.5-3.5L8 13l3.5 3.5L13 15l5.5 5.5L20 22l1.5-1.5L20 19l1.5-1.5L20 16l-6-6 7.5-7.5V1h-1.5L12.5 8.5 6.92 5z"/>
   </symbol>
+  <!-- Triviatsky: brain / quiz icon -->
+  <symbol id="ico-brain" viewBox="0 0 24 24">
+    <path d="M12 2a4 4 0 0 0-3.2 1.6A3.5 3.5 0 0 0 4 7a3.5 3.5 0 0 0 .5 1.8A4 4 0 0 0 3 12a4 4 0 0 0 1.5 3.1A3.5 3.5 0 0 0 5 17a3.5 3.5 0 0 0 3.5 3.5c.3 0 .6 0 .9-.1A4 4 0 0 0 12 22a4 4 0 0 0 2.6-1.6c.3.1.6.1.9.1A3.5 3.5 0 0 0 19 17c0-.3 0-.6-.1-.9A4 4 0 0 0 21 12a4 4 0 0 0-1.5-3.2A3.5 3.5 0 0 0 20 7a3.5 3.5 0 0 0-4.8-3.4A4 4 0 0 0 12 2zm0 2c.9 0 1.7.4 2.2 1.1l.3.4.5-.2c.3-.1.7-.2 1-.2a1.5 1.5 0 0 1 1.5 1.5c0 .3-.1.6-.2.8l-.3.5.5.3c.9.5 1.5 1.5 1.5 2.6 0 .7-.2 1.3-.6 1.8l-.4.5.5.3c.6.5 1 1.2 1 2.1a2 2 0 0 1-2 2h-.3l-.5.1.1.5c0 .2.1.4.1.6a1.5 1.5 0 0 1-1.5 1.5c-.2 0-.4 0-.6-.1l-.5-.2-.3.5A2 2 0 0 1 12 20a2 2 0 0 1-1.7-1l-.3-.5-.5.2c-.2.1-.4.1-.6.1A1.5 1.5 0 0 1 7.4 17.3c0-.2.1-.4.1-.6l.1-.5-.5-.1H6.8a2 2 0 0 1-2-2c0-.9.4-1.6 1-2.1l.5-.3-.4-.5c-.4-.5-.6-1.1-.6-1.8 0-1.1.6-2.1 1.5-2.6l.5-.3-.3-.5c-.1-.2-.2-.5-.2-.8A1.5 1.5 0 0 1 8.3 4.1c.3 0 .7.1 1 .2l.5.2.3-.4A2.5 2.5 0 0 1 12 4zm-1 4v2H9v2h2v2h2v-2h2v-2h-2V8h-2z"/>
+  </symbol>
 </svg>
 
 <div id="banner-wrap">
@@ -376,6 +380,10 @@ body{
         <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
         Games
       </a>
+      <a href="#" role="menuitem" id="menu-settings-game">
+        <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87a.48.48 0 0 0 .12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.26.41.48.41h3.84c.24 0 .44-.17.48-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg>
+        Settings
+      </a>
       <a href="https://www.patreon.com/u63997582" target="_blank" rel="noopener" role="menuitem">
         <svg viewBox="0 0 24 24"><path d="M14.82 2.41c3.96 0 7.18 3.24 7.18 7.21 0 3.96-3.22 7.18-7.18 7.18-3.97 0-7.21-3.22-7.21-7.18 0-3.97 3.24-7.21 7.21-7.21M2 21.6h3.5V2.41H2V21.6z"/></svg>
         Patreon Home
@@ -396,6 +404,7 @@ var GAMES = [
   {id:'scramblisky',name:'Scramblisky', file:'./scramblisky.html', icon:'#ico-scramble',  desc:'Unscramble Russian words before time runs out', isNew:false},
   {id:'bogglesky',  name:'Bogglesky',   file:'./bogglesky.html',   icon:'#ico-boggle',   desc:'Swipe to find Russian words in a letter grid', isNew:true},
   {id:'fruitsky',  name:'Fruitsky',     file:'./fruitsky.html',    icon:'#ico-sword',     desc:'Slash the synonyms, dodge the distractors', isNew:true},
+  {id:'triviatsky',name:'Triviatsky',   file:'./triviatsky.html',  icon:'#ico-brain',     desc:'Answer daily trivia questions and earn stars', isNew:true},
   {id:'snakesky',  name:'Snakesky',     file:'./snakesky.html',    icon:'#ico-snake',     desc:'Guide the snake to eat the right Russian words', isNew:false},
   //{id:'tetrisky',  name:'Tetrisky',     file:'./tetrisky.html',    icon:'#ico-tetris',    desc:'Drop letters to form Russian words', isNew:true},
   //{id:'wordsky',   name:'Wordsky',      file:'./wordsky.html',     icon:'#ico-grid',      desc:'Guess the daily Russian word in 6 tries', isNew:false}
@@ -554,6 +563,7 @@ function closeGame() {
   frame.src = '';
   frame.style.display = 'none';
   backBar.style.display = 'none';
+  _currentFrameUrl = '';
   // Re-center on last played
   var lastId = getLastPlayed();
   if (lastId) {
@@ -566,6 +576,10 @@ function closeGame() {
 
 document.getElementById('back-banner').addEventListener('click', function(e) {
   e.preventDefault();
+  if (isSettingsOpen()) {
+    closeGame();
+    return;
+  }
   // Send pause message to game iframe
   var frame = document.getElementById('game-frame');
   if (frame.contentWindow) {
@@ -642,6 +656,13 @@ hamBtn.addEventListener('click', function(e) {
   var open = hamMenu.classList.toggle('open');
   hamBtn.classList.toggle('open', open);
   hamBtn.setAttribute('aria-expanded', String(open));
+  // Pause game when menu opens
+  if (open) {
+    var frame = document.getElementById('game-frame');
+    if (frame.contentWindow && frame.style.display !== 'none') {
+      frame.contentWindow.postMessage({type:'pause'}, '*');
+    }
+  }
 });
 document.getElementById('menu-settings').addEventListener('click', function(e) {
   e.preventDefault();
@@ -673,6 +694,11 @@ document.getElementById('menu-games').addEventListener('click', function(e) {
   closeGameMenu();
   closeGame();
 });
+document.getElementById('menu-settings-game').addEventListener('click', function(e) {
+  e.preventDefault();
+  closeGameMenu();
+  openInFrame('./settings.html');
+});
 // Close any open menu on outside click
 document.addEventListener('click', function(e) {
   if (!hamMenu.contains(e.target) && !hamBtn.contains(e.target)) {
@@ -684,6 +710,7 @@ document.addEventListener('click', function(e) {
 });
 
 // Helper to open a page in the iframe
+var _currentFrameUrl = '';
 function openInFrame(url) {
   var frame = document.getElementById('game-frame');
   var backBar = document.getElementById('back-bar');
@@ -693,6 +720,12 @@ function openInFrame(url) {
   frame.style.height = 'calc(100% - ' + barH + 'px)';
   frame.src = url;
   frame.style.display = 'block';
+  _currentFrameUrl = url;
+}
+
+function isSettingsOpen() {
+  return _currentFrameUrl.indexOf('settings.html') !== -1 &&
+    document.getElementById('game-frame').style.display !== 'none';
 }
 
 init();

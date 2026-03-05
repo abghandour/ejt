@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triviatsky — Daily Trivia Game</title>
+<link rel="icon" href="../shared/assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../shared/assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="How Janey Learned Russian">
+<link rel="manifest" href="../shared/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/theme.css">
+<script src="../shared/theme.js"></script>
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* ===== GAME AREA ===== */
+#game-area{
+  width:100%;
+  max-width:600px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  flex:1 1 0;
+  min-height:0;
+  overflow-y:auto;
+  padding-bottom:16px;
+}
+
+/* ===== TOP BAR OVERRIDES ===== */
+#top-bar{
+  gap:10px;
+}
+#top-bar button{
+  background:none;
+  border:1px solid var(--btn-border);
+  border-radius:6px;
+  color:var(--accent);
+  padding:4px 10px;
+  cursor:pointer;
+  transition:all 0.2s;
+  line-height:1;
+}
+#top-bar button:hover{
+  border-color:var(--accent);
+  background:var(--accent-subtle);
+}
+/* ===== DIFFICULTY SELECT ===== */
+#difficulty-select{
+  display:flex;
+  gap:10px;
+  margin:12px 0;
+}
+.difficulty-btn{
+  flex:1;
+  padding:12px 16px;
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:16px;
+  font-weight:700;
+  background:var(--btn-bg);
+  border:2px solid var(--btn-border);
+  border-radius:10px;
+  color:var(--text-primary);
+  cursor:pointer;
+  transition:all 0.2s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+}
+.difficulty-btn:hover{
+  border-color:var(--accent);
+  background:var(--btn-bg-active);
+}
+.difficulty-btn.selected{
+  border-color:var(--accent);
+  background:var(--accent-subtle);
+  box-shadow:0 0 10px var(--accent-glow);
+}
+.difficulty-desc{
+  font-size:11px;
+  font-weight:400;
+  color:var(--text-secondary);
+}
+
+/* ===== QUESTION TRACKER ROW ===== */
+#question-tracker{
+  width:100%;
+  max-width:600px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  padding:10px 16px 0;
+  flex-shrink:0;
+}
+.tracker-btn{
+  flex:1;
+  max-width:60px;
+  min-height:36px;
+  background:var(--btn-bg);
+  border:2px solid var(--btn-border);
+  border-radius:8px;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:4px 2px;
+  transition:all 0.25s;
+  gap:1px;
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  color:var(--text-secondary);
+}
+.tracker-btn:hover{
+  border-color:var(--accent);
+  background:var(--btn-bg-active);
+  transform:translateY(-1px);
+}
+.tracker-btn.active{
+  border-color:var(--accent);
+  box-shadow:0 0 10px var(--accent-glow);
+}
+.tracker-btn.answered{
+  background:var(--success-bg);
+  border-color:var(--success);
+}
+.tracker-btn .tracker-stars{
+  display:flex;
+  gap:0;
+  line-height:1;
+}
+.tracker-btn .tracker-stars .icon-star{
+  width:8px;
+  height:8px;
+}
+
+/* ===== QUESTION DISPLAY AREA ===== */
+#question-display-area{
+  width:100%;
+  max-width:600px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:16px 16px 8px;
+  flex-shrink:0;
+}
+
+#question-image-container{
+  width:100%;
+  max-width:400px;
+  display:flex;
+  justify-content:center;
+  margin-bottom:8px;
+}
+#question-image-container:empty{
+  display:none;
+}
+#question-image-container img{
+  max-width:100%;
+  max-height:200px;
+  border-radius:8px;
+  border:1px solid var(--border-subtle);
+  object-fit:contain;
+}
+
+#question-text{
+  font-size:clamp(18px,5vw,26px);
+  font-weight:700;
+  color:var(--text-primary);
+  text-align:center;
+  line-height:1.3;
+  margin-bottom:4px;
+}
+
+#question-translation{
+  font-size:clamp(13px,3vw,16px);
+  color:var(--info);
+  text-align:center;
+  margin-bottom:8px;
+  min-height:20px;
+  transition:opacity 0.3s;
+}
+
+/* ===== TIMER DISPLAY ===== */
+#timer-display{
+  width:100%;
+  max-width:400px;
+  text-align:center;
+  padding:6px 12px;
+  margin-bottom:8px;
+  font-size:18px;
+  font-weight:700;
+  color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+#timer-display .timer-bar{
+  width:100%;
+  height:6px;
+  background:var(--border-subtle);
+  border-radius:3px;
+  margin-top:4px;
+  overflow:hidden;
+}
+#timer-display .timer-bar-fill{
+  height:100%;
+  background:var(--accent);
+  border-radius:3px;
+  transition:width 1s linear;
+}
+#timer-display.urgent{
+  color:var(--danger);
+}
+#timer-display.urgent .timer-bar-fill{
+  background:var(--danger);
+}
+
+/* ===== ANSWER GRID ===== */
+#answer-grid{
+  width:100%;
+  max-width:600px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  padding:0 16px;
+}
+
+.answer-btn{
+  padding:14px 12px;
+  font-size:15px;
+  font-family:'Roboto Condensed',sans-serif;
+  font-weight:700;
+  background:var(--btn-bg);
+  border:2px solid var(--btn-border);
+  border-radius:8px;
+  color:var(--text-primary);
+  cursor:pointer;
+  transition:all 0.25s;
+  text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.3);
+  min-height:52px;
+  word-wrap:break-word;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+}
+.answer-btn:hover:not(:disabled):not(.correct):not(.wrong){
+  background:var(--btn-bg-active);
+  border-color:var(--accent);
+  transform:translateY(-2px);
+  box-shadow:0 4px 16px var(--accent-glow);
+}
+.answer-btn:disabled{
+  cursor:not-allowed;
+  opacity:0.5;
+}
+.answer-btn.correct{
+  background:var(--tile-correct-bg);
+  border-color:var(--tile-correct-border);
+  color:var(--success-text);
+  box-shadow:0 0 20px rgba(85,170,85,0.3);
+}
+.answer-btn.wrong{
+  background:var(--tile-wrong-bg);
+  border-color:var(--tile-wrong-border);
+  color:var(--danger-text);
+  box-shadow:0 0 20px rgba(204,68,68,0.3);
+  animation:wrongShake 0.4s ease;
+}
+.answer-btn .answer-translation{
+  font-size:11px;
+  font-weight:400;
+  color:var(--info);
+  line-height:1.2;
+}
+
+/* ===== NEXT BUTTON ===== */
+#next-btn{
+  margin-top:12px;
+  padding:12px 40px;
+  font-size:18px;
+  font-family:'Roboto Condensed',sans-serif;
+  font-weight:700;
+  background:var(--btn-play-bg);
+  border:2px solid var(--btn-play-border);
+  border-radius:12px;
+  color:var(--text-primary);
+  cursor:pointer;
+  transition:all 0.25s;
+  box-shadow:0 4px 16px var(--btn-play-shadow);
+}
+#next-btn:hover{
+  transform:translateY(-2px);
+  border-color:var(--btn-play-border);
+}
+
+/* ===== POST-ANSWER IMAGE ===== */
+#post-answer-image-container{
+  width:100%;
+  max-width:400px;
+  display:flex;
+  justify-content:center;
+  padding:12px 16px 0;
+}
+#post-answer-image-container img{
+  max-width:100%;
+  max-height:200px;
+  border-radius:8px;
+  border:1px solid var(--border-subtle);
+  object-fit:contain;
+}
+
+/* ===== MESSAGE / ERROR AREA ===== */
+#message-area{
+  width:100%;
+  max-width:600px;
+  text-align:center;
+  padding:8px 16px;
+  font-size:14px;
+  min-height:24px;
+  color:var(--accent);
+}
+#message-area.error{color:var(--danger)}
+#message-area.success{color:var(--success-text)}
+
+/* ===== START SCREEN ===== */
+#start-btn{
+  padding:16px 52px;
+  font-size:24px;
+}
+
+/* ===== RESULTS OVERLAY ===== */
+#results-overlay{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:var(--bg-overlay);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  backdrop-filter:blur(8px);
+  padding:20px;
+  overflow-y:auto;
+}
+#results-overlay.hidden{display:none}
+
+#results-popup{
+  width:100%;
+  max-width:420px;
+  background:var(--bg-surface);
+  border:1px solid var(--border-subtle);
+  border-radius:12px;
+  padding:24px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+#results-popup h2{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:22px;
+  font-weight:700;
+  color:var(--accent);
+  text-align:center;
+}
+#results-date{
+  font-size:13px;
+  color:var(--text-secondary);
+  letter-spacing:1px;
+  margin-top:-8px;
+}
+#results-questions{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.result-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:6px 0;
+  border-bottom:1px solid var(--border-divider);
+  font-size:14px;
+  gap:8px;
+}
+.result-row .result-question{
+  color:var(--text-primary);
+  font-weight:700;
+  flex:1;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.result-row .result-stars{
+  font-size:16px;
+  letter-spacing:2px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+}
+#results-total{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:20px;
+  font-weight:700;
+  color:var(--accent);
+}
+#results-actions{
+  display:flex;
+  flex-wrap:nowrap;
+  gap:8px;
+  justify-content:center;
+  width:100%;
+}
+.results-btn{
+  padding:10px 20px;
+  font-size:14px;
+  font-family:'Roboto Condensed',sans-serif;
+  font-weight:700;
+  border-radius:8px;
+  cursor:pointer;
+  transition:all 0.2s;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.share-btn{
+  background:var(--btn-bg);
+  border:2px solid var(--btn-border);
+  color:var(--text-primary);
+}
+.share-btn:hover{
+  border-color:var(--accent);
+  background:var(--btn-bg-active);
+}
+
+/* ===== CALENDAR OVERLAY ===== */
+#calendar-overlay{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:var(--bg-overlay);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  backdrop-filter:blur(8px);
+  padding:20px;
+}
+#calendar-overlay.hidden{display:none}
+
+#calendar-popup{
+  width:100%;
+  max-width:360px;
+  background:var(--bg-surface);
+  border:1px solid var(--border-subtle);
+  border-radius:12px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+#calendar-header{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+#calendar-header h3{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:18px;
+  font-weight:700;
+  color:var(--accent);
+}
+.cal-nav-btn{
+  background:none;
+  border:1px solid var(--btn-border);
+  border-radius:6px;
+  color:var(--accent);
+  font-size:18px;
+  padding:4px 10px;
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:'Roboto Condensed',sans-serif;
+}
+.cal-nav-btn:hover{
+  border-color:var(--accent);
+  background:var(--accent-subtle);
+}
+#calendar-close-btn{
+  background:none;
+  border:none;
+  color:var(--text-secondary);
+  font-size:22px;
+  cursor:pointer;
+  padding:2px 6px;
+  transition:color 0.2s;
+}
+#calendar-close-btn:hover{color:var(--text-primary)}
+
+#calendar-weekdays{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:2px;
+  text-align:center;
+  font-size:12px;
+  color:var(--text-secondary);
+  font-weight:700;
+}
+#calendar-grid{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:4px;
+}
+.cal-day{
+  aspect-ratio:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:all 0.2s;
+  border:2px solid transparent;
+  color:var(--border-subtle);
+  font-weight:400;
+}
+.cal-day:hover:not(.disabled):not(.empty){
+  border-color:var(--accent);
+  background:var(--accent-subtle);
+}
+.cal-day.empty{cursor:default}
+.cal-day.disabled{
+  color:var(--border-subtle);
+  cursor:not-allowed;
+}
+.cal-day.has-data{
+  color:var(--success-text);
+  font-weight:700;
+}
+.cal-day.played{
+  color:var(--success-text);
+  font-weight:700;
+  background:rgba(85,170,85,0.25);
+}
+.cal-day.today{
+  border:2px solid var(--accent);
+}
+.cal-day.selected{
+  border:2px solid var(--text-primary);
+  border-radius:50%;
+  box-shadow:0 0 8px var(--accent-glow);
+}
+
+/* ===== TRANSLATION ELEMENTS ===== */
+.translation{
+  transition:opacity 0.3s;
+}
+
+/* ===== UTILITY ===== */
+.hidden{display:none!important}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:400px){
+  #top-bar{padding:6px 10px}
+  #question-text{font-size:clamp(16px,4.5vw,22px)}
+  .answer-btn{padding:10px 8px;font-size:13px;min-height:40px}
+  #answer-grid{gap:8px;padding:0 10px}
+  #question-tracker{gap:5px;padding:8px 10px 0}
+  .tracker-btn{min-height:30px;padding:3px 1px}
+  #question-display-area{padding:10px 10px 6px}
+  #results-popup{padding:16px 14px}
+  #results-popup h2{font-size:18px}
+  .results-btn{padding:8px 14px;font-size:13px}
+  #next-btn{padding:10px 32px;font-size:16px}
+}
+
+@media(min-width:768px){
+  #question-display-area{padding:24px 16px 12px}
+  #question-text{font-size:28px}
+  .answer-btn{padding:18px 16px;font-size:16px}
+}
+
+@media(min-width:1024px){
+  body{justify-content:flex-start;padding-top:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG Icon Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="ico-calendar" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></symbol>
+  <symbol id="ico-star-filled" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+  <symbol id="ico-star-empty" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="ico-chevron-left" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></symbol>
+  <symbol id="ico-chevron-right" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></symbol>
+  <symbol id="ico-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
+  <symbol id="ico-share" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></symbol>
+  <symbol id="ico-translate" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></symbol>
+</svg>
+
+<!-- Top Bar -->
+<div id="top-bar">
+  <button id="calendar-btn" aria-label="Open calendar"><svg class="icon icon-md"><use href="#ico-calendar"/></svg></button>
+  <div id="game-title">TRIVIATSKY</div>
+</div>
+
+<!-- Main Game Area -->
+<div id="game-area">
+  <!-- Question Tracker Row -->
+  <div id="question-tracker"></div>
+
+  <!-- Question Display Area -->
+  <div id="question-display-area">
+    <div id="question-image-container"></div>
+    <div id="question-text"></div>
+    <div id="question-translation" class="translation"></div>
+    <div id="timer-display" class="hidden"></div>
+  </div>
+
+  <!-- Answer Grid -->
+  <div id="answer-grid"></div>
+
+  <!-- Next Button -->
+  <button id="next-btn" class="hidden">Next</button>
+
+  <!-- Post-Answer Image -->
+  <div id="post-answer-image-container" class="hidden"></div>
+
+  <!-- Message / Error Area -->
+  <div id="message-area" class="hidden"></div>
+</div>
+
+<!-- Start Screen Container -->
+<div id="start-screen" class="hidden">
+  <div id="start-inner">
+    <div id="start-title">🧠 TRIVIATSKY</div>
+    <div id="start-hint">Daily trivia challenge. Answer questions, earn stars!</div>
+    <div id="difficulty-select">
+      <button class="difficulty-btn selected" data-mode="easy">Easy<span class="difficulty-desc">With English translation</span></button>
+      <button class="difficulty-btn" data-mode="hard">Hard<span class="difficulty-desc">Russian only</span></button>
+    </div>
+    <button id="start-btn">Start</button>
+  </div>
+</div>
+
+<!-- Results Overlay Container -->
+<div id="results-overlay" class="hidden">
+  <div id="results-popup">
+    <h2>Game Over</h2>
+    <div id="results-date"></div>
+    <div id="results-questions"></div>
+    <div id="results-total"></div>
+    <div id="results-actions">
+      <button class="results-btn share-btn" id="results-close-btn" aria-label="Close"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-close"/></svg>Close</button>
+      <button class="results-btn share-btn" id="share-message" aria-label="Share"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-share"/></svg>Share</button>
+    </div>
+  </div>
+</div>
+
+<!-- Calendar Overlay Container -->
+<div id="calendar-overlay" class="hidden">
+  <div id="calendar-popup">
+    <div id="calendar-header">
+      <button class="cal-nav-btn" id="cal-prev" aria-label="Previous month"><svg class="icon icon-md"><use href="#ico-chevron-left"/></svg></button>
+      <h3 id="calendar-month-label"></h3>
+      <button class="cal-nav-btn" id="cal-next" aria-label="Next month"><svg class="icon icon-md"><use href="#ico-chevron-right"/></svg></button>
+      <button id="calendar-close-btn" aria-label="Close calendar"><svg class="icon icon-md"><use href="#ico-close"/></svg></button>
+    </div>
+    <div id="calendar-weekdays">
+      <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+    </div>
+    <div id="calendar-grid"></div>
+    <button id="cal-today-btn" class="cal-nav-btn" style="width:100%;margin-top:4px;padding:8px 0;font-size:14px;font-weight:700">Today</button>
+  </div>
+</div>
+
+<script src="../shared/engine.js"></script>
+<script>
+  // ===== DATA LOADER MODULE (Task 2.1) =====
+
+  let allGameData = null;
+  let calendarAvailableDates = [];
+  let loadError = false;
+
+  var currentDateStr = '';
+  var currentQuestions = null;
+  var gameState = null;
+
+  function validateQuestion(q) {
+    if (!q || typeof q !== 'object') return false;
+    if (typeof q.question !== 'string' || q.question.trim() === '') return false;
+    if (!Array.isArray(q.answers) || q.answers.length < 2 || q.answers.length > 6) return false;
+    for (let i = 0; i < q.answers.length; i++) {
+      if (typeof q.answers[i] !== 'string' || q.answers[i].trim() === '') return false;
+    }
+    if (typeof q.correctIndex !== 'number' || !Number.isInteger(q.correctIndex)) return false;
+    if (q.correctIndex < 0 || q.correctIndex >= q.answers.length) return false;
+    return true;
+  }
+
+  async function loadGameData(dateStr) {
+    loadError = false;
+    let data;
+    try {
+      if (allGameData) {
+        data = allGameData;
+      } else {
+        const resp = await fetch(resolveDictionaryUrl(getActiveLanguage(), 'triviatsky'));
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        data = await resp.json();
+        allGameData = data;
+        calendarAvailableDates = Object.keys(data);
+      }
+    } catch (e) {
+      loadError = true;
+      return null;
+    }
+
+    const entries = data[dateStr];
+    if (!entries || !Array.isArray(entries)) {
+      return null;
+    }
+
+    const valid = entries.filter(function(q, idx) {
+      if (!validateQuestion(q)) {
+        console.warn('Triviatsky: skipping invalid question at index ' + idx + ' for date ' + dateStr);
+        return false;
+      }
+      return true;
+    });
+
+    if (valid.length === 0) {
+      return null;
+    }
+
+    return valid;
+  }
+
+  // ===== ANSWER SHUFFLER MODULE (Task 2.3) =====
+
+  function shuffleAnswers(answers, correctIndex) {
+    const shuffled = answers.slice();
+    let correctPos = correctIndex;
+
+    // Fisher-Yates shuffle, tracking where the correct answer ends up
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+
+      // Track the correct answer's position through swaps
+      if (correctPos === i) {
+        correctPos = j;
+      } else if (correctPos === j) {
+        correctPos = i;
+      }
+
+      const tmp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = tmp;
+    }
+
+    return { shuffledAnswers: shuffled, correctShuffledIndex: correctPos };
+  }
+
+  // ===== SCORE TRACKER MODULE (Task 2.5) =====
+
+  function getTotalScore(questionScores) {
+    let total = 0;
+    for (let i = 0; i < questionScores.length; i++) {
+      total += questionScores[i];
+    }
+    return total;
+  }
+
+  function getMaxScore(questionCount) {
+    return questionCount * 5;
+  }
+
+  function getStarRatingText(score) {
+    let s = '';
+    for (let i = 0; i < 5; i++) {
+      s += i < score ? '★' : '☆';
+    }
+    return s;
+  }
+
+  function getStarRatingHTML(score) {
+    let html = '';
+    for (let i = 0; i < 5; i++) {
+      const icon = i < score ? 'ico-star-filled' : 'ico-star-empty';
+      html += '<svg class="icon icon-sm"><use href="#' + icon + '"/></svg>';
+    }
+    return html;
+  }
+
+  // ===== STATE PERSISTENCE MODULE (Task 2.7) =====
+
+  function saveGameState(state) {
+    try {
+      localStorage.setItem('triviatsky_state_' + state.date, JSON.stringify(state));
+    } catch (e) {
+      // Silently fail if localStorage is unavailable
+    }
+  }
+
+  function loadGameState(dateStr) {
+    try {
+      const raw = localStorage.getItem('triviatsky_state_' + dateStr);
+      if (raw === null) return null;
+      return JSON.parse(raw);
+    } catch (e) {
+      // Corrupted data — clear it and return null
+      try { localStorage.removeItem('triviatsky_state_' + dateStr); } catch (_) {}
+      return null;
+    }
+  }
+
+  function saveToHistory(dateStr, questionScores, completed) {
+    try {
+      var history = {};
+      try {
+        var raw = localStorage.getItem('triviatsky_history');
+        if (raw !== null) history = JSON.parse(raw);
+      } catch (e) {
+        history = {};
+      }
+      history[dateStr] = { questionScores: questionScores, completed: completed };
+      localStorage.setItem('triviatsky_history', JSON.stringify(history));
+    } catch (e) {
+      // Silently fail if localStorage is unavailable
+    }
+  }
+
+  function loadHistory() {
+    try {
+      var raw = localStorage.getItem('triviatsky_history');
+      if (raw === null) return {};
+      return JSON.parse(raw);
+    } catch (e) {
+      // Corrupted data — clear it and return empty
+      try { localStorage.removeItem('triviatsky_history'); } catch (_) {}
+      return {};
+    }
+  }
+
+  // ===== TRANSLATION TOGGLE MODULE (Task 2.9) =====
+
+  function getTranslationPref() {
+    try {
+      var val = localStorage.getItem('triviatsky_translation_toggle');
+      if (val === 'hide') return 'hide';
+      return 'show';
+    } catch (e) {
+      return 'show';
+    }
+  }
+
+  function setTranslationPref(show) {
+    try {
+      localStorage.setItem('triviatsky_translation_toggle', show ? 'show' : 'hide');
+    } catch (e) {
+      // Silently fail if localStorage is unavailable
+    }
+  }
+
+  function applyTranslationVisibility() {
+    var pref = getTranslationPref();
+    var els = document.querySelectorAll('.translation');
+    for (var i = 0; i < els.length; i++) {
+      els[i].style.display = pref === 'show' ? '' : 'none';
+    }
+  }
+
+  // ===== SHARING MODULE (Task 2.11) =====
+
+  function formatShareText(dateStr, questionScores, questions) {
+    var lines = [];
+    lines.push('🧠 Triviatsky ' + dateStr);
+    for (var i = 0; i < questionScores.length; i++) {
+      lines.push('Q' + (i + 1) + ': ' + getStarRatingText(questionScores[i]));
+    }
+    var total = getTotalScore(questionScores);
+    var max = getMaxScore(questions.length);
+    lines.push('Total: ' + total + '/' + max);
+    return lines.join('\n');
+  }
+
+  // ===== TIMER MODULE (Task 4.1) =====
+
+  var _timerIntervalId = null;
+  var _timerRemaining = 0;
+  var _timerPaused = false;
+  var _timerOnTick = null;
+  var _timerOnExpire = null;
+  var _timerTotalSeconds = 0;
+
+  function startCountdown(seconds, onTick, onExpire) {
+    stopCountdown();
+    _timerRemaining = seconds;
+    _timerPaused = false;
+    _timerOnTick = onTick || null;
+    _timerOnExpire = onExpire || null;
+
+    if (_timerOnTick) _timerOnTick(_timerRemaining);
+
+    _timerIntervalId = setInterval(function() {
+      _timerRemaining--;
+      if (_timerOnTick) _timerOnTick(_timerRemaining);
+      if (_timerRemaining <= 0) {
+        clearInterval(_timerIntervalId);
+        _timerIntervalId = null;
+        if (_timerOnExpire) _timerOnExpire();
+      }
+    }, 1000);
+  }
+
+  function stopCountdown() {
+    if (_timerIntervalId !== null) {
+      clearInterval(_timerIntervalId);
+      _timerIntervalId = null;
+    }
+    _timerRemaining = 0;
+    _timerPaused = false;
+    _timerOnTick = null;
+    _timerOnExpire = null;
+  }
+
+  function pauseCountdown() {
+    if (_timerIntervalId !== null && !_timerPaused) {
+      clearInterval(_timerIntervalId);
+      _timerIntervalId = null;
+      _timerPaused = true;
+    }
+  }
+
+  function resumeCountdown() {
+    if (_timerPaused && _timerRemaining > 0) {
+      _timerPaused = false;
+      _timerIntervalId = setInterval(function() {
+        _timerRemaining--;
+        if (_timerOnTick) _timerOnTick(_timerRemaining);
+        if (_timerRemaining <= 0) {
+          clearInterval(_timerIntervalId);
+          _timerIntervalId = null;
+          if (_timerOnExpire) _timerOnExpire();
+        }
+      }, 1000);
+    }
+  }
+
+  // Integrate with shared pause/resume system
+  onGamePause(function() { pauseCountdown(); });
+  onGameResume(function() { resumeCountdown(); });
+
+  // ===== UI RENDERER: START SCREEN (Task 5.2) =====
+
+  function renderStartScreen(hasProgress) {
+    document.getElementById('start-btn').textContent = hasProgress ? 'Resume' : 'Start';
+    document.getElementById('start-screen').classList.remove('hidden');
+    document.getElementById('game-area').classList.add('hidden');
+
+    // Set difficulty buttons to match saved translation pref
+    var pref = getTranslationPref();
+    var btns = document.querySelectorAll('#difficulty-select .difficulty-btn');
+    for (var i = 0; i < btns.length; i++) {
+      var mode = btns[i].getAttribute('data-mode');
+      btns[i].classList.toggle('selected', pref === 'show' ? mode === 'easy' : mode === 'hard');
+    }
+  }
+
+  // ===== UI RENDERER: QUESTION & ANSWER GRID (Task 5.3) =====
+
+  function renderQuestion(question, questionIndex, state) {
+    // 1. Set question text
+    document.getElementById('question-text').innerHTML = question.question;
+
+    // 2. Question image
+    var imgContainer = document.getElementById('question-image-container');
+    imgContainer.innerHTML = '';
+    if (question.image) {
+      var img = document.createElement('img');
+      img.src = question.image;
+      img.alt = 'Question image';
+      img.onerror = function() { imgContainer.innerHTML = ''; };
+      imgContainer.appendChild(img);
+    }
+
+    // 3. Question translation
+    var transEl = document.getElementById('question-translation');
+    if (question.questionTranslation) {
+      transEl.textContent = question.questionTranslation;
+    } else {
+      transEl.textContent = '';
+    }
+
+    // 4. Apply translation visibility based on toggle
+    applyTranslationVisibility();
+
+    // 5. Shuffle answers (or restore from state)
+    if (!state.shuffledAnswers) {
+      state.shuffledAnswers = [];
+      state.correctShuffledIndex = [];
+    }
+
+    if (state.shuffledAnswers[questionIndex]) {
+      // Restore saved shuffle order
+    } else {
+      // Shuffle for the first time and save to state
+      var result = shuffleAnswers(question.answers, question.correctIndex);
+      state.shuffledAnswers[questionIndex] = result.shuffledAnswers;
+      state.correctShuffledIndex[questionIndex] = result.correctShuffledIndex;
+    }
+
+    var shuffled = state.shuffledAnswers[questionIndex];
+    var correctIdx = state.correctShuffledIndex[questionIndex];
+
+    // Build shuffled answer translations if they exist
+    var shuffledTranslations = null;
+    if (question.answerTranslations && question.answerTranslations.length === question.answers.length) {
+      // Map original translations to shuffled order
+      shuffledTranslations = [];
+      for (var i = 0; i < shuffled.length; i++) {
+        // Find the original index of this shuffled answer
+        var origIdx = question.answers.indexOf(shuffled[i]);
+        shuffledTranslations.push(question.answerTranslations[origIdx]);
+      }
+    }
+
+    // Determine disabled indices and revealed status from state
+    var disabledIndices = (state.disabledOptions && state.disabledOptions[questionIndex]) || [];
+    var revealed = (state.revealed && state.revealed[questionIndex]) || false;
+
+    // 6. Render the answer grid
+    renderAnswerGrid(shuffled, disabledIndices, correctIdx, revealed, shuffledTranslations);
+
+    // 7. Hide next button, post-answer image, and timer initially
+    document.getElementById('next-btn').classList.add('hidden');
+    document.getElementById('post-answer-image-container').classList.add('hidden');
+    document.getElementById('post-answer-image-container').innerHTML = '';
+    document.getElementById('timer-display').classList.add('hidden');
+  }
+
+  function renderAnswerGrid(answers, disabledIndices, correctIndex, revealed, answerTranslations) {
+    var grid = document.getElementById('answer-grid');
+    grid.innerHTML = '';
+
+    var showTrans = getTranslationPref() === 'show';
+
+    for (var i = 0; i < answers.length; i++) {
+      var btn = document.createElement('button');
+      btn.className = 'answer-btn';
+      btn.type = 'button';
+
+      // Check if this index is disabled (wrong answer already selected)
+      var isDisabled = disabledIndices.indexOf(i) !== -1;
+      if (isDisabled) {
+        btn.classList.add('wrong');
+        btn.disabled = true;
+      }
+
+      // If revealed and this is the correct answer, highlight it
+      if (revealed && i === correctIndex) {
+        btn.classList.add('correct');
+      }
+
+      // Answer text
+      var textSpan = document.createElement('span');
+      textSpan.textContent = answers[i];
+      btn.appendChild(textSpan);
+
+      // Answer translation (if available and toggle is "show")
+      if (answerTranslations && answerTranslations[i]) {
+        var transSpan = document.createElement('span');
+        transSpan.className = 'answer-translation translation';
+        transSpan.textContent = answerTranslations[i];
+        if (!showTrans) {
+          transSpan.style.display = 'none';
+        }
+        btn.appendChild(transSpan);
+      }
+
+      // Click handler — reference handleAnswerClick (implemented later)
+      btn.setAttribute('data-index', i);
+      btn.onclick = (function(idx) {
+        return function() { handleAnswerClick(idx); };
+      })(i);
+
+      grid.appendChild(btn);
+    }
+  }
+
+  // ===== UI RENDERER: QUESTION TRACKER (Task 5.5) =====
+
+  function renderQuestionTracker(state, questions) {
+    var tracker = document.getElementById('question-tracker');
+    tracker.innerHTML = '';
+
+    for (var i = 0; i < questions.length; i++) {
+      var btn = document.createElement('button');
+      btn.className = 'tracker-btn';
+      btn.type = 'button';
+
+      // Question number (1-based)
+      var numSpan = document.createElement('span');
+      numSpan.textContent = (i + 1);
+      btn.appendChild(numSpan);
+
+      // If answered, show star rating and add answered class
+      if (state.revealed && state.revealed[i]) {
+        btn.classList.add('answered');
+        var starsSpan = document.createElement('span');
+        starsSpan.className = 'tracker-stars';
+        starsSpan.textContent = getStarRatingText(state.questionScores[i]);
+        btn.appendChild(starsSpan);
+      }
+
+      // Highlight current active question
+      if (i === state.currentQuestionIndex) {
+        btn.classList.add('active');
+      }
+
+      // In review mode, allow clicking to navigate to that question
+      if (state.completed) {
+        btn.onclick = (function(idx) {
+          return function() { handleTrackerClick(idx); };
+        })(i);
+      }
+
+      tracker.appendChild(btn);
+    }
+  }
+
+  // ===== UI RENDERER: TIMER, IMAGE DISPLAY, NEXT BUTTON (Task 5.7) =====
+
+  function showTimer(totalSeconds) {
+    _timerTotalSeconds = totalSeconds;
+    var el = document.getElementById('timer-display');
+    el.classList.remove('hidden');
+    el.classList.remove('urgent');
+    el.innerHTML = '<span class="timer-text">' + totalSeconds + 's</span><div class="timer-bar"><div class="timer-bar-fill" style="width:100%"></div></div>';
+  }
+
+  function updateTimerDisplay(remaining) {
+    var el = document.getElementById('timer-display');
+    var textEl = el.querySelector('.timer-text');
+    if (textEl) {
+      textEl.textContent = remaining + 's';
+    }
+    var fillEl = el.querySelector('.timer-bar-fill');
+    if (fillEl && _timerTotalSeconds > 0) {
+      var pct = Math.max(0, (remaining / _timerTotalSeconds) * 100);
+      fillEl.style.width = pct + '%';
+    }
+    if (remaining <= 5) {
+      el.classList.add('urgent');
+    } else {
+      el.classList.remove('urgent');
+    }
+  }
+
+  function showQuestionImage(url) {
+    var container = document.getElementById('question-image-container');
+    container.innerHTML = '';
+    if (url) {
+      var img = document.createElement('img');
+      img.src = url;
+      img.alt = 'Question image';
+      img.onerror = function() { container.innerHTML = ''; };
+      container.appendChild(img);
+    }
+  }
+
+  function showPostAnswerImage(url) {
+    var container = document.getElementById('post-answer-image-container');
+    container.classList.remove('hidden');
+    container.innerHTML = '';
+    var img = document.createElement('img');
+    img.src = url;
+    img.alt = 'Post-answer image';
+    img.onerror = function() { container.classList.add('hidden'); };
+    container.appendChild(img);
+  }
+
+  function showNextButton() {
+    document.getElementById('next-btn').classList.remove('hidden');
+  }
+
+  // ===== UI RENDERER: RESULTS OVERLAY (Task 5.8) =====
+
+  function renderResultsOverlay(state, questions) {
+    // 1. Set date
+    document.getElementById('results-date').textContent = state.date;
+
+    // 2. Populate question result rows
+    var container = document.getElementById('results-questions');
+    container.innerHTML = '';
+    for (var i = 0; i < questions.length; i++) {
+      var row = document.createElement('div');
+      row.className = 'result-row';
+
+      var qText = document.createElement('span');
+      qText.className = 'result-question';
+      qText.textContent = questions[i].question;
+
+      var stars = document.createElement('span');
+      stars.className = 'result-stars';
+      stars.innerHTML = getStarRatingHTML(state.questionScores[i]);
+
+      row.appendChild(qText);
+      row.appendChild(stars);
+      container.appendChild(row);
+    }
+
+    // 3. Set total score
+    document.getElementById('results-total').textContent = 'Total: ' + getTotalScore(state.questionScores) + '/' + getMaxScore(questions.length);
+
+    // 4. Wire up Share button
+    document.getElementById('share-message').onclick = function() {
+      shareText(formatShareText(state.date, state.questionScores, questions));
+    };
+
+    // 5. Wire up Close button
+    document.getElementById('results-close-btn').onclick = function() {
+      document.getElementById('results-overlay').classList.add('hidden');
+      enterReviewMode();
+    };
+
+    // 6. Show overlay
+    document.getElementById('results-overlay').classList.remove('hidden');
+  }
+
+  // ===== UI RENDERER: CALENDAR OVERLAY (Task 5.9) =====
+
+  function formatDateStr(year, month, day) {
+    var m = month < 10 ? '0' + month : '' + month;
+    var d = day < 10 ? '0' + day : '' + day;
+    return '' + year + m + d;
+  }
+
+  function renderCalendarOverlay(year, month, availableDates, history) {
+    var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    // 1. Set month label
+    document.getElementById('calendar-month-label').textContent = monthNames[month - 1] + ' ' + year;
+
+    // 2. Clear grid
+    var grid = document.getElementById('calendar-grid');
+    grid.innerHTML = '';
+
+    // 3. Calculate first day of month (Monday-based: Mon=0 .. Sun=6)
+    var firstDay = new Date(year, month - 1, 1).getDay();
+    // JS getDay: 0=Sun,1=Mon..6=Sat → convert to Mon-based
+    var startPad = (firstDay + 6) % 7;
+
+    // 4. Number of days in the month
+    var daysInMonth = new Date(year, month, 0).getDate();
+
+    // 5. Today's date string for comparison
+    var now = new Date();
+    var todayStr = formatDateStr(now.getFullYear(), now.getMonth() + 1, now.getDate());
+
+    // 6. Add empty padding cells
+    for (var p = 0; p < startPad; p++) {
+      var empty = document.createElement('div');
+      empty.className = 'cal-day empty';
+      grid.appendChild(empty);
+    }
+
+    // 7. Add day cells
+    for (var d = 1; d <= daysInMonth; d++) {
+      var dateStr = formatDateStr(year, month, d);
+      var cell = document.createElement('div');
+      cell.className = 'cal-day';
+      cell.textContent = d;
+
+      var hasData = availableDates && availableDates.indexOf(dateStr) !== -1;
+      var isPlayed = history && history[dateStr] && history[dateStr].completed;
+
+      if (hasData) cell.classList.add('has-data');
+      if (isPlayed) cell.classList.add('played');
+      if (dateStr === todayStr) cell.classList.add('today');
+
+      if (hasData) {
+        cell.onclick = (function(ds) {
+          return function() { handleCalendarDateSelect(ds); };
+        })(dateStr);
+      }
+
+      grid.appendChild(cell);
+    }
+
+    // 8. Wire up prev/next month navigation
+    document.getElementById('cal-prev').onclick = function() {
+      var newMonth = month - 1;
+      var newYear = year;
+      if (newMonth < 1) { newMonth = 12; newYear--; }
+      renderCalendarOverlay(newYear, newMonth, availableDates, history);
+    };
+
+    document.getElementById('cal-next').onclick = function() {
+      var newMonth = month + 1;
+      var newYear = year;
+      if (newMonth > 12) { newMonth = 1; newYear++; }
+      renderCalendarOverlay(newYear, newMonth, availableDates, history);
+    };
+
+    // 9. Wire up Today button
+    document.getElementById('cal-today-btn').onclick = function() {
+      var t = new Date();
+      renderCalendarOverlay(t.getFullYear(), t.getMonth() + 1, availableDates, history);
+    };
+
+    // 10. Wire up Close button
+    document.getElementById('calendar-close-btn').onclick = function() {
+      document.getElementById('calendar-overlay').classList.add('hidden');
+    };
+  }
+
+  // ===== GAME-SPECIFIC SOUNDS =====
+
+  function soundCorrect() {
+    playTone(523, 0.2, 'sine', 0.12);
+    playTone(659, 0.2, 'sine', 0.12, 0.08);
+    playTone(784, 0.25, 'sine', 0.14, 0.16);
+    playTone(1047, 0.35, 'sine', 0.1, 0.26);
+  }
+
+  function soundWrong() {
+    playTone(330, 0.25, 'sawtooth', 0.07);
+    playTone(311, 0.25, 'sawtooth', 0.07, 0.04);
+    playTone(220, 0.35, 'square', 0.05, 0.12);
+  }
+
+  // ===== GAME CONTROLLER: START GAME (Task 7.2) =====
+
+  var _elapsedInterval = null;
+
+  function startGame() {
+    // 0. Read difficulty selection and set translation pref
+    var selectedBtn = document.querySelector('#difficulty-select .difficulty-btn.selected');
+    var isEasy = !selectedBtn || selectedBtn.getAttribute('data-mode') === 'easy';
+    setTranslationPref(isEasy);
+
+    // 1. Mark game as started
+    gameState.started = true;
+
+    // 2. Hide start screen, show game area
+    document.getElementById('start-screen').classList.add('hidden');
+    document.getElementById('game-area').classList.remove('hidden');
+
+    // 3. Render question tracker
+    renderQuestionTracker(gameState, currentQuestions);
+
+    // 4. Render the current question (supports resume from saved index)
+    var qi = gameState.currentQuestionIndex;
+    renderQuestion(currentQuestions[qi], qi, gameState);
+
+    // 5. If the current question has a timer and hasn't been revealed yet, start countdown
+    var q = currentQuestions[qi];
+    if (q.timerSeconds && !gameState.revealed[qi]) {
+      showTimer(q.timerSeconds);
+      startCountdown(q.timerSeconds, updateTimerDisplay, handleTimerExpire);
+    }
+
+    // 6. Start elapsed time tracking
+    if (_elapsedInterval) clearInterval(_elapsedInterval);
+    _elapsedInterval = setInterval(function() {
+      gameState.elapsedMs = (gameState.elapsedMs || 0) + 1000;
+    }, 1000);
+
+    // 7. Save state
+    saveGameState(gameState);
+  }
+
+  // ===== GAME CONTROLLER: HANDLE ANSWER CLICK (Task 7.2) =====
+
+  function handleAnswerClick(selectedIndex) {
+    var qi = gameState.currentQuestionIndex;
+
+    // 1. If already revealed, ignore clicks
+    if (gameState.revealed[qi]) return;
+
+    // 2. Get the correct shuffled index
+    var correctShuffledIndex = gameState.correctShuffledIndex[qi];
+
+    // 3. Get answer buttons
+    var buttons = document.getElementById('answer-grid').querySelectorAll('.answer-btn');
+
+    if (selectedIndex === correctShuffledIndex) {
+      // === CORRECT ANSWER ===
+      // a. Highlight green
+      buttons[selectedIndex].classList.add('correct');
+
+      // b. Play correct sound
+      soundCorrect();
+
+      // c. Mark as revealed
+      gameState.revealed[qi] = true;
+
+      // d. Stop countdown timer if active
+      stopCountdown();
+      document.getElementById('timer-display').classList.add('hidden');
+
+      // e. Show post-answer image if configured
+      var question = currentQuestions[qi];
+      if (question.postAnswerImage) {
+        showPostAnswerImage(question.postAnswerImage);
+      }
+
+      // f/g. If last question → completeGame, otherwise → showNextButton
+      if (qi === currentQuestions.length - 1) {
+        completeGame();
+      } else {
+        showNextButton();
+      }
+
+      // h. Update question tracker
+      renderQuestionTracker(gameState, currentQuestions);
+
+    } else {
+      // === WRONG ANSWER ===
+      // a. Highlight red and disable
+      buttons[selectedIndex].classList.add('wrong');
+      buttons[selectedIndex].disabled = true;
+
+      // b. Play wrong sound
+      soundWrong();
+
+      // c. Track disabled option
+      if (!gameState.disabledOptions[qi]) gameState.disabledOptions[qi] = [];
+      gameState.disabledOptions[qi].push(selectedIndex);
+
+      // d. Deduct 1 star (minimum 0)
+      gameState.questionScores[qi] = Math.max(0, gameState.questionScores[qi] - 1);
+
+      // e. If all wrong options exhausted, auto-reveal correct answer
+      var totalAnswers = currentQuestions[qi].answers.length;
+      if (gameState.disabledOptions[qi].length >= totalAnswers - 1) {
+        // All wrong answers used — auto-reveal correct
+        buttons[correctShuffledIndex].classList.add('correct');
+        gameState.revealed[qi] = true;
+
+        // Stop timer if active
+        stopCountdown();
+        document.getElementById('timer-display').classList.add('hidden');
+
+        // Show post-answer image if configured
+        var question = currentQuestions[qi];
+        if (question.postAnswerImage) {
+          showPostAnswerImage(question.postAnswerImage);
+        }
+
+        // Last question → completeGame, otherwise → showNextButton
+        if (qi === currentQuestions.length - 1) {
+          completeGame();
+        } else {
+          showNextButton();
+        }
+
+        // Update tracker
+        renderQuestionTracker(gameState, currentQuestions);
+      }
+    }
+
+    // 6. Save state after each action
+    saveGameState(gameState);
+  }
+
+  // ===== GAME CONTROLLER: HANDLE TIMER EXPIRE (Task 7.2) =====
+
+  function handleTimerExpire() {
+    var qi = gameState.currentQuestionIndex;
+
+    // 1. Set score to 0
+    gameState.questionScores[qi] = 0;
+
+    // 2. Mark as revealed
+    gameState.revealed[qi] = true;
+
+    // 3. Highlight the correct answer
+    var correctShuffledIndex = gameState.correctShuffledIndex[qi];
+    var buttons = document.getElementById('answer-grid').querySelectorAll('.answer-btn');
+    if (buttons[correctShuffledIndex]) {
+      buttons[correctShuffledIndex].classList.add('correct');
+    }
+
+    // 4. Disable all answer buttons
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    }
+
+    // 5. Show post-answer image if configured
+    var question = currentQuestions[qi];
+    if (question.postAnswerImage) {
+      showPostAnswerImage(question.postAnswerImage);
+    }
+
+    // 6. Last question → completeGame, otherwise → showNextButton
+    if (qi === currentQuestions.length - 1) {
+      completeGame();
+    } else {
+      showNextButton();
+    }
+
+    // 7. Update tracker and save state
+    renderQuestionTracker(gameState, currentQuestions);
+    saveGameState(gameState);
+  }
+
+  // ===== GAME CONTROLLER: ADVANCE, COMPLETE, REVIEW (Task 7.4) =====
+
+  function advanceToNextQuestion() {
+    // 1. Increment question index
+    gameState.currentQuestionIndex++;
+
+    // 2. Render the new question
+    var qi = gameState.currentQuestionIndex;
+    renderQuestion(currentQuestions[qi], qi, gameState);
+
+    // 3. Update the question tracker
+    renderQuestionTracker(gameState, currentQuestions);
+
+    // 4. If the new question has timerSeconds and hasn't been revealed, start countdown
+    var q = currentQuestions[qi];
+    if (q.timerSeconds && !gameState.revealed[qi]) {
+      showTimer(q.timerSeconds);
+      startCountdown(q.timerSeconds, updateTimerDisplay, handleTimerExpire);
+    }
+
+    // 5. Save state
+    saveGameState(gameState);
+  }
+
+  function completeGame() {
+    // 1. Mark game as completed
+    gameState.completed = true;
+
+    // 2. Stop elapsed time tracking
+    if (_elapsedInterval) {
+      clearInterval(_elapsedInterval);
+      _elapsedInterval = null;
+    }
+
+    // 3. Stop any active countdown
+    stopCountdown();
+
+    // 4. Save state
+    saveGameState(gameState);
+
+    // 5. Save to history
+    saveToHistory(gameState.date, gameState.questionScores, true);
+
+    // 6. Show results overlay
+    renderResultsOverlay(gameState, currentQuestions);
+  }
+
+  function enterReviewMode() {
+    // 1. Re-render the question tracker (click handlers enabled since state.completed is true)
+    renderQuestionTracker(gameState, currentQuestions);
+
+    // 2. Render the current question in its revealed state
+    var qi = gameState.currentQuestionIndex;
+    renderQuestion(currentQuestions[qi], qi, gameState);
+
+    // 3. If the current question has a post-answer image, show it
+    var q = currentQuestions[qi];
+    if (q.postAnswerImage) {
+      showPostAnswerImage(q.postAnswerImage);
+    }
+  }
+
+  // Wire up Next button
+  document.getElementById('next-btn').onclick = function() { advanceToNextQuestion(); };
+
+  // ===== GAME CONTROLLER: TRACKER CLICK & CALENDAR SELECT (Task 7.5) =====
+
+  function handleTrackerClick(questionIndex) {
+    // Only works in review mode (game completed)
+    if (!gameState || !gameState.completed) return;
+
+    // 1. Set current question index
+    gameState.currentQuestionIndex = questionIndex;
+
+    // 2. Re-render the question tracker (to update active highlight)
+    renderQuestionTracker(gameState, currentQuestions);
+
+    // 3. Render the selected question in its revealed state
+    renderQuestion(currentQuestions[questionIndex], questionIndex, gameState);
+
+    // 4. If the question has a post-answer image, show it
+    var q = currentQuestions[questionIndex];
+    if (q.postAnswerImage) {
+      showPostAnswerImage(q.postAnswerImage);
+    }
+  }
+
+  async function handleCalendarDateSelect(dateStr) {
+    // 1. Close the calendar overlay
+    document.getElementById('calendar-overlay').classList.add('hidden');
+
+    // 2. Set currentDateStr to the selected date
+    currentDateStr = dateStr;
+
+    // 3. Load game data for the selected date (should already be cached in allGameData)
+    var data = await loadGameData(dateStr);
+
+    var msgArea = document.getElementById('message-area');
+
+    // 4. If data is null, show error message
+    if (data === null) {
+      msgArea.classList.remove('hidden');
+      if (loadError) {
+        msgArea.textContent = 'Could not load game data';
+        msgArea.classList.add('error');
+      } else {
+        msgArea.textContent = 'No game available for this date';
+      }
+      // Hide game area, show nothing useful
+      document.getElementById('game-area').classList.add('hidden');
+      document.getElementById('start-screen').classList.add('hidden');
+      document.getElementById('results-overlay').classList.add('hidden');
+      return;
+    }
+
+    // Clear any previous error messages
+    msgArea.classList.add('hidden');
+    msgArea.classList.remove('error');
+    msgArea.textContent = '';
+
+    // 5. Store current questions
+    currentQuestions = data;
+
+    // 6. Stop any active timers/intervals
+    stopCountdown();
+    if (_elapsedInterval) {
+      clearInterval(_elapsedInterval);
+      _elapsedInterval = null;
+    }
+
+    // 7. Hide results overlay if visible
+    document.getElementById('results-overlay').classList.add('hidden');
+
+    // 8. Check for saved state for that date
+    var savedState = loadGameState(dateStr);
+
+    if (savedState && savedState.completed) {
+      // Completed game — enter review mode
+      gameState = savedState;
+      document.getElementById('start-screen').classList.add('hidden');
+      document.getElementById('game-area').classList.remove('hidden');
+      renderQuestionTracker(gameState, currentQuestions);
+      renderQuestion(currentQuestions[gameState.currentQuestionIndex], gameState.currentQuestionIndex, gameState);
+      enterReviewMode();
+    } else if (savedState && savedState.started) {
+      // In-progress game — show start screen with "Resume"
+      gameState = savedState;
+      document.getElementById('game-area').classList.add('hidden');
+      renderStartScreen(true);
+    } else {
+      // Fresh game — initialize new state
+      var qLen = currentQuestions.length;
+      var scores = [];
+      var disabled = [];
+      var revealed = [];
+      for (var i = 0; i < qLen; i++) {
+        scores.push(5);
+        disabled.push([]);
+        revealed.push(false);
+      }
+      gameState = {
+        date: dateStr,
+        currentQuestionIndex: 0,
+        questionScores: scores,
+        disabledOptions: disabled,
+        completed: false,
+        started: false,
+        revealed: revealed,
+        shuffledAnswers: [],
+        correctShuffledIndex: [],
+        elapsedMs: 0
+      };
+      document.getElementById('game-area').classList.add('hidden');
+      renderStartScreen(false);
+    }
+
+    // Wire up start button for the new date
+    document.getElementById('start-btn').onclick = function() { startGame(); };
+  }
+
+  // Wire up calendar button to open the calendar overlay
+  document.getElementById('calendar-btn').onclick = function() {
+    // Get current year/month from currentDateStr or from Date
+    var year, month;
+    if (currentDateStr && currentDateStr.length === 8) {
+      year = parseInt(currentDateStr.substring(0, 4), 10);
+      month = parseInt(currentDateStr.substring(4, 6), 10);
+    } else {
+      var now = new Date();
+      year = now.getFullYear();
+      month = now.getMonth() + 1;
+    }
+
+    // Render the calendar with available dates and history
+    var history = loadHistory();
+    renderCalendarOverlay(year, month, calendarAvailableDates, history);
+
+    // Show the calendar overlay
+    document.getElementById('calendar-overlay').classList.remove('hidden');
+  };
+
+  // Wire up difficulty select buttons
+  (function() {
+    var btns = document.querySelectorAll('#difficulty-select .difficulty-btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].onclick = function() {
+        for (var j = 0; j < btns.length; j++) btns[j].classList.remove('selected');
+        this.classList.add('selected');
+      };
+    }
+  })();
+
+  // ===== GAME CONTROLLER: INIT (Task 7.1) =====
+
+  async function initGame() {
+    // 1. Load language config from shared engine
+    await loadLanguageConfig();
+
+    // 2. Get current date as YYYYMMDD
+    var now = new Date();
+    currentDateStr = formatDateStr(now.getFullYear(), now.getMonth() + 1, now.getDate());
+
+    // 3. Fetch trivia data for today
+    var data = await loadGameData(currentDateStr);
+
+    var msgArea = document.getElementById('message-area');
+
+    // 4. Handle null data
+    if (data === null) {
+      msgArea.classList.remove('hidden');
+      if (loadError) {
+        msgArea.textContent = 'Could not load game data';
+        msgArea.classList.add('error');
+      } else {
+        msgArea.textContent = 'No game available for today';
+      }
+      return;
+    }
+
+    // 5. Store current questions
+    currentQuestions = data;
+
+    // 6. Check for saved state
+    var savedState = loadGameState(currentDateStr);
+
+    if (savedState && savedState.completed) {
+      // Completed game — enter review mode directly
+      gameState = savedState;
+      document.getElementById('start-screen').classList.add('hidden');
+      document.getElementById('game-area').classList.remove('hidden');
+      renderQuestionTracker(gameState, currentQuestions);
+      renderQuestion(currentQuestions[gameState.currentQuestionIndex], gameState.currentQuestionIndex, gameState);
+      enterReviewMode();
+    } else if (savedState && savedState.started) {
+      // In-progress game — show start screen with "Resume"
+      gameState = savedState;
+      renderStartScreen(true);
+    } else {
+      // Fresh game — initialize new state
+      var qLen = currentQuestions.length;
+      var scores = [];
+      var disabled = [];
+      var revealed = [];
+      for (var i = 0; i < qLen; i++) {
+        scores.push(5);
+        disabled.push([]);
+        revealed.push(false);
+      }
+      gameState = {
+        date: currentDateStr,
+        currentQuestionIndex: 0,
+        questionScores: scores,
+        disabledOptions: disabled,
+        completed: false,
+        started: false,
+        revealed: revealed,
+        shuffledAnswers: [],
+        correctShuffledIndex: [],
+        elapsedMs: 0
+      };
+      renderStartScreen(false);
+    }
+
+    // Wire up start button
+    document.getElementById('start-btn').onclick = function() { startGame(); };
+  }
+
+  document.addEventListener('DOMContentLoaded', initGame);
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "20260301": [
+    {
+      "question": "Qual é a capital do Brasil?",
+      "answers": ["São Paulo", "Rio de Janeiro", "Brasília", "Salvador"],
+      "correctIndex": 2,
+      "questionTranslation": "What is the capital of Brazil?",
+      "answerTranslations": ["São Paulo", "Rio de Janeiro", "Brasília", "Salvador"],
+      "image": "../shared/assets/triviatsky/pt-br/brasilia.jpg"
+    },
+    {
+      "question": "Qual é o rio mais longo do Brasil?",
+      "answers": ["Paraná", "São Francisco", "Amazonas", "Tocantins"],
+      "correctIndex": 2,
+      "questionTranslation": "What is the longest river in Brazil?",
+      "answerTranslations": ["Paraná", "São Francisco", "Amazon", "Tocantins"]
+    },
+    {
+      "question": "Em que ano o Brasil conquistou sua independência?",
+      "answers": ["1808", "1822", "1889", "1500"],
+      "correctIndex": 1,
+      "questionTranslation": "In what year did Brazil gain its independence?",
+      "answerTranslations": ["1808", "1822", "1889", "1500"],
+      "timerSeconds": 15
+    },
+    {
+      "question": "Quem escreveu 'Dom Casmurro'?",
+      "answers": ["José de Alencar", "Machado de Assis", "Clarice Lispector", "Jorge Amado"],
+      "correctIndex": 1,
+      "questionTranslation": "Who wrote 'Dom Casmurro'?",
+      "answerTranslations": ["José de Alencar", "Machado de Assis", "Clarice Lispector", "Jorge Amado"]
+    }
+  ],
+
+  "20260302": [
+    {
+      "question": "Quantos estados tem o Brasil?",
+      "answers": ["24", "26", "27", "30"],
+      "correctIndex": 1,
+      "questionTranslation": "How many states does Brazil have?",
+      "answerTranslations": ["24", "26", "27", "30"]
+    },
+    {
+      "question": "Qual é o maior bioma do Brasil?",
+      "answers": ["Cerrado", "Mata Atlântica", "Amazônia", "Caatinga"],
+      "correctIndex": 2,
+      "questionTranslation": "What is the largest biome in Brazil?",
+      "answerTranslations": ["Cerrado", "Atlantic Forest", "Amazon", "Caatinga"],
+      "image": "../shared/assets/triviatsky/pt-br/amazonia.jpg"
+    },
+    {
+      "question": "Qual esporte é mais popular no Brasil?",
+      "answers": ["Vôlei", "Basquete", "Futebol", "Tênis"],
+      "correctIndex": 2,
+      "questionTranslation": "What sport is most popular in Brazil?",
+      "answerTranslations": ["Volleyball", "Basketball", "Football", "Tennis"],
+      "timerSeconds": 10
+    }
+  ],
+  "20260303": [
+    {
+      "question": "Qual é a moeda oficial do Brasil?",
+      "answers": ["Peso", "Real", "Dólar", "Cruzeiro"],
+      "correctIndex": 1,
+      "questionTranslation": "What is the official currency of Brazil?",
+      "answerTranslations": ["Peso", "Real", "Dollar", "Cruzeiro"]
+    },
+    {
+      "question": "Qual cidade sediou os Jogos Olímpicos de 2016?",
+      "answers": ["São Paulo", "Brasília", "Rio de Janeiro", "Belo Horizonte"],
+      "correctIndex": 2,
+      "questionTranslation": "Which city hosted the 2016 Olympic Games?",
+      "answerTranslations": ["São Paulo", "Brasília", "Rio de Janeiro", "Belo Horizonte"],
+      "image": "../shared/assets/triviatsky/pt-br/rio-olympics.jpg"
+    },
+    {
+      "question": "Quem pintou 'Abaporu'?",
+      "answers": ["Portinari", "Di Cavalcanti", "Tarsila do Amaral", "Anita Malfatti"],
+      "correctIndex": 2,
+      "questionTranslation": "Who painted 'Abaporu'?",
+      "answerTranslations": ["Portinari", "Di Cavalcanti", "Tarsila do Amaral", "Anita Malfatti"]
+    }
+  ]
+}

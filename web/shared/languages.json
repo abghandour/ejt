@@ -1,7 +1,7 @@
 {
   "ru": {
     "displayName": "Russian",
-    "games": ["rootsky", "scramblisky", "bogglesky", "snakesky", "fruitsky"],
+    "games": ["rootsky", "scramblisky", "bogglesky", "snakesky", "fruitsky", "triviatsky"],
     "themes": ["soviet", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/ru",
     "letterPool": "оооооооеееееееаааааааиииииинннннттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщэфъьёй",
@@ -11,12 +11,13 @@
       "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Russian words before time runs out" },
       "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Russian words in a letter grid" },
       "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Russian words" },
-      "fruitsky":    { "name": "Fruitsky",    "desc": "Slash the synonyms, dodge the distractors" }
+      "fruitsky":    { "name": "Fruitsky",    "desc": "Slash the synonyms, dodge the distractors" },
+      "triviatsky":  { "name": "Triviatsky",  "desc": "Answer daily Russian trivia questions" }
     }
   },
   "pt-br": {
     "displayName": "Portuguese",
-    "games": ["scramblisky", "bogglesky", "snakesky", "fruitsky"],
+    "games": ["scramblisky", "bogglesky", "snakesky", "fruitsky", "triviatsky"],
     "themes": ["brazil", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/pt-br",
     "letterPool": "aaaaaaaaaaeeeeeeeeeoooooooossssssrrrrrrnnnnnnttttttllllddddmmmmccccppppuuuiiibbbggffvvhhjjqqxxzzçãõéêíóôúâà",
@@ -25,12 +26,13 @@
       "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Portuguese words before time runs out" },
       "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Portuguese words in a letter grid" },
       "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Portuguese words" },
-      "fruitsky":    { "name": "Fruitsky",    "desc": "Slash the synonyms, dodge the distractors" }
+      "fruitsky":    { "name": "Fruitsky",    "desc": "Slash the synonyms, dodge the distractors" },
+      "triviatsky":  { "name": "Triviatsky",  "desc": "Answer daily Portuguese trivia questions" }
     }
   },
   "uk": {
     "displayName": "Ukranian",
-    "games": ["scramblisky", "bogglesky", "snakesky", "fruitsky"],
+    "games": ["scramblisky", "bogglesky", "snakesky", "fruitsky", "triviatsky"],
     "themes": ["ukraine", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/uk",
     "letterPool": "оооооооеееееееаааааааиииииінннннніііііттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщьїєфґй",
@@ -39,7 +41,8 @@
       "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Ukrainian words before time runs out" },
       "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Ukrainian words in a letter grid" },
       "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Ukrainian words" },
-      "fruitsky":    { "name": "Fruitsky",    "desc": "Slash the synonyms, dodge the distractors" }
+      "fruitsky":    { "name": "Fruitsky",    "desc": "Slash the synonyms, dodge the distractors" },
+      "triviatsky":  { "name": "Triviatsky",  "desc": "Answer daily Ukrainian trivia questions" }
     }
   }
 }
