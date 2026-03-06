@@ -190,11 +190,33 @@ body{
 #back-bar{
   position:fixed;top:0;left:0;right:0;z-index:101;
   display:none;background:var(--bg-primary);
+  border-bottom:1px solid var(--border-subtle);
 }
 #back-bar-inner{
   position:relative;width:100%;max-width:600px;margin:0 auto;
+  display:flex;align-items:center;
+  padding:10px 50px 10px 12px;
+  gap:10px;
+  min-height:60px;
 }
-#back-bar img{width:100%;display:block;cursor:pointer}
+#back-bar-logo{
+  height:40px;width:auto;flex-shrink:0;cursor:pointer;
+  border-radius:6px;
+}
+#back-bar-title{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:13px;font-weight:700;
+  color:var(--text-primary);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  cursor:pointer;line-height:1.3;
+}
+#back-bar-title .bar-game-name{
+  color:var(--accent);
+}
+#back-bar-title .bar-game-icon{
+  width:14px;height:14px;fill:var(--accent);
+  vertical-align:middle;margin-right:4px;
+}
 /* Hamburger in back-bar */
 #hamburger-btn-game{
   position:absolute;right:5px;top:50%;transform:translateY(-50%);
@@ -319,13 +341,27 @@ body{
   </symbol>
   <!-- Tetrisky: tetris block -->
   <symbol id="ico-tetris" viewBox="0 0 24 24"><path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm0 6h4v4h-4v-4zm6-6h4v4h-4V4zm-6 12h4v4h-4v-4z"/></symbol>
-  <!-- Fruitsky: crossed swords -->
-  <symbol id="ico-sword" viewBox="0 0 24 24">
-    <path d="M6.92 5H5L3.5 6.5 5 8l1.5-1.5L14 14l-1 1-3.5-3.5L8 13l3.5 3.5L13 15l5.5 5.5L20 22l1.5-1.5L20 19l1.5-1.5L20 16l-6-6 7.5-7.5V1h-1.5L12.5 8.5 6.92 5z"/>
+  <!-- Fruitsky: pineapple -->
+  <symbol id="ico-pineapple" viewBox="0 0 24 24">
+    <!-- Crown leaves -->
+    <path d="M12 1 C12 1 9 3 10 5 L12 4 L14 5 C15 3 12 1 12 1z" fill="currentColor"/>
+    <path d="M9 2.5 C8 3 7.5 4.5 8.5 5.5 L10 5" fill="currentColor"/>
+    <path d="M15 2.5 C16 3 16.5 4.5 15.5 5.5 L14 5" fill="currentColor"/>
+    <!-- Body -->
+    <ellipse cx="12" cy="14" rx="5.5" ry="8" fill="currentColor"/>
+    <!-- Cross-hatch pattern (diamond cuts) -->
+    <line x1="8" y1="10" x2="16" y2="18" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.6"/>
+    <line x1="8" y1="14" x2="16" y2="14" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.6"/>
+    <line x1="8" y1="18" x2="16" y2="10" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.6"/>
+    <line x1="12" y1="6.5" x2="12" y2="21.5" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.6"/>
+    <line x1="9" y1="7.5" x2="9" y2="20" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.5"/>
+    <line x1="15" y1="7.5" x2="15" y2="20" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.5"/>
   </symbol>
-  <!-- Triviatsky: brain / quiz icon -->
-  <symbol id="ico-brain" viewBox="0 0 24 24">
-    <path d="M12 2a4 4 0 0 0-3.2 1.6A3.5 3.5 0 0 0 4 7a3.5 3.5 0 0 0 .5 1.8A4 4 0 0 0 3 12a4 4 0 0 0 1.5 3.1A3.5 3.5 0 0 0 5 17a3.5 3.5 0 0 0 3.5 3.5c.3 0 .6 0 .9-.1A4 4 0 0 0 12 22a4 4 0 0 0 2.6-1.6c.3.1.6.1.9.1A3.5 3.5 0 0 0 19 17c0-.3 0-.6-.1-.9A4 4 0 0 0 21 12a4 4 0 0 0-1.5-3.2A3.5 3.5 0 0 0 20 7a3.5 3.5 0 0 0-4.8-3.4A4 4 0 0 0 12 2zm0 2c.9 0 1.7.4 2.2 1.1l.3.4.5-.2c.3-.1.7-.2 1-.2a1.5 1.5 0 0 1 1.5 1.5c0 .3-.1.6-.2.8l-.3.5.5.3c.9.5 1.5 1.5 1.5 2.6 0 .7-.2 1.3-.6 1.8l-.4.5.5.3c.6.5 1 1.2 1 2.1a2 2 0 0 1-2 2h-.3l-.5.1.1.5c0 .2.1.4.1.6a1.5 1.5 0 0 1-1.5 1.5c-.2 0-.4 0-.6-.1l-.5-.2-.3.5A2 2 0 0 1 12 20a2 2 0 0 1-1.7-1l-.3-.5-.5.2c-.2.1-.4.1-.6.1A1.5 1.5 0 0 1 7.4 17.3c0-.2.1-.4.1-.6l.1-.5-.5-.1H6.8a2 2 0 0 1-2-2c0-.9.4-1.6 1-2.1l.5-.3-.4-.5c-.4-.5-.6-1.1-.6-1.8 0-1.1.6-2.1 1.5-2.6l.5-.3-.3-.5c-.1-.2-.2-.5-.2-.8A1.5 1.5 0 0 1 8.3 4.1c.3 0 .7.1 1 .2l.5.2.3-.4A2.5 2.5 0 0 1 12 4zm-1 4v2H9v2h2v2h2v-2h2v-2h-2V8h-2z"/>
+  <!-- Triviatsky: question mark in circle (trivia/quiz) -->
+  <symbol id="ico-trivia" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M9.5 9.5C9.5 7.8 10.6 6.5 12 6.5s2.5 1.3 2.5 3c0 1.2-.8 2-1.5 2.5-.5.3-1 .8-1 1.5v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="12" cy="17" r="1.2" fill="currentColor"/>
   </symbol>
 </svg>
 
@@ -371,7 +407,8 @@ body{
 <!-- Back bar overlaid on iframe -->
 <div id="back-bar">
   <div id="back-bar-inner">
-    <img src="../shared/assets/banner.png" alt="Pause game" id="back-banner">
+    <img src="../shared/assets/jt.png" alt="Home" id="back-bar-logo">
+    <div id="back-bar-title">How Janey Learned Russian<br><svg class="bar-game-icon" id="bar-game-icon" style="display:none"><use id="bar-game-icon-use" href=""/></svg><span class="bar-game-name" id="bar-game-name"></span></div>
     <button id="hamburger-btn-game" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -403,8 +440,8 @@ var GAMES = [
   {id:'rootsky',   name:'Rootsky',      file:'./rootsky.html',     icon:'#ico-root',     desc:'Match Russian words to their roots', isNew:false},
   {id:'scramblisky',name:'Scramblisky', file:'./scramblisky.html', icon:'#ico-scramble',  desc:'Unscramble Russian words before time runs out', isNew:false},
   {id:'bogglesky',  name:'Bogglesky',   file:'./bogglesky.html',   icon:'#ico-boggle',   desc:'Swipe to find Russian words in a letter grid', isNew:true},
-  {id:'fruitsky',  name:'Fruitsky',     file:'./fruitsky.html',    icon:'#ico-sword',     desc:'Slash the synonyms, dodge the distractors', isNew:true},
-  {id:'triviatsky',name:'Triviatsky',   file:'./triviatsky.html',  icon:'#ico-brain',     desc:'Answer daily trivia questions and earn stars', isNew:true},
+  {id:'fruitsky',  name:'Fruitsky',     file:'./fruitsky.html',    icon:'#ico-pineapple', desc:'Slash the synonyms, dodge the distractors', isNew:true},
+  {id:'triviatsky',name:'Triviatsky',   file:'./triviatsky.html',  icon:'#ico-trivia',    desc:'Answer daily trivia questions and earn stars', isNew:true},
   {id:'snakesky',  name:'Snakesky',     file:'./snakesky.html',    icon:'#ico-snake',     desc:'Guide the snake to eat the right Russian words', isNew:false},
   //{id:'tetrisky',  name:'Tetrisky',     file:'./tetrisky.html',    icon:'#ico-tetris',    desc:'Drop letters to form Russian words', isNew:true},
   //{id:'wordsky',   name:'Wordsky',      file:'./wordsky.html',     icon:'#ico-grid',      desc:'Guess the daily Russian word in 6 tries', isNew:false}
@@ -574,13 +611,23 @@ function closeGame() {
   updateCarousel();
 }
 
-document.getElementById('back-banner').addEventListener('click', function(e) {
+document.getElementById('back-bar-logo').addEventListener('click', function(e) {
   e.preventDefault();
   if (isSettingsOpen()) {
     closeGame();
     return;
   }
-  // Send pause message to game iframe
+  var frame = document.getElementById('game-frame');
+  if (frame.contentWindow) {
+    frame.contentWindow.postMessage({type:'pause'}, '*');
+  }
+});
+document.getElementById('back-bar-title').addEventListener('click', function(e) {
+  e.preventDefault();
+  if (isSettingsOpen()) {
+    closeGame();
+    return;
+  }
   var frame = document.getElementById('game-frame');
   if (frame.contentWindow) {
     frame.contentWindow.postMessage({type:'pause'}, '*');
@@ -714,6 +761,26 @@ var _currentFrameUrl = '';
 function openInFrame(url) {
   var frame = document.getElementById('game-frame');
   var backBar = document.getElementById('back-bar');
+  // Set game name in back bar
+  var gameName = '';
+  var gameIcon = '';
+  for (var i = 0; i < filteredGames.length; i++) {
+    if (url.indexOf(filteredGames[i].file) !== -1) {
+      gameName = filteredGames[i].name;
+      gameIcon = filteredGames[i].icon;
+      break;
+    }
+  }
+  if (url.indexOf('settings.html') !== -1) gameName = 'Settings';
+  document.getElementById('bar-game-name').textContent = gameName;
+  var iconEl = document.getElementById('bar-game-icon');
+  var iconUse = document.getElementById('bar-game-icon-use');
+  if (gameIcon) {
+    iconUse.setAttribute('href', gameIcon);
+    iconEl.style.display = 'inline';
+  } else {
+    iconEl.style.display = 'none';
+  }
   backBar.style.display = 'block';
   var barH = backBar.offsetHeight;
   frame.style.top = barH + 'px';

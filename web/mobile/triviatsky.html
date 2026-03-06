@@ -24,6 +24,7 @@
   display:flex;
   flex-direction:column;
   align-items:center;
+  justify-content:space-evenly;
   flex:1 1 0;
   min-height:0;
   overflow-y:auto;
@@ -43,6 +44,14 @@
   cursor:pointer;
   transition:all 0.2s;
   line-height:1;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+#calendar-date-label{
+  font-size:13px;
+  font-weight:700;
+  font-family:'Roboto Condensed',sans-serif;
 }
 #top-bar button:hover{
   border-color:var(--accent);
@@ -86,15 +95,46 @@
   color:var(--text-secondary);
 }
 
+/* ===== CATEGORY LABEL ===== */
+#category-label{
+  font-size:12px;
+  font-weight:700;
+  color:var(--text-secondary);
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  text-align:center;
+  padding:6px 16px 0;
+  font-family:'Roboto Condensed',sans-serif;
+}
+#category-label:empty{display:none}
+
+/* ===== HINT DISPLAY ===== */
+#hint-display{
+  font-size:13px;
+  color:var(--info);
+  text-align:center;
+  font-style:italic;
+  padding:4px 16px;
+  max-width:600px;
+}
+#hint-display:empty{display:none}
+
 /* ===== QUESTION TRACKER ROW ===== */
 #question-tracker{
   width:100%;
   max-width:600px;
   display:flex;
-  justify-content:center;
-  gap:8px;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
   padding:10px 16px 0;
   flex-shrink:0;
+}
+.tracker-row{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  width:100%;
 }
 .tracker-btn{
   flex:1;
@@ -569,6 +609,46 @@
   transition:opacity 0.3s;
 }
 
+/* ===== NO GAME POPUP ===== */
+#no-game-overlay{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:var(--bg-overlay);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  backdrop-filter:blur(8px);
+  padding:20px;
+}
+#no-game-overlay.hidden{display:none}
+#no-game-popup{
+  width:100%;
+  max-width:360px;
+  background:var(--bg-surface);
+  border:1px solid var(--border-subtle);
+  border-radius:12px;
+  padding:28px 24px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  text-align:center;
+}
+#no-game-popup h2{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:20px;
+  font-weight:700;
+  color:var(--accent);
+}
+#no-game-popup p{
+  font-size:14px;
+  color:var(--text-secondary);
+  line-height:1.5;
+  max-width:280px;
+}
+
 /* ===== UTILITY ===== */
 .hidden{display:none!important}
 
@@ -578,7 +658,8 @@
   #question-text{font-size:clamp(16px,4.5vw,22px)}
   .answer-btn{padding:10px 8px;font-size:13px;min-height:40px}
   #answer-grid{gap:8px;padding:0 10px}
-  #question-tracker{gap:5px;padding:8px 10px 0}
+  #question-tracker{gap:4px;padding:8px 10px 0}
+  .tracker-row{gap:5px}
   .tracker-btn{min-height:30px;padding:3px 1px}
   #question-display-area{padding:10px 10px 6px}
   #results-popup{padding:16px 14px}
@@ -610,18 +691,24 @@
   <symbol id="ico-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
   <symbol id="ico-share" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></symbol>
   <symbol id="ico-translate" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></symbol>
+  <symbol id="ico-trivia" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9.5C9.5 7.8 10.6 6.5 12 6.5s2.5 1.3 2.5 3c0 1.2-.8 2-1.5 2.5-.5.3-1 .8-1 1.5v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="currentColor"/></symbol>
 </svg>
 
 <!-- Top Bar -->
 <div id="top-bar">
-  <button id="calendar-btn" aria-label="Open calendar"><svg class="icon icon-md"><use href="#ico-calendar"/></svg></button>
-  <div id="game-title">TRIVIATSKY</div>
+  <button id="calendar-btn" aria-label="Open calendar"><svg class="icon icon-md"><use href="#ico-calendar"/></svg><span id="calendar-date-label"></span></button>
 </div>
 
 <!-- Main Game Area -->
 <div id="game-area">
+  <!-- Category Label -->
+  <div id="category-label"></div>
+
   <!-- Question Tracker Row -->
   <div id="question-tracker"></div>
+
+  <!-- Hint Display -->
+  <div id="hint-display"></div>
 
   <!-- Question Display Area -->
   <div id="question-display-area">
@@ -644,10 +731,20 @@
   <div id="message-area" class="hidden"></div>
 </div>
 
+<!-- No Game Available Popup -->
+<div id="no-game-overlay" class="hidden">
+  <div id="no-game-popup">
+    <svg style="width:48px;height:48px;fill:var(--accent)"><use href="#ico-trivia"/></svg>
+    <h2>No Game Today</h2>
+    <p id="no-game-message">There's no trivia available for this date. Tap the calendar button to pick another day.</p>
+    <button id="no-game-calendar-btn" class="results-btn share-btn"><svg class="icon icon-md" style="margin-right:6px"><use href="#ico-calendar"/></svg>Open Calendar</button>
+  </div>
+</div>
+
 <!-- Start Screen Container -->
 <div id="start-screen" class="hidden">
   <div id="start-inner">
-    <div id="start-title">🧠 TRIVIATSKY</div>
+    <div id="start-title"><svg style="width:28px;height:28px;fill:#c8a830;vertical-align:middle;margin-right:6px"><use href="#ico-trivia"/></svg>TRIVIATSKY</div>
     <div id="start-hint">Daily trivia challenge. Answer questions, earn stars!</div>
     <div id="difficulty-select">
       <button class="difficulty-btn selected" data-mode="easy">Easy<span class="difficulty-desc">With English translation</span></button>
@@ -710,6 +807,27 @@
     if (typeof q.correctIndex !== 'number' || !Number.isInteger(q.correctIndex)) return false;
     if (q.correctIndex < 0 || q.correctIndex >= q.answers.length) return false;
     return true;
+  }
+
+  function formatFriendlyDate(dateStr) {
+    if (!dateStr || dateStr.length !== 8) return '';
+    var y = parseInt(dateStr.substring(0, 4), 10);
+    var m = parseInt(dateStr.substring(4, 6), 10) - 1;
+    var d = parseInt(dateStr.substring(6, 8), 10);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[m] + ' ' + d + ', ' + y;
+  }
+
+  function updateCalendarDateLabel() {
+    var el = document.getElementById('calendar-date-label');
+    if (el) el.textContent = formatFriendlyDate(currentDateStr);
+  }
+
+  function updateCategoryLabel() {
+    var el = document.getElementById('category-label');
+    if (!el || !currentQuestions || currentQuestions.length === 0) { if (el) el.textContent = ''; return; }
+    var cat = currentQuestions[0].category;
+    el.textContent = (cat && cat !== 'Grammar') ? cat : '';
   }
 
   async function loadGameData(dateStr) {
@@ -888,7 +1006,7 @@
 
   function formatShareText(dateStr, questionScores, questions) {
     var lines = [];
-    lines.push('🧠 Triviatsky ' + dateStr);
+    lines.push('Triviatsky ' + dateStr);
     for (var i = 0; i < questionScores.length; i++) {
       lines.push('Q' + (i + 1) + ': ' + getStarRatingText(questionScores[i]));
     }
@@ -1009,6 +1127,14 @@
     // 4. Apply translation visibility based on toggle
     applyTranslationVisibility();
 
+    // 4b. Show hint if available
+    var hintEl = document.getElementById('hint-display');
+    if (question.hint) {
+      hintEl.textContent = question.hint;
+    } else {
+      hintEl.textContent = '';
+    }
+
     // 5. Shuffle answers (or restore from state)
     if (!state.shuffledAnswers) {
       state.shuffledAnswers = [];
@@ -1019,7 +1145,8 @@
       // Restore saved shuffle order
     } else {
       // Shuffle for the first time and save to state
-      var result = shuffleAnswers(question.answers, question.correctIndex);
+      var ci = (question.correctIndex !== null && question.correctIndex !== undefined) ? question.correctIndex : 0;
+      var result = shuffleAnswers(question.answers, ci);
       state.shuffledAnswers[questionIndex] = result.shuffledAnswers;
       state.correctShuffledIndex[questionIndex] = result.correctShuffledIndex;
     }
@@ -1108,7 +1235,24 @@
     var tracker = document.getElementById('question-tracker');
     tracker.innerHTML = '';
 
-    for (var i = 0; i < questions.length; i++) {
+    var n = questions.length;
+    // For >5 questions, split into rows as evenly as possible (max 5 per row)
+    var perRow = n;
+    if (n > 5) {
+      var rows = Math.ceil(n / 5);
+      perRow = Math.ceil(n / rows);
+    }
+
+    var row = document.createElement('div');
+    row.className = 'tracker-row';
+
+    for (var i = 0; i < n; i++) {
+      if (i > 0 && i % perRow === 0) {
+        tracker.appendChild(row);
+        row = document.createElement('div');
+        row.className = 'tracker-row';
+      }
+
       var btn = document.createElement('button');
       btn.className = 'tracker-btn';
       btn.type = 'button';
@@ -1139,8 +1283,9 @@
         })(i);
       }
 
-      tracker.appendChild(btn);
+      row.appendChild(btn);
     }
+    tracker.appendChild(row);
   }
 
   // ===== UI RENDERER: TIMER, IMAGE DISPLAY, NEXT BUTTON (Task 5.7) =====
@@ -1361,10 +1506,13 @@
     document.getElementById('start-screen').classList.add('hidden');
     document.getElementById('game-area').classList.remove('hidden');
 
-    // 3. Render question tracker
+    // 3. Set category label
+    updateCategoryLabel();
+
+    // 4. Render question tracker
     renderQuestionTracker(gameState, currentQuestions);
 
-    // 4. Render the current question (supports resume from saved index)
+    // 5. Render the current question (supports resume from saved index)
     var qi = gameState.currentQuestionIndex;
     renderQuestion(currentQuestions[qi], qi, gameState);
 
@@ -1568,6 +1716,9 @@
   }
 
   function enterReviewMode() {
+    // 0. Update category label
+    updateCategoryLabel();
+
     // 1. Re-render the question tracker (click handlers enabled since state.completed is true)
     renderQuestionTracker(gameState, currentQuestions);
 
@@ -1613,6 +1764,7 @@
 
     // 2. Set currentDateStr to the selected date
     currentDateStr = dateStr;
+    updateCalendarDateLabel();
 
     // 3. Load game data for the selected date (should already be cached in allGameData)
     var data = await loadGameData(dateStr);
@@ -1621,12 +1773,12 @@
 
     // 4. If data is null, show error message
     if (data === null) {
-      msgArea.classList.remove('hidden');
       if (loadError) {
+        msgArea.classList.remove('hidden');
         msgArea.textContent = 'Could not load game data';
         msgArea.classList.add('error');
       } else {
-        msgArea.textContent = 'No game available for this date';
+        showNoGamePopup('There\'s no trivia available for this date. Tap the calendar button to pick another day.');
       }
       // Hide game area, show nothing useful
       document.getElementById('game-area').classList.add('hidden');
@@ -1639,6 +1791,7 @@
     msgArea.classList.add('hidden');
     msgArea.classList.remove('error');
     msgArea.textContent = '';
+    document.getElementById('no-game-overlay').classList.add('hidden');
 
     // 5. Store current questions
     currentQuestions = data;
@@ -1732,6 +1885,18 @@
     }
   })();
 
+  // ===== NO GAME POPUP =====
+
+  function showNoGamePopup(message) {
+    document.getElementById('no-game-message').textContent = message;
+    document.getElementById('no-game-overlay').classList.remove('hidden');
+  }
+
+  document.getElementById('no-game-calendar-btn').onclick = function() {
+    document.getElementById('no-game-overlay').classList.add('hidden');
+    document.getElementById('calendar-btn').click();
+  };
+
   // ===== GAME CONTROLLER: INIT (Task 7.1) =====
 
   async function initGame() {
@@ -1741,6 +1906,7 @@
     // 2. Get current date as YYYYMMDD
     var now = new Date();
     currentDateStr = formatDateStr(now.getFullYear(), now.getMonth() + 1, now.getDate());
+    updateCalendarDateLabel();
 
     // 3. Fetch trivia data for today
     var data = await loadGameData(currentDateStr);
@@ -1749,12 +1915,12 @@
 
     // 4. Handle null data
     if (data === null) {
-      msgArea.classList.remove('hidden');
       if (loadError) {
+        msgArea.classList.remove('hidden');
         msgArea.textContent = 'Could not load game data';
         msgArea.classList.add('error');
       } else {
-        msgArea.textContent = 'No game available for today';
+        showNoGamePopup('There\'s no trivia available for today. Tap the calendar button to pick another day.');
       }
       return;
     }

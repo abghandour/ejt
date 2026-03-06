@@ -368,12 +368,12 @@ function selectNextWord(state, dictionary, difficulty) {
 
   // ~10% chance for a power-up
   if (roll < 0.10) {
-    return { text: '⏰', translation: '+5s', type: 'powerup' };
+    return { text: '+5s', translation: '+5s', type: 'powerup' };
   }
 
   // ~8% chance for a bomb (0.10 to 0.18)
   if (roll < 0.18) {
-    return { text: '💣', translation: '-5s', type: 'bomb' };
+    return { text: '-5s', translation: '-5s', type: 'bomb' };
   }
 
   // Get unslashed synonyms

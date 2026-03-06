@@ -1,103 +1,2607 @@
 {
-  "20260301": [
+  "20260211": [
     {
-      "question": "Какой город является столицей России?",
-      "answers": ["Москва", "Санкт-Петербург", "Новосибирск", "Казань"],
-      "correctIndex": 0,
-      "questionTranslation": "What city is the capital of Russia?",
-      "answerTranslations": ["Moscow", "Saint Petersburg", "Novosibirsk", "Kazan"]
+      "question": "Я давно не видел ___ брата.",
+      "answers": [
+        "моего",
+        "мой",
+        "моему",
+        "моим",
+        "моём"
+      ],
+      "correctIndex": null,
+      "category": "Grammar"
     },
     {
-      "question": "В каком году человек впервые полетел в космос?",
-      "answers": ["1957", "1961", "1965", "1969"],
-      "correctIndex": 1,
-      "questionTranslation": "In what year did a human first fly into space?",
-      "answerTranslations": ["1957", "1961", "1965", "1969"],
-      "timerSeconds": 15
+      "question": "Она интересуется ___ искусством XIX века.",
+      "answers": [
+        "русское",
+        "русским",
+        "русского",
+        "русскому",
+        "русскими"
+      ],
+      "correctIndex": null,
+      "category": "Grammar"
     },
     {
-      "question": "Какая самая длинная река в России?",
-      "answers": ["Волга", "Обь", "Енисей", "Лена", "Амур"],
-      "correctIndex": 3,
-      "questionTranslation": "What is the longest river in Russia?",
-      "answerTranslations": ["Volga", "Ob", "Yenisei", "Lena", "Amur"],
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Lena_River_Delta_-_Landsat_2000.jpg/260px-Lena_River_Delta_-_Landsat_2000.jpg"
+      "question": "Если ты ___ раньше, мы бы не опоздали.",
+      "answers": [
+        "приходил",
+        "пришёл",
+        "приходишь",
+        "придёшь",
+        "приходил бы"
+      ],
+      "correctIndex": null,
+      "category": "Grammar"
     },
     {
-      "question": "Кто написал «Войну и мир»?",
-      "answers": ["Достоевский", "Толстой", "Чехов", "Пушкин"],
-      "correctIndex": 1,
-      "questionTranslation": "Who wrote 'War and Peace'?",
-      "answerTranslations": ["Dostoevsky", "Tolstoy", "Chekhov", "Pushkin"],
-      "postAnswerImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/L.N.Tolstoy_Prokudin-Gorsky.jpg/220px-L.N.Tolstoy_Prokudin-Gorsky.jpg"
+      "question": "Мы подошли к дому и увидели свет в ___ окнах.",
+      "answers": [
+        "все",
+        "всех",
+        "всеми",
+        "всему",
+        "всё"
+      ],
+      "correctIndex": null,
+      "category": "Grammar"
+    },
+    {
+      "question": "Он сказал, что уже ___ письмо.",
+      "answers": [
+        "писал",
+        "напишет",
+        "написал",
+        "пишет",
+        "дописал"
+      ],
+      "correctIndex": null,
+      "category": "Grammar"
+    },
+    {
+      "question": "Я купил книгу для ___ сестры.",
+      "answers": [
+        "моя",
+        "моей",
+        "мою",
+        "моейю",
+        "моём"
+      ],
+      "correctIndex": null,
+      "category": "Grammar",
+      "hint": "Two answers look almost the same — but only one exists in Russian."
+    },
+    {
+      "question": "Несмотря на ___ погоду, мы пошли гулять.",
+      "answers": [
+        "холодная",
+        "холодной",
+        "холодную",
+        "холодною",
+        "холодным"
+      ],
+      "correctIndex": null,
+      "category": "Grammar"
+    },
+    {
+      "question": "Она работает в школе уже ___ лет.",
+      "answers": [
+        "пять",
+        "пяти",
+        "пятью",
+        "пятый",
+        "пятом"
+      ],
+      "correctIndex": null,
+      "category": "Grammar"
+    },
+    {
+      "question": "Я не понимаю, о чём ты ___ .",
+      "answers": [
+        "говоришь",
+        "скажешь",
+        "сказал",
+        "говоришься",
+        "поговоришь"
+      ],
+      "correctIndex": null,
+      "category": "Grammar"
+    },
+    {
+      "question": "Когда я пришёл домой, дети уже ___ .",
+      "answers": [
+        "спали",
+        "уснули",
+        "засыпали",
+        "спят",
+        "поспали"
+      ],
+      "correctIndex": null,
+      "category": "Grammar"
     }
   ],
-
+  "20260212": [
+    {
+      "question": "Если бы он больше занимался, он бы ___ экзамен.",
+      "answers": [
+        "сдаёт",
+        "сдавал",
+        "сдал",
+        "сдаст",
+        "сдающий"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Она сказала, что уже ___ это письмо.",
+      "answers": [
+        "пишет",
+        "написала",
+        "писала",
+        "напишет",
+        "написав"
+      ],
+      "correctIndex": 1,
+      "category": "Grammar"
+    },
+    {
+      "question": "Я не знаю, где он сейчас ___ .",
+      "answers": [
+        "находился",
+        "находется",
+        "находится",
+        "находил",
+        "находиться"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Она привыкла ___ поздно ложиться спать.",
+      "answers": [
+        "чтобы",
+        "к",
+        "к тому, чтобы",
+        "тому",
+        "для"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Студенты обсуждали проблему, ___ в статье.",
+      "answers": [
+        "описывает",
+        "описывая",
+        "описанную",
+        "описан",
+        "описать"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Несмотря на трудности, проект был успешно ___ .",
+      "answers": [
+        "завершить",
+        "завершил",
+        "завершён",
+        "завершив",
+        "завершать"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Главную роль в фильме «Брат» сыграл ___ .",
+      "answers": [
+        "Сергей Бодров-старший",
+        "Данила Козловский",
+        "Владимир Машков",
+        "Сергей Бодров-младший",
+        "Константин Хабенский"
+      ],
+      "correctIndex": 3,
+      "category": "Grammar"
+    },
+    {
+      "question": "Фильм «Ирония судьбы» традиционно показывают по телевидению ___ .",
+      "answers": [
+        "8 марта",
+        "9 мая",
+        "1 сентября",
+        "31 декабря",
+        "7 ноября"
+      ],
+      "correctIndex": 3,
+      "category": "Grammar"
+    },
+    {
+      "question": "Несмотря на ___ обстоятельства, он продолжал работать.",
+      "answers": [
+        "сложные",
+        "сложные",
+        "сложных",
+        "сложными",
+        "сложным"
+      ],
+      "correctIndex": 1,
+      "category": "Grammar"
+    },
+    {
+      "question": "Она не могла привыкнуть к ___ климату.",
+      "answers": [
+        "суровый",
+        "суровому",
+        "сурового",
+        "суровым",
+        "суровом"
+      ],
+      "correctIndex": 1,
+      "category": "Grammar"
+    }
+  ],
+  "20260213": [
+    {
+      "question": "Мы долго обсуждали результаты ___ исследования.",
+      "answers": [
+        "проведённое",
+        "проведённому",
+        "проведённого",
+        "проведённым",
+        "проведённом"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Он подошёл к группе ___ студентов.",
+      "answers": [
+        "иностранные",
+        "иностранным",
+        "иностранных",
+        "иностранными",
+        "иностранном"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "В ходе ___ переговоров стороны достигли соглашения.",
+      "answers": [
+        "длительные",
+        "длительных",
+        "длительным",
+        "длительными",
+        "длительном"
+      ],
+      "correctIndex": 1,
+      "category": "Grammar"
+    },
+    {
+      "question": "Мы познакомились с автором ___ статьи.",
+      "answers": [
+        "интересная",
+        "интересной",
+        "интересной",
+        "интересную",
+        "интересною"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Он был одним из самых известных ___ своего времени.",
+      "answers": [
+        "писатель",
+        "писателями",
+        "писателей",
+        "писателям",
+        "писателем"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Она работает в компании, занимающейся разработкой ___ технологий.",
+      "answers": [
+        "современными",
+        "современным",
+        "современных",
+        "современные",
+        "современнымии"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "По окончани___ университета он начал работать в банке.",
+      "answers": [
+        "я",
+        "е",
+        "ю",
+        "и",
+        "ё"
+      ],
+      "correctIndex": 3,
+      "category": "Grammar"
+    },
+    {
+      "question": "Он часто размышляет о будущем ___ поколения.",
+      "answers": [
+        "следующий",
+        "следующему",
+        "следующего",
+        "следующим",
+        "следующем"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Она гордится успехами ___ сына.",
+      "answers": [
+        "старший",
+        "старшего",
+        "старшего",
+        "старшему",
+        "старшим"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Мы встретились возле ___ здания университета.",
+      "answers": [
+        "старое",
+        "старому",
+        "старого",
+        "старым",
+        "старом"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    }
+  ],
+  "20260214": [
+    {
+      "question": "Он занимается изучением русской ___ .",
+      "answers": [
+        "литература",
+        "литературе",
+        "литературы",
+        "литературой",
+        "литературу"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Студенты обсуждали влияние ___ факторов на экономику.",
+      "answers": [
+        "внешний",
+        "внешним",
+        "внешних",
+        "внешние",
+        "внешними"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    },
+    {
+      "question": "Она интересуется культурой стран ___ Европы.",
+      "answers": [
+        "Восточная",
+        "Восточной",
+        "Восточной",
+        "Восточную",
+        "Восточною"
+      ],
+      "correctIndex": 2,
+      "category": "Grammar"
+    }
+  ],
+  "20260215": [
+    {
+      "question": "Who founded St. Petersburg in 1703?",
+      "answers": [
+        "Ivan the Terrible",
+        "Catherine the Great",
+        "Peter the Great",
+        "Alexander I",
+        "Nicholas I"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "In which year did the Russian Revolution take place?",
+      "answers": [
+        "1905",
+        "1914",
+        "1917",
+        "1922",
+        "1939"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "Who was the last Tsar of Russia?",
+      "answers": [
+        "Alexander III",
+        "Nicholas I",
+        "Nicholas II",
+        "Vladimir Lenin",
+        "Alexander II"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "What was the name of the Soviet secret police under Stalin?",
+      "answers": [
+        "KGB",
+        "NKVD",
+        "GRU",
+        "Cheka",
+        "Okhrana"
+      ],
+      "correctIndex": 1,
+      "category": "History"
+    },
+    {
+      "question": "The Soviet Union officially dissolved in which year?",
+      "answers": [
+        "1985",
+        "1989",
+        "1991",
+        "1993",
+        "2000"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "Who led the Bolshevik Revolution?",
+      "answers": [
+        "Joseph Stalin",
+        "Vladimir Lenin",
+        "Leon Trotsky",
+        "Mikhail Gorbachev",
+        "Alexander Kerensky"
+      ],
+      "correctIndex": 1,
+      "category": "History"
+    },
+    {
+      "question": "“Perestroika” was a reform policy introduced by:",
+      "answers": [
+        "Stalin",
+        "Khrushchev",
+        "Brezhnev",
+        "Mikhail Gorbachev",
+        "Boris Yeltsin"
+      ],
+      "correctIndex": 3,
+      "category": "History"
+    },
+    {
+      "question": "The Battle of Stalingrad took place during:",
+      "answers": [
+        "World War I",
+        "Russian Civil War",
+        "World War II",
+        "Crimean War",
+        "Russo-Japanese War"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "What was the name of the medieval state centered in Kyiv?",
+      "answers": [
+        "Muscovy",
+        "Kievan Rus",
+        "Golden Horde",
+        "Novgorod Republic",
+        "Tsardom of Russia"
+      ],
+      "correctIndex": 1,
+      "category": "History"
+    },
+    {
+      "question": "Which ruler was known as “the Terrible”?",
+      "answers": [
+        "Ivan IV",
+        "Peter I",
+        "Nicholas II",
+        "Alexander II",
+        "Paul I"
+      ],
+      "correctIndex": 0,
+      "category": "History"
+    }
+  ],
+  "20260216": [
+    {
+      "question": "Who was the first president of the Russian Federation?",
+      "answers": [
+        "Vladimir Putin",
+        "Boris Yeltsin",
+        "Dmitry Medvedev",
+        "Mikhail Gorbachev",
+        "Sergei Kiriyenko"
+      ],
+      "correctIndex": 1,
+      "category": "History"
+    },
+    {
+      "question": "The Decembrist Revolt occurred in which century?",
+      "answers": [
+        "17th",
+        "18th",
+        "19th",
+        "20th",
+        "21st"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "Who became President of Russia on December 31, 1999, assuming",
+      "answers": [
+        "Boris Yeltsin",
+        "Dmitry Medvedev",
+        "Vladimir Putin",
+        "Mikhail Gorbachev",
+        "Sergei Shoigu"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "The Beslan school siege (2004) took place in which region?",
+      "answers": [
+        "Chechnya",
+        "Dagestan",
+        "Ingushetia",
+        "North Ossetia",
+        "Tatarstan"
+      ],
+      "correctIndex": 3,
+      "category": "History"
+    },
+    {
+      "question": "The 2008 war between Russia and Georgia was primarily fought over",
+      "answers": [
+        "Crimea and Donbas",
+        "Abkhazia and Crimea",
+        "South Ossetia and Abkhazia",
+        "Chechnya and Dagestan",
+        "Transnistria and Donetsk"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "Dmitry Medvedev served as President of Russia during which years?",
+      "answers": [
+        "2000–2004",
+        "2004–2008",
+        "2008–2012",
+        "2012–2018",
+        "2018–2024"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "In 2014, Russia annexed which territory following a disputed",
+      "answers": [
+        "Donetsk",
+        "Luhansk",
+        "Abkhazia",
+        "Crimea",
+        "Kaliningrad"
+      ],
+      "correctIndex": 3,
+      "category": "History"
+    },
+    {
+      "question": "The protests of 2011–2012 in Moscow were largely sparked by",
+      "answers": [
+        "Military conscription expansion",
+        "Pension reform",
+        "Media privatization",
+        "Election fraud in parliamentary elections",
+        "Internet censorship laws"
+      ],
+      "correctIndex": 3,
+      "category": "History"
+    },
+    {
+      "question": "The constitutional amendments passed in 2020 allowed:",
+      "answers": [
+        "The abolition of presidential elections",
+        "Russia to rejoin the USSR",
+        "The creation of a parliamentary republic",
+        "The resetting of presidential term limits",
+        "Regional governors to serve for life"
+      ],
+      "correctIndex": 3,
+      "category": "History"
+    },
+    {
+      "question": "The organization founded by Alexei Navalny was primarily focused",
+      "answers": [
+        "Environmental protection",
+        "Foreign policy reform",
+        "Anti-corruption investigations",
+        "Cultural preservation",
+        "Military reform"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    }
+  ],
+  "20260217": [
+    {
+      "question": "In February 2022, Russia launched a large-scale military invasion",
+      "answers": [
+        "Georgia",
+        "Kazakhstan",
+        "Belarus",
+        "Moldova",
+        "Ukraine"
+      ],
+      "correctIndex": 4,
+      "category": "History"
+    },
+    {
+      "question": "The paramilitary organization known as the Wagner Group became",
+      "answers": [
+        "The Baltic States only",
+        "Central Asia only",
+        "Ukraine and Syria",
+        "Mongolia",
+        "Japan"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "В каком году началась Первая мировая война?",
+      "answers": [
+        "1905",
+        "1910",
+        "1914",
+        "1917",
+        "1920"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "В каком году началась Гражданская война в России?",
+      "answers": [
+        "1914",
+        "1918",
+        "1922",
+        "1925",
+        "1930"
+      ],
+      "correctIndex": 1,
+      "category": "History"
+    },
+    {
+      "question": "В каком году была Крымская война?",
+      "answers": [
+        "1812",
+        "1848",
+        "1853",
+        "1871",
+        "1890"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "В каком году произошла Февральская революция?",
+      "answers": [
+        "1905",
+        "1917",
+        "1922",
+        "1936",
+        "1941"
+      ],
+      "correctIndex": 1,
+      "category": "History"
+    },
+    {
+      "question": "В каком году был запущен первый искусственный спутник Земли?",
+      "answers": [
+        "1953",
+        "1955",
+        "1957",
+        "1961",
+        "1965"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "Какое событие произошло в 1985 году?",
+      "answers": [
+        "Начало Второй мировой войны",
+        "Полёт Гагарина",
+        "Начало реформ Горбачёва (перестройка)",
+        "Распад СССР",
+        "Основание СССР"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "В каком году началась Вторая мировая война?",
+      "answers": [
+        "1935",
+        "1937",
+        "1939",
+        "1941",
+        "1943"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    },
+    {
+      "question": "Какое событие произошло в 1721 году?",
+      "answers": [
+        "Основание Москвы",
+        "Начало Крымской войны",
+        "Россия стала империей",
+        "Октябрьская революция",
+        "Основание СССР"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    }
+  ],
+  "20260218": [
+    {
+      "question": "Какое событие произошло в 1861 году?",
+      "answers": [
+        "Начало индустриализации",
+        "Отмена крепостного права",
+        "Русско-японская война",
+        "Основание СССР",
+        "Революция"
+      ],
+      "correctIndex": 1,
+      "category": "History"
+    },
+    {
+      "question": "Какое событие произошло в 1240 году?",
+      "answers": [
+        "Куликовская битва",
+        "Бородинская битва",
+        "Невская битва",
+        "Октябрьская революция",
+        "Основание Петербурга"
+      ],
+      "correctIndex": 2,
+      "category": "History"
+    }
+  ],
+  "20260219": [
+    {
+      "question": "Who wrote *War and Peace*?",
+      "answers": [
+        "Fyodor Dostoevsky",
+        "Leo Tolstoy",
+        "Anton Chekhov",
+        "Ivan Turgenev",
+        "Maxim Gorky"
+      ],
+      "correctIndex": 1,
+      "category": "Literature"
+    },
+    {
+      "question": "*Crime and Punishment* was written by:",
+      "answers": [
+        "Nikolai Gogol",
+        "Alexander Pushkin",
+        "Fyodor Dostoevsky",
+        "Mikhail Bulgakov",
+        "Ivan Bunin"
+      ],
+      "correctIndex": 2,
+      "category": "Literature"
+    },
+    {
+      "question": "Who wrote *The Cherry Orchard*?",
+      "answers": [
+        "Anton Chekhov",
+        "Leo Tolstoy",
+        "Maxim Gorky",
+        "Vladimir Nabokov",
+        "Alexander Blok"
+      ],
+      "correctIndex": 0,
+      "category": "Literature"
+    },
+    {
+      "question": "Alexander Pushkin is often called:",
+      "answers": [
+        "The Father of Russian Drama",
+        "The Father of Modern Russian Literature",
+        "The Founder of Socialist Realism",
+        "The Father of Russian Symbolism",
+        "The First Russian Novelist"
+      ],
+      "correctIndex": 1,
+      "category": "Literature"
+    },
+    {
+      "question": "In *Anna Karenina*, Anna falls in love with:",
+      "answers": [
+        "Levin",
+        "Karenin",
+        "Vronsky",
+        "Oblonsky",
+        "Dolokhov"
+      ],
+      "correctIndex": 2,
+      "category": "Literature"
+    },
+    {
+      "question": "Who wrote *The Master and Margarita*?",
+      "answers": [
+        "Mikhail Bulgakov",
+        "Boris Pasternak",
+        "Aleksandr Solzhenitsyn",
+        "Anna Akhmatova",
+        "Marina Tsvetaeva"
+      ],
+      "correctIndex": 0,
+      "category": "Literature"
+    },
+    {
+      "question": "Who wrote *Dead Souls*?",
+      "answers": [
+        "Fyodor Dostoevsky",
+        "Nikolai Gogol",
+        "Ivan Turgenev",
+        "Mikhail Lermontov",
+        "Leo Tolstoy"
+      ],
+      "correctIndex": 1,
+      "category": "Literature"
+    },
+    {
+      "question": "Vladimir Nabokov also wrote which English-language novel?",
+      "answers": [
+        "1984",
+        "Lolita",
+        "The Trial",
+        "Brave New World",
+        "The Stranger"
+      ],
+      "correctIndex": 1,
+      "category": "Literature"
+    },
+    {
+      "question": "Who wrote *Eugene Onegin*?",
+      "answers": [
+        "Mikhail Lermontov",
+        "Alexander Pushkin",
+        "Alexander Blok",
+        "Sergei Yesenin",
+        "Ivan Turgenev"
+      ],
+      "correctIndex": 1,
+      "category": "Literature"
+    },
+    {
+      "question": "Which writer spent years in a Siberian prison camp and later",
+      "answers": [
+        "Anton Chekhov",
+        "Fyodor Dostoevsky",
+        "Leo Tolstoy",
+        "Ivan Turgenev",
+        "Alexander Herzen"
+      ],
+      "correctIndex": 1,
+      "category": "Literature"
+    }
+  ],
+  "20260220": [
+    {
+      "question": "The film *Stalker* is based loosely on a novel by:",
+      "answers": [
+        "Bulgakov",
+        "Solzhenitsyn",
+        "Arkady and Boris Strugatsky",
+        "Tolstoy",
+        "Nabokov"
+      ],
+      "correctIndex": 2,
+      "category": "Literature"
+    },
+    {
+      "question": "The character of Woland in *The Master and Margarita* is often",
+      "answers": [
+        "A revolutionary leader",
+        "A corrupt bureaucrat",
+        "A representation of the Devil",
+        "A Soviet spy",
+        "A medieval monk"
+      ],
+      "correctIndex": 2,
+      "category": "Literature"
+    },
+    {
+      "question": "Кто написал роман «Мастер и Маргарита»?",
+      "answers": [
+        "Фёдор Достоевский",
+        "Лев Толстой",
+        "Михаил Булгаков",
+        "Антон Чехов",
+        "Максим Горький"
+      ],
+      "correctIndex": 2,
+      "category": "Literature"
+    },
+    {
+      "question": "Кто написал роман «Мастер и Маргарита»?",
+      "answers": [
+        "Фёдор Достоевский",
+        "Лев Толстой",
+        "Михаил Булгаков",
+        "Антон Чехов",
+        "Максим Горький"
+      ],
+      "correctIndex": 2,
+      "category": "Literature"
+    },
+    {
+      "question": "Кто написал роман «Война и мир»?",
+      "answers": [
+        "Фёдор Достоевский",
+        "Антон Чехов",
+        "Лев Толстой",
+        "Александр Пушкин",
+        "Иван Тургенев"
+      ],
+      "correctIndex": 2,
+      "category": "Literature"
+    },
+    {
+      "question": "Кто написал роман «Преступление и наказание»?",
+      "answers": [
+        "Николай Гоголь",
+        "Фёдор Достоевский",
+        "Лев Толстой",
+        "Максим Горький",
+        "Михаил Булгаков"
+      ],
+      "correctIndex": 1,
+      "category": "Literature"
+    },
+    {
+      "question": "Кто написал поэму «Евгений Онегин»?",
+      "answers": [
+        "Михаил Лермонтов",
+        "Сергей Есенин",
+        "Александр Пушкин",
+        "Александр Блок",
+        "Анна Ахматова"
+      ],
+      "correctIndex": 2,
+      "category": "Literature"
+    }
+  ],
+  "20260221": [
+    {
+      "question": "What is the longest river in Russia?",
+      "answers": [
+        "Volga",
+        "Ob",
+        "Yenisei",
+        "Lena",
+        "Amur"
+      ],
+      "correctIndex": 0,
+      "category": "Geography"
+    },
+    {
+      "question": "Lake Baikal is famous because it is:",
+      "answers": [
+        "The largest salt lake",
+        "The deepest freshwater lake",
+        "The highest mountain lake",
+        "The coldest lake",
+        "The widest lake"
+      ],
+      "correctIndex": 1,
+      "category": "Geography"
+    },
+    {
+      "question": "Which mountain range divides Europe and Asia in Russia?",
+      "answers": [
+        "Caucasus Mountains",
+        "Altai Mountains",
+        "Ural Mountains",
+        "Carpathian Mountains",
+        "Sayan Mountains"
+      ],
+      "correctIndex": 2,
+      "category": "Geography"
+    },
+    {
+      "question": "What is the capital of Tatarstan?",
+      "answers": [
+        "Ufa",
+        "Kazan",
+        "Samara",
+        "Perm",
+        "Chelyabinsk"
+      ],
+      "correctIndex": 1,
+      "category": "Geography"
+    },
+    {
+      "question": "Which city was formerly called Leningrad?",
+      "answers": [
+        "Moscow",
+        "Novgorod",
+        "St. Petersburg",
+        "Vladivostok",
+        "Murmansk"
+      ],
+      "correctIndex": 2,
+      "category": "Geography"
+    },
+    {
+      "question": "Which of the following countries borders Russia?",
+      "answers": [
+        "India",
+        "Mongolia",
+        "Romania",
+        "Greece",
+        "Austria"
+      ],
+      "correctIndex": 1,
+      "category": "Geography"
+    },
+    {
+      "question": "The Trans-Siberian Railway connects Moscow with:",
+      "answers": [
+        "Sochi",
+        "Vladivostok",
+        "Minsk",
+        "Kyiv",
+        "Tbilisi"
+      ],
+      "correctIndex": 1,
+      "category": "Geography"
+    },
+    {
+      "question": "The Caucasus region is located in:",
+      "answers": [
+        "Far Eastern Russia",
+        "Northwestern Russia",
+        "Southern Russia",
+        "Arctic Russia",
+        "Central Siberia"
+      ],
+      "correctIndex": 2,
+      "category": "Geography"
+    },
+    {
+      "question": "The annual New Year’s Eve television tradition in Russia almost",
+      "answers": [
+        "Moscow Does Not Believe in Tears",
+        "The Diamond Arm",
+        "Office Romance",
+        "Brother",
+        "The Irony of Fate"
+      ],
+      "correctIndex": 4,
+      "category": "Geography"
+    }
+  ],
+  "20260222": [
+    {
+      "question": "Who directed the 1997 cult crime film *Brother (Брат)*?",
+      "answers": [
+        "Andrei Tarkovsky",
+        "Nikita Mikhalkov",
+        "Timur Bekmambetov",
+        "Aleksei Balabanov",
+        "Fyodor Bondarchuk"
+      ],
+      "correctIndex": 3,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The lead character Danila Bagrov in *Brother* was played by:",
+      "answers": [
+        "Vladimir Mashkov",
+        "Danila Kozlovsky",
+        "Konstantin Khabensky",
+        "Oleg Menshikov",
+        "Sergei Bodrov Jr."
+      ],
+      "correctIndex": 4,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The rock band Kino was fronted by:",
+      "answers": [
+        "Boris Grebenshchikov",
+        "Yuri Shevchuk",
+        "Zemfira",
+        "Viktor Tsoi",
+        "Vyacheslav Butusov"
+      ],
+      "correctIndex": 3,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The song “Peremen!” became associated with which historical",
+      "answers": [
+        "Stalinist industrialization",
+        "World War II",
+        "Khrushchev’s Thaw",
+        "Perestroika in the late 1980s",
+        "The 1998 financial crisis"
+      ],
+      "correctIndex": 3,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "Andrei Tarkovsky is best known internationally for which film?",
+      "answers": [
+        "Burnt by the Sun",
+        "Brother",
+        "Solaris",
+        "The Return",
+        "Leviathan"
+      ],
+      "correctIndex": 2,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The film *Leviathan* (2014), directed by Andrey Zvyagintsev, was",
+      "answers": [
+        "Its musical score",
+        "Its historical accuracy about medieval Russia",
+        "Its romantic storyline",
+        "Its critical portrayal of corruption and power structures",
+        "Its comedic elements"
+      ],
+      "correctIndex": 3,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "Which Russian singer became famous in the 1970s–80s and is often",
+      "answers": [
+        "Zemfira",
+        "Polina Gagarina",
+        "Valeriya",
+        "Larisa Dolina",
+        "Alla Pugacheva"
+      ],
+      "correctIndex": 4,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The television series *Brigada* (2002) is centered around:",
+      "answers": [
+        "Soviet space exploration",
+        "A World War II battalion",
+        "The rise of organized crime in the 1990s",
+        "The Romanov dynasty",
+        "A Siberian prison camp"
+      ],
+      "correctIndex": 2,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The film *Night Watch* (2004) belongs primarily to which genre?",
+      "answers": [
+        "Historical drama",
+        "Romantic comedy",
+        "War film",
+        "Documentary",
+        "Urban fantasy / supernatural thriller"
+      ],
+      "correctIndex": 4,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The rapper Oxxxymiron became well known particularly for:",
+      "answers": [
+        "Government-sponsored patriotic songs",
+        "Opera performances",
+        "Rap battle culture and lyrical complexity",
+        "Folk music revival",
+        "Acting in Soviet films"
+      ],
+      "correctIndex": 2,
+      "category": "Pop Culture"
+    }
+  ],
+  "20260223": [
+    {
+      "question": "The cultural image of the “New Russian” (новый русский) became",
+      "answers": [
+        "1960s",
+        "1970s",
+        "1980s",
+        "1990s",
+        "2010s"
+      ],
+      "correctIndex": 3,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The Moscow Metro is frequently featured in Russian films because",
+      "answers": [
+        "Medieval architecture",
+        "Religious revival",
+        "Soviet grandeur and urban identity",
+        "Agricultural reform",
+        "Military secrecy"
+      ],
+      "correctIndex": 2,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The band DDT is most closely associated with which style?",
+      "answers": [
+        "Electronic dance music",
+        "Classical symphonic music",
+        "Russian rock with social commentary",
+        "Jazz fusion",
+        "Punk parody"
+      ],
+      "correctIndex": 2,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The Russian social media platform VK (VKontakte) was originally",
+      "answers": [
+        "A government news outlet",
+        "A music streaming service",
+        "A social networking site similar to Facebook",
+        "An online gaming platform",
+        "A state television channel"
+      ],
+      "correctIndex": 2,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The phrase “Какая сила, брат?” from *Brother* reflects:",
+      "answers": [
+        "Military patriotism",
+        "Religious devotion",
+        "Economic ambition",
+        "A moral-philosophical question about power and truth",
+        "A romantic confession"
+      ],
+      "correctIndex": 3,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The Eurovision Song Contest winner Dima Bilan represented Russia",
+      "answers": [
+        "1995",
+        "2001",
+        "2008",
+        "2015",
+        "2022"
+      ],
+      "correctIndex": 2,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "The post-Soviet crime film genre of the 1990s often reflects:",
+      "answers": [
+        "Idealized Soviet nostalgia",
+        "Rural collectivization",
+        "Imperial Russian court life",
+        "Social instability and moral ambiguity of the transition period",
+        "Mythological folklore"
+      ],
+      "correctIndex": 3,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "Кто был известным советским режиссёром и снял фильм «Сталкер»?",
+      "answers": [
+        "Никита Михалков",
+        "Алексей Балабанов",
+        "Андрей Тарковский",
+        "Фёдор Бондарчук",
+        "Карен Шахназаров"
+      ],
+      "correctIndex": 2,
+      "category": "Pop Culture"
+    },
+    {
+      "question": "Кто был известным советским режиссёром и снял фильм «Сталкер»?",
+      "answers": [
+        "Никита Михалков",
+        "Алексей Балабанов",
+        "Андрей Тарковский",
+        "Фёдор Бондарчук",
+        "Карен Шахназаров"
+      ],
+      "correctIndex": 2,
+      "category": "Pop Culture"
+    }
+  ],
+  "20260224": [
+    {
+      "question": "Кто был известным русским поэтом XIX века?",
+      "answers": [
+        "Владимир Маяковский",
+        "Михаил Лермонтов",
+        "Анна Ахматова",
+        "Иосиф Бродский",
+        "Сергей Есенин"
+      ],
+      "correctIndex": 1,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был первой женщиной-космонавтом?",
+      "answers": [
+        "Светлана Савицкая",
+        "Елена Серова",
+        "Алексей Леонов",
+        "Валентина Терешкова",
+        "Юрий Гагарин"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским художником-передвижником?",
+      "answers": [
+        "Казимир Малевич",
+        "Марк Шагал",
+        "Илья Репин",
+        "Василий Кандинский",
+        "Александр Родченко"
+      ],
+      "correctIndex": 2,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским учёным и химиком, создавшим",
+      "answers": [
+        "Иван Павлов",
+        "Константин Циолковский",
+        "Сергей Королёв",
+        "Дмитрий Менделеев",
+        "Андрей Сахаров"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным советским певцом и актёром?",
+      "answers": [
+        "Михаил Барышников",
+        "Иосиф Кобзон",
+        "Владимир Высоцкий",
+        "Филипп Киркоров",
+        "Дима Билан"
+      ],
+      "correctIndex": 2,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским шахматистом и чемпионом мира?",
+      "answers": [
+        "Александр Овечкин",
+        "Евгений Плющенко",
+        "Марат Сафин",
+        "Гарри Каспаров",
+        "Лев Яшин"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным российским хоккеистом и играет в НХЛ?",
+      "answers": [
+        "Валерий Харламов",
+        "Игорь Ларионов",
+        "Александр Овечкин",
+        "Павел Буре",
+        "Владислав Третьяк"
+      ],
+      "correctIndex": 2,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским философом и писателем?",
+      "answers": [
+        "Николай Гоголь",
+        "Иван Тургенев",
+        "Антон Чехов",
+        "Лев Толстой",
+        "Сергей Есенин"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским поэтом XIX века?",
+      "answers": [
+        "Владимир Маяковский",
+        "Михаил Лермонтов",
+        "Анна Ахматова",
+        "Иосиф Бродский",
+        "Сергей Есенин"
+      ],
+      "correctIndex": 1,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был первой женщиной-космонавтом?",
+      "answers": [
+        "Светлана Савицкая",
+        "Елена Серова",
+        "Алексей Леонов",
+        "Валентина Терешкова",
+        "Юрий Гагарин"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    }
+  ],
+  "20260225": [
+    {
+      "question": "Кто был известным русским художником-передвижником?",
+      "answers": [
+        "Казимир Малевич",
+        "Марк Шагал",
+        "Илья Репин",
+        "Василий Кандинский",
+        "Александр Родченко"
+      ],
+      "correctIndex": 2,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским учёным и химиком, создавшим",
+      "answers": [
+        "Иван Павлов",
+        "Константин Циолковский",
+        "Сергей Королёв",
+        "Дмитрий Менделеев",
+        "Андрей Сахаров"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным советским певцом и актёром?",
+      "answers": [
+        "Михаил Барышников",
+        "Иосиф Кобзон",
+        "Владимир Высоцкий",
+        "Филипп Киркоров",
+        "Дима Билан"
+      ],
+      "correctIndex": 2,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским шахматистом и чемпионом мира?",
+      "answers": [
+        "Александр Овечкин",
+        "Евгений Плющенко",
+        "Марат Сафин",
+        "Гарри Каспаров",
+        "Лев Яшин"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным российским хоккеистом и играет в НХЛ?",
+      "answers": [
+        "Валерий Харламов",
+        "Игорь Ларионов",
+        "Александр Овечкин",
+        "Павел Буре",
+        "Владислав Третьяк"
+      ],
+      "correctIndex": 2,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским философом и писателем?",
+      "answers": [
+        "Николай Гоголь",
+        "Иван Тургенев",
+        "Антон Чехов",
+        "Лев Толстой",
+        "Сергей Есенин"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был первым президентом Российской Федерации?",
+      "answers": [
+        "Владимир Путин",
+        "Михаил Горбачёв",
+        "Борис Ельцин",
+        "Дмитрий Медведев",
+        "Николай II"
+      ],
+      "correctIndex": 2,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был первым человеком в космосе?",
+      "answers": [
+        "Алексей Леонов",
+        "Сергей Королёв",
+        "Валентина Терешкова",
+        "Юрий Гагарин",
+        "Герман Титов"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским композитором?",
+      "answers": [
+        "Илья Репин",
+        "Казимир Малевич",
+        "Пётр Чайковский",
+        "Антон Чехов",
+        "Иван Айвазовский"
+      ],
+      "correctIndex": 2,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто основал город Санкт-Петербург?",
+      "answers": [
+        "Иван IV",
+        "Александр II",
+        "Николай I",
+        "Пётр I",
+        "Екатерина II"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    }
+  ],
+  "20260226": [
+    {
+      "question": "Кто был известным русским художником и создал картину «Чёрный",
+      "answers": [
+        "Илья Репин",
+        "Василий Суриков",
+        "Виктор Васнецов",
+        "Казимир Малевич",
+        "Марк Шагал"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным русским балетным танцовщиком?",
+      "answers": [
+        "Владимир Высоцкий",
+        "Олег Табаков",
+        "Александр Овечкин",
+        "Михаил Барышников",
+        "Игорь Стравинский"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Кто был известным советским хоккеистом?",
+      "answers": [
+        "Лев Яшин",
+        "Гарри Каспаров",
+        "Анатолий Карпов",
+        "Роман Абрамович",
+        "Валерий Харламов"
+      ],
+      "correctIndex": 4,
+      "category": "Famous Russians"
+    },
+    {
+      "question": "Когда в России отмечают День космонавтики?",
+      "answers": [
+        "7 января",
+        "9 мая",
+        "1 сентября",
+        "12 апреля",
+        "31 декабря"
+      ],
+      "correctIndex": 3,
+      "category": "Famous Russians"
+    }
+  ],
+  "20260227": [
+    {
+      "question": "Бить баклуши",
+      "answers": [
+        "To break something",
+        "To waste money",
+        "To loaf around / do nothing",
+        "To argue loudly",
+        "To work hard"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Водить за нос",
+      "answers": [
+        "To follow someone",
+        "To insult someone",
+        "To deceive someone",
+        "To admire someone",
+        "To protect someone"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Держать язык за зубами",
+      "answers": [
+        "To speak clearly",
+        "To argue back",
+        "To gossip",
+        "To keep one’s mouth shut",
+        "To lie"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    },
+    {
+      "question": "Как снег на голову",
+      "answers": [
+        "Very slowly",
+        "With great joy",
+        "In wintertime",
+        "Very calmly",
+        "Out of the blue / unexpectedly"
+      ],
+      "correctIndex": 4,
+      "category": "Idioms"
+    },
+    {
+      "question": "Душа ушла в пятки",
+      "answers": [
+        "To feel proud",
+        "To fall in love",
+        "To be scared stiff",
+        "To become tired",
+        "To lose hope"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Семь пятниц на неделе",
+      "answers": [
+        "To work seven days a week",
+        "To celebrate often",
+        "To be very busy",
+        "To keep changing one’s mind",
+        "To forget dates"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    },
+    {
+      "question": "Не в своей тарелке",
+      "answers": [
+        "To be hungry",
+        "To be angry",
+        "To feel uncomfortable / out of place",
+        "To eat too much",
+        "To be ill"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Зарубить на носу",
+      "answers": [
+        "To forget quickly",
+        "To write something down",
+        "To remember firmly",
+        "To cut something",
+        "To smell something"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Вешать лапшу на уши",
+      "answers": [
+        "To cook dinner",
+        "To listen carefully",
+        "To argue",
+        "To tell lies / pull someone’s leg",
+        "To give advice"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    },
+    {
+      "question": "Кот наплакал",
+      "answers": [
+        "It’s raining",
+        "Someone is crying",
+        "Very little / hardly any",
+        "A funny story",
+        "A big problem"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    }
+  ],
+  "20260228": [
+    {
+      "question": "Работать спустя рукава",
+      "answers": [
+        "To work overtime",
+        "To work quickly",
+        "To work carelessly / half-heartedly",
+        "To work at night",
+        "To work remotely"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Ни рыба ни мясо",
+      "answers": [
+        "Vegetarian",
+        "A bad cook",
+        "Very strong personality",
+        "Neither here nor there / mediocre",
+        "Very emotional"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    },
+    {
+      "question": "Говорить на разных языках",
+      "answers": [
+        "To be multilingual",
+        "To travel abroad",
+        "To argue",
+        "To misunderstand each other",
+        "To translate"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    },
+    {
+      "question": "Как рукой сняло",
+      "answers": [
+        "To wave goodbye",
+        "To remove by hand",
+        "To disappear instantly (about pain/problem)",
+        "To touch lightly",
+        "To steal"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Сидеть сложа руки",
+      "answers": [
+        "To rest after work",
+        "To pray",
+        "To do nothing / sit idle",
+        "To think deeply",
+        "To study"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Вставлять палки в колёса",
+      "answers": [
+        "To repair something",
+        "To build something",
+        "To travel",
+        "To hinder / put obstacles in the way",
+        "To drive badly"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    },
+    {
+      "question": "Яблоку негде упасть",
+      "answers": [
+        "There are apples everywhere",
+        "It’s autumn",
+        "It’s extremely crowded",
+        "Someone is clumsy",
+        "There is a garden"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Пустить пыль в глаза",
+      "answers": [
+        "To cry",
+        "To clean something",
+        "To show off / impress deceptively",
+        "To argue",
+        "To make someone blind"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Играть первую скрипку",
+      "answers": [
+        "To play music",
+        "To be nervous",
+        "To argue",
+        "To take the leading role",
+        "To be shy"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    },
+    {
+      "question": "Медвежья услуга",
+      "answers": [
+        "A very kind action",
+        "A dangerous animal",
+        "A big favor",
+        "A favor that causes harm",
+        "A business agreement"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    }
+  ],
+  "20260301": [
+    {
+      "question": "Взять себя в руки",
+      "answers": [
+        "To shake hands",
+        "To fight someone",
+        "To pull oneself together",
+        "To hold something tightly",
+        "To get angry"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Ломать голову",
+      "answers": [
+        "To break something",
+        "To rack one’s brain / think very hard",
+        "To argue loudly",
+        "To lose control",
+        "To hurt oneself"
+      ],
+      "correctIndex": 1,
+      "category": "Idioms"
+    },
+    {
+      "question": "Знать как свои пять пальцев",
+      "answers": [
+        "To count carefully",
+        "To work with hands",
+        "To learn quickly",
+        "To know something like the back of your hand",
+        "To forget easily"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    },
+    {
+      "question": "С глазу на глаз",
+      "answers": [
+        "With many people",
+        "In public",
+        "Face to face / in private",
+        "In secret documents",
+        "Through the internet"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Ни свет ни заря",
+      "answers": [
+        "Very late at night",
+        "In the middle of the day",
+        "Very early in the morning",
+        "During winter",
+        "At sunset"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Рукой подать",
+      "answers": [
+        "To give something by hand",
+        "Very close / within easy reach",
+        "To wave goodbye",
+        "To help someone",
+        "To catch something"
+      ],
+      "correctIndex": 1,
+      "category": "Idioms"
+    },
+    {
+      "question": "Считать ворон",
+      "answers": [
+        "To watch birds",
+        "To study nature",
+        "To be good at math",
+        "To daydream / be distracted",
+        "To work outdoors"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    },
+    {
+      "question": "Тянуть время",
+      "answers": [
+        "To move slowly",
+        "To stall / delay something intentionally",
+        "To hurry someone",
+        "To waste money",
+        "To miss an opportunity"
+      ],
+      "correctIndex": 1,
+      "category": "Idioms"
+    },
+    {
+      "question": "Пальцем не пошевелить",
+      "answers": [
+        "To point at something",
+        "To write quickly",
+        "To make no effort at all",
+        "To hurt a finger",
+        "To cook food"
+      ],
+      "correctIndex": 2,
+      "category": "Idioms"
+    },
+    {
+      "question": "Держать камень за пазухой",
+      "answers": [
+        "To carry something secretly",
+        "To hide money",
+        "To protect someone",
+        "To hold a grudge",
+        "To plan a trip"
+      ],
+      "correctIndex": 3,
+      "category": "Idioms"
+    }
+  ],
   "20260302": [
     {
-      "question": "Какое озеро является самым глубоким в мире?",
-      "answers": ["Каспийское море", "Байкал", "Танганьика", "Ладожское"],
-      "correctIndex": 1,
-      "questionTranslation": "What lake is the deepest in the world?",
-      "answerTranslations": ["Caspian Sea", "Baikal", "Tanganyika", "Ladoga"],
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Lake_Baikal_-_Pair_of_Nerpa.jpg/260px-Lake_Baikal_-_Pair_of_Nerpa.jpg",
-      "timerSeconds": 20
-    },
-    {
-      "question": "Сколько часовых поясов в России?",
-      "answers": ["9", "11", "13", "7"],
-      "correctIndex": 1,
-      "questionTranslation": "How many time zones does Russia have?",
-      "answerTranslations": ["9", "11", "13", "7"]
-    },
-    {
-      "question": "Какой элемент обозначается символом «Fe»?",
-      "answers": ["Фтор", "Железо", "Фосфор", "Франций"],
-      "correctIndex": 1,
-      "questionTranslation": "What element is denoted by the symbol 'Fe'?",
-      "answerTranslations": ["Fluorine", "Iron", "Phosphorus", "Francium"],
-      "timerSeconds": 10
-    },
-    {
-      "question": "В каком городе находится Эрмитаж?",
-      "answers": ["Москва", "Санкт-Петербург", "Казань"],
-      "correctIndex": 1,
-      "questionTranslation": "In which city is the Hermitage located?",
-      "answerTranslations": ["Moscow", "Saint Petersburg", "Kazan"],
-      "postAnswerImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Hermitage_Museum%2C_Saint_Petersburg%2C_Russia.jpg/260px-Hermitage_Museum.jpg"
-    },
-    {
-      "question": "Какая планета ближе всего к Солнцу?",
-      "answers": ["Венера", "Земля", "Меркурий", "Марс", "Юпитер", "Сатурн"],
+      "question": "Удивительный",
+      "answers": [
+        "boring",
+        "slow",
+        "amazing",
+        "tired",
+        "simple"
+      ],
       "correctIndex": 2,
-      "questionTranslation": "Which planet is closest to the Sun?",
-      "answerTranslations": ["Venus", "Earth", "Mercury", "Mars", "Jupiter", "Saturn"]
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Сравнивать",
+      "answers": [
+        "to explain",
+        "to compare",
+        "to decide",
+        "to invite",
+        "to arrive"
+      ],
+      "correctIndex": 1,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Предлагать",
+      "answers": [
+        "to borrow",
+        "to refuse",
+        "to warn",
+        "to suggest / offer",
+        "to improve"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Достигать",
+      "answers": [
+        "to lose",
+        "to discover",
+        "to achieve / reach",
+        "to hide",
+        "to measure"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Улучшать",
+      "answers": [
+        "to decrease",
+        "to remove",
+        "to improve",
+        "to finish",
+        "to follow"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Ожидать",
+      "answers": [
+        "to invite",
+        "to travel",
+        "to expect / wait for",
+        "to forget",
+        "to forgive"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Обсуждать",
+      "answers": [
+        "to remember",
+        "to discuss",
+        "to replace",
+        "to prepare",
+        "to warn"
+      ],
+      "correctIndex": 1,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Преимущество",
+      "answers": [
+        "problem",
+        "difficulty",
+        "advantage",
+        "decision",
+        "danger"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Недостаток",
+      "answers": [
+        "improvement",
+        "disadvantage / drawback",
+        "opportunity",
+        "success",
+        "reward"
+      ],
+      "correctIndex": 1,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Поведение",
+      "answers": [
+        "appearance",
+        "character",
+        "habit",
+        "behavior",
+        "ability"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
     }
   ],
   "20260303": [
     {
-      "question": "Какой газ составляет большую часть атмосферы Земли?",
-      "answers": ["Кислород", "Азот", "Углекислый газ", "Аргон"],
-      "correctIndex": 1,
-      "questionTranslation": "What gas makes up most of Earth's atmosphere?",
-      "answerTranslations": ["Oxygen", "Nitrogen", "Carbon dioxide", "Argon"]
+      "question": "Окружение",
+      "answers": [
+        "memory",
+        "tradition",
+        "environment / surroundings",
+        "solution",
+        "result"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
     },
     {
-      "question": "Кто изобрёл периодическую таблицу?",
-      "answers": ["Ломоносов", "Менделеев", "Павлов", "Попов"],
-      "correctIndex": 1,
-      "questionTranslation": "Who invented the periodic table?",
-      "answerTranslations": ["Lomonosov", "Mendeleev", "Pavlov", "Popov"],
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/DIMendele  ev.jpg/220px-DIMendeleev.jpg",
-      "postAnswerImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Periodic_table_large.png/260px-Periodic_table_large.png",
-      "timerSeconds": 15
+      "question": "Уверенный",
+      "answers": [
+        "nervous",
+        "careful",
+        "patient",
+        "confident",
+        "weak"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
     },
     {
-      "question": "Какое животное изображено на гербе России?",
-      "answers": ["Медведь", "Орёл", "Лев", "Волк"],
+      "question": "Разрешать",
+      "answers": [
+        "to close",
+        "to hide",
+        "to create",
+        "to allow / permit",
+        "to punish"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Продолжать",
+      "answers": [
+        "to cancel",
+        "to continue",
+        "to refuse",
+        "to return",
+        "to break"
+      ],
       "correctIndex": 1,
-      "questionTranslation": "What animal is depicted on the coat of arms of Russia?",
-      "answerTranslations": ["Bear", "Eagle", "Lion", "Wolf"]
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Убеждать",
+      "answers": [
+        "to support",
+        "to admire",
+        "to convince / persuade",
+        "to protect",
+        "to compare"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Зависеть",
+      "answers": [
+        "to influence",
+        "to choose",
+        "to depend",
+        "to describe",
+        "to appear"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Различие",
+      "answers": [
+        "similarity",
+        "agreement",
+        "difference",
+        "opinion",
+        "explanation"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Относиться",
+      "answers": [
+        "to travel",
+        "to relate to / treat",
+        "to borrow",
+        "to complain",
+        "to improve"
+      ],
+      "correctIndex": 1,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Заменять",
+      "answers": [
+        "to destroy",
+        "to repeat",
+        "to complete",
+        "to replace",
+        "to invite"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Поддерживать",
+      "answers": [
+        "to remove",
+        "to hide",
+        "to forget",
+        "to support / maintain",
+        "to divide"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    }
+  ],
+  "20260304": [
+    {
+      "question": "Неоднозначный",
+      "answers": [
+        "obvious",
+        "simple",
+        "ambiguous",
+        "direct",
+        "transparent"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Предвзятый",
+      "answers": [
+        "objective",
+        "confused",
+        "distracted",
+        "biased",
+        "balanced"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Исчерпывающий",
+      "answers": [
+        "partial",
+        "temporary",
+        "comprehensive / exhaustive",
+        "narrow",
+        "confusing"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Независимость",
+      "answers": [
+        "dependence",
+        "control",
+        "authority",
+        "independence",
+        "obedience"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Предпосылка",
+      "answers": [
+        "argument",
+        "result",
+        "conclusion",
+        "premise / precondition",
+        "summary"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Отчаяние",
+      "answers": [
+        "happiness",
+        "surprise",
+        "confusion",
+        "despair",
+        "excitement"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Убеждение",
+      "answers": [
+        "doubt",
+        "possibility",
+        "conviction / belief",
+        "hesitation",
+        "regret"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Существенный",
+      "answers": [
+        "minor",
+        "accidental",
+        "substantial / significant",
+        "decorative",
+        "superficial"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Склонность",
+      "answers": [
+        "resistance",
+        "conflict",
+        "tendency / inclination",
+        "accident",
+        "mistake"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Устойчивый",
+      "answers": [
+        "weak",
+        "unstable",
+        "stable / resilient",
+        "temporary",
+        "rare"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    }
+  ],
+  "20260305": [
+    {
+      "question": "Обосновать",
+      "answers": [
+        "to refuse",
+        "to delay",
+        "to justify / substantiate",
+        "to confuse",
+        "to criticize"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Пренебрегать",
+      "answers": [
+        "to admire",
+        "to protect",
+        "to support",
+        "to neglect / disregard",
+        "to explain"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Восприятие",
+      "answers": [
+        "reflection",
+        "imagination",
+        "attention",
+        "perception",
+        "prediction"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Достоверный",
+      "answers": [
+        "doubtful",
+        "strange",
+        "reliable / credible",
+        "fictional",
+        "incomplete"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Последовательность",
+      "answers": [
+        "disorder",
+        "consistency / sequence",
+        "accident",
+        "conflict",
+        "coincidence"
+      ],
+      "correctIndex": 1,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Ограничение",
+      "answers": [
+        "expansion",
+        "freedom",
+        "opportunity",
+        "limitation / restriction",
+        "permission"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Противоречие",
+      "answers": [
+        "harmony",
+        "balance",
+        "agreement",
+        "contradiction",
+        "support"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Намерение",
+      "answers": [
+        "hesitation",
+        "reaction",
+        "decision",
+        "intention",
+        "failure"
+      ],
+      "correctIndex": 3,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Справедливость",
+      "answers": [
+        "kindness",
+        "honesty",
+        "justice / fairness",
+        "generosity",
+        "courage"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    },
+    {
+      "question": "Предотвращать",
+      "answers": [
+        "to continue",
+        "to repeat",
+        "to prevent",
+        "to delay",
+        "to observe"
+      ],
+      "correctIndex": 2,
+      "category": "Vocabulary"
+    }
+  ],
+  "20260306": [
+    {
+      "question": "Когда в России отмечают Международный женский день?",
+      "answers": [
+        "1 января",
+        "14 февраля",
+        "8 марта",
+        "1 мая",
+        "12 июня"
+      ],
+      "correctIndex": 2,
+      "category": "Holidays & Traditions"
+    },
+    {
+      "question": "Какой праздник отмечают 1 мая?",
+      "answers": [
+        "День России",
+        "Праздник труда (День весны и труда)",
+        "День Победы",
+        "День знаний",
+        "Масленица"
+      ],
+      "correctIndex": 1,
+      "category": "Holidays & Traditions"
+    },
+    {
+      "question": "Какую традиционную сладкую еду часто едят на Пасху?",
+      "answers": [
+        "блины",
+        "борщ",
+        "кулич",
+        "пельмени",
+        "каша"
+      ],
+      "correctIndex": 2,
+      "category": "Holidays & Traditions"
+    },
+    {
+      "question": "Как называется традиционный пасхальный десерт из творога?",
+      "answers": [
+        "торт",
+        "пирог",
+        "варенье",
+        "пасха",
+        "блин"
+      ],
+      "correctIndex": 3,
+      "category": "Holidays & Traditions"
+    },
+    {
+      "question": "Какой праздник отмечают 23 февраля?",
+      "answers": [
+        "День учителя",
+        "День космонавтики",
+        "День защитника Отечества",
+        "День знаний",
+        "День России"
+      ],
+      "correctIndex": 2,
+      "category": "Holidays & Traditions"
+    },
+    {
+      "question": "Какой праздник связан с запуском первого человека в космос?",
+      "answers": [
+        "День России",
+        "День космонавтики",
+        "День Победы",
+        "День знаний",
+        "Масленица"
+      ],
+      "correctIndex": 1,
+      "category": "Holidays & Traditions"
+    },
+    {
+      "question": "Какую традицию часто соблюдают на Новый год в России?",
+      "answers": [
+        "люди идут в школу",
+        "люди работают",
+        "люди смотрят новогоднее обращение президента",
+        "люди читают книги",
+        "люди едут на море"
+      ],
+      "correctIndex": 2,
+      "category": "Holidays & Traditions"
+    },
+    {
+      "question": "Какой салат часто готовят на Новый год?",
+      "answers": [
+        "греческий салат",
+        "салат «Цезарь»",
+        "салат «Оливье»",
+        "фруктовый салат",
+        "салат из капусты"
+      ],
+      "correctIndex": 2,
+      "category": "Holidays & Traditions"
+    },
+    {
+      "question": "Какой праздник отмечают летом и он связан с государством России?",
+      "answers": [
+        "Пасха",
+        "День Победы",
+        "День России",
+        "Рождество",
+        "Масленица"
+      ],
+      "correctIndex": 2,
+      "category": "Holidays & Traditions"
     }
   ]
 }
