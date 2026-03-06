@@ -138,7 +138,7 @@
 }
 .tracker-btn{
   flex:1;
-  max-width:60px;
+  max-width:72px;
   min-height:36px;
   background:var(--btn-bg);
   border:2px solid var(--btn-border);
@@ -150,11 +150,14 @@
   justify-content:center;
   padding:4px 2px;
   transition:all 0.25s;
-  gap:1px;
+  gap:2px;
   font-family:'Roboto Condensed',sans-serif;
   font-size:12px;
   font-weight:700;
   color:var(--text-secondary);
+}
+.tracker-btn .tracker-stars{
+  padding:0 4px;
 }
 .tracker-btn:hover{
   border-color:var(--accent);
@@ -323,6 +326,7 @@
 
 /* ===== NEXT BUTTON ===== */
 #next-btn{
+  visibility:visible;
   margin-top:12px;
   padding:12px 40px;
   font-size:18px;
@@ -722,7 +726,7 @@
   <div id="answer-grid"></div>
 
   <!-- Next Button -->
-  <button id="next-btn" class="hidden">Next</button>
+  <button id="next-btn" style="visibility:hidden">Next</button>
 
   <!-- Post-Answer Image -->
   <div id="post-answer-image-container" class="hidden"></div>
@@ -790,6 +794,7 @@
   // ===== DATA LOADER MODULE (Task 2.1) =====
 
   let allGameData = null;
+  let allGameDataLang = null;
   let calendarAvailableDates = [];
   let loadError = false;
 
@@ -825,22 +830,27 @@
 
   function updateCategoryLabel() {
     var el = document.getElementById('category-label');
-    if (!el || !currentQuestions || currentQuestions.length === 0) { if (el) el.textContent = ''; return; }
-    var cat = currentQuestions[0].category;
-    el.textContent = (cat && cat !== 'Grammar') ? cat : '';
+    if (!el || !currentQuestions || currentQuestions.length === 0 || !gameState) { if (el) el.textContent = ''; return; }
+    var idx = gameState.currentQuestionIndex || 0;
+    var cat = currentQuestions[idx] && currentQuestions[idx].category;
+    el.textContent = cat || '';
   }
 
   async function loadGameData(dateStr) {
     loadError = false;
     let data;
     try {
-      if (allGameData) {
+      var lang = getActiveLanguage();
+      if (allGameData && allGameDataLang === lang) {
         data = allGameData;
       } else {
-        const resp = await fetch(resolveDictionaryUrl(getActiveLanguage(), 'triviatsky'));
+        allGameData = null;
+        allGameDataLang = null;
+        const resp = await fetch(resolveDictionaryUrl(lang, 'triviatsky'));
         if (!resp.ok) throw new Error('HTTP ' + resp.status);
         data = await resp.json();
         allGameData = data;
+        allGameDataLang = lang;
         calendarAvailableDates = Object.keys(data);
       }
     } catch (e) {
@@ -928,7 +938,7 @@
 
   function saveGameState(state) {
     try {
-      localStorage.setItem('triviatsky_state_' + state.date, JSON.stringify(state));
+      localStorage.setItem('triviatsky_state_' + getActiveLanguage() + '_' + state.date, JSON.stringify(state));
     } catch (e) {
       // Silently fail if localStorage is unavailable
     }
@@ -936,27 +946,28 @@
 
   function loadGameState(dateStr) {
     try {
-      const raw = localStorage.getItem('triviatsky_state_' + dateStr);
+      const raw = localStorage.getItem('triviatsky_state_' + getActiveLanguage() + '_' + dateStr);
       if (raw === null) return null;
       return JSON.parse(raw);
     } catch (e) {
       // Corrupted data — clear it and return null
-      try { localStorage.removeItem('triviatsky_state_' + dateStr); } catch (_) {}
+      try { localStorage.removeItem('triviatsky_state_' + getActiveLanguage() + '_' + dateStr); } catch (_) {}
       return null;
     }
   }
 
   function saveToHistory(dateStr, questionScores, completed) {
     try {
+      var hkey = 'triviatsky_history_' + getActiveLanguage();
       var history = {};
       try {
-        var raw = localStorage.getItem('triviatsky_history');
+        var raw = localStorage.getItem(hkey);
         if (raw !== null) history = JSON.parse(raw);
       } catch (e) {
         history = {};
       }
       history[dateStr] = { questionScores: questionScores, completed: completed };
-      localStorage.setItem('triviatsky_history', JSON.stringify(history));
+      localStorage.setItem(hkey, JSON.stringify(history));
     } catch (e) {
       // Silently fail if localStorage is unavailable
     }
@@ -964,12 +975,13 @@
 
   function loadHistory() {
     try {
-      var raw = localStorage.getItem('triviatsky_history');
+      var hkey = 'triviatsky_history_' + getActiveLanguage();
+      var raw = localStorage.getItem(hkey);
       if (raw === null) return {};
       return JSON.parse(raw);
     } catch (e) {
       // Corrupted data — clear it and return empty
-      try { localStorage.removeItem('triviatsky_history'); } catch (_) {}
+      try { localStorage.removeItem('triviatsky_history_' + getActiveLanguage()); } catch (_) {}
       return {};
     }
   }
@@ -1174,7 +1186,7 @@
     renderAnswerGrid(shuffled, disabledIndices, correctIdx, revealed, shuffledTranslations);
 
     // 7. Hide next button, post-answer image, and timer initially
-    document.getElementById('next-btn').classList.add('hidden');
+    document.getElementById('next-btn').style.visibility = 'hidden';
     document.getElementById('post-answer-image-container').classList.add('hidden');
     document.getElementById('post-answer-image-container').innerHTML = '';
     document.getElementById('timer-display').classList.add('hidden');
@@ -1340,14 +1352,14 @@
   }
 
   function showNextButton() {
-    document.getElementById('next-btn').classList.remove('hidden');
+    document.getElementById('next-btn').style.visibility = 'visible';
   }
 
   // ===== UI RENDERER: RESULTS OVERLAY (Task 5.8) =====
 
   function renderResultsOverlay(state, questions) {
     // 1. Set date
-    document.getElementById('results-date').textContent = state.date;
+    document.getElementById('results-date').textContent = formatFriendlyDate(state.date);
 
     // 2. Populate question result rows
     var container = document.getElementById('results-questions');
@@ -1671,6 +1683,9 @@
   // ===== GAME CONTROLLER: ADVANCE, COMPLETE, REVIEW (Task 7.4) =====
 
   function advanceToNextQuestion() {
+    // 0. Hide next button for the new question
+    document.getElementById('next-btn').style.visibility = 'hidden';
+
     // 1. Increment question index
     gameState.currentQuestionIndex++;
 
@@ -1681,7 +1696,8 @@
     // 3. Update the question tracker
     renderQuestionTracker(gameState, currentQuestions);
 
-    // 4. If the new question has timerSeconds and hasn't been revealed, start countdown
+    // 3b. Update category label
+    updateCategoryLabel();
     var q = currentQuestions[qi];
     if (q.timerSeconds && !gameState.revealed[qi]) {
       showTimer(q.timerSeconds);
@@ -1747,6 +1763,9 @@
 
     // 2. Re-render the question tracker (to update active highlight)
     renderQuestionTracker(gameState, currentQuestions);
+
+    // 2b. Update category label
+    updateCategoryLabel();
 
     // 3. Render the selected question in its revealed state
     renderQuestion(currentQuestions[questionIndex], questionIndex, gameState);
