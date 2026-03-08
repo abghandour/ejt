@@ -32,8 +32,21 @@ body{
 #banner{width:100%;display:block}
 
 /* Hamburger menu */
+#lang-flag-home{
+  position:absolute;right:52px;top:10px;height:40px;width:28px;
+  display:flex;align-items:center;justify-content:center;
+  transform:translateY(50%);
+}
+#lang-flag-home svg{width:28px;height:20px;border-radius:3px;box-shadow:0 0 2px rgba(0,0,0,0.3)}
+#lang-flag-game{
+  width:28px;height:20px;border-radius:3px;overflow:hidden;flex-shrink:0;
+  box-shadow:0 0 2px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;
+  margin-left:auto;
+  top: 20px;
+}
+#lang-flag-home svg,#lang-flag-game svg{width:100%;height:100%}
 #hamburger-btn{
-  position:absolute;right:5px;top:50%;transform:translateY(-50%);
+  position:absolute;right:5px;top:10px;
   width:40px;height:40px;background:var(--hamburger-bg);
   border:1px solid var(--hamburger-border);border-radius:8px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
@@ -49,7 +62,7 @@ body{
 #hamburger-btn.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
 #hamburger-menu{
-  position:absolute;right:5px;top:calc(50% + 24px);
+  position:absolute;right:5px;top:54px;
   background:var(--menu-bg);border:1px solid var(--menu-border);border-radius:10px;
   min-width:270px;overflow:hidden;z-index:10;
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
@@ -188,7 +201,7 @@ body{
 
 /* Back bar shown over iframe */
 #back-bar{
-  position:fixed;top:0;left:0;right:0;z-index:101;
+  position:fixed;top:0;left:0;right:0;z-index:151;
   display:none;background:var(--bg-primary);
   border-bottom:1px solid var(--border-subtle);
 }
@@ -219,11 +232,11 @@ body{
 }
 /* Hamburger in back-bar */
 #hamburger-btn-game{
-  position:absolute;right:5px;top:50%;transform:translateY(-50%);
+  position:absolute;right:5px;top:10px;
   width:40px;height:40px;background:var(--hamburger-bg);
   border:1px solid var(--hamburger-border);border-radius:8px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
-  cursor:pointer;z-index:10;-webkit-tap-highlight-color:transparent;
+  cursor:pointer;z-index:999;-webkit-tap-highlight-color:transparent;
   backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
 }
 #hamburger-btn-game span{
@@ -234,9 +247,9 @@ body{
 #hamburger-btn-game.open span:nth-child(2){opacity:0}
 #hamburger-btn-game.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 #hamburger-menu-game{
-  position:absolute;right:5px;top:calc(50% + 24px);
+  position:absolute;right:5px;top:54px;
   background:var(--menu-bg);border:1px solid var(--menu-border);border-radius:10px;
-  min-width:270px;overflow:hidden;z-index:10;
+  min-width:270px;overflow:hidden;z-index:999;
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   box-shadow:0 8px 24px rgba(0,0,0,0.5);
   display:none;
@@ -367,6 +380,7 @@ body{
 
 <div id="banner-wrap">
   <img id="banner" src="../shared/assets/banner.png" alt="How Janey Learned Russian">
+  <span id="lang-flag-home" aria-hidden="true"></span>
   <button id="hamburger-btn" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -387,8 +401,8 @@ body{
 </div>
 
 <div id="title-area">
-  <div id="page-title">How Janey Learned<br>Russian</div>
-  <div id="page-subtitle">Choose a game to play</div>
+  <div id="page-title">Choose a game to play</div>
+  <div id="page-subtitle"></div>
 </div>
 
 <div id="carousel-wrap">
@@ -409,6 +423,7 @@ body{
   <div id="back-bar-inner">
     <img src="../shared/assets/jt.png" alt="Home" id="back-bar-logo">
     <div id="back-bar-title">How Janey Learned Russian<br><svg class="bar-game-icon" id="bar-game-icon" style="display:none"><use id="bar-game-icon-use" href=""/></svg><span class="bar-game-name" id="bar-game-name"></span></div>
+    <span id="lang-flag-game" aria-hidden="true"></span>
     <button id="hamburger-btn-game" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -649,9 +664,6 @@ async function init() {
     filteredGames = GAMES.slice();
   }
   N = filteredGames.length;
-  if (langConfig) {
-    document.getElementById('page-title').innerHTML = 'How Janey Learned<br>' + langConfig.displayName;
-  }
   buildCards();
   setCarouselTransition(true);
   // Start with last played game centered, or first
@@ -693,22 +705,30 @@ function checkDeepLink() {
 // Hamburger menu (game picker)
 var hamBtn = document.getElementById('hamburger-btn');
 var hamMenu = document.getElementById('hamburger-menu');
+var gameFrame = document.getElementById('game-frame');
+
+function disableFrameClicks() { gameFrame.style.pointerEvents = 'none'; }
+function enableFrameClicks() { gameFrame.style.pointerEvents = ''; }
+
 function closePickerMenu() {
   hamMenu.classList.remove('open');
   hamBtn.classList.remove('open');
   hamBtn.setAttribute('aria-expanded', 'false');
+  enableFrameClicks();
 }
 hamBtn.addEventListener('click', function(e) {
   e.stopPropagation();
+  closeGameMenu();
   var open = hamMenu.classList.toggle('open');
   hamBtn.classList.toggle('open', open);
   hamBtn.setAttribute('aria-expanded', String(open));
-  // Pause game when menu opens
   if (open) {
-    var frame = document.getElementById('game-frame');
-    if (frame.contentWindow && frame.style.display !== 'none') {
-      frame.contentWindow.postMessage({type:'pause'}, '*');
+    disableFrameClicks();
+    if (gameFrame.contentWindow && gameFrame.style.display !== 'none') {
+      gameFrame.contentWindow.postMessage({type:'pause'}, '*');
     }
+  } else {
+    enableFrameClicks();
   }
 });
 document.getElementById('menu-settings').addEventListener('click', function(e) {
@@ -724,16 +744,19 @@ function closeGameMenu() {
   hamMenuGame.classList.remove('open');
   hamBtnGame.classList.remove('open');
   hamBtnGame.setAttribute('aria-expanded', 'false');
+  enableFrameClicks();
 }
 hamBtnGame.addEventListener('click', function(e) {
   e.stopPropagation();
+  closePickerMenu();
   var open = hamMenuGame.classList.toggle('open');
   hamBtnGame.classList.toggle('open', open);
   hamBtnGame.setAttribute('aria-expanded', String(open));
-  // Pause game when menu opens
   if (open) {
-    var frame = document.getElementById('game-frame');
-    if (frame.contentWindow) frame.contentWindow.postMessage({type:'pause'}, '*');
+    disableFrameClicks();
+    if (gameFrame.contentWindow) gameFrame.contentWindow.postMessage({type:'pause'}, '*');
+  } else {
+    enableFrameClicks();
   }
 });
 document.getElementById('menu-games').addEventListener('click', function(e) {
@@ -795,7 +818,21 @@ function isSettingsOpen() {
     document.getElementById('game-frame').style.display !== 'none';
 }
 
+// Language flags
+var LANG_FLAGS = {
+  'ru': '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="6.67" fill="#fff"/><rect y="6.67" width="28" height="6.67" fill="#0039a6"/><rect y="13.33" width="28" height="6.67" fill="#d52b1e"/></svg>',
+  'pt-br': '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="20" fill="#009739"/><polygon points="14,2 26,10 14,18 2,10" fill="#FEDD00"/><circle cx="14" cy="10" r="4.5" fill="#002776"/><path d="M9.5 10.5 Q14 7.5 18.5 10.5" fill="none" stroke="#fff" stroke-width="0.6"/></svg>',
+  'uk': '<svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="10" fill="#005BBB"/><rect y="10" width="28" height="10" fill="#FFD500"/></svg>'
+};
+function updateLangFlags() {
+  var lang = getActiveLanguage();
+  var svg = LANG_FLAGS[lang] || '';
+  document.getElementById('lang-flag-home').innerHTML = svg;
+  document.getElementById('lang-flag-game').innerHTML = svg;
+}
+
 init();
+updateLangFlags();
 checkDeepLink();
 window.addEventListener('resize', function() { updateCarousel(); });
 // Listen for theme changes from settings iframe
@@ -808,6 +845,7 @@ window.addEventListener('message', function(e) {
   }
   if (e.data && e.data.type === 'languageChange' && e.data.language) {
     setActiveLanguage(e.data.language);
+    updateLangFlags();
     var lc = getLanguageConfig(e.data.language);
     if (lc) {
       filteredGames = GAMES.filter(function(g) { return lc.games.indexOf(g.id) !== -1; }).map(function(g) {
@@ -817,7 +855,6 @@ window.addEventListener('message', function(e) {
       });
       N = filteredGames.length;
       currentIndex = 0;
-      document.getElementById('page-title').innerHTML = 'How Janey Learned<br>' + lc.displayName;
       buildCards();
       setCarouselTransition(true);
       updateCarousel();
