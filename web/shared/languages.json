@@ -1,7 +1,7 @@
 {
   "ru": {
     "displayName": "Russian",
-    "games": ["rootsky", "scramblisky", "bogglesky", "snakesky", "triviatsky"],
+    "games": ["rootsky", "scramblisky", "bogglesky", "triviatsky"],
     "themes": ["soviet", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/ru",
     "letterPool": "оооооооеееееееаааааааиииииинннннттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщэфъьёй",
@@ -17,7 +17,7 @@
   },
   "pt-br": {
     "displayName": "Portuguese",
-    "games": ["scramblisky", "bogglesky", "snakesky", "triviatsky"],
+    "games": ["scramblisky", "bogglesky", "triviatsky"],
     "themes": ["brazil", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/pt-br",
     "letterPool": "aaaaaaaaaaeeeeeeeeeoooooooossssssrrrrrrnnnnnnttttttllllddddmmmmccccppppuuuiiibbbggffvvhhjjqqxxzzçãõéêíóôúâà",
@@ -32,7 +32,7 @@
   },
   "uk": {
     "displayName": "Ukranian",
-    "games": ["scramblisky", "bogglesky", "snakesky", "triviatsky"],
+    "games": ["scramblisky", "bogglesky", "triviatsky"],
     "themes": ["ukraine", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/uk",
     "letterPool": "оооооооеееееееаааааааиииииінннннніііііттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщьїєфґй",

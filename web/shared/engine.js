@@ -245,10 +245,11 @@ function _captureElement(el) {
     actions[i].style.display = 'none';
     hidden.push(actions[i]);
   }
-  // Hide "Game Over" headings
+  // Hide "Game Over" and "Time's Up" headings
   var headings = el.querySelectorAll('h2');
   for (var j = 0; j < headings.length; j++) {
-    if (headings[j].textContent.trim().toLowerCase().indexOf('game over') !== -1) {
+    var ht = headings[j].textContent.trim().toLowerCase();
+    if (ht.indexOf('game over') !== -1 || ht.indexOf("time's up") !== -1) {
       headings[j].style.display = 'none';
       hidden.push(headings[j]);
     }
@@ -256,6 +257,40 @@ function _captureElement(el) {
 
   function restore() {
     for (var k = 0; k < hidden.length; k++) hidden[k].style.display = '';
+    // Restore inlined SVGs
+    for (var s = 0; s < _svgRestores.length; s++) _svgRestores[s]();
+  }
+
+  // Inline SVG <use> elements so html2canvas can render them
+  var _svgRestores = [];
+  var uses = el.querySelectorAll('use');
+  for (var u = 0; u < uses.length; u++) {
+    var use = uses[u];
+    var href = use.getAttribute('href') || use.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
+    if (!href) continue;
+    var symbol = document.querySelector(href);
+    if (!symbol) continue;
+    var svgEl = use.closest('svg');
+    if (!svgEl) continue;
+    var oldVB = svgEl.getAttribute('viewBox');
+    var vb = symbol.getAttribute('viewBox');
+    if (vb) svgEl.setAttribute('viewBox', vb);
+    var frag = document.createDocumentFragment();
+    var clones = [];
+    for (var c = 0; c < symbol.childNodes.length; c++) {
+      var cl = symbol.childNodes[c].cloneNode(true);
+      clones.push(cl);
+      frag.appendChild(cl);
+    }
+    var parent = use.parentNode;
+    parent.replaceChild(frag, use);
+    (function(p, u2, cls, svg, ovb) {
+      _svgRestores.push(function() {
+        for (var r = 0; r < cls.length; r++) { if (cls[r].parentNode) cls[r].parentNode.removeChild(cls[r]); }
+        p.appendChild(u2);
+        if (ovb) svg.setAttribute('viewBox', ovb); else svg.removeAttribute('viewBox');
+      });
+    })(parent, use, clones, svgEl, oldVB);
   }
 
   // Try html2canvas first (loaded dynamically)

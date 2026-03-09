@@ -57,6 +57,10 @@
   border-color:var(--accent);
   background:var(--accent-subtle);
 }
+#share-btn:disabled{
+  opacity:0.3;
+  cursor:not-allowed;
+}
 /* ===== DIFFICULTY SELECT ===== */
 #difficulty-select{
   display:flex;
@@ -703,6 +707,7 @@
 <!-- Top Bar -->
 <div id="top-bar">
   <button id="calendar-btn" aria-label="Open calendar"><svg class="icon icon-md"><use href="#ico-calendar"/></svg><span id="calendar-date-label"></span></button>
+  <button id="share-btn" disabled aria-label="Share results"><svg class="icon icon-md"><use href="#ico-share"/></svg></button>
 </div>
 
 <!-- Main Game Area -->
@@ -1757,6 +1762,9 @@
     // 0. Update category label
     updateCategoryLabel();
 
+    // Enable share button in toolbar
+    document.getElementById('share-btn').disabled = false;
+
     // 1. Re-render the question tracker (click handlers enabled since state.completed is true)
     renderQuestionTracker(gameState, currentQuestions);
 
@@ -1806,6 +1814,9 @@
     // 2. Set currentDateStr to the selected date
     currentDateStr = dateStr;
     updateCalendarDateLabel();
+
+    // 3. Disable share button until we know if game is completed
+    document.getElementById('share-btn').disabled = true;
 
     // 3. Load game data for the selected date (should already be cached in allGameData)
     var data = await loadGameData(dateStr);
@@ -1893,6 +1904,13 @@
     // Wire up start button for the new date
     document.getElementById('start-btn').onclick = function() { startGame(); };
   }
+
+  // Wire up share button to show results overlay
+  document.getElementById('share-btn').onclick = function() {
+    if (gameState && gameState.completed && currentQuestions) {
+      renderResultsOverlay(gameState, currentQuestions);
+    }
+  };
 
   // Wire up calendar button to open the calendar overlay
   document.getElementById('calendar-btn').onclick = function() {
