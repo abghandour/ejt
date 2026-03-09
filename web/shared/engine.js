@@ -218,7 +218,10 @@ function shareWithScreenshot(text, overlaySelector) {
   var overlay = document.querySelector(overlaySelector || '#death-overlay');
   if (!overlay) { shareText(text); return; }
 
-  _captureElement(overlay).then(function(blob) {
+  // Capture the popup inside the overlay, not the full-screen overlay itself
+  var target = overlay.querySelector('.game-popup, [id$="-popup"]') || overlay;
+
+  _captureElement(target).then(function(blob) {
     if (blob && navigator.share && navigator.canShare) {
       var file = new File([blob], 'result.png', { type: 'image/png' });
       var shareData = { files: [file], text: text };

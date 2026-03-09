@@ -830,9 +830,10 @@ function updateLangFlags() {
   document.getElementById('lang-flag-game').innerHTML = svg;
 }
 
-init();
-updateLangFlags();
-checkDeepLink();
+init().then(function() {
+  updateLangFlags();
+  checkDeepLink();
+});
 window.addEventListener('resize', function() { updateCarousel(); });
 // Listen for theme changes from settings iframe
 window.addEventListener('message', function(e) {
