@@ -65,14 +65,14 @@
   width:clamp(60px,16.5vw,84px);height:clamp(60px,16.5vw,84px);
   display:flex;align-items:center;justify-content:center;
   font-size:clamp(30px,8vw,45px);font-weight:700;
-  background:linear-gradient(180deg,#2e2e52 0%,#22223a 100%);
-  border:2px solid #4a4a7e;border-radius:10px;
+  background:var(--btn-bg);
+  border:2px solid var(--btn-border);border-radius:10px;
   cursor:pointer;transition:all 0.2s;
   -webkit-tap-highlight-color:transparent;
 }
 .letter-tile:hover:not(.used){
-  border-color:#c8a830;background:linear-gradient(180deg,#3a3a6e 0%,#2e2e52 100%);
-  transform:translateY(-3px);box-shadow:0 4px 16px rgba(200,168,48,0.2);
+  border-color:var(--accent);background:var(--btn-bg-active);
+  transform:translateY(-3px);box-shadow:0 4px 16px var(--accent-border);
 }
 .letter-tile.used{opacity:0.25;border-color:#2a2a3a;cursor:default;transform:scale(0.92)}
 .letter-tile.exploding{
@@ -103,14 +103,14 @@
   display:flex;align-items:center;justify-content:center;
   font-size:clamp(20px,5.5vw,30px);font-weight:700;
   background:rgba(200,168,48,0.06);
-  border:2px dashed #4a4a7e;border-radius:10px;
+  border:2px dashed var(--btn-border);border-radius:10px;
   transition:all 0.2s;cursor:pointer;
   -webkit-tap-highlight-color:transparent;
 }
 .answer-slot.filled{
-  border-style:solid;border-color:#c8a830;
+  border-style:solid;border-color:var(--accent);
   background:linear-gradient(180deg,#3a3a10 0%,#2a2a08 100%);
-  color:#c8a830;text-shadow:0 0 8px rgba(200,168,48,0.4);
+  color:var(--accent);text-shadow:0 0 8px rgba(200,168,48,0.4);
 }
 .answer-slot.correct{
   border-color:#5a5;background:linear-gradient(180deg,#2a5a2a 0%,#1a3a1a 100%);
@@ -175,13 +175,13 @@
 }
 #death-overlay.hidden{display:none}
 #end-popup{
-  width:100%;max-width:400px;background:rgba(30,30,50,0.95);
-  border:1px solid #3a3a5a;border-radius:12px;padding:24px 20px;
+  width:100%;max-width:400px;background:var(--bg-surface);
+  border:1px solid var(--border-subtle);border-radius:12px;padding:24px 20px;
   display:flex;flex-direction:column;align-items:center;gap:14px;
 }
-#end-popup h2{font-size:22px;font-weight:700;color:#c8a830}
+#end-popup h2{font-size:22px;font-weight:700;color:var(--accent)}
 #end-stats{width:100%;display:flex;flex-direction:column;gap:8px;font-size:15px}
-#end-words{width:100%;max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;font-size:13px;border-top:1px solid rgba(58,58,94,0.3);padding-top:8px}
+#end-words{width:100%;max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;font-size:13px;border-top:1px solid var(--border-divider);padding-top:8px}
 .modal-actions{display:flex;gap:8px;width:100%;justify-content:center;margin-top:4px}
 .modal-actions .action-btn{min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px}
 
@@ -825,7 +825,7 @@ async function init() {
   if (langConfig && langConfig.validationRegex) {
     setValidationRegex(langConfig.validationRegex);
   }
-  var dictUrl = resolveDictionaryUrl(getActiveLanguage(), 'snakesky');
+  var dictUrl = resolveDictionaryUrl(getActiveLanguage(), 'dictionary');
   try {
     dictionary = await loadDictionary(dictUrl);
     dictionary.forEach(function(e) { e.word = e.word.toLowerCase(); });

@@ -143,7 +143,7 @@
 }
 #end-popup h2{font-size:22px;font-weight:700;color:var(--accent)}
 #end-stats{width:100%;display:flex;flex-direction:column;gap:8px;font-size:15px}
-#end-words{width:100%;max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;font-size:13px;border-top:1px solid rgba(58,58,94,0.3);padding-top:8px}
+#end-words{width:100%;max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;font-size:13px;border-top:1px solid var(--border-divider);padding-top:8px}
 .modal-actions{display:flex;gap:8px;width:100%;justify-content:center;margin-top:4px}
 .modal-actions .action-btn{min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px}
 
@@ -173,9 +173,9 @@
 .hint-btn:hover{border-color:#6a9ec0;background:linear-gradient(180deg,#2a3a4a 0%,#1a2a3a 100%)}
 .hint-btn.revealed{
   background:linear-gradient(180deg,#3a3a10 0%,#2a2a08 100%);
-  border-color:#c8a830;
+  border-color:var(--accent);
 }
-.hint-btn .hint-ru{color:#c8a830;font-size:18px;font-weight:700}
+.hint-btn .hint-ru{color:var(--accent);font-size:18px;font-weight:700}
 .hint-btn .hint-en{color:#6a9ec0;font-size:13px;font-weight:400}
 .hint-btn.found{
   background:linear-gradient(180deg,#2a3a2a 0%,#1a2a1a 100%);
@@ -184,7 +184,7 @@
 }
 .hint-btn.found .hint-ru{color:#8f8}
 .hint-btn.found .hint-en{color:#6a9ec0}
-.hint-btn.mystery{color:#6a6a8a;font-size:22px}
+.hint-btn.mystery{color:var(--text-secondary);font-size:22px}
 
 /* Penalty flash for hint */
 .penalty-flash{
@@ -208,8 +208,8 @@
 /* Toast notification */
 .toast{
   position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-  background:rgba(30,30,50,0.95);border:1px solid #4a4a7e;border-radius:10px;
-  padding:10px 20px;color:#f5e6c8;font-size:15px;font-weight:700;
+  background:var(--bg-surface);border:1px solid var(--btn-border);border-radius:10px;
+  padding:10px 20px;color:var(--text-primary);font-size:15px;font-weight:700;
   z-index:90;pointer-events:none;
   animation:toastFade 1s ease-out forwards;
 }
@@ -1116,7 +1116,7 @@ async function init() {
     setValidationRegex(langConfig.validationRegex);
   }
 
-  var dictUrl = resolveDictionaryUrl(getActiveLanguage(), 'bogglesky');
+  var dictUrl = resolveDictionaryUrl(getActiveLanguage(), 'dictionary');
   try {
     dictionary = await loadDictionary(dictUrl);
     dictionary.forEach(function(e) {

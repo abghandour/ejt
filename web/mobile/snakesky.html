@@ -42,12 +42,12 @@
   text-shadow:0 0 8px rgba(90,138,58,0.5);
 }
 #word-letters .letter.next{
-  color:#c8a830;
+  color:var(--accent);
   text-shadow:0 0 12px rgba(200,168,48,0.6);
   animation:pulse 1s ease-in-out infinite;
 }
 #word-letters .letter.pending{
-  color:#4a4a7e;
+  color:var(--btn-border);
 }
 @keyframes pulse{
   0%,100%{transform:scale(1)}
@@ -70,7 +70,7 @@
 #game-grid{
   display:grid;
   gap:1px;
-  background:rgba(200,168,48,0.08);
+  background:var(--accent-subtle);
   border:1px solid rgba(200,168,48,0.15);
   border-radius:4px;
 }
@@ -83,7 +83,7 @@
   transition:background 0.1s;
 }
 .cell.snake-head{
-  background:#c8a830;
+  background:var(--accent);
   border-radius:4px;
   box-shadow:0 0 8px rgba(200,168,48,0.5);
 }
@@ -92,12 +92,12 @@
   border-radius:3px;
 }
 .cell.letter-dot{
-  color:#6a6a8a;
+  color:var(--text-secondary);
   font-size:clamp(18.75px,4.69vw,30px);
   background:rgba(74,74,126,0.15);
 }
 .cell.letter-dot.next-letter{
-  color:#c8a830;
+  color:var(--accent);
   background:rgba(200,168,48,0.12);
   text-shadow:0 0 6px rgba(200,168,48,0.4);
   animation:cellPulse 1.2s ease-in-out infinite;
@@ -136,7 +136,7 @@
   z-index:100;backdrop-filter:blur(8px);padding:20px;
 }
 #death-overlay.hidden{display:none}
-#death-popup h2{font-size:22px;font-weight:700;color:#c8a830}
+#death-popup h2{font-size:22px;font-weight:700;color:var(--accent)}
 </style>
 </head>
 <body>

@@ -48,8 +48,12 @@
   align-items:center;
   gap:6px;
 }
+#calendar-btn{
+  flex:1;
+  justify-content:center;
+}
 #calendar-date-label{
-  font-size:13px;
+  font-size:16px;
   font-weight:700;
   font-family:'Roboto Condensed',sans-serif;
 }
@@ -830,8 +834,10 @@
     var y = parseInt(dateStr.substring(0, 4), 10);
     var m = parseInt(dateStr.substring(4, 6), 10) - 1;
     var d = parseInt(dateStr.substring(6, 8), 10);
+    var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    return months[m] + ' ' + d + ', ' + y;
+    var date = new Date(y, m, d);
+    return days[date.getDay()] + ', ' + months[m] + ' ' + d + ', ' + y;
   }
 
   function updateCalendarDateLabel() {
