@@ -97,7 +97,7 @@
 
 /* ===== CATEGORY LABEL ===== */
 #category-label{
-  font-size:12px;
+  font-size:24px;
   font-weight:700;
   color:var(--text-secondary);
   text-transform:uppercase;
@@ -105,8 +105,10 @@
   text-align:center;
   padding:6px 16px 0;
   font-family:'Roboto Condensed',sans-serif;
+  display:flex;align-items:center;justify-content:center;gap:8px;
 }
 #category-label:empty{display:none}
+#category-label svg{width:28px;height:28px;fill:var(--accent);flex-shrink:0;border:2px solid var(--accent);border-radius:8px;padding:4px}
 
 /* ===== HINT DISPLAY ===== */
 #hint-display{
@@ -750,9 +752,9 @@
   <div id="start-inner">
     <div id="start-title"><svg style="width:28px;height:28px;fill:#c8a830;vertical-align:middle;margin-right:6px"><use href="#ico-trivia"/></svg>TRIVIATSKY</div>
     <div id="start-hint">Daily trivia challenge. Answer questions, earn stars!</div>
-    <div id="difficulty-select">
-      <button class="difficulty-btn selected" data-mode="easy">Easy<span class="difficulty-desc">With English translation</span></button>
-      <button class="difficulty-btn" data-mode="hard">Hard<span class="difficulty-desc">Russian only</span></button>
+    <div id="difficulty-select" style="display:none">
+      <button class="difficulty-btn" data-mode="easy">Easy<span class="difficulty-desc">With English translation</span></button>
+      <button class="difficulty-btn selected" data-mode="hard">Hard<span class="difficulty-desc">Russian only</span></button>
     </div>
     <button id="start-btn">Start</button>
   </div>
@@ -761,6 +763,10 @@
 <!-- Results Overlay Container -->
 <div id="results-overlay" class="hidden">
   <div id="results-popup">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg style="width:32px;height:32px;fill:#c8a830"><use href="#ico-trivia"/></svg>
+      <span style="font-size:20px;font-weight:700;color:#c8a830;letter-spacing:2px;text-transform:uppercase">Triviatsky</span>
+    </div>
     <h2>Game Over</h2>
     <div id="results-date"></div>
     <div id="results-questions"></div>
@@ -828,12 +834,26 @@
     if (el) el.textContent = formatFriendlyDate(currentDateStr);
   }
 
+  var CATEGORY_ICONS = {
+    'Grammar': '<svg viewBox="0 0 24 24"><path d="M5 4v3h5.5v12h3V7H19V4z"/></svg>',
+    'History': '<svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7a6.97 6.97 0 0 1-4.95-2.05l-1.41 1.41A8.96 8.96 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8z"/></svg>',
+    'Literature': '<svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12z"/></svg>',
+    'Geography': '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>',
+    'Pop Culture': '<svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4z"/></svg>',
+    'Famous Russians': '<svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>',
+    'Idioms': '<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16z"/></svg>',
+    'Vocabulary': '<svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7l1.62-4.33L19.12 17z"/></svg>',
+    'Holidays & Traditions': '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>'
+  };
+
   function updateCategoryLabel() {
     var el = document.getElementById('category-label');
-    if (!el || !currentQuestions || currentQuestions.length === 0 || !gameState) { if (el) el.textContent = ''; return; }
+    if (!el || !currentQuestions || currentQuestions.length === 0 || !gameState) { el.innerHTML = ''; return; }
     var idx = gameState.currentQuestionIndex || 0;
     var cat = currentQuestions[idx] && currentQuestions[idx].category;
-    el.textContent = cat || '';
+    if (!cat) { el.innerHTML = ''; return; }
+    var icon = CATEGORY_ICONS[cat] || '';
+    el.innerHTML = icon + '<span>' + cat + '</span>';
   }
 
   async function loadGameData(dateStr) {
@@ -1386,7 +1406,9 @@
 
     // 4. Wire up Share button
     document.getElementById('share-message').onclick = function() {
-      shareText(formatShareText(state.date, state.questionScores, questions));
+      var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/index.html');
+      var url = base + '?game=triviatsky&d=' + gameState.date;
+      shareWithScreenshot('Think you can beat me? ❓ ' + url, '#results-overlay');
     };
 
     // 5. Wire up Close button
@@ -1922,9 +1944,14 @@
     // 1. Load language config from shared engine
     await loadLanguageConfig();
 
-    // 2. Get current date as YYYYMMDD
-    var now = new Date();
-    currentDateStr = formatDateStr(now.getFullYear(), now.getMonth() + 1, now.getDate());
+    // 2. Get current date as YYYYMMDD (or from URL ?d= param)
+    var urlDate = new URLSearchParams(window.location.search).get('d');
+    if (urlDate && /^\d{8}$/.test(urlDate)) {
+      currentDateStr = urlDate;
+    } else {
+      var now = new Date();
+      currentDateStr = formatDateStr(now.getFullYear(), now.getMonth() + 1, now.getDate());
+    }
     updateCalendarDateLabel();
 
     // 3. Fetch trivia data for today

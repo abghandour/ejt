@@ -1000,12 +1000,9 @@ function playDistractorTone() {
 
 // ===== GAME OVER SCREEN LOGIC =====
 document.getElementById('btn-share').addEventListener('click', function() {
-  var text = 'Fruitsky\n' +
-    'Score: ' + gameState.score + '\n' +
-    'Words: ' + gameState.wordsCompleted + '\n' +
-    'Synonyms: ' + gameState.totalSynonymsSlashed + '\n' +
-    'Play at: ' + window.location.href;
-  shareText(text);
+  var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/index.html');
+  var url = base + '?game=fruitsky';
+  shareWithScreenshot('Think you can beat me? 🍉 ' + url);
 });
 
 // ===== INITIALIZATION =====

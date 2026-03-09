@@ -2192,6 +2192,13 @@
       var closeBtn = clone.querySelector('#results-close-btn');
       if (actions) actions.remove();
       if (closeBtn) closeBtn.remove();
+      // Remove "Game Over" headings
+      var headings = clone.querySelectorAll('h2');
+      for (var h = 0; h < headings.length; h++) {
+        if (headings[h].textContent.trim().toLowerCase().indexOf('game over') !== -1) {
+          headings[h].remove();
+        }
+      }
 
       document.body.appendChild(clone);
       inlineSvgUseElements(clone);
@@ -2325,9 +2332,8 @@
     if (messageBtn) {
       messageBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
-        text += getShareUrl() + '\n';
-        shareWithImage(text, 'sms:?&body=' + encodeURIComponent(text));
+        var url = getShareUrl();
+        shareWithImage('Think you can beat me? 📝 ' + url, 'sms:?&body=' + encodeURIComponent('Think you can beat me? 📝 ' + url));
       });
     }
 

@@ -1049,13 +1049,9 @@ document.getElementById('btn-play-again').addEventListener('click', function() {
 });
 
 document.getElementById('btn-share').addEventListener('click', function() {
-  var diffLabel = { easy: '4×4 Easy', medium: '4×4 Medium', hard: '5×5 Hard' }[game.difficulty];
   var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/index.html');
   var url = base + '?game=bogglesky';
-  var text = 'Bogglesky (' + diffLabel + ')\n' +
-    'Words: ' + game.wordsFound.length + ' | Score: ' + game.score + '\n' +
-    url;
-  shareWithScreenshot(text);
+  shareWithScreenshot('Think you can beat me? 🔠 ' + url);
 });
 
 // ===== GRID EVENT LISTENERS =====

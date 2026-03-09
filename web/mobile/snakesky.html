@@ -197,7 +197,6 @@
       <button class="diff-btn" data-diff="easy"><svg class="diff-icon"><use href="#ico-easy"/></svg>Easy</button>
       <button class="diff-btn active" data-diff="medium"><svg class="diff-icon"><use href="#ico-medium"/></svg>Medium</button>
       <button class="diff-btn" data-diff="hard"><svg class="diff-icon"><use href="#ico-hard"/></svg>Hard</button>
-      <button class="diff-btn" data-diff="extreme"><svg class="diff-icon"><use href="#ico-extreme"/></svg>Extreme</button>
     </div>
     <button id="start-btn"><svg style="width:22px;height:22px;vertical-align:middle;margin-right:4px"><use href="#ico-play"/></svg>Play</button>
   </div>
@@ -592,16 +591,9 @@ document.getElementById('btn-play-again').addEventListener('click', function() {
 });
 
 document.getElementById('btn-share').addEventListener('click', function() {
-  var elapsed = Date.now() - state.startTime;
-  var stats = {
-    wordsCompleted: state.wordsCompleted,
-    score: state.score,
-    survivalTime: elapsed,
-    seed: state.seed,
-    difficulty: state.difficulty
-  };
-  var text = generateShareText(stats);
-  shareWithScreenshot(text);
+  var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/index.html');
+  var url = base + '?game=snakesky';
+  shareWithScreenshot('Think you can beat me? 🐍 ' + url);
 });
 
 // ===== GAME START =====

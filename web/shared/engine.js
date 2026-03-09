@@ -1,6 +1,29 @@
 /* ===== SHARED ENGINE ===== */
 /* Audio, SeedEngine, dictionary helpers, share utility */
 
+// ===== DEBUG SHARE OVERRIDE =====
+(function() {
+  try {
+    var search = window.location.search || (window.parent && window.parent.location.search) || '';
+    if (new URLSearchParams(search).get('debug') === 'true') {
+      navigator.share = async function(data) {
+        console.log('Share data:', data);
+        if (data.files && data.files[0]) {
+          var url = URL.createObjectURL(data.files[0]);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'share-result.png';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+        if (data.text) console.log('Text:', data.text);
+      };
+      navigator.canShare = function() { return true; };
+    }
+  } catch(e) {}
+})();
+
 // ===== AUDIO ENGINE =====
 var audioCtx = null;
 var audioUnlocked = false;
@@ -195,11 +218,10 @@ function shareWithScreenshot(text, overlaySelector) {
   var overlay = document.querySelector(overlaySelector || '#death-overlay');
   if (!overlay) { shareText(text); return; }
 
-  // Use html2canvas if available, otherwise try canvas capture
   _captureElement(overlay).then(function(blob) {
     if (blob && navigator.share && navigator.canShare) {
       var file = new File([blob], 'result.png', { type: 'image/png' });
-      var shareData = { text: text, files: [file] };
+      var shareData = { files: [file], text: text };
       if (navigator.canShare(shareData)) {
         navigator.share(shareData).catch(function(){});
         return;
@@ -213,6 +235,26 @@ function shareWithScreenshot(text, overlaySelector) {
 }
 
 function _captureElement(el) {
+  // Hide elements we don't want in the screenshot
+  var hidden = [];
+  var actions = el.querySelectorAll('.modal-actions, #results-actions, #btn-play-again, #btn-share, #results-close-btn');
+  for (var i = 0; i < actions.length; i++) {
+    actions[i].style.display = 'none';
+    hidden.push(actions[i]);
+  }
+  // Hide "Game Over" headings
+  var headings = el.querySelectorAll('h2');
+  for (var j = 0; j < headings.length; j++) {
+    if (headings[j].textContent.trim().toLowerCase().indexOf('game over') !== -1) {
+      headings[j].style.display = 'none';
+      hidden.push(headings[j]);
+    }
+  }
+
+  function restore() {
+    for (var k = 0; k < hidden.length; k++) hidden[k].style.display = '';
+  }
+
   // Try html2canvas first (loaded dynamically)
   if (window.html2canvas) {
     return window.html2canvas(el, {
@@ -220,10 +262,11 @@ function _captureElement(el) {
       scale: 2,
       useCORS: true
     }).then(function(canvas) {
+      restore();
       return new Promise(function(resolve) {
         canvas.toBlob(function(b) { resolve(b); }, 'image/png');
       });
-    });
+    }).catch(function(err) { restore(); return null; });
   }
 
   // Dynamically load html2canvas
@@ -236,10 +279,11 @@ function _captureElement(el) {
         scale: 2,
         useCORS: true
       }).then(function(canvas) {
+        restore();
         canvas.toBlob(function(b) { resolve(b); }, 'image/png');
-      }).catch(reject);
+      }).catch(function(err) { restore(); reject(err); });
     };
-    script.onerror = function() { resolve(null); };
+    script.onerror = function() { restore(); resolve(null); };
     document.head.appendChild(script);
   });
 }

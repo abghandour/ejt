@@ -2382,6 +2382,13 @@
       var closeBtn = clone.querySelector('#results-close-btn');
       if (actions) actions.remove();
       if (closeBtn) closeBtn.remove();
+      // Remove "Game Over" headings
+      var headings = clone.querySelectorAll('h2');
+      for (var h = 0; h < headings.length; h++) {
+        if (headings[h].textContent.trim().toLowerCase().indexOf('game over') !== -1) {
+          headings[h].remove();
+        }
+      }
 
       // Remove English translations from result rows
       var translationSpans = clone.querySelectorAll('.result-word span');
@@ -2531,9 +2538,8 @@
     if (messageBtn) {
       messageBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        var text = formatShareText(gameState.date, gameState.wordScores, currentWords);
-        text += getShareUrl() + '\n';
-        shareWithImage(text, 'sms:?&body=' + encodeURIComponent(text));
+        var url = getShareUrl();
+        shareWithImage('Think you can beat me? 🌳 ' + url, 'sms:?&body=' + encodeURIComponent('Think you can beat me? 🌳 ' + url));
       });
     }
 
@@ -2546,6 +2552,6 @@
 onGamePause(function() { if (isGameActive) pauseTimer(); });
 onGameResume(function() { if (isGameActive) resumeTimer(); });
 </script>
-<div id="audio-dbg" onclick="this.textContent=getAudioDebug()" style="position:fixed;bottom:4px;left:4px;right:4px;max-height:40vh;overflow:auto;background:rgba(0,0,0,0.85);color:#0f0;font:10px monospace;padding:6px;border-radius:6px;z-index:9999;white-space:pre-wrap;">Tap here for audio debug</div>
+<div id="audio-dbg" onclick="this.textContent=getAudioDebug()" style="display:none;position:fixed;bottom:4px;left:4px;right:4px;max-height:40vh;overflow:auto;background:rgba(0,0,0,0.85);color:#0f0;font:10px monospace;padding:6px;border-radius:6px;z-index:9999;white-space:pre-wrap;">Tap here for audio debug</div>
 </body>
 </html>

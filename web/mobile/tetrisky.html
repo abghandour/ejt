@@ -669,11 +669,9 @@ document.getElementById('btn-play-again').addEventListener('click', function() {
 });
 
 document.getElementById('btn-share').addEventListener('click', function() {
-  var elapsed = Date.now() - state.startTime;
-  var text = 'Tetrisky (' + DIFF_LABELS[state.difficulty] + ')\n' +
-    'Words: ' + state.wordsCompleted + ' | Score: ' + state.score + '\n' +
-    'Time: ' + formatTime(elapsed);
-  shareWithScreenshot(text);
+  var base = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/index.html');
+  var url = base + '?game=tetrisky';
+  shareWithScreenshot('Think you can beat me? 🧱 ' + url);
 });
 
 // ===== GAME START =====
