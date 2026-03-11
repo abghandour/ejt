@@ -24,7 +24,6 @@
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:space-evenly;
   flex:1 1 0;
   min-height:0;
   overflow-y:auto;
@@ -111,7 +110,7 @@
   text-transform:uppercase;
   letter-spacing:1.5px;
   text-align:center;
-  padding:6px 16px 0;
+  padding:24px 16px 12px;
   font-family:'Roboto Condensed',sans-serif;
   display:flex;align-items:center;justify-content:center;gap:8px;
 }
@@ -137,7 +136,7 @@
   flex-direction:column;
   align-items:center;
   gap:6px;
-  padding:10px 16px 0;
+  padding:52px 16px 24px;
   flex-shrink:0;
 }
 .tracker-row{
@@ -174,6 +173,15 @@
   background:var(--btn-bg-active);
   transform:translateY(-1px);
 }
+.tracker-btn:disabled{
+  cursor:default;
+  opacity:0.7;
+}
+.tracker-btn:disabled:hover{
+  border-color:var(--btn-border);
+  background:var(--btn-bg);
+  transform:none;
+}
 .tracker-btn.active{
   border-color:var(--accent);
   box-shadow:0 0 10px var(--accent-glow);
@@ -201,7 +209,8 @@
   align-items:center;
   justify-content:center;
   padding:16px 16px 8px;
-  flex-shrink:0;
+  flex:1 1 0;
+  min-height:0;
 }
 
 #question-image-container{
@@ -313,6 +322,10 @@
 .answer-btn:disabled{
   cursor:not-allowed;
   opacity:0.5;
+}
+.answer-btn.correct:disabled{
+  opacity:1;
+  cursor:default;
 }
 .answer-btn.correct{
   background:var(--tile-correct-bg);
@@ -661,6 +674,66 @@
   color:var(--text-secondary);
   line-height:1.5;
   max-width:280px;
+}
+
+/* ===== QUESTION ENTRANCE ANIMATION ===== */
+@keyframes questionSlideIn{
+  0%{opacity:0;transform:translateY(60px) scale(0.9) rotate(-2deg)}
+  50%{opacity:1;transform:translateY(-10px) scale(1.02) rotate(0.5deg)}
+  70%{transform:translateY(4px) scale(0.99)}
+  100%{transform:translateY(0) scale(1) rotate(0deg)}
+}
+@keyframes answerPop{
+  0%{opacity:0;transform:scale(0.3) rotate(-8deg)}
+  60%{opacity:1;transform:scale(1.08) rotate(1deg)}
+  80%{transform:scale(0.96)}
+  100%{transform:scale(1) rotate(0deg)}
+}
+.question-enter #question-text,
+.question-enter #question-translation,
+.question-enter #hint-display,
+.question-enter #category-label{
+  animation:questionSlideIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.question-enter .answer-btn{
+  animation:answerPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.question-enter .answer-btn:nth-child(1){animation-delay:0.15s}
+.question-enter .answer-btn:nth-child(2){animation-delay:0.25s}
+.question-enter .answer-btn:nth-child(3){animation-delay:0.35s}
+.question-enter .answer-btn:nth-child(4){animation-delay:0.45s}
+.question-enter .answer-btn:nth-child(5){animation-delay:0.55s}
+.question-enter .answer-btn:nth-child(6){animation-delay:0.65s}
+
+/* ===== WRONG ANSWER EXPLOSION ===== */
+@keyframes explodeBtn{
+  0%{transform:scale(1);opacity:1;filter:brightness(1)}
+  15%{transform:scale(1.15);filter:brightness(1.8)}
+  40%{transform:scale(1.3);opacity:0.8;filter:brightness(2)}
+  100%{transform:scale(0.01);opacity:0;filter:brightness(3)}
+}
+.answer-btn.exploding{
+  animation:explodeBtn 0.5s cubic-bezier(0.25,0,0.5,1) forwards;
+  pointer-events:none;
+}
+
+/* ===== EXPLOSION PARTICLES ===== */
+.explosion-particle{
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:50;
+}
+
+/* ===== CONFETTI ===== */
+.confetti-canvas{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  z-index:200;
 }
 
 /* ===== UTILITY ===== */
@@ -1246,6 +1319,11 @@
         btn.classList.add('correct');
       }
 
+      // If already revealed, disable all buttons
+      if (revealed) {
+        btn.disabled = true;
+      }
+
       // Answer text
       var textSpan = document.createElement('span');
       textSpan.textContent = answers[i];
@@ -1324,6 +1402,8 @@
         btn.onclick = (function(idx) {
           return function() { handleTrackerClick(idx); };
         })(i);
+      } else {
+        btn.disabled = true;
       }
 
       row.appendChild(btn);
@@ -1547,6 +1627,16 @@
     // 1. Mark game as started
     gameState.started = true;
 
+    // 1b. Jump to first unanswered question on resume
+    if (gameState.revealed) {
+      for (var fi = 0; fi < gameState.revealed.length; fi++) {
+        if (!gameState.revealed[fi]) {
+          gameState.currentQuestionIndex = fi;
+          break;
+        }
+      }
+    }
+
     // 2. Hide start screen, show game area
     document.getElementById('start-screen').classList.add('hidden');
     document.getElementById('game-area').classList.remove('hidden');
@@ -1560,6 +1650,15 @@
     // 5. Render the current question (supports resume from saved index)
     var qi = gameState.currentQuestionIndex;
     renderQuestion(currentQuestions[qi], qi, gameState);
+
+    // 5b. If current question is already revealed, show Next (or complete if last)
+    if (gameState.revealed[qi]) {
+      if (qi < currentQuestions.length - 1) {
+        showNextButton();
+      } else {
+        completeGame();
+      }
+    }
 
     // 5. If the current question has a timer and hasn't been revealed yet, start countdown
     var q = currentQuestions[qi];
@@ -1596,6 +1695,11 @@
       // === CORRECT ANSWER ===
       // a. Highlight green
       buttons[selectedIndex].classList.add('correct');
+
+      // a2. Disable all buttons
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = true;
+      }
 
       // b. Play correct sound
       soundCorrect();
@@ -2042,6 +2146,148 @@
     // Wire up start button
     document.getElementById('start-btn').onclick = function() { startGame(); };
   }
+
+  // ===== ANIMATION: QUESTION ENTRANCE =====
+  function triggerQuestionEntrance() {
+    var area = document.getElementById('game-area');
+    area.classList.remove('question-enter');
+    void area.offsetWidth; // force reflow
+    area.classList.add('question-enter');
+    setTimeout(function() { area.classList.remove('question-enter'); }, 1200);
+  }
+
+  // ===== ANIMATION: EXPLOSION PARTICLES =====
+  function spawnExplosion(btn) {
+    var rect = btn.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2;
+    var cy = rect.top + rect.height / 2;
+    var colors = ['#ff4444','#ff6b35','#ffa500','#ffcc00','#ff3366','#ff1744'];
+    var count = 18;
+    for (var i = 0; i < count; i++) {
+      var p = document.createElement('div');
+      p.className = 'explosion-particle';
+      var angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+      var dist = 60 + Math.random() * 80;
+      var size = 4 + Math.random() * 8;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = cx + 'px';
+      p.style.top = cy + 'px';
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.boxShadow = '0 0 6px ' + p.style.background;
+      document.body.appendChild(p);
+      var tx = Math.cos(angle) * dist;
+      var ty = Math.sin(angle) * dist - 30;
+      var dur = 400 + Math.random() * 300;
+      p.animate([
+        { transform: 'translate(-50%,-50%) scale(1)', opacity: 1 },
+        { transform: 'translate(calc(-50% + ' + tx + 'px), calc(-50% + ' + ty + 'px)) scale(0)', opacity: 0 }
+      ], { duration: dur, easing: 'cubic-bezier(0.25,0,0.5,1)', fill: 'forwards' });
+      (function(el, d) { setTimeout(function() { el.remove(); }, d); })(p, dur + 50);
+    }
+  }
+
+  // ===== ANIMATION: CONFETTI =====
+  function launchConfetti() {
+    var canvas = document.createElement('canvas');
+    canvas.className = 'confetti-canvas';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+    var pieces = [];
+    var colors = ['#ff6b6b','#ffd93d','#6bcb77','#4d96ff','#ff6bff','#ff9f43','#54a0ff','#ee5a24','#c8a830'];
+    for (var i = 0; i < 120; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: -20 - Math.random() * canvas.height * 0.5,
+        w: 6 + Math.random() * 8,
+        h: 4 + Math.random() * 6,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 4,
+        vy: 2 + Math.random() * 4,
+        rot: Math.random() * Math.PI * 2,
+        rv: (Math.random() - 0.5) * 0.2,
+        wobble: Math.random() * Math.PI * 2,
+        wobbleSpeed: 0.03 + Math.random() * 0.05
+      });
+    }
+    var start = performance.now();
+    var duration = 3000;
+    function frame(now) {
+      var elapsed = now - start;
+      if (elapsed > duration) { canvas.remove(); return; }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      var fade = elapsed > duration * 0.7 ? 1 - (elapsed - duration * 0.7) / (duration * 0.3) : 1;
+      for (var i = 0; i < pieces.length; i++) {
+        var p = pieces[i];
+        p.x += p.vx + Math.sin(p.wobble) * 1.5;
+        p.y += p.vy;
+        p.rot += p.rv;
+        p.wobble += p.wobbleSpeed;
+        p.vy += 0.04;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.globalAlpha = fade;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // ===== PATCH: Hook animations into existing functions =====
+
+  // Wrap renderQuestion to trigger entrance animation
+  var _origRenderQuestion = renderQuestion;
+  renderQuestion = function(question, questionIndex, state) {
+    _origRenderQuestion(question, questionIndex, state);
+    // Only animate entrance for unrevealed questions (not review mode)
+    if (!state.completed) {
+      triggerQuestionEntrance();
+    }
+  };
+
+  // Wrap handleAnswerClick to add explosion + confetti
+  var _origHandleAnswerClick = handleAnswerClick;
+  handleAnswerClick = function(selectedIndex) {
+    var qi = gameState.currentQuestionIndex;
+    if (gameState.revealed[qi]) { _origHandleAnswerClick(selectedIndex); return; }
+
+    var correctShuffledIndex = gameState.correctShuffledIndex[qi];
+    var buttons = document.getElementById('answer-grid').querySelectorAll('.answer-btn');
+
+    if (selectedIndex === correctShuffledIndex) {
+      // Correct — run original then confetti
+      _origHandleAnswerClick(selectedIndex);
+      launchConfetti();
+    } else {
+      // Wrong — apply wrong state first, then explode a clone on top
+      var btn = buttons[selectedIndex];
+      // Run original logic immediately so the disabled wrong button is in place
+      _origHandleAnswerClick(selectedIndex);
+      // Create a clone positioned on top that will explode away
+      var rect = btn.getBoundingClientRect();
+      var clone = btn.cloneNode(true);
+      clone.style.position = 'fixed';
+      clone.style.left = rect.left + 'px';
+      clone.style.top = rect.top + 'px';
+      clone.style.width = rect.width + 'px';
+      clone.style.height = rect.height + 'px';
+      clone.style.margin = '0';
+      clone.style.zIndex = '60';
+      clone.style.pointerEvents = 'none';
+      clone.classList.remove('wrong');
+      clone.disabled = false;
+      document.body.appendChild(clone);
+      spawnExplosion(clone);
+      clone.classList.add('exploding');
+      setTimeout(function() { clone.remove(); }, 600);
+    }
+  };
 
   document.addEventListener('DOMContentLoaded', initGame);
 </script>
