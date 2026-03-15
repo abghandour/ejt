@@ -748,6 +748,7 @@
   <symbol id="ico-share" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></symbol>
   <symbol id="ico-grid" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/></symbol>
   <symbol id="ico-message" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></symbol>
+  <symbol id="ico-leaderboard" viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></symbol>
 </svg>
 
 <!-- Top Bar -->
@@ -818,7 +819,7 @@
     <div id="results-actions">
       <button class="results-btn share-btn" id="results-close-btn" aria-label="Close"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-close"/></svg>Close</button>
       <button class="results-btn share-btn" id="share-message" aria-label="Share"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-share"/></svg>Share</button>
-      <button onclick="showLeaderboard('wordsky', getActiveLanguage(), null)" style="margin-top:8px;width:100%;padding:10px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:14px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:8px;cursor:pointer;">Leaderboard</button>
+      <button class="results-btn share-btn" onclick="showLeaderboard('wordsky', getActiveLanguage(), null)"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-leaderboard"/></svg>Leaderboard</button>
     </div>
   </div>
 </div>

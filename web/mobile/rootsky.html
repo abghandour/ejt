@@ -889,6 +889,7 @@
   <symbol id="ico-root" viewBox="0 0 40 36"><circle cx="20" cy="3" r="2.5" fill="currentColor"/><line x1="20" y1="5.5" x2="10" y2="13" stroke="currentColor" stroke-width="1.4"/><line x1="20" y1="5.5" x2="30" y2="13" stroke="currentColor" stroke-width="1.4"/><circle cx="10" cy="14" r="2.2" fill="currentColor"/><circle cx="30" cy="14" r="2.2" fill="currentColor"/><line x1="10" y1="16.2" x2="5" y2="24" stroke="currentColor" stroke-width="1.2"/><line x1="10" y1="16.2" x2="15" y2="24" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="25" r="1.8" fill="currentColor"/><circle cx="15" cy="25" r="1.8" fill="currentColor"/><line x1="30" y1="16.2" x2="25" y2="24" stroke="currentColor" stroke-width="1.2"/><line x1="30" y1="16.2" x2="35" y2="24" stroke="currentColor" stroke-width="1.2"/><circle cx="25" cy="25" r="1.8" fill="currentColor"/><circle cx="35" cy="25" r="1.8" fill="currentColor"/><line x1="25" y1="26.8" x2="23" y2="32" stroke="currentColor" stroke-width="1"/><line x1="25" y1="26.8" x2="27" y2="32" stroke="currentColor" stroke-width="1"/><line x1="35" y1="26.8" x2="33" y2="32" stroke="currentColor" stroke-width="1"/><line x1="35" y1="26.8" x2="37" y2="32" stroke="currentColor" stroke-width="1"/><circle cx="23" cy="33" r="1.4" fill="currentColor"/><circle cx="27" cy="33" r="1.4" fill="currentColor"/><circle cx="33" cy="33" r="1.4" fill="currentColor"/><circle cx="37" cy="33" r="1.4" fill="currentColor"/></symbol>
   <symbol id="ico-message" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></symbol>
   <symbol id="ico-stopwatch" viewBox="0 0 24 24"><path d="M9 1h6v2H9V1zm3 6a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm1-6h-2V9h2v6zm4.03-7.39 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A7.94 7.94 0 0 0 12 5a8.03 8.03 0 0 0-4.03 1.61"/></symbol>
+  <symbol id="ico-leaderboard" viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></symbol>
 </svg>
 
 <!-- Top Bar -->
@@ -957,7 +958,7 @@
     <div id="results-actions">
       <button class="results-btn share-btn" id="results-close-btn" aria-label="Close"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-close"/></svg>Close</button>
       <button class="results-btn share-btn" id="share-message" aria-label="Share"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-share"/></svg>Share</button>
-      <button onclick="showLeaderboard('rootsky', getActiveLanguage(), null)" style="margin-top:8px;width:100%;padding:10px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:14px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:8px;cursor:pointer;">Leaderboard</button>
+      <button class="results-btn share-btn" onclick="showLeaderboard('rootsky', getActiveLanguage(), null)"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-leaderboard"/></svg>Leaderboard</button>
     </div>
   </div>
 </div>

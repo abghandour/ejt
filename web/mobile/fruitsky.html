@@ -168,6 +168,7 @@
   <symbol id="ico-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
   <symbol id="ico-bomb" viewBox="0 0 24 24"><circle cx="12" cy="14" r="8" fill="currentColor"/><line x1="12" y1="6" x2="14" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="14.5" cy="1.5" r="1.5" fill="currentColor" opacity="0.6"/></symbol>
   <symbol id="ico-pineapple" viewBox="0 0 24 24"><path d="M12 1 C12 1 9 3 10 5 L12 4 L14 5 C15 3 12 1 12 1z" fill="currentColor"/><path d="M9 2.5 C8 3 7.5 4.5 8.5 5.5 L10 5" fill="currentColor"/><path d="M15 2.5 C16 3 16.5 4.5 15.5 5.5 L14 5" fill="currentColor"/><ellipse cx="12" cy="14" rx="5.5" ry="8" fill="currentColor"/><line x1="8" y1="10" x2="16" y2="18" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.6"/><line x1="8" y1="14" x2="16" y2="14" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.6"/><line x1="8" y1="18" x2="16" y2="10" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.6"/><line x1="12" y1="6.5" x2="12" y2="21.5" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.6"/><line x1="9" y1="7.5" x2="9" y2="20" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.5"/><line x1="15" y1="7.5" x2="15" y2="20" stroke="var(--bg-primary,#0e0e1a)" stroke-width="0.5"/></symbol>
+  <symbol id="ico-leaderboard" viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></symbol>
 </svg>
 
 <!-- Top Bar -->
@@ -219,8 +220,8 @@
     <div style="display:flex;gap:8px;width:100%;justify-content:center;flex-wrap:wrap;margin-top:4px">
       <button class="ctrl-btn" id="btn-play-again" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px"><svg style="width:18px;height:18px;fill:currentColor;margin-right:6px"><use href="#ico-play"/></svg>Play Again</button>
       <button class="ctrl-btn" id="btn-share" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px"><svg style="width:16px;height:16px;fill:currentColor;margin-right:6px"><use href="#ico-share"/></svg>Share</button>
+      <button class="ctrl-btn" onclick="showLeaderboard('fruitsky', getActiveLanguage(), null)" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px"><svg style="width:16px;height:16px;fill:currentColor;margin-right:6px"><use href="#ico-leaderboard"/></svg>Leaderboard</button>
     </div>
-    <button onclick="showLeaderboard('fruitsky', getActiveLanguage(), null)" style="margin-top:8px;width:100%;padding:10px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:14px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:8px;cursor:pointer;">Leaderboard</button>
   </div>
 </div>
 

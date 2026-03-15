@@ -222,6 +222,7 @@
   <symbol id="ico-extreme" viewBox="0 0 24 24"><path fill="#c44" d="M12 2C6.48 2 2 6.48 2 12v4c0 1.1.9 2 2 2h1v2c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2h6v2c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2h1c1.1 0 2-.9 2-2v-4c0-5.52-4.48-10-10-10zm-3 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></symbol>
   <symbol id="ico-share" viewBox="0 0 24 24"><path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></symbol>
   <symbol id="ico-scramble" viewBox="0 0 24 24"><path d="M3 18 C5 18 7 16 9 14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M13 8 C15 6 17 4 19 4 L19 1 L23 4.5 L19 8 L19 5" fill="currentColor"/><path d="M13 8 C15 6 17 4.5 19 4.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M3 5 C5 5 7 7 9 9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M13 15 C15 17 17 19 19 19 L19 16 L23 19.5 L19 23 L19 20" fill="currentColor"/><path d="M13 15 C15 17 17 19.5 19 19.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="ico-leaderboard" viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></symbol>
 </svg>
 
 <div id="top-bar">
@@ -275,8 +276,8 @@
     <div class="modal-actions">
       <button class="action-btn" id="btn-play-again"><svg style="width:18px;height:18px;fill:currentColor;margin-right:6px"><use href="#ico-play"/></svg>Play Again</button>
       <button class="action-btn" id="btn-share"><svg style="width:16px;height:16px;fill:currentColor;margin-right:6px"><use href="#ico-share"/></svg>Share</button>
+      <button class="action-btn" onclick="showLeaderboard('scramblisky', getActiveLanguage(), game.difficulty)"><svg style="width:16px;height:16px;fill:currentColor;margin-right:6px"><use href="#ico-leaderboard"/></svg>Leaderboard</button>
     </div>
-    <button onclick="showLeaderboard('scramblisky', getActiveLanguage(), game.difficulty)" style="margin-top:8px;width:100%;padding:10px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:14px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:8px;cursor:pointer;">Leaderboard</button>
   </div>
 </div>
 
