@@ -16,6 +16,9 @@
 <link rel="stylesheet" href="../shared/theme.css">
 <script src="../shared/theme.js"></script>
 <script src="../shared/engine.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/auth.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{overflow:hidden;touch-action:manipulation}
@@ -384,6 +387,10 @@ body{
     <span></span><span></span><span></span>
   </button>
   <nav id="hamburger-menu" role="menu">
+    <a href="#" role="menuitem" id="menu-auth" style="display:none">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      <span id="menu-auth-label">Login with Patreon</span>
+    </a>
     <a href="#" role="menuitem" id="menu-settings">
       <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87a.48.48 0 0 0 .12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.26.41.48.41h3.84c.24 0 .44-.17.48-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg>
       Settings
@@ -427,6 +434,10 @@ body{
       <span></span><span></span><span></span>
     </button>
     <nav id="hamburger-menu-game" role="menu">
+      <a href="#" role="menuitem" id="menu-auth-game" style="display:none">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <span id="menu-auth-game-label">Login with Patreon</span>
+      </a>
       <a href="#" role="menuitem" id="menu-games">
         <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
         Games
@@ -881,6 +892,70 @@ window.addEventListener('message', function(e) {
       setCarouselTransition(true);
       updateCarousel();
     }
+  }
+});
+
+// Auth: show login/logout in menus, sync settings on load
+authReady.then(function() {
+  var authBtn = document.getElementById('menu-auth');
+  var authLabel = document.getElementById('menu-auth-label');
+  var authBtnGame = document.getElementById('menu-auth-game');
+  var authLabelGame = document.getElementById('menu-auth-game-label');
+
+  function updateAuthUI() {
+    if (isSubscriber()) {
+      var name = getDisplayName() || 'Player';
+      authLabel.textContent = name + ' (Logout)';
+      authLabelGame.textContent = name + ' (Logout)';
+    } else {
+      authLabel.textContent = 'Login with Patreon';
+      authLabelGame.textContent = 'Login with Patreon';
+    }
+    authBtn.style.display = '';
+    authBtnGame.style.display = '';
+  }
+
+  updateAuthUI();
+
+  authBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    closePickerMenu();
+    if (isSubscriber()) { logout().then(function() { updateAuthUI(); }); }
+    else { loginWithPatreon(); }
+  });
+  authBtnGame.addEventListener('click', function(e) {
+    e.preventDefault();
+    closeGameMenu();
+    if (isSubscriber()) { logout().then(function() { updateAuthUI(); }); }
+    else { loginWithPatreon(); }
+  });
+
+  // Sync settings from server on login
+  if (isSubscriber()) {
+    loadSettings().then(function() {
+      updateLangFlags();
+      // Re-init with synced language if it changed
+      var syncedLang = getActiveLanguage();
+      var lc = getLanguageConfig(syncedLang);
+      if (lc) {
+        filteredGames = GAMES.filter(function(g) { return lc.games.indexOf(g.id) !== -1; }).map(function(g) {
+          var override = resolveGameName(syncedLang, g.id);
+          if (override) return Object.assign({}, g, { name: override.name || g.name, desc: override.desc || g.desc });
+          return g;
+        });
+        N = filteredGames.length;
+        currentIndex = 0;
+        var lastId = getLastPlayed();
+        if (lastId) {
+          for (var i = 0; i < filteredGames.length; i++) {
+            if (filteredGames[i].id === lastId) { currentIndex = i; break; }
+          }
+        }
+        buildCards();
+        setCarouselTransition(true);
+        updateCarousel();
+      }
+    });
   }
 });
 </script>
