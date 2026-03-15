@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="../shared/theme.css">
 <script src="../shared/theme.js"></script>
 <script src="../shared/engine.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/auth.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -43,6 +46,24 @@ h1{
 <body>
 <div class="settings-wrap">
   <h1>Settings</h1>
+
+  <div id="account-section" style="display:none;margin-bottom:24px;padding:16px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border-subtle);">
+    <div class="section-label">Account</div>
+    <div id="account-logged-out" style="display:none">
+      <button id="btn-login" style="width:100%;padding:12px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:14px;background:var(--accent);color:var(--bg-primary);border:none;border-radius:8px;cursor:pointer;">Login with Patreon</button>
+      <div style="margin-top:8px;font-size:12px;color:var(--text-secondary);text-align:center;">Sync settings, save scores, and view leaderboards</div>
+    </div>
+    <div id="account-logged-in" style="display:none">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:var(--accent);flex-shrink:0"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <span id="account-name" style="font-size:16px;font-weight:700;color:var(--text-primary)"></span>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <a href="./profile.html" id="btn-profile" style="flex:1;padding:10px;text-align:center;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:13px;background:var(--bg-primary);color:var(--accent);border:1px solid var(--accent);border-radius:8px;text-decoration:none;cursor:pointer;">View Profile</a>
+        <button id="btn-logout" style="flex:1;padding:10px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:13px;background:transparent;color:var(--text-secondary);border:1px solid var(--border-subtle);border-radius:8px;cursor:pointer;">Logout</button>
+      </div>
+    </div>
+  </div>
 
   <div class="section-label" style="display:none">Language</div>
   <div id="lang-grid" style="display:none"></div>
@@ -369,6 +390,42 @@ BG_MODES.forEach(function(b) {
     localStorage.setItem(KEY, cb.checked ? '1' : '0');
   });
 })();
+
+// Auth: show account section, sync settings on change
+authReady.then(function() {
+  var section = document.getElementById('account-section');
+  var loggedOut = document.getElementById('account-logged-out');
+  var loggedIn = document.getElementById('account-logged-in');
+
+  section.style.display = '';
+
+  if (isSubscriber()) {
+    loggedOut.style.display = 'none';
+    loggedIn.style.display = '';
+    document.getElementById('account-name').textContent = getDisplayName() || 'Player';
+    document.getElementById('btn-logout').addEventListener('click', function() {
+      logout().then(function() { window.location.reload(); });
+    });
+  } else {
+    loggedOut.style.display = '';
+    loggedIn.style.display = 'none';
+    document.getElementById('btn-login').addEventListener('click', function() {
+      loginWithPatreon();
+    });
+  }
+});
+
+// Sync settings to Supabase on any change
+function trySyncSettings() {
+  authReady.then(function() {
+    if (isSubscriber()) syncSettings(getCurrentSettings());
+  });
+}
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.theme-card') || e.target.closest('.bg-btn') || e.target.closest('.lang-card')) {
+    setTimeout(trySyncSettings, 100);
+  }
+});
 </script>
 </body>
 </html>
