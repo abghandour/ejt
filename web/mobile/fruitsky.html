@@ -220,6 +220,7 @@
       <button class="ctrl-btn" id="btn-play-again" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px"><svg style="width:18px;height:18px;fill:currentColor;margin-right:6px"><use href="#ico-play"/></svg>Play Again</button>
       <button class="ctrl-btn" id="btn-share" style="min-height:44px;font-size:14px;flex:1;max-width:140px;border-radius:8px"><svg style="width:16px;height:16px;fill:currentColor;margin-right:6px"><use href="#ico-share"/></svg>Share</button>
     </div>
+    <button onclick="showLeaderboard('fruitsky', getActiveLanguage(), null)" style="margin-top:8px;width:100%;padding:10px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:14px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:8px;cursor:pointer;">Leaderboard</button>
   </div>
 </div>
 
@@ -227,6 +228,10 @@
 <div id="error-msg"></div>
 
 <script src="../shared/engine.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/auth.js"></script>
+<script src="../shared/leaderboard.js"></script>
 <script>
 // ===== GAME ENGINE FUNCTIONS =====
 
@@ -668,6 +673,16 @@ function showGameOver() {
   document.getElementById('final-words').textContent = gameState.wordsCompleted;
   document.getElementById('final-synonyms').textContent = gameState.totalSynonymsSlashed;
   document.getElementById('gameover-overlay').classList.remove('hidden');
+  authReady.then(function() {
+    if (isSubscriber()) {
+      submitScore('fruitsky', getActiveLanguage(), {
+        score: gameState.score,
+        words_completed: gameState.wordsCompleted,
+        duration_secs: 60,
+        details: { totalSynonymsSlashed: gameState.totalSynonymsSlashed }
+      });
+    }
+  });
 }
 
 function launchWord(diff) {

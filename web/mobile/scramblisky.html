@@ -276,12 +276,17 @@
       <button class="action-btn" id="btn-play-again"><svg style="width:18px;height:18px;fill:currentColor;margin-right:6px"><use href="#ico-play"/></svg>Play Again</button>
       <button class="action-btn" id="btn-share"><svg style="width:16px;height:16px;fill:currentColor;margin-right:6px"><use href="#ico-share"/></svg>Share</button>
     </div>
+    <button onclick="showLeaderboard('scramblisky', getActiveLanguage(), game.difficulty)" style="margin-top:8px;width:100%;padding:10px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:14px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:8px;cursor:pointer;">Leaderboard</button>
   </div>
 </div>
 
 <div id="error-msg"></div>
 
 <script src="../shared/engine.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/auth.js"></script>
+<script src="../shared/leaderboard.js"></script>
 <script>
 // ===== GAME-SPECIFIC SOUNDS =====
 function soundTap() { playTone(600, 0.08, 'sine', 0.05); }
@@ -723,6 +728,17 @@ function endGame() {
   updateTimerDisplay();
   soundGameEnd();
   showEndModal();
+  authReady.then(function() {
+    if (isSubscriber()) {
+      submitScore('scramblisky', getActiveLanguage(), {
+        score: game.score,
+        difficulty: game.difficulty,
+        words_completed: game.wordsCompleted,
+        duration_secs: 90,
+        details: { wordsSkipped: game.wordsSkipped, wrongAttempts: game.wrongAttempts }
+      });
+    }
+  });
 }
 
 function showEndModal() {
