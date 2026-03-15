@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/theme.css">
+<script src="../shared/theme.js"></script>
+<script src="../shared/engine.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/auth.js"></script>
+<script src="../shared/leaderboard.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--bg-primary);color:var(--text-primary);
+  font-family:'Roboto Condensed',sans-serif;
+  display:flex;flex-direction:column;align-items:center;
+  height:100vh;height:100dvh;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  user-select:none;-webkit-user-select:none;
+}
+.profile-wrap{width:100%;max-width:500px;padding:24px 20px;}
+h1{font-family:'Press Start 2P',monospace;font-size:14px;color:var(--accent);text-shadow:0 0 20px var(--accent-glow);margin-bottom:8px;text-align:center;}
+.player-name{text-align:center;font-size:16px;color:var(--text-secondary);margin-bottom:24px;}
+.section-label{font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1.5px;margin:20px 0 12px;}
+.stat-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:border-color 0.2s;}
+.stat-card:active{border-color:var(--accent);}
+.stat-card .game-name{font-weight:700;font-size:15px;color:var(--accent);}
+.stat-card .stat-row{display:flex;gap:16px;font-size:13px;color:var(--text-secondary);}
+.stat-card .stat-val{font-weight:700;color:var(--text-primary);}
+.streak-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.badge{padding:6px 12px;border-radius:20px;font-size:12px;font-weight:700;background:var(--bg-card);border:1px solid var(--border-subtle);color:var(--text-secondary);}
+.badge.active{border-color:var(--accent);color:var(--accent);background:var(--accent-subtle,rgba(200,168,48,0.1));}
+.not-logged-in{text-align:center;padding:60px 20px;color:var(--text-secondary);}
+#loading{text-align:center;padding:40px;color:var(--text-secondary);}
+</style>
+</head>
+<body>
+<div class="profile-wrap">
+  <h1>Profile</h1>
+  <div id="loading">Loading...</div>
+  <div id="profile-content" style="display:none">
+    <div class="player-name" id="display-name"></div>
+    <div class="section-label">Streaks</div>
+    <div class="streak-badges" id="streak-badges"></div>
+    <div class="section-label">Game Stats</div>
+    <div id="stats-list"></div>
+  </div>
+  <div id="not-logged-in" class="not-logged-in" style="display:none">
+    <div style="font-size:18px;margin-bottom:12px;">Not logged in</div>
+    <button onclick="loginWithPatreon()" style="padding:12px 24px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:14px;background:var(--accent);color:var(--bg-primary);border:none;border-radius:8px;cursor:pointer;">Login with Patreon</button>
+  </div>
+</div>
+<script>
+var GAME_NAMES = {
+  bogglesky: 'Bogglesky', scramblisky: 'Scramblisky', snakesky: 'Snakesky',
+  fruitsky: 'Fruitsky', tetrisky: 'Tetrisky', wordsky: 'Wordsky',
+  rootsky: 'Rootsky', triviatsky: 'Triviatsky'
+};
+var STREAK_MILESTONES = [7, 30, 100];
+
+authReady.then(function() {
+  document.getElementById('loading').style.display = 'none';
+
+  if (!isSubscriber()) {
+    document.getElementById('not-logged-in').style.display = '';
+    return;
+  }
+
+  document.getElementById('profile-content').style.display = '';
+  document.getElementById('display-name').textContent = getDisplayName() || 'Player';
+
+  getAllMyStats().then(function(stats) {
+    // Streak badges
+    var bestStreak = 0;
+    stats.forEach(function(s) { if (s.best_streak > bestStreak) bestStreak = s.best_streak; });
+    var badgesEl = document.getElementById('streak-badges');
+    STREAK_MILESTONES.forEach(function(m) {
+      var badge = document.createElement('span');
+      badge.className = 'badge' + (bestStreak >= m ? ' active' : '');
+      badge.textContent = m + '-day streak';
+      badgesEl.appendChild(badge);
+    });
+
+    // Per-game stats
+    var listEl = document.getElementById('stats-list');
+    if (stats.length === 0) {
+      listEl.innerHTML = '<div style="text-align:center;color:var(--text-secondary);padding:20px;">No games played yet</div>';
+      return;
+    }
+    stats.forEach(function(s) {
+      var card = document.createElement('div');
+      card.className = 'stat-card';
+      var streakHtml = s.current_streak > 0
+        ? '<span>Streak: <span class="stat-val">' + s.current_streak + '</span></span>' : '';
+      card.innerHTML =
+        '<div><div class="game-name">' + (GAME_NAMES[s.game] || s.game) + '</div>' +
+        '<div style="font-size:11px;color:var(--text-secondary);margin-top:2px;">' + s.language.toUpperCase() + '</div></div>' +
+        '<div class="stat-row">' +
+        '<span>Played: <span class="stat-val">' + s.games_played + '</span></span>' +
+        '<span>Best: <span class="stat-val">' + s.best_score + '</span></span>' +
+        streakHtml +
+        '</div>';
+      card.addEventListener('click', function() {
+        showLeaderboard(s.game, s.language, null);
+      });
+      listEl.appendChild(card);
+    });
+  });
+});
+</script>
+</body>
+</html>
