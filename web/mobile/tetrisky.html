@@ -90,6 +90,21 @@
 .ctrl-btn{flex:1;min-height:56px;font-size:24px}
 #btn-drop{font-size:18px}
 
+#leaderboard-btn{
+  background:none;
+  border:1px solid var(--btn-border, var(--border-subtle));
+  border-radius:6px;
+  color:var(--accent);
+  padding:4px 8px;
+  cursor:pointer;
+  transition:all 0.2s;
+  line-height:1;
+  margin-left:auto;
+  -webkit-tap-highlight-color:transparent;
+}
+#leaderboard-btn:hover{border-color:var(--accent)}
+#leaderboard-btn svg{width:18px;height:18px;fill:var(--accent);display:block}
+
 /* START SCREEN */
 #start-screen.hidden{display:none}
 #start-inner{margin:0 16px}
@@ -129,6 +144,7 @@
 
 <div id="top-bar">
   <span id="score-display"><svg class="icon-star"><use href="#ico-star"/></svg> 0</span>
+  <button id="leaderboard-btn" aria-label="Leaderboard" onclick="showLeaderboard('tetrisky', getActiveLanguage(), typeof state !== 'undefined' ? state.difficulty : null)"><svg viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></svg></button>
 </div>
 
 <div id="word-area">

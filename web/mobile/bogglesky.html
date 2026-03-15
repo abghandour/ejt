@@ -215,6 +215,21 @@
 }
 @keyframes toastFade{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-70%) scale(0.9)}}
 
+#leaderboard-btn{
+  background:none;
+  border:1px solid var(--btn-border, var(--border-subtle));
+  border-radius:6px;
+  color:var(--accent);
+  padding:4px 8px;
+  cursor:pointer;
+  transition:all 0.2s;
+  line-height:1;
+  margin-left:auto;
+  -webkit-tap-highlight-color:transparent;
+}
+#leaderboard-btn:hover{border-color:var(--accent)}
+#leaderboard-btn svg{width:18px;height:18px;fill:var(--accent);display:block}
+
 @media(max-width:400px){
   #top-bar{padding:6px 10px}
   #info-row{padding:4px 10px}
@@ -255,6 +270,7 @@
 
 <div id="top-bar">
   <span id="score-display"><svg class="icon-star"><use href="#ico-star"/></svg> <span id="score-value">0</span></span>
+  <button id="leaderboard-btn" aria-label="Leaderboard" onclick="showLeaderboard('bogglesky', getActiveLanguage(), typeof game !== 'undefined' ? game.difficulty : null)"><svg viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></svg></button>
 </div>
 
 <div id="info-row">

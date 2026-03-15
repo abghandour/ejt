@@ -20,6 +20,20 @@
 /* ===== TOP BAR ===== */
 #top-bar{position:relative}
 #score-display{font-size:16px;font-weight:700;color:var(--accent)}
+#leaderboard-btn{
+  background:none;
+  border:1px solid var(--btn-border, var(--border-subtle));
+  border-radius:6px;
+  color:var(--accent);
+  padding:4px 8px;
+  cursor:pointer;
+  transition:all 0.2s;
+  line-height:1;
+  margin-left:auto;
+  -webkit-tap-highlight-color:transparent;
+}
+#leaderboard-btn:hover{border-color:var(--accent)}
+#leaderboard-btn svg{width:18px;height:18px;fill:var(--accent);display:block}
 #lives-display{
   display:flex;align-items:center;gap:4px;
   font-size:18px;
@@ -180,6 +194,7 @@
   </span>
   <span id="score-display">0</span>
   <span id="timer-display">1:00</span>
+  <button id="leaderboard-btn" aria-label="Leaderboard" onclick="showLeaderboard('fruitsky', getActiveLanguage(), null)"><svg viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></svg></button>
 </div>
 
 <!-- Main Word Display -->

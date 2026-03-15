@@ -54,6 +54,20 @@
   border-color:var(--accent);
   background:var(--accent-subtle);
 }
+#leaderboard-btn{
+  background:none;
+  border:1px solid var(--btn-border, var(--border-subtle));
+  border-radius:6px;
+  color:var(--accent);
+  padding:4px 8px;
+  cursor:pointer;
+  transition:all 0.2s;
+  line-height:1;
+  margin-left:auto;
+  -webkit-tap-highlight-color:transparent;
+}
+#leaderboard-btn:hover{border-color:var(--accent)}
+#leaderboard-btn svg{width:18px;height:18px;fill:var(--accent);display:block}
 
 #share-btn{
   background:none;
@@ -755,6 +769,7 @@
 <div id="top-bar">
   <button id="share-btn" class="hidden" aria-label="Share results"><svg class="icon icon-md"><use href="#ico-share"/></svg></button>
   <button id="calendar-btn" aria-label="Open calendar"><svg class="icon icon-md"><use href="#ico-calendar"/></svg></button>
+  <button id="leaderboard-btn" aria-label="Leaderboard" onclick="showLeaderboard('wordsky', getActiveLanguage(), null)"><svg viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></svg></button>
 </div>
 
 <!-- Date Row with Clock -->
