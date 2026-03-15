@@ -2,18 +2,24 @@
 
 ## Overview
 
-Add a Patreon-based login system to the "How Janey Learned" mobile PWA, backed by Supabase. Logged-in Patreon members get access to exclusive games (Wordsky, Rootsky, Triviatsky), cross-device progress sync, score history, leaderboards, and streak tracking. Non-logged-in users continue to play free games (Bogglesky, Scramblisky, Snakesky, Fruitsky, Tetrisky) exactly as they do today.
+Add a Patreon-based login system to the "How Janey Learned" mobile PWA, backed by Supabase. All games are playable by everyone. Patreon subscribers get premium features: cross-device progress/settings sync, score saving, leaderboard participation, and streak tracking. Non-subscribers can view leaderboards but cannot submit scores or sync data.
 
-## Game Tiers
+## Access Model
 
-| Tier | Games |
-|---|---|
-| Free (no login) | Bogglesky, Scramblisky, Snakesky, Fruitsky, Tetrisky |
-| Patreon exclusive | Wordsky, Rootsky, Triviatsky |
+All 8 games (Bogglesky, Scramblisky, Snakesky, Fruitsky, Tetrisky, Wordsky, Rootsky, Triviatsky) are playable by everyone — no game is locked behind login.
 
-- Free games are fully playable without any account.
-- Patreon-exclusive games appear on the home screen with a lock icon overlay. Tapping a locked game shows a "Login with Patreon to play" prompt.
-- Gating is configured in a single JS object so games can be moved between tiers by editing one line.
+**Patreon subscriber benefits:**
+- Settings sync across devices (theme, language, background)
+- Daily game state sync across devices (Wordsky, Rootsky, Triviatsky)
+- Score history saved to the server (all games)
+- Scores appear on leaderboards
+- Streak tracking with visual badges
+- Profile page with stats
+
+**Non-subscriber experience:**
+- All games fully playable using localStorage (current behavior)
+- Can view leaderboards (read-only)
+- No score saving, no sync, no profile
 
 ## Auth
 
@@ -23,11 +29,11 @@ Supabase Auth with Patreon as an OAuth provider. Supabase manages sessions, toke
 
 ### Flow
 
-1. User taps "Login with Patreon" (from locked game tile, home screen menu, or settings page).
+1. User taps "Login with Patreon" (from home screen menu, settings page, or leaderboard prompt).
 2. `supabase.auth.signInWithOAuth({ provider: 'patreon', options: { redirectTo: window.location.origin + '/mobile/index.html' } })` redirects to Patreon consent screen.
 3. Patreon redirects back to the Supabase callback URL, which then redirects to the `redirectTo` URL above.
 4. Supabase creates or updates the user record and establishes a session (JWT stored in localStorage by the Supabase client).
-5. On every page load, `auth.js` calls `supabase.auth.getSession()` to check login state. This is async — `auth.js` exposes an `authReady` Promise that resolves once the session check completes. All page-load logic (game tile rendering, redirect guards) must await `authReady` before checking `isLoggedIn()`. If a session exists, the user is treated as a Patreon member with full access.
+5. On every page load, `auth.js` calls `supabase.auth.getSession()` to check login state. This is async — `auth.js` exposes an `authReady` Promise that resolves once the session check completes. All page-load logic must await `authReady` before checking `isLoggedIn()`. If a session exists, the user is treated as a Patreon subscriber with access to premium features.
 
 ### Session Persistence
 
@@ -35,7 +41,7 @@ The Supabase JS client handles session storage and automatic token refresh. Sess
 
 ### Logout
 
-Calling `supabase.auth.signOut()` clears the session. The user returns to the free-tier experience. Local localStorage game data is NOT cleared on logout — it remains as a local cache.
+Calling `supabase.auth.signOut()` clears the session. The user loses access to premium features but all games remain playable. Local localStorage game data is NOT cleared on logout — it remains as a local cache.
 
 ## Database Schema
 
@@ -109,15 +115,15 @@ CREATE INDEX idx_session_scores_user_game ON session_scores(user_id, game);
 CREATE INDEX idx_session_scores_leaderboard ON session_scores(game, language, difficulty, score DESC);
 
 ALTER TABLE session_scores ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Users insert own scores"
+CREATE POLICY "Subscribers insert own scores"
   ON session_scores FOR INSERT
   WITH CHECK (auth.uid() = user_id);
-CREATE POLICY "Authenticated users read all scores"
+CREATE POLICY "Anyone can read scores"
   ON session_scores FOR SELECT
-  USING (auth.role() = 'authenticated');
+  USING (true);
 ```
 
-A single SELECT policy restricted to authenticated users. Anonymous/unauthenticated requests cannot read scores. Leaderboard access is further gated in the client (only shown to logged-in users).
+INSERT restricted to authenticated users (only subscribers will call it from the client). SELECT is public so non-subscribers can view leaderboards.
 
 ### user_game_stats
 
@@ -240,12 +246,9 @@ var SUPABASE_ANON_KEY = 'YOUR_ANON_KEY';
 
 Central auth module. Loaded after `supabase-config.js` and the Supabase JS client (loaded from CDN). Provides:
 
-**Game gating config:**
+**Subscriber check:**
 ```javascript
-var PATREON_ONLY_GAMES = ['wordsky', 'rootsky', 'triviatsky'];
-function isGameLocked(gameId) {
-  return PATREON_ONLY_GAMES.includes(gameId) && !isLoggedIn();
-}
+function isSubscriber() { /* returns true if logged in as Patreon subscriber; only valid after authReady resolves */ }
 ```
 
 **Session helpers:**
@@ -254,7 +257,7 @@ var _supabase = null;
 var _authReady = null; // Promise that resolves when session check completes
 function getSupabase() { /* lazy-init supabase client */ }
 var authReady = /* Promise — all page-load logic must await this before checking isLoggedIn() */;
-function isLoggedIn() { /* returns boolean from cached session; only valid after authReady resolves */ }
+function isLoggedIn() { /* returns boolean from cached session; only valid after authReady resolves; same as isSubscriber for now since login = Patreon subscriber */ }
 function getUser() { /* returns user object or null */ }
 function getDisplayName() { /* reads from profiles table; falls back to user.user_metadata.full_name */ }
 async function loginWithPatreon() { /* supabase.auth.signInWithOAuth */ }
@@ -289,11 +292,8 @@ New page accessible from settings or home screen (when logged in). Displays:
 
 1. Add `<script>` tags for Supabase CDN client, `supabase-config.js`, and `auth.js` (after `engine.js`).
 2. Add a login/logout button to the header area (next to the hamburger menu).
-3. For each game tile, await `authReady` then check `isGameLocked(gameId)` on page load:
-   - If locked: add a lock icon overlay and a CSS class `game-locked`. Click handler calls `loginWithPatreon()` instead of navigating to the game.
-   - If unlocked: normal behavior.
-4. On auth state change (Supabase callback), re-render game tiles to unlock/lock as needed.
-5. If logged in, call `loadSettings()` on page load to sync settings from Supabase.
+3. All game tiles remain fully clickable — no lock overlays.
+4. If subscriber (after `authReady`), call `loadSettings()` on page load to sync settings from Supabase.
 
 ### web/mobile/settings.html
 
@@ -303,19 +303,17 @@ New page accessible from settings or home screen (when logged in). Displays:
    - Not logged in: show "Login with Patreon" button.
 3. On settings change (theme, language, etc.), if logged in, call `syncSettings()` in addition to the existing localStorage write.
 
-### web/mobile/wordsky.html, rootsky.html, triviatsky.html (Patreon-exclusive games)
+### All game HTML files (wordsky, rootsky, triviatsky, bogglesky, scramblisky, snakesky, fruitsky, tetrisky)
 
 1. Add `<script>` tags for auth dependencies.
-2. On page load: await `authReady`, then check `isLoggedIn()`. If not logged in, redirect to `index.html` (prevents direct URL access).
-3. On game init: call `loadDailyState()` — if server has state and localStorage does not (new device), use server state; otherwise use localStorage as-is.
-4. On state change (answer submitted, game phase change): call `syncDailyState()` to persist to Supabase.
-5. On game end: call `submitScore()` with final score data.
+2. All games are playable by everyone — no login redirect or gating.
+3. On game end: if `isSubscriber()`, call `submitScore()` with score data. If not a subscriber, do nothing (current behavior preserved).
+4. Show a "Leaderboard" button on game end screens for all users (subscribers and non-subscribers can view; only subscriber scores are saved).
 
-### web/mobile/bogglesky.html, scramblisky.html, snakesky.html, fruitsky.html, tetrisky.html (free games)
+**Additional for daily games (Wordsky, Rootsky, Triviatsky):**
 
-1. Add `<script>` tags for auth dependencies.
-2. On game end: if `isLoggedIn()`, call `submitScore()` with score data. If not logged in, do nothing (current behavior preserved).
-3. No other changes — game logic, UI, and localStorage usage remain identical.
+5. On game init: if `isSubscriber()`, call `loadDailyState()` — if server has state and localStorage does not (new device), use server state; otherwise use localStorage as-is.
+6. On state change (answer submitted, game phase change): if `isSubscriber()`, call `syncDailyState()` to persist to Supabase.
 
 ## Data Sync Strategy
 
@@ -335,7 +333,7 @@ If Supabase is unreachable, all sync calls silently fail. The game continues to 
 ## Leaderboards
 
 - Per-game, per-language, optionally per-difficulty.
-- Accessible from a "Leaderboard" button on game end screens (only shown to logged-in users).
+- Accessible from a "Leaderboard" button on game end screens (visible to all users).
 - Shows top 20 entries: rank, display name, score, date.
 - Query: `SELECT` from `session_scores` joined with `profiles` table for display names, ordered by `score DESC`, limited to 20.
 - User's own best rank is highlighted if present.
