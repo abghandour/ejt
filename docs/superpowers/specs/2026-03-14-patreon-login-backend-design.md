@@ -238,8 +238,8 @@ CREATE TRIGGER trg_create_profile
 Contains the Supabase project URL and anon key. These are public values safe for browser inclusion.
 
 ```javascript
-var SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';
-var SUPABASE_ANON_KEY = 'YOUR_ANON_KEY';
+var SUPABASE_URL = 'https://yegbudbzbsnrwcjtygro.supabase.co';
+var SUPABASE_ANON_KEY = 'sb_publishable_3Gm24GXAfwQIGdz4UG3FBQ_MpFB438U';
 ```
 
 ### web/shared/auth.js
@@ -250,6 +250,10 @@ Central auth module. Loaded after `supabase-config.js` and the Supabase JS clien
 ```javascript
 function isSubscriber() { /* returns true if logged in as Patreon subscriber; only valid after authReady resolves */ }
 ```
+
+**Debug mock mode:**
+
+When the URL contains `?mock_subscriber=true`, `isSubscriber()` and `isLoggedIn()` return `true` without a real Patreon session. `getDisplayName()` returns `"Debug User"`. All sync helpers operate normally against Supabase (using the anon key) so the full data flow can be tested without OAuth. This flag is only checked when the page is served from `localhost` or `127.0.0.1` — it is ignored on production domains.
 
 **Session helpers:**
 ```javascript
