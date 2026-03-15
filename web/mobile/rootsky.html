@@ -957,6 +957,7 @@
     <div id="results-actions">
       <button class="results-btn share-btn" id="results-close-btn" aria-label="Close"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-close"/></svg>Close</button>
       <button class="results-btn share-btn" id="share-message" aria-label="Share"><svg class="icon icon-sm" style="margin-right:6px"><use href="#ico-share"/></svg>Share</button>
+      <button onclick="showLeaderboard('rootsky', getActiveLanguage(), null)" style="margin-top:8px;width:100%;padding:10px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:14px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:8px;cursor:pointer;">Leaderboard</button>
     </div>
   </div>
 </div>
@@ -987,6 +988,10 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="../shared/engine.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="../shared/supabase-config.js"></script>
+<script src="../shared/auth.js"></script>
+<script src="../shared/leaderboard.js"></script>
 <script>
   // ===== GAME-SPECIFIC SOUNDS =====
   function soundCorrect() {
@@ -1127,6 +1132,12 @@
     try {
       const key = 'rootsky_state_' + state.date;
       localStorage.setItem(key, JSON.stringify(state));
+      // Sync to Supabase
+      if (typeof isSubscriber === 'function' && isSubscriber()) {
+        var isoDate = state.date.substring(0, 4) + '-' + state.date.substring(4, 6) + '-' + state.date.substring(6, 8);
+        var phase = state.completed ? 'finished' : 'playing';
+        syncDailyState('rootsky', getActiveLanguage(), isoDate, state, phase);
+      }
     } catch (e) {
       console.warn('Could not save game state:', e);
     }
@@ -1884,6 +1895,15 @@
         stopTimer();
         saveGameState(gameState);
         saveToHistory(gameState.date, gameState.wordScores, true);
+        if (typeof isSubscriber === 'function' && isSubscriber()) {
+          var totalScore = getTotalScore(gameState.wordScores);
+          submitScore('rootsky', getActiveLanguage(), {
+            score: totalScore,
+            words_completed: gameState.wordScores.length,
+            duration_secs: Math.round(gameState.elapsedMs / 1000),
+            details: { wordScores: gameState.wordScores }
+          });
+        }
         updateTopBar(getTotalScore(gameState.wordScores), gameState.currentWordIndex, 5);
 
         setTimeout(function() {
