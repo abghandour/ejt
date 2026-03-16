@@ -112,7 +112,8 @@ var authReady = (function() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        'apikey': SUPABASE_ANON_KEY
       },
       body: JSON.stringify({ code: patreonCode, redirect_uri: PATREON_REDIRECT_URI })
     })
