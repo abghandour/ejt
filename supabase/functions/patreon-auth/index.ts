@@ -94,24 +94,48 @@ Deno.serve(async (req) => {
         .update({ display_name: fullName, patreon_tier: tierTitle })
         .eq('user_id', userId)
     } else {
-      // Create new user
+      // Try to create new user
+      const userEmail = email || `patreon_${patreonId}@placeholder.local`
       const { data: newUser, error: createError } = await supabaseAdmin.auth.admin.createUser({
-        email: email || `patreon_${patreonId}@placeholder.local`,
+        email: userEmail,
         email_confirm: true,
         user_metadata: { full_name: fullName, patreon_id: patreonId },
       })
-      if (createError || !newUser.user) {
+
+      if (createError) {
+        // If email already exists, find the existing user and link patreon_id
+        if (createError.message?.includes('already') || createError.status === 422) {
+          const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers()
+          const existingUser = users?.find((u: any) => u.email === userEmail)
+          if (!existingUser) {
+            return new Response(
+              JSON.stringify({ error: 'auth_failed', message: 'User exists but could not be found: ' + createError.message }),
+              { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+            )
+          }
+          userId = existingUser.id
+          // Link patreon_id to existing profile
+          await supabaseAdmin
+            .from('profiles')
+            .upsert({ user_id: userId, display_name: fullName, patreon_id: patreonId, patreon_tier: tierTitle })
+        } else {
+          return new Response(
+            JSON.stringify({ error: 'auth_failed', message: 'Failed to create user: ' + createError.message }),
+            { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+          )
+        }
+      } else if (newUser.user) {
+        userId = newUser.user.id
+        // Create profile with patreon_id and tier (the trigger may have already created a row, so upsert)
+        await supabaseAdmin
+          .from('profiles')
+          .upsert({ user_id: userId, display_name: fullName, patreon_id: patreonId, patreon_tier: tierTitle })
+      } else {
         return new Response(
           JSON.stringify({ error: 'auth_failed', message: 'Failed to create user' }),
           { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
         )
       }
-      userId = newUser.user.id
-
-      // Create profile with patreon_id and tier (the trigger may have already created a row, so upsert)
-      await supabaseAdmin
-        .from('profiles')
-        .upsert({ user_id: userId, display_name: fullName, patreon_id: patreonId, patreon_tier: tierTitle })
     }
 
     // 6. Generate session for the user
