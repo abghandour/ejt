@@ -15,18 +15,8 @@ CREATE POLICY "Profiles are publicly readable" ON profiles FOR SELECT USING (tru
 CREATE POLICY "Users update own profile" ON profiles FOR UPDATE
   USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
 
-CREATE OR REPLACE FUNCTION create_profile_on_signup()
-RETURNS TRIGGER AS $$
-BEGIN
-  INSERT INTO profiles (user_id, display_name)
-  VALUES (NEW.id, COALESCE(NEW.raw_user_meta_data->>'full_name', 'Player'));
-  RETURN NEW;
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
-
-CREATE TRIGGER trg_create_profile
-  AFTER INSERT ON auth.users
-  FOR EACH ROW EXECUTE FUNCTION create_profile_on_signup();
+-- Note: No auto-creation trigger on auth.users.
+-- Profile rows are created by the patreon-auth Edge Function via upsert.
 
 -- User settings
 CREATE TABLE user_settings (
