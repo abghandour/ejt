@@ -6,7 +6,9 @@
 -- Profiles (public-facing, auto-created on signup)
 CREATE TABLE profiles (
   user_id      UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
-  display_name TEXT NOT NULL DEFAULT 'Player'
+  display_name TEXT NOT NULL DEFAULT 'Player',
+  patreon_id   TEXT UNIQUE,
+  patreon_tier TEXT
 );
 ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Profiles are publicly readable" ON profiles FOR SELECT USING (true);

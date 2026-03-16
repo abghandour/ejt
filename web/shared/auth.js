@@ -6,6 +6,8 @@ var _supabase = null;
 var _session = null;
 var _mockMode = false;
 var _displayName = null;
+var _patreonTier = null;
+var _authError = null;
 
 // Check mock mode (localhost only)
 (function() {
@@ -27,25 +29,76 @@ function getSupabase() {
   return _supabase;
 }
 
+// Fetch profile data (display name + tier) for a logged-in user
+function _fetchProfile(userId) {
+  return getSupabase().from('profiles')
+    .select('display_name, patreon_tier')
+    .eq('user_id', userId)
+    .single()
+    .then(function(res) {
+      if (res.data) {
+        _displayName = res.data.display_name;
+        _patreonTier = res.data.patreon_tier;
+      }
+    }).catch(function() {});
+}
+
 // authReady resolves once the session check completes.
 // All page-load logic must await this before calling isLoggedIn()/isSubscriber().
 var authReady = (function() {
   if (_mockMode) {
     _session = { mock: true };
     _displayName = 'Debug User';
+    _patreonTier = 'Mock Tier';
     return Promise.resolve();
   }
+
+  // Check for Patreon OAuth code in URL (redirect from Patreon)
+  var urlParams = new URLSearchParams(window.location.search);
+  var patreonCode = urlParams.get('code');
+  if (patreonCode) {
+    // Clean the URL immediately
+    if (window.history.replaceState) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+    // Exchange code for session via Edge Function
+    return fetch(SUPABASE_URL + '/functions/v1/patreon-auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: patreonCode, redirect_uri: PATREON_REDIRECT_URI })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.error) {
+        console.warn('Patreon auth error:', data.message);
+        _authError = data.message || 'Login failed';
+        _session = null;
+        return;
+      }
+      _patreonTier = data.tier || null;
+      // Set the session in Supabase client
+      return getSupabase().auth.setSession({
+        access_token: data.session.access_token,
+        refresh_token: data.session.refresh_token
+      }).then(function(result) {
+        _session = result.data.session;
+        if (_session && _session.user) {
+          return _fetchProfile(_session.user.id);
+        }
+      });
+    })
+    .catch(function(err) {
+      console.warn('Patreon auth failed:', err);
+      _authError = 'Login failed. Please try again.';
+      _session = null;
+    });
+  }
+
+  // No code param — check for existing session
   return getSupabase().auth.getSession().then(function(result) {
     _session = result.data.session;
-    // Fetch display name from profiles table
     if (_session && _session.user) {
-      return getSupabase().from('profiles')
-        .select('display_name')
-        .eq('user_id', _session.user.id)
-        .single()
-        .then(function(res) {
-          if (res.data) _displayName = res.data.display_name;
-        }).catch(function() {});
+      return _fetchProfile(_session.user.id);
     }
   }).catch(function() {
     _session = null;
@@ -83,12 +136,23 @@ function getDisplayName() {
   return _displayName || (getUser() && getUser().user_metadata && getUser().user_metadata.full_name) || 'Player';
 }
 
+function getPatreonTier() {
+  if (_mockMode) return 'Mock Tier';
+  return _patreonTier;
+}
+
+function getAuthError() {
+  return _authError;
+}
+
 async function loginWithPatreon() {
-  var redirectTo = window.location.origin + '/mobile/index.html';
-  return getSupabase().auth.signInWithOAuth({
-    provider: 'patreon',
-    options: { redirectTo: redirectTo }
+  var params = new URLSearchParams({
+    response_type: 'code',
+    client_id: PATREON_CLIENT_ID,
+    redirect_uri: PATREON_REDIRECT_URI,
+    scope: 'identity identity.memberships'
   });
+  window.location.href = 'https://www.patreon.com/oauth2/authorize?' + params.toString();
 }
 
 async function logout() {
