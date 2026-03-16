@@ -10,5 +10,8 @@
     "@fast-check/vitest": "^0.2.4",
     "fast-check": "^4.5.3",
     "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "supabase": "^2.78.1"
   }
 }
