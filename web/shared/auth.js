@@ -219,6 +219,49 @@ function getAuthError() {
   return _authError;
 }
 
+var PATREON_PAGE_URL = 'https://www.patreon.com/u63997582';
+
+function showAuthErrorModal(message) {
+  var existing = document.getElementById('auth-error-modal');
+  if (existing) existing.remove();
+
+  var modal = document.createElement('div');
+  modal.id = 'auth-error-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;z-index:10001;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);';
+
+  var inner = document.createElement('div');
+  inner.style.cssText = 'background:var(--bg-card,#1e1e3a);border:1px solid var(--border-subtle,#333);border-radius:16px;width:90%;max-width:380px;padding:28px 24px;text-align:center;';
+
+  inner.innerHTML =
+    '<div style="font-size:36px;margin-bottom:16px;">🔒</div>' +
+    '<div style="font-family:\'Press Start 2P\',monospace;font-size:12px;color:var(--accent,#c8a830);margin-bottom:16px;">Patreon Members Only</div>' +
+    '<div style="font-size:14px;color:var(--text-secondary,#aaa);margin-bottom:24px;line-height:1.5;">' + (message || 'You need an active Patreon membership to access premium features.') + '</div>' +
+    '<div style="display:flex;gap:10px;">' +
+      '<a href="' + PATREON_PAGE_URL + '" target="_blank" rel="noopener" style="flex:1;padding:12px;font-family:\'Roboto Condensed\',sans-serif;font-weight:700;font-size:14px;background:var(--accent,#c8a830);color:var(--bg-primary,#0e0e1a);border:none;border-radius:8px;text-decoration:none;text-align:center;cursor:pointer;display:block;">Join on Patreon</a>' +
+      '<button id="auth-error-close" style="flex:1;padding:12px;font-family:\'Roboto Condensed\',sans-serif;font-weight:700;font-size:14px;background:transparent;color:var(--text-secondary,#888);border:1px solid var(--border-subtle,#333);border-radius:8px;cursor:pointer;">Close</button>' +
+    '</div>';
+
+  modal.appendChild(inner);
+  modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+  document.body.appendChild(modal);
+  document.getElementById('auth-error-close').addEventListener('click', function() { modal.remove(); });
+}
+
+// Auto-show error modal after auth if there was an error
+(function() {
+  if (_isIframe) return;
+  authReady.then(function() {
+    if (_authError) {
+      // Wait for DOM to be ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() { showAuthErrorModal(_authError); });
+      } else {
+        showAuthErrorModal(_authError);
+      }
+    }
+  });
+})();
+
 async function loginWithPatreon() {
   var params = new URLSearchParams({
     response_type: 'code',
