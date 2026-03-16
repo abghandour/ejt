@@ -43,6 +43,11 @@ function _fetchProfile(userId) {
     }).catch(function() {});
 }
 
+// Detect if running inside an iframe
+var _isIframe = (function() {
+  try { return window.self !== window.top; } catch(e) { return true; }
+})();
+
 // authReady resolves once the session check completes.
 // All page-load logic must await this before calling isLoggedIn()/isSubscriber().
 var authReady = (function() {
@@ -52,6 +57,47 @@ var authReady = (function() {
     _patreonTier = 'Mock Tier';
     return Promise.resolve();
   }
+
+  // IFRAME MODE: request session from parent window via postMessage
+  if (_isIframe) {
+    return new Promise(function(resolve) {
+      var timeout = setTimeout(function() {
+        // Parent didn't respond — no session
+        _session = null;
+        resolve();
+      }, 2000);
+
+      window.addEventListener('message', function handler(e) {
+        if (e.data && e.data.type === 'authSession') {
+          clearTimeout(timeout);
+          window.removeEventListener('message', handler);
+          if (e.data.session) {
+            // Set session in Supabase client so API calls work
+            getSupabase().auth.setSession({
+              access_token: e.data.session.access_token,
+              refresh_token: e.data.session.refresh_token
+            }).then(function(result) {
+              _session = result.data.session;
+              _displayName = e.data.displayName || null;
+              _patreonTier = e.data.patreonTier || null;
+              resolve();
+            }).catch(function() {
+              _session = null;
+              resolve();
+            });
+          } else {
+            _session = null;
+            resolve();
+          }
+        }
+      });
+
+      // Ask parent for session
+      window.parent.postMessage({ type: 'requestAuthSession' }, '*');
+    });
+  }
+
+  // TOP-LEVEL MODE: handle Patreon OAuth code or check existing session
 
   // Check for Patreon OAuth code in URL (redirect from Patreon)
   var urlParams = new URLSearchParams(window.location.search);
@@ -107,9 +153,33 @@ var authReady = (function() {
 
 // Listen for auth state changes (e.g. after OAuth redirect)
 (function() {
-  if (_mockMode) return;
+  if (_mockMode || _isIframe) return;
   getSupabase().auth.onAuthStateChange(function(event, session) {
     _session = session;
+  });
+})();
+
+// TOP-LEVEL: respond to iframe auth session requests
+(function() {
+  if (_isIframe || _mockMode) return;
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.type === 'requestAuthSession') {
+      authReady.then(function() {
+        var responseData = { type: 'authSession', session: null, displayName: null, patreonTier: null };
+        if (_session && _session.access_token) {
+          responseData.session = {
+            access_token: _session.access_token,
+            refresh_token: _session.refresh_token
+          };
+          responseData.displayName = _displayName;
+          responseData.patreonTier = _patreonTier;
+        }
+        var frame = document.getElementById('game-frame');
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.postMessage(responseData, '*');
+        }
+      });
+    }
   });
 })();
 
