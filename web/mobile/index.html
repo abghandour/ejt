@@ -35,6 +35,30 @@ body{
 #banner{width:100%;display:block}
 
 /* Hamburger menu */
+#tier-badge{
+  position:absolute;right:88px;top:14px;
+  padding:3px 10px;
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:10px;font-weight:700;
+  letter-spacing:0.5px;
+  border-radius:10px;
+  white-space:nowrap;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  transition:all 0.2s;
+}
+#tier-badge.premium{
+  color:#c8a830;
+  border:1.5px solid #c8a830;
+  background:rgba(200,168,48,0.1);
+  text-shadow:0 0 8px rgba(200,168,48,0.3);
+  box-shadow:0 0 8px rgba(200,168,48,0.15);
+}
+#tier-badge.free{
+  color:#888;
+  border:1.5px solid #555;
+  background:rgba(100,100,100,0.1);
+}
 #lang-flag-home{
   position:absolute;right:52px;top:10px;height:40px;width:28px;
   display:flex;align-items:center;justify-content:center;
@@ -382,6 +406,7 @@ body{
 
 <div id="banner-wrap">
   <img id="banner" src="../shared/assets/banner.png" alt="How Janey Learned Russian">
+  <span id="tier-badge" class="free" style="display:none">FREE</span>
   <span id="lang-flag-home" aria-hidden="true"></span>
   <button id="hamburger-btn" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -902,20 +927,35 @@ authReady.then(function() {
   var authBtnGame = document.getElementById('menu-auth-game');
   var authLabelGame = document.getElementById('menu-auth-game-label');
 
+  var tierBadge = document.getElementById('tier-badge');
+
   function updateAuthUI() {
     if (isSubscriber()) {
       var name = getDisplayName() || 'Player';
       authLabel.textContent = name + ' (Logout)';
       authLabelGame.textContent = name + ' (Logout)';
+      // Update tier badge
+      var tier = getPatreonTier();
+      tierBadge.textContent = tier || 'PATRON';
+      tierBadge.className = 'premium';
     } else {
       authLabel.textContent = 'Login with Patreon';
       authLabelGame.textContent = 'Login with Patreon';
+      // Show free tier badge
+      tierBadge.textContent = 'FREE';
+      tierBadge.className = 'free';
     }
+    tierBadge.style.display = '';
     authBtn.style.display = '';
     authBtnGame.style.display = '';
   }
 
   updateAuthUI();
+
+  tierBadge.addEventListener('click', function() {
+    if (isSubscriber()) { openInFrame('./profile.html'); }
+    else { loginWithPatreon(); }
+  });
 
   authBtn.addEventListener('click', function(e) {
     e.preventDefault();
