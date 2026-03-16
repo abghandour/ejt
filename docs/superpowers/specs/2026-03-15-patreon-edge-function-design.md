@@ -16,22 +16,24 @@ Replace the non-functional `signInWithOAuth({ provider: 'patreon' })` call with 
 5. `auth.js` detects the `code` param on page load, calls the Supabase Edge Function `patreon-auth` with `{ code, redirect_uri }`.
 6. The Edge Function:
    - Exchanges the code for a Patreon access token via `POST https://www.patreon.com/api/oauth2/token`.
-   - Calls `GET https://www.patreon.com/api/oauth2/v2/identity?include=memberships&fields[user]=full_name,email&fields[member]=patron_status` with the access token.
+   - Calls `GET https://www.patreon.com/api/oauth2/v2/identity?include=memberships.currently_entitled_tiers&fields[user]=full_name,email&fields[member]=patron_status&fields[tier]=title` with the access token.
    - Checks if the user has at least one membership with `patron_status === 'active_patron'`.
+   - Extracts the user's entitled tier titles from the `included` array (type `tier`).
    - If not an active patron: returns `{ error: 'not_a_patron' }`.
-   - If active patron: looks up the user by `patreon_id` in the `profiles` table. If found, generates a session for the existing Supabase user. If not found, creates a new Supabase user via admin API, creates a profile row with `patreon_id` and `display_name`, and generates a session.
-   - Returns `{ session }` containing the access token, refresh token, and user object.
+   - If active patron: looks up the user by `patreon_id` in the `profiles` table. If found, updates `display_name` and `patreon_tier`. If not found, creates a new Supabase user via admin API, creates a profile row with `patreon_id`, `display_name`, and `patreon_tier`.
+   - Returns `{ session, tier }` containing the session and the tier title.
 7. `auth.js` receives the session, stores it via `supabase.auth.setSession()`, and reloads the page.
 
 ## Database Changes
 
-Add `patreon_id` column to `profiles` table:
+Add `patreon_id` and `patreon_tier` columns to `profiles` table:
 
 ```sql
 ALTER TABLE profiles ADD COLUMN patreon_id TEXT UNIQUE;
+ALTER TABLE profiles ADD COLUMN patreon_tier TEXT;
 ```
 
-Update the auto-creation trigger to accept `patreon_id` (the Edge Function will handle profile creation directly, so the trigger only needs to handle non-Patreon signups — no change needed to the trigger).
+`patreon_tier` stores the title of the user's highest entitled tier (e.g., "Gold", "Silver"). Updated on every login. The Edge Function handles profile creation directly, so the auto-creation trigger only needs to handle non-Patreon signups — no change needed to the trigger.
 
 ## Edge Function: `patreon-auth`
 
@@ -54,7 +56,8 @@ Update the auto-creation trigger to accept `patreon_id` (the Edge Function will 
     "access_token": "...",
     "refresh_token": "...",
     "user": { "id": "...", "email": "..." }
-  }
+  },
+  "tier": "Gold"
 }
 ```
 
@@ -115,9 +118,9 @@ Deno.serve(async (req) => {
       )
     }
 
-    // 2. Get Patreon identity + memberships
+    // 2. Get Patreon identity + memberships + tiers
     const identityRes = await fetch(
-      'https://www.patreon.com/api/oauth2/v2/identity?include=memberships&fields[user]=full_name,email&fields[member]=patron_status',
+      'https://www.patreon.com/api/oauth2/v2/identity?include=memberships.currently_entitled_tiers&fields[user]=full_name,email&fields[member]=patron_status&fields[tier]=title',
       { headers: { Authorization: `Bearer ${tokenData.access_token}` } }
     )
     const identity = await identityRes.json()
@@ -133,7 +136,8 @@ Deno.serve(async (req) => {
     }
 
     // 3. Check for active membership
-    const memberships = identity.included?.filter((i: any) => i.type === 'member') || []
+    const included = identity.included || []
+    const memberships = included.filter((i: any) => i.type === 'member')
     const isActivePatron = memberships.some(
       (m: any) => m.attributes?.patron_status === 'active_patron'
     )
@@ -145,7 +149,11 @@ Deno.serve(async (req) => {
       )
     }
 
-    // 4. Create or find Supabase user
+    // 4. Extract tier title from included tier objects
+    const tiers = included.filter((i: any) => i.type === 'tier')
+    const tierTitle = tiers.length > 0 ? tiers[tiers.length - 1].attributes?.title || null : null
+
+    // 5. Create or find Supabase user
     const supabaseAdmin = createClient(
       Deno.env.get('SUPABASE_URL')!,
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
@@ -162,10 +170,10 @@ Deno.serve(async (req) => {
 
     if (existingProfile) {
       userId = existingProfile.user_id
-      // Update display name in case it changed
+      // Update display name and tier in case they changed
       await supabaseAdmin
         .from('profiles')
-        .update({ display_name: fullName })
+        .update({ display_name: fullName, patreon_tier: tierTitle })
         .eq('user_id', userId)
     } else {
       // Create new user
@@ -182,13 +190,13 @@ Deno.serve(async (req) => {
       }
       userId = newUser.user.id
 
-      // Create profile with patreon_id (the trigger may have already created a row, so upsert)
+      // Create profile with patreon_id and tier (the trigger may have already created a row, so upsert)
       await supabaseAdmin
         .from('profiles')
-        .upsert({ user_id: userId, display_name: fullName, patreon_id: patreonId })
+        .upsert({ user_id: userId, display_name: fullName, patreon_id: patreonId, patreon_tier: tierTitle })
     }
 
-    // 5. Generate session for the user
+    // 6. Generate session for the user
     // Use admin.generateLink to create a magic link, then exchange it
     // Or use a custom JWT approach. The simplest: generate a magic link token.
     const { data: linkData, error: linkError } = await supabaseAdmin.auth.admin.generateLink({
@@ -217,7 +225,7 @@ Deno.serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({ session: sessionData.session }),
+      JSON.stringify({ session: sessionData.session, tier: tierTitle }),
       { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
 
@@ -323,10 +331,11 @@ If no `code` param, fall through to the existing `getSession()` flow (unchanged)
 
 ### web/shared/supabase-schema.sql
 
-Add the `patreon_id` column:
+Add the `patreon_id` and `patreon_tier` columns:
 
 ```sql
 ALTER TABLE profiles ADD COLUMN patreon_id TEXT UNIQUE;
+ALTER TABLE profiles ADD COLUMN patreon_tier TEXT;
 ```
 
 ## Secrets Configuration
@@ -368,5 +377,5 @@ Pages can check `_authError` after `authReady` resolves and display a toast/aler
 ## Out of Scope
 
 - Patreon token refresh (session is created via Supabase Auth, which handles its own refresh)
-- Membership tier checking (any active patron qualifies)
+- Tier-based feature gating in the client (tier is stored but all active patrons get the same features for now)
 - Patreon webhook for membership changes (user must re-login if membership lapses)
