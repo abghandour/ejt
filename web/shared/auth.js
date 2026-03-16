@@ -110,7 +110,10 @@ var authReady = (function() {
     // Exchange code for session via Edge Function
     return fetch(SUPABASE_URL + '/functions/v1/patreon-auth', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY
+      },
       body: JSON.stringify({ code: patreonCode, redirect_uri: PATREON_REDIRECT_URI })
     })
     .then(function(res) { return res.json(); })
