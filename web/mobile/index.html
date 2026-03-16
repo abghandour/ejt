@@ -54,6 +54,29 @@ body{
   text-shadow:0 0 8px rgba(200,168,48,0.3);
   box-shadow:0 0 8px rgba(200,168,48,0.15);
 }
+#tier-badge-game{
+  padding:3px 10px;
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:15px;font-weight:700;
+  letter-spacing:0.5px;
+  border-radius:10px;
+  white-space:nowrap;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  transition:all 0.2s;
+}
+#tier-badge-game.premium{
+  color:#c8a830;
+  border:1.5px solid #c8a830;
+  background:rgba(20,18,10,0.85);
+  text-shadow:0 0 8px rgba(200,168,48,0.3);
+  box-shadow:0 0 8px rgba(200,168,48,0.15);
+}
+#tier-badge-game.free{
+  color:#888;
+  border:1.5px solid #555;
+  background:rgba(20,20,20,0.85);
+}
 #tier-badge.free{
   color:#888;
   border:1.5px solid #555;
@@ -454,6 +477,7 @@ body{
   <div id="back-bar-inner">
     <img src="../shared/assets/jt.png" alt="Home" id="back-bar-logo">
     <div id="back-bar-title">How Janey Learned Russian<br><svg class="bar-game-icon" id="bar-game-icon" style="display:none"><use id="bar-game-icon-use" href=""/></svg><span class="bar-game-name" id="bar-game-name"></span></div>
+    <span id="tier-badge-game" class="free" style="display:none;position:static;margin-left:auto;">FREE</span>
     <span id="lang-flag-game" aria-hidden="true"></span>
     <button id="hamburger-btn-game" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -928,24 +952,30 @@ authReady.then(function() {
   var authLabelGame = document.getElementById('menu-auth-game-label');
 
   var tierBadge = document.getElementById('tier-badge');
+  var tierBadgeGame = document.getElementById('tier-badge-game');
 
   function updateAuthUI() {
     if (isSubscriber()) {
       var name = getDisplayName() || 'Player';
       authLabel.textContent = name + ' (Logout)';
       authLabelGame.textContent = name + ' (Logout)';
-      // Update tier badge
+      // Update tier badges
       var tier = getPatreonTier();
       tierBadge.textContent = tier || 'PATRON';
       tierBadge.className = 'premium';
+      tierBadgeGame.textContent = tier || 'PATRON';
+      tierBadgeGame.className = 'premium';
     } else {
       authLabel.textContent = 'Login with Patreon';
       authLabelGame.textContent = 'Login with Patreon';
-      // Show free tier badge
+      // Show free tier badges
       tierBadge.textContent = 'FREE';
       tierBadge.className = 'free';
+      tierBadgeGame.textContent = 'FREE';
+      tierBadgeGame.className = 'free';
     }
     tierBadge.style.display = '';
+    tierBadgeGame.style.display = '';
     authBtn.style.display = '';
     authBtnGame.style.display = '';
   }
@@ -953,6 +983,10 @@ authReady.then(function() {
   updateAuthUI();
 
   tierBadge.addEventListener('click', function() {
+    if (isSubscriber()) { openInFrame('./profile.html'); }
+    else { loginWithPatreon(); }
+  });
+  tierBadgeGame.addEventListener('click', function() {
     if (isSubscriber()) { openInFrame('./profile.html'); }
     else { loginWithPatreon(); }
   });
