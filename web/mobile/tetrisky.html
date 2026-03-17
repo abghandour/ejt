@@ -144,7 +144,7 @@
 
 <div id="top-bar">
   <span id="score-display"><svg class="icon-star"><use href="#ico-star"/></svg> 0</span>
-  <button id="leaderboard-btn" aria-label="Leaderboard" onclick="showLeaderboard('tetrisky', getActiveLanguage(), typeof state !== 'undefined' ? state.difficulty : null)"><svg viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></svg></button>
+  <button id="leaderboard-btn" aria-label="Leaderboard" onclick="showLeaderboard('tetrisky', getActiveLanguage(), state ? state.difficulty : null)"><svg viewBox="0 0 24 24"><path d="M2 21h6v-7H2v7zm8 0h6V3h-6v18zm8 0h6v-11h-6v11z"/></svg></button>
 </div>
 
 <div id="word-area">
