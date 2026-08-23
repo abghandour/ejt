@@ -1,0 +1,10377 @@
+[
+  {
+    "word": "кот",
+    "translation": "cat",
+    "type": "noun"
+  },
+  {
+    "word": "дом",
+    "translation": "house",
+    "type": "noun"
+  },
+  {
+    "word": "мир",
+    "translation": "world",
+    "type": "noun"
+  },
+  {
+    "word": "год",
+    "translation": "year",
+    "type": "noun"
+  },
+  {
+    "word": "день",
+    "translation": "day",
+    "type": "noun"
+  },
+  {
+    "word": "раз",
+    "translation": "time",
+    "type": "noun"
+  },
+  {
+    "word": "рука",
+    "translation": "hand",
+    "type": "noun"
+  },
+  {
+    "word": "дело",
+    "translation": "matter",
+    "type": "noun"
+  },
+  {
+    "word": "глаз",
+    "translation": "eye",
+    "type": "noun"
+  },
+  {
+    "word": "жизнь",
+    "translation": "life",
+    "type": "noun"
+  },
+  {
+    "word": "вода",
+    "translation": "water",
+    "type": "noun"
+  },
+  {
+    "word": "земля",
+    "translation": "land",
+    "type": "noun"
+  },
+  {
+    "word": "город",
+    "translation": "city",
+    "type": "noun"
+  },
+  {
+    "word": "друг",
+    "translation": "friend",
+    "type": "noun"
+  },
+  {
+    "word": "путь",
+    "translation": "path",
+    "type": "noun"
+  },
+  {
+    "word": "час",
+    "translation": "hour",
+    "type": "noun"
+  },
+  {
+    "word": "сила",
+    "translation": "force",
+    "type": "noun"
+  },
+  {
+    "word": "слово",
+    "translation": "word",
+    "type": "noun"
+  },
+  {
+    "word": "место",
+    "translation": "place",
+    "type": "noun"
+  },
+  {
+    "word": "лицо",
+    "translation": "face",
+    "type": "noun"
+  },
+  {
+    "word": "свет",
+    "translation": "light",
+    "type": "noun"
+  },
+  {
+    "word": "голос",
+    "translation": "voice",
+    "type": "noun"
+  },
+  {
+    "word": "душа",
+    "translation": "soul",
+    "type": "noun"
+  },
+  {
+    "word": "дверь",
+    "translation": "door",
+    "type": "noun"
+  },
+  {
+    "word": "стол",
+    "translation": "table",
+    "type": "noun"
+  },
+  {
+    "word": "ночь",
+    "translation": "night",
+    "type": "noun"
+  },
+  {
+    "word": "море",
+    "translation": "sea",
+    "type": "noun"
+  },
+  {
+    "word": "война",
+    "translation": "war",
+    "type": "noun"
+  },
+  {
+    "word": "книга",
+    "translation": "book",
+    "type": "noun"
+  },
+  {
+    "word": "брат",
+    "translation": "brother",
+    "type": "noun"
+  },
+  {
+    "word": "отец",
+    "translation": "father",
+    "type": "noun"
+  },
+  {
+    "word": "мать",
+    "translation": "mother",
+    "type": "noun"
+  },
+  {
+    "word": "сын",
+    "translation": "son",
+    "type": "noun"
+  },
+  {
+    "word": "нога",
+    "translation": "leg",
+    "type": "noun"
+  },
+  {
+    "word": "тело",
+    "translation": "body",
+    "type": "noun"
+  },
+  {
+    "word": "огонь",
+    "translation": "fire",
+    "type": "noun"
+  },
+  {
+    "word": "край",
+    "translation": "edge",
+    "type": "noun"
+  },
+  {
+    "word": "закон",
+    "translation": "law",
+    "type": "noun"
+  },
+  {
+    "word": "народ",
+    "translation": "people",
+    "type": "noun"
+  },
+  {
+    "word": "класс",
+    "translation": "class",
+    "type": "noun"
+  },
+  {
+    "word": "школа",
+    "translation": "school",
+    "type": "noun"
+  },
+  {
+    "word": "улица",
+    "translation": "street",
+    "type": "noun"
+  },
+  {
+    "word": "поле",
+    "translation": "field",
+    "type": "noun"
+  },
+  {
+    "word": "лес",
+    "translation": "forest",
+    "type": "noun"
+  },
+  {
+    "word": "река",
+    "translation": "river",
+    "type": "noun"
+  },
+  {
+    "word": "гора",
+    "translation": "mountain",
+    "type": "noun"
+  },
+  {
+    "word": "небо",
+    "translation": "sky",
+    "type": "noun"
+  },
+  {
+    "word": "ветер",
+    "translation": "wind",
+    "type": "noun"
+  },
+  {
+    "word": "снег",
+    "translation": "snow",
+    "type": "noun"
+  },
+  {
+    "word": "дождь",
+    "translation": "rain",
+    "type": "noun"
+  },
+  {
+    "word": "луна",
+    "translation": "moon",
+    "type": "noun"
+  },
+  {
+    "word": "цвет",
+    "translation": "color",
+    "type": "noun"
+  },
+  {
+    "word": "песня",
+    "translation": "song",
+    "type": "noun"
+  },
+  {
+    "word": "птица",
+    "translation": "bird",
+    "type": "noun"
+  },
+  {
+    "word": "рыба",
+    "translation": "fish",
+    "type": "noun"
+  },
+  {
+    "word": "конь",
+    "translation": "horse",
+    "type": "noun"
+  },
+  {
+    "word": "хлеб",
+    "translation": "bread",
+    "type": "noun"
+  },
+  {
+    "word": "масло",
+    "translation": "butter",
+    "type": "noun"
+  },
+  {
+    "word": "соль",
+    "translation": "salt",
+    "type": "noun"
+  },
+  {
+    "word": "мясо",
+    "translation": "meat",
+    "type": "noun"
+  },
+  {
+    "word": "суп",
+    "translation": "soup",
+    "type": "noun"
+  },
+  {
+    "word": "чай",
+    "translation": "tea",
+    "type": "noun"
+  },
+  {
+    "word": "кофе",
+    "translation": "coffee",
+    "type": "noun"
+  },
+  {
+    "word": "вино",
+    "translation": "wine",
+    "type": "noun"
+  },
+  {
+    "word": "пиво",
+    "translation": "beer",
+    "type": "noun"
+  },
+  {
+    "word": "сок",
+    "translation": "juice",
+    "type": "noun"
+  },
+  {
+    "word": "торт",
+    "translation": "cake",
+    "type": "noun"
+  },
+  {
+    "word": "сыр",
+    "translation": "cheese",
+    "type": "noun"
+  },
+  {
+    "word": "яйцо",
+    "translation": "egg",
+    "type": "noun"
+  },
+  {
+    "word": "рис",
+    "translation": "rice",
+    "type": "noun"
+  },
+  {
+    "word": "каша",
+    "translation": "porridge",
+    "type": "noun"
+  },
+  {
+    "word": "нож",
+    "translation": "knife",
+    "type": "noun"
+  },
+  {
+    "word": "вилка",
+    "translation": "fork",
+    "type": "noun"
+  },
+  {
+    "word": "ложка",
+    "translation": "spoon",
+    "type": "noun"
+  },
+  {
+    "word": "чашка",
+    "translation": "cup",
+    "type": "noun"
+  },
+  {
+    "word": "окно",
+    "translation": "window",
+    "type": "noun"
+  },
+  {
+    "word": "стена",
+    "translation": "wall",
+    "type": "noun"
+  },
+  {
+    "word": "пол",
+    "translation": "floor",
+    "type": "noun"
+  },
+  {
+    "word": "крыша",
+    "translation": "roof",
+    "type": "noun"
+  },
+  {
+    "word": "ключ",
+    "translation": "key",
+    "type": "noun"
+  },
+  {
+    "word": "замок",
+    "translation": "lock",
+    "type": "noun"
+  },
+  {
+    "word": "мост",
+    "translation": "bridge",
+    "type": "noun"
+  },
+  {
+    "word": "парк",
+    "translation": "park",
+    "type": "noun"
+  },
+  {
+    "word": "сад",
+    "translation": "garden",
+    "type": "noun"
+  },
+  {
+    "word": "двор",
+    "translation": "yard",
+    "type": "noun"
+  },
+  {
+    "word": "дорога",
+    "translation": "road",
+    "type": "noun"
+  },
+  {
+    "word": "поезд",
+    "translation": "train",
+    "type": "noun"
+  },
+  {
+    "word": "билет",
+    "translation": "ticket",
+    "type": "noun"
+  },
+  {
+    "word": "карта",
+    "translation": "map",
+    "type": "noun"
+  },
+  {
+    "word": "цена",
+    "translation": "price",
+    "type": "noun"
+  },
+  {
+    "word": "банк",
+    "translation": "bank",
+    "type": "noun"
+  },
+  {
+    "word": "рынок",
+    "translation": "market",
+    "type": "noun"
+  },
+  {
+    "word": "работа",
+    "translation": "work",
+    "type": "noun"
+  },
+  {
+    "word": "офис",
+    "translation": "office",
+    "type": "noun"
+  },
+  {
+    "word": "врач",
+    "translation": "doctor",
+    "type": "noun"
+  },
+  {
+    "word": "урок",
+    "translation": "lesson",
+    "type": "noun"
+  },
+  {
+    "word": "задача",
+    "translation": "task",
+    "type": "noun"
+  },
+  {
+    "word": "ответ",
+    "translation": "answer",
+    "type": "noun"
+  },
+  {
+    "word": "вопрос",
+    "translation": "question",
+    "type": "noun"
+  },
+  {
+    "word": "правда",
+    "translation": "truth",
+    "type": "noun"
+  },
+  {
+    "word": "ложь",
+    "translation": "lie",
+    "type": "noun"
+  },
+  {
+    "word": "помощь",
+    "translation": "help",
+    "type": "noun"
+  },
+  {
+    "word": "совет",
+    "translation": "advice",
+    "type": "noun"
+  },
+  {
+    "word": "выбор",
+    "translation": "choice",
+    "type": "noun"
+  },
+  {
+    "word": "шанс",
+    "translation": "chance",
+    "type": "noun"
+  },
+  {
+    "word": "успех",
+    "translation": "success",
+    "type": "noun"
+  },
+  {
+    "word": "страх",
+    "translation": "fear",
+    "type": "noun"
+  },
+  {
+    "word": "боль",
+    "translation": "pain",
+    "type": "noun"
+  },
+  {
+    "word": "любовь",
+    "translation": "love",
+    "type": "noun"
+  },
+  {
+    "word": "мечта",
+    "translation": "dream",
+    "type": "noun"
+  },
+  {
+    "word": "вера",
+    "translation": "faith",
+    "type": "noun"
+  },
+  {
+    "word": "смерть",
+    "translation": "death",
+    "type": "noun"
+  },
+  {
+    "word": "кровь",
+    "translation": "blood",
+    "type": "noun"
+  },
+  {
+    "word": "сердце",
+    "translation": "heart",
+    "type": "noun"
+  },
+  {
+    "word": "голова",
+    "translation": "head",
+    "type": "noun"
+  },
+  {
+    "word": "спина",
+    "translation": "back",
+    "type": "noun"
+  },
+  {
+    "word": "палец",
+    "translation": "finger",
+    "type": "noun"
+  },
+  {
+    "word": "зуб",
+    "translation": "tooth",
+    "type": "noun"
+  },
+  {
+    "word": "губа",
+    "translation": "lip",
+    "type": "noun"
+  },
+  {
+    "word": "нос",
+    "translation": "nose",
+    "type": "noun"
+  },
+  {
+    "word": "ухо",
+    "translation": "ear",
+    "type": "noun"
+  },
+  {
+    "word": "шея",
+    "translation": "neck",
+    "type": "noun"
+  },
+  {
+    "word": "плечо",
+    "translation": "shoulder",
+    "type": "noun"
+  },
+  {
+    "word": "грудь",
+    "translation": "chest",
+    "type": "noun"
+  },
+  {
+    "word": "живот",
+    "translation": "belly",
+    "type": "noun"
+  },
+  {
+    "word": "кожа",
+    "translation": "skin",
+    "type": "noun"
+  },
+  {
+    "word": "волос",
+    "translation": "hair",
+    "type": "noun"
+  },
+  {
+    "word": "шапка",
+    "translation": "hat",
+    "type": "noun"
+  },
+  {
+    "word": "юбка",
+    "translation": "skirt",
+    "type": "noun"
+  },
+  {
+    "word": "обувь",
+    "translation": "shoes",
+    "type": "noun"
+  },
+  {
+    "word": "сумка",
+    "translation": "bag",
+    "type": "noun"
+  },
+  {
+    "word": "зонт",
+    "translation": "umbrella",
+    "type": "noun"
+  },
+  {
+    "word": "часы",
+    "translation": "watch",
+    "type": "noun"
+  },
+  {
+    "word": "кольцо",
+    "translation": "ring",
+    "type": "noun"
+  },
+  {
+    "word": "письмо",
+    "translation": "letter",
+    "type": "noun"
+  },
+  {
+    "word": "фильм",
+    "translation": "film",
+    "type": "noun"
+  },
+  {
+    "word": "театр",
+    "translation": "theater",
+    "type": "noun"
+  },
+  {
+    "word": "музыка",
+    "translation": "music",
+    "type": "noun"
+  },
+  {
+    "word": "танец",
+    "translation": "dance",
+    "type": "noun"
+  },
+  {
+    "word": "игра",
+    "translation": "game",
+    "type": "noun"
+  },
+  {
+    "word": "мяч",
+    "translation": "ball",
+    "type": "noun"
+  },
+  {
+    "word": "спорт",
+    "translation": "sport",
+    "type": "noun"
+  },
+  {
+    "word": "бег",
+    "translation": "running",
+    "type": "noun"
+  },
+  {
+    "word": "камень",
+    "translation": "stone",
+    "type": "noun"
+  },
+  {
+    "word": "песок",
+    "translation": "sand",
+    "type": "noun"
+  },
+  {
+    "word": "трава",
+    "translation": "grass",
+    "type": "noun"
+  },
+  {
+    "word": "лист",
+    "translation": "leaf",
+    "type": "noun"
+  },
+  {
+    "word": "корень",
+    "translation": "root",
+    "type": "noun"
+  },
+  {
+    "word": "ягода",
+    "translation": "berry",
+    "type": "noun"
+  },
+  {
+    "word": "гриб",
+    "translation": "mushroom",
+    "type": "noun"
+  },
+  {
+    "word": "роза",
+    "translation": "rose",
+    "type": "noun"
+  },
+  {
+    "word": "кошка",
+    "translation": "cat f",
+    "type": "noun"
+  },
+  {
+    "word": "мышь",
+    "translation": "mouse",
+    "type": "noun"
+  },
+  {
+    "word": "волк",
+    "translation": "wolf",
+    "type": "noun"
+  },
+  {
+    "word": "лиса",
+    "translation": "fox",
+    "type": "noun"
+  },
+  {
+    "word": "заяц",
+    "translation": "hare",
+    "type": "noun"
+  },
+  {
+    "word": "змея",
+    "translation": "snake",
+    "type": "noun"
+  },
+  {
+    "word": "муха",
+    "translation": "fly",
+    "type": "noun"
+  },
+  {
+    "word": "пчела",
+    "translation": "bee",
+    "type": "noun"
+  },
+  {
+    "word": "паук",
+    "translation": "spider",
+    "type": "noun"
+  },
+  {
+    "word": "жук",
+    "translation": "beetle",
+    "type": "noun"
+  },
+  {
+    "word": "крыло",
+    "translation": "wing",
+    "type": "noun"
+  },
+  {
+    "word": "хвост",
+    "translation": "tail",
+    "type": "noun"
+  },
+  {
+    "word": "лапа",
+    "translation": "paw",
+    "type": "noun"
+  },
+  {
+    "word": "перо",
+    "translation": "feather",
+    "type": "noun"
+  },
+  {
+    "word": "клетка",
+    "translation": "cage",
+    "type": "noun"
+  },
+  {
+    "word": "гнездо",
+    "translation": "nest",
+    "type": "noun"
+  },
+  {
+    "word": "нитка",
+    "translation": "thread",
+    "type": "noun"
+  },
+  {
+    "word": "игла",
+    "translation": "needle",
+    "type": "noun"
+  },
+  {
+    "word": "ткань",
+    "translation": "fabric",
+    "type": "noun"
+  },
+  {
+    "word": "бумага",
+    "translation": "paper",
+    "type": "noun"
+  },
+  {
+    "word": "ручка",
+    "translation": "pen",
+    "type": "noun"
+  },
+  {
+    "word": "доска",
+    "translation": "board",
+    "type": "noun"
+  },
+  {
+    "word": "мел",
+    "translation": "chalk",
+    "type": "noun"
+  },
+  {
+    "word": "краска",
+    "translation": "paint",
+    "type": "noun"
+  },
+  {
+    "word": "кисть",
+    "translation": "brush",
+    "type": "noun"
+  },
+  {
+    "word": "рамка",
+    "translation": "frame",
+    "type": "noun"
+  },
+  {
+    "word": "лампа",
+    "translation": "lamp",
+    "type": "noun"
+  },
+  {
+    "word": "свеча",
+    "translation": "candle",
+    "type": "noun"
+  },
+  {
+    "word": "дым",
+    "translation": "smoke",
+    "type": "noun"
+  },
+  {
+    "word": "пепел",
+    "translation": "ash",
+    "type": "noun"
+  },
+  {
+    "word": "уголь",
+    "translation": "coal",
+    "type": "noun"
+  },
+  {
+    "word": "золото",
+    "translation": "gold",
+    "type": "noun"
+  },
+  {
+    "word": "медь",
+    "translation": "copper",
+    "type": "noun"
+  },
+  {
+    "word": "цепь",
+    "translation": "chain",
+    "type": "noun"
+  },
+  {
+    "word": "крест",
+    "translation": "cross",
+    "type": "noun"
+  },
+  {
+    "word": "флаг",
+    "translation": "flag",
+    "type": "noun"
+  },
+  {
+    "word": "знак",
+    "translation": "sign",
+    "type": "noun"
+  },
+  {
+    "word": "номер",
+    "translation": "number",
+    "type": "noun"
+  },
+  {
+    "word": "буква",
+    "translation": "letter",
+    "type": "noun"
+  },
+  {
+    "word": "текст",
+    "translation": "text",
+    "type": "noun"
+  },
+  {
+    "word": "строка",
+    "translation": "line",
+    "type": "noun"
+  },
+  {
+    "word": "страна",
+    "translation": "country",
+    "type": "noun"
+  },
+  {
+    "word": "остров",
+    "translation": "island",
+    "type": "noun"
+  },
+  {
+    "word": "берег",
+    "translation": "shore",
+    "type": "noun"
+  },
+  {
+    "word": "озеро",
+    "translation": "lake",
+    "type": "noun"
+  },
+  {
+    "word": "гроза",
+    "translation": "storm",
+    "type": "noun"
+  },
+  {
+    "word": "мороз",
+    "translation": "frost",
+    "type": "noun"
+  },
+  {
+    "word": "лёд",
+    "translation": "ice",
+    "type": "noun"
+  },
+  {
+    "word": "тень",
+    "translation": "shadow",
+    "type": "noun"
+  },
+  {
+    "word": "туман",
+    "translation": "fog",
+    "type": "noun"
+  },
+  {
+    "word": "пыль",
+    "translation": "dust",
+    "type": "noun"
+  },
+  {
+    "word": "грязь",
+    "translation": "dirt",
+    "type": "noun"
+  },
+  {
+    "word": "запах",
+    "translation": "smell",
+    "type": "noun"
+  },
+  {
+    "word": "вкус",
+    "translation": "taste",
+    "type": "noun"
+  },
+  {
+    "word": "звук",
+    "translation": "sound",
+    "type": "noun"
+  },
+  {
+    "word": "шум",
+    "translation": "noise",
+    "type": "noun"
+  },
+  {
+    "word": "покой",
+    "translation": "peace",
+    "type": "noun"
+  },
+  {
+    "word": "сон",
+    "translation": "sleep",
+    "type": "noun"
+  },
+  {
+    "word": "утро",
+    "translation": "morning",
+    "type": "noun"
+  },
+  {
+    "word": "вечер",
+    "translation": "evening",
+    "type": "noun"
+  },
+  {
+    "word": "обед",
+    "translation": "lunch",
+    "type": "noun"
+  },
+  {
+    "word": "ужин",
+    "translation": "dinner",
+    "type": "noun"
+  },
+  {
+    "word": "среда",
+    "translation": "wednesday",
+    "type": "noun"
+  },
+  {
+    "word": "месяц",
+    "translation": "month",
+    "type": "noun"
+  },
+  {
+    "word": "неделя",
+    "translation": "week",
+    "type": "noun"
+  },
+  {
+    "word": "весна",
+    "translation": "spring",
+    "type": "noun"
+  },
+  {
+    "word": "лето",
+    "translation": "summer",
+    "type": "noun"
+  },
+  {
+    "word": "осень",
+    "translation": "autumn",
+    "type": "noun"
+  },
+  {
+    "word": "зима",
+    "translation": "winter",
+    "type": "noun"
+  },
+  {
+    "word": "жара",
+    "translation": "heat",
+    "type": "noun"
+  },
+  {
+    "word": "холод",
+    "translation": "cold",
+    "type": "noun"
+  },
+  {
+    "word": "воздух",
+    "translation": "air",
+    "type": "noun"
+  },
+  {
+    "word": "дыра",
+    "translation": "hole",
+    "type": "noun"
+  },
+  {
+    "word": "угол",
+    "translation": "corner",
+    "type": "noun"
+  },
+  {
+    "word": "центр",
+    "translation": "center",
+    "type": "noun"
+  },
+  {
+    "word": "форма",
+    "translation": "form",
+    "type": "noun"
+  },
+  {
+    "word": "размер",
+    "translation": "size",
+    "type": "noun"
+  },
+  {
+    "word": "вес",
+    "translation": "weight",
+    "type": "noun"
+  },
+  {
+    "word": "длина",
+    "translation": "length",
+    "type": "noun"
+  },
+  {
+    "word": "точка",
+    "translation": "point",
+    "type": "noun"
+  },
+  {
+    "word": "линия",
+    "translation": "line",
+    "type": "noun"
+  },
+  {
+    "word": "круг",
+    "translation": "circle",
+    "type": "noun"
+  },
+  {
+    "word": "шар",
+    "translation": "sphere",
+    "type": "noun"
+  },
+  {
+    "word": "куб",
+    "translation": "cube",
+    "type": "noun"
+  },
+  {
+    "word": "план",
+    "translation": "plan",
+    "type": "noun"
+  },
+  {
+    "word": "идея",
+    "translation": "idea",
+    "type": "noun"
+  },
+  {
+    "word": "тема",
+    "translation": "topic",
+    "type": "noun"
+  },
+  {
+    "word": "смысл",
+    "translation": "meaning",
+    "type": "noun"
+  },
+  {
+    "word": "цель",
+    "translation": "goal",
+    "type": "noun"
+  },
+  {
+    "word": "опыт",
+    "translation": "experience",
+    "type": "noun"
+  },
+  {
+    "word": "наука",
+    "translation": "science",
+    "type": "noun"
+  },
+  {
+    "word": "химия",
+    "translation": "chemistry",
+    "type": "noun"
+  },
+  {
+    "word": "право",
+    "translation": "right",
+    "type": "noun"
+  },
+  {
+    "word": "долг",
+    "translation": "duty",
+    "type": "noun"
+  },
+  {
+    "word": "честь",
+    "translation": "honor",
+    "type": "noun"
+  },
+  {
+    "word": "слава",
+    "translation": "glory",
+    "type": "noun"
+  },
+  {
+    "word": "власть",
+    "translation": "power",
+    "type": "noun"
+  },
+  {
+    "word": "армия",
+    "translation": "army",
+    "type": "noun"
+  },
+  {
+    "word": "полк",
+    "translation": "regiment",
+    "type": "noun"
+  },
+  {
+    "word": "враг",
+    "translation": "enemy",
+    "type": "noun"
+  },
+  {
+    "word": "герой",
+    "translation": "hero",
+    "type": "noun"
+  },
+  {
+    "word": "тайна",
+    "translation": "secret",
+    "type": "noun"
+  },
+  {
+    "word": "чудо",
+    "translation": "miracle",
+    "type": "noun"
+  },
+  {
+    "word": "сказка",
+    "translation": "tale",
+    "type": "noun"
+  },
+  {
+    "word": "миф",
+    "translation": "myth",
+    "type": "noun"
+  },
+  {
+    "word": "образ",
+    "translation": "image",
+    "type": "noun"
+  },
+  {
+    "word": "стиль",
+    "translation": "style",
+    "type": "noun"
+  },
+  {
+    "word": "мода",
+    "translation": "fashion",
+    "type": "noun"
+  },
+  {
+    "word": "норма",
+    "translation": "norm",
+    "type": "noun"
+  },
+  {
+    "word": "связь",
+    "translation": "link",
+    "type": "noun"
+  },
+  {
+    "word": "сеть",
+    "translation": "network",
+    "type": "noun"
+  },
+  {
+    "word": "узел",
+    "translation": "knot",
+    "type": "noun"
+  },
+  {
+    "word": "мера",
+    "translation": "measure",
+    "type": "noun"
+  },
+  {
+    "word": "доля",
+    "translation": "share",
+    "type": "noun"
+  },
+  {
+    "word": "часть",
+    "translation": "part",
+    "type": "noun"
+  },
+  {
+    "word": "кусок",
+    "translation": "piece",
+    "type": "noun"
+  },
+  {
+    "word": "конец",
+    "translation": "end",
+    "type": "noun"
+  },
+  {
+    "word": "итог",
+    "translation": "result",
+    "type": "noun"
+  },
+  {
+    "word": "факт",
+    "translation": "fact",
+    "type": "noun"
+  },
+  {
+    "word": "повод",
+    "translation": "reason",
+    "type": "noun"
+  },
+  {
+    "word": "след",
+    "translation": "trace",
+    "type": "noun"
+  },
+  {
+    "word": "способ",
+    "translation": "method",
+    "type": "noun"
+  },
+  {
+    "word": "метод",
+    "translation": "method",
+    "type": "noun"
+  },
+  {
+    "word": "группа",
+    "translation": "group",
+    "type": "noun"
+  },
+  {
+    "word": "список",
+    "translation": "list",
+    "type": "noun"
+  },
+  {
+    "word": "набор",
+    "translation": "set",
+    "type": "noun"
+  },
+  {
+    "word": "запас",
+    "translation": "supply",
+    "type": "noun"
+  },
+  {
+    "word": "склад",
+    "translation": "storage",
+    "type": "noun"
+  },
+  {
+    "word": "завод",
+    "translation": "factory",
+    "type": "noun"
+  },
+  {
+    "word": "полка",
+    "translation": "shelf",
+    "type": "noun"
+  },
+  {
+    "word": "ящик",
+    "translation": "box",
+    "type": "noun"
+  },
+  {
+    "word": "пакет",
+    "translation": "package",
+    "type": "noun"
+  },
+  {
+    "word": "мешок",
+    "translation": "sack",
+    "type": "noun"
+  },
+  {
+    "word": "бочка",
+    "translation": "barrel",
+    "type": "noun"
+  },
+  {
+    "word": "труба",
+    "translation": "pipe",
+    "type": "noun"
+  },
+  {
+    "word": "кнопка",
+    "translation": "button",
+    "type": "noun"
+  },
+  {
+    "word": "экран",
+    "translation": "screen",
+    "type": "noun"
+  },
+  {
+    "word": "файл",
+    "translation": "file",
+    "type": "noun"
+  },
+  {
+    "word": "сайт",
+    "translation": "website",
+    "type": "noun"
+  },
+  {
+    "word": "почта",
+    "translation": "mail",
+    "type": "noun"
+  },
+  {
+    "word": "адрес",
+    "translation": "address",
+    "type": "noun"
+  },
+  {
+    "word": "имя",
+    "translation": "name",
+    "type": "noun"
+  },
+  {
+    "word": "пароль",
+    "translation": "password",
+    "type": "noun"
+  },
+  {
+    "word": "код",
+    "translation": "code",
+    "type": "noun"
+  },
+  {
+    "word": "база",
+    "translation": "base",
+    "type": "noun"
+  },
+  {
+    "word": "вход",
+    "translation": "entrance",
+    "type": "noun"
+  },
+  {
+    "word": "выход",
+    "translation": "exit",
+    "type": "noun"
+  },
+  {
+    "word": "этаж",
+    "translation": "floor",
+    "type": "noun"
+  },
+  {
+    "word": "забор",
+    "translation": "fence",
+    "type": "noun"
+  },
+  {
+    "word": "тропа",
+    "translation": "trail",
+    "type": "noun"
+  },
+  {
+    "word": "аллея",
+    "translation": "alley",
+    "type": "noun"
+  },
+  {
+    "word": "башня",
+    "translation": "tower",
+    "type": "noun"
+  },
+  {
+    "word": "храм",
+    "translation": "temple",
+    "type": "noun"
+  },
+  {
+    "word": "музей",
+    "translation": "museum",
+    "type": "noun"
+  },
+  {
+    "word": "кафе",
+    "translation": "cafe",
+    "type": "noun"
+  },
+  {
+    "word": "бар",
+    "translation": "bar",
+    "type": "noun"
+  },
+  {
+    "word": "клуб",
+    "translation": "club",
+    "type": "noun"
+  },
+  {
+    "word": "зал",
+    "translation": "hall",
+    "type": "noun"
+  },
+  {
+    "word": "сцена",
+    "translation": "stage",
+    "type": "noun"
+  },
+  {
+    "word": "роль",
+    "translation": "role",
+    "type": "noun"
+  },
+  {
+    "word": "автор",
+    "translation": "author",
+    "type": "noun"
+  },
+  {
+    "word": "поэт",
+    "translation": "poet",
+    "type": "noun"
+  },
+  {
+    "word": "стих",
+    "translation": "verse",
+    "type": "noun"
+  },
+  {
+    "word": "роман",
+    "translation": "novel",
+    "type": "noun"
+  },
+  {
+    "word": "глава",
+    "translation": "chapter",
+    "type": "noun"
+  },
+  {
+    "word": "фраза",
+    "translation": "phrase",
+    "type": "noun"
+  },
+  {
+    "word": "речь",
+    "translation": "speech",
+    "type": "noun"
+  },
+  {
+    "word": "язык",
+    "translation": "language",
+    "type": "noun"
+  },
+  {
+    "word": "акцент",
+    "translation": "accent",
+    "type": "noun"
+  },
+  {
+    "word": "спор",
+    "translation": "argument",
+    "type": "noun"
+  },
+  {
+    "word": "довод",
+    "translation": "point",
+    "type": "noun"
+  },
+  {
+    "word": "мнение",
+    "translation": "opinion",
+    "type": "noun"
+  },
+  {
+    "word": "оценка",
+    "translation": "grade",
+    "type": "noun"
+  },
+  {
+    "word": "балл",
+    "translation": "score",
+    "type": "noun"
+  },
+  {
+    "word": "приз",
+    "translation": "prize",
+    "type": "noun"
+  },
+  {
+    "word": "медаль",
+    "translation": "medal",
+    "type": "noun"
+  },
+  {
+    "word": "кубок",
+    "translation": "cup",
+    "type": "noun"
+  },
+  {
+    "word": "рекорд",
+    "translation": "record",
+    "type": "noun"
+  },
+  {
+    "word": "матч",
+    "translation": "match",
+    "type": "noun"
+  },
+  {
+    "word": "гол",
+    "translation": "goal",
+    "type": "noun"
+  },
+  {
+    "word": "удар",
+    "translation": "strike",
+    "type": "noun"
+  },
+  {
+    "word": "шаг",
+    "translation": "step",
+    "type": "noun"
+  },
+  {
+    "word": "ход",
+    "translation": "move",
+    "type": "noun"
+  },
+  {
+    "word": "темп",
+    "translation": "pace",
+    "type": "noun"
+  },
+  {
+    "word": "ритм",
+    "translation": "rhythm",
+    "type": "noun"
+  },
+  {
+    "word": "пауза",
+    "translation": "pause",
+    "type": "noun"
+  },
+  {
+    "word": "старт",
+    "translation": "start",
+    "type": "noun"
+  },
+  {
+    "word": "финиш",
+    "translation": "finish",
+    "type": "noun"
+  },
+  {
+    "word": "гонка",
+    "translation": "race",
+    "type": "noun"
+  },
+  {
+    "word": "борьба",
+    "translation": "fight",
+    "type": "noun"
+  },
+  {
+    "word": "битва",
+    "translation": "battle",
+    "type": "noun"
+  },
+  {
+    "word": "атака",
+    "translation": "attack",
+    "type": "noun"
+  },
+  {
+    "word": "щит",
+    "translation": "shield",
+    "type": "noun"
+  },
+  {
+    "word": "меч",
+    "translation": "sword",
+    "type": "noun"
+  },
+  {
+    "word": "пуля",
+    "translation": "bullet",
+    "type": "noun"
+  },
+  {
+    "word": "бомба",
+    "translation": "bomb",
+    "type": "noun"
+  },
+  {
+    "word": "взрыв",
+    "translation": "blast",
+    "type": "noun"
+  },
+  {
+    "word": "пожар",
+    "translation": "fire",
+    "type": "noun"
+  },
+  {
+    "word": "беда",
+    "translation": "trouble",
+    "type": "noun"
+  },
+  {
+    "word": "горе",
+    "translation": "grief",
+    "type": "noun"
+  },
+  {
+    "word": "слеза",
+    "translation": "tear",
+    "type": "noun"
+  },
+  {
+    "word": "крик",
+    "translation": "scream",
+    "type": "noun"
+  },
+  {
+    "word": "смех",
+    "translation": "laugh",
+    "type": "noun"
+  },
+  {
+    "word": "жест",
+    "translation": "gesture",
+    "type": "noun"
+  },
+  {
+    "word": "поза",
+    "translation": "pose",
+    "type": "noun"
+  },
+  {
+    "word": "навык",
+    "translation": "skill",
+    "type": "noun"
+  },
+  {
+    "word": "талант",
+    "translation": "talent",
+    "type": "noun"
+  },
+  {
+    "word": "гений",
+    "translation": "genius",
+    "type": "noun"
+  },
+  {
+    "word": "разум",
+    "translation": "reason",
+    "type": "noun"
+  },
+  {
+    "word": "память",
+    "translation": "memory",
+    "type": "noun"
+  },
+  {
+    "word": "мысль",
+    "translation": "thought",
+    "type": "noun"
+  },
+  {
+    "word": "логика",
+    "translation": "logic",
+    "type": "noun"
+  },
+  {
+    "word": "гнев",
+    "translation": "anger",
+    "type": "noun"
+  },
+  {
+    "word": "злость",
+    "translation": "malice",
+    "type": "noun"
+  },
+  {
+    "word": "обида",
+    "translation": "offense",
+    "type": "noun"
+  },
+  {
+    "word": "стыд",
+    "translation": "shame",
+    "type": "noun"
+  },
+  {
+    "word": "вина",
+    "translation": "guilt",
+    "type": "noun"
+  },
+  {
+    "word": "скука",
+    "translation": "boredom",
+    "type": "noun"
+  },
+  {
+    "word": "лень",
+    "translation": "laziness",
+    "type": "noun"
+  },
+  {
+    "word": "отдых",
+    "translation": "rest",
+    "type": "noun"
+  },
+  {
+    "word": "кошмар",
+    "translation": "nightmare",
+    "type": "noun"
+  },
+  {
+    "word": "хаос",
+    "translation": "chaos",
+    "type": "noun"
+  },
+  {
+    "word": "тьма",
+    "translation": "darkness",
+    "type": "noun"
+  },
+  {
+    "word": "заря",
+    "translation": "dawn",
+    "type": "noun"
+  },
+  {
+    "word": "закат",
+    "translation": "sunset",
+    "type": "noun"
+  },
+  {
+    "word": "эпоха",
+    "translation": "epoch",
+    "type": "noun"
+  },
+  {
+    "word": "век",
+    "translation": "century",
+    "type": "noun"
+  },
+  {
+    "word": "момент",
+    "translation": "moment",
+    "type": "noun"
+  },
+  {
+    "word": "минута",
+    "translation": "minute",
+    "type": "noun"
+  },
+  {
+    "word": "сигнал",
+    "translation": "signal",
+    "type": "noun"
+  },
+  {
+    "word": "символ",
+    "translation": "symbol",
+    "type": "noun"
+  },
+  {
+    "word": "герб",
+    "translation": "emblem",
+    "type": "noun"
+  },
+  {
+    "word": "гимн",
+    "translation": "anthem",
+    "type": "noun"
+  },
+  {
+    "word": "клятва",
+    "translation": "oath",
+    "type": "noun"
+  },
+  {
+    "word": "сделка",
+    "translation": "deal",
+    "type": "noun"
+  },
+  {
+    "word": "налог",
+    "translation": "tax",
+    "type": "noun"
+  },
+  {
+    "word": "штраф",
+    "translation": "fine",
+    "type": "noun"
+  },
+  {
+    "word": "кредит",
+    "translation": "credit",
+    "type": "noun"
+  },
+  {
+    "word": "вклад",
+    "translation": "deposit",
+    "type": "noun"
+  },
+  {
+    "word": "доход",
+    "translation": "income",
+    "type": "noun"
+  },
+  {
+    "word": "расход",
+    "translation": "expense",
+    "type": "noun"
+  },
+  {
+    "word": "бюджет",
+    "translation": "budget",
+    "type": "noun"
+  },
+  {
+    "word": "услуга",
+    "translation": "service",
+    "type": "noun"
+  },
+  {
+    "word": "товар",
+    "translation": "goods",
+    "type": "noun"
+  },
+  {
+    "word": "бренд",
+    "translation": "brand",
+    "type": "noun"
+  },
+  {
+    "word": "марка",
+    "translation": "stamp",
+    "type": "noun"
+  },
+  {
+    "word": "модель",
+    "translation": "model",
+    "type": "noun"
+  },
+  {
+    "word": "версия",
+    "translation": "version",
+    "type": "noun"
+  },
+  {
+    "word": "копия",
+    "translation": "copy",
+    "type": "noun"
+  },
+  {
+    "word": "схема",
+    "translation": "scheme",
+    "type": "noun"
+  },
+  {
+    "word": "фото",
+    "translation": "photo",
+    "type": "noun"
+  },
+  {
+    "word": "снимок",
+    "translation": "shot",
+    "type": "noun"
+  },
+  {
+    "word": "кадр",
+    "translation": "frame",
+    "type": "noun"
+  },
+  {
+    "word": "видео",
+    "translation": "video",
+    "type": "noun"
+  },
+  {
+    "word": "клип",
+    "translation": "clip",
+    "type": "noun"
+  },
+  {
+    "word": "канал",
+    "translation": "channel",
+    "type": "noun"
+  },
+  {
+    "word": "радио",
+    "translation": "radio",
+    "type": "noun"
+  },
+  {
+    "word": "лифт",
+    "translation": "elevator",
+    "type": "noun"
+  },
+  {
+    "word": "душ",
+    "translation": "shower",
+    "type": "noun"
+  },
+  {
+    "word": "ванна",
+    "translation": "bath",
+    "type": "noun"
+  },
+  {
+    "word": "мыло",
+    "translation": "soap",
+    "type": "noun"
+  },
+  {
+    "word": "щётка",
+    "translation": "brush",
+    "type": "noun"
+  },
+  {
+    "word": "паста",
+    "translation": "paste",
+    "type": "noun"
+  },
+  {
+    "word": "крем",
+    "translation": "cream",
+    "type": "noun"
+  },
+  {
+    "word": "духи",
+    "translation": "perfume",
+    "type": "noun"
+  },
+  {
+    "word": "пудра",
+    "translation": "powder",
+    "type": "noun"
+  },
+  {
+    "word": "тушь",
+    "translation": "mascara",
+    "type": "noun"
+  },
+  {
+    "word": "маска",
+    "translation": "mask",
+    "type": "noun"
+  },
+  {
+    "word": "очки",
+    "translation": "glasses",
+    "type": "noun"
+  },
+  {
+    "word": "линза",
+    "translation": "lens",
+    "type": "noun"
+  },
+  {
+    "word": "компас",
+    "translation": "compass",
+    "type": "noun"
+  },
+  {
+    "word": "якорь",
+    "translation": "anchor",
+    "type": "noun"
+  },
+  {
+    "word": "парус",
+    "translation": "sail",
+    "type": "noun"
+  },
+  {
+    "word": "весло",
+    "translation": "oar",
+    "type": "noun"
+  },
+  {
+    "word": "лодка",
+    "translation": "boat",
+    "type": "noun"
+  },
+  {
+    "word": "порт",
+    "translation": "port",
+    "type": "noun"
+  },
+  {
+    "word": "маяк",
+    "translation": "beacon",
+    "type": "noun"
+  },
+  {
+    "word": "волна",
+    "translation": "wave",
+    "type": "noun"
+  },
+  {
+    "word": "пена",
+    "translation": "foam",
+    "type": "noun"
+  },
+  {
+    "word": "акула",
+    "translation": "shark",
+    "type": "noun"
+  },
+  {
+    "word": "кит",
+    "translation": "whale",
+    "type": "noun"
+  },
+  {
+    "word": "краб",
+    "translation": "crab",
+    "type": "noun"
+  },
+  {
+    "word": "комар",
+    "translation": "mosquito",
+    "type": "noun"
+  },
+  {
+    "word": "оса",
+    "translation": "wasp",
+    "type": "noun"
+  },
+  {
+    "word": "червь",
+    "translation": "worm",
+    "type": "noun"
+  },
+  {
+    "word": "голубь",
+    "translation": "pigeon",
+    "type": "noun"
+  },
+  {
+    "word": "ворона",
+    "translation": "crow",
+    "type": "noun"
+  },
+  {
+    "word": "сорока",
+    "translation": "magpie",
+    "type": "noun"
+  },
+  {
+    "word": "орёл",
+    "translation": "eagle",
+    "type": "noun"
+  },
+  {
+    "word": "сова",
+    "translation": "owl",
+    "type": "noun"
+  },
+  {
+    "word": "утка",
+    "translation": "duck",
+    "type": "noun"
+  },
+  {
+    "word": "гусь",
+    "translation": "goose",
+    "type": "noun"
+  },
+  {
+    "word": "петух",
+    "translation": "rooster",
+    "type": "noun"
+  },
+  {
+    "word": "бык",
+    "translation": "bull",
+    "type": "noun"
+  },
+  {
+    "word": "овца",
+    "translation": "sheep",
+    "type": "noun"
+  },
+  {
+    "word": "коза",
+    "translation": "goat",
+    "type": "noun"
+  },
+  {
+    "word": "олень",
+    "translation": "deer",
+    "type": "noun"
+  },
+  {
+    "word": "слон",
+    "translation": "elephant",
+    "type": "noun"
+  },
+  {
+    "word": "тигр",
+    "translation": "tiger",
+    "type": "noun"
+  },
+  {
+    "word": "лев",
+    "translation": "lion",
+    "type": "noun"
+  },
+  {
+    "word": "жираф",
+    "translation": "giraffe",
+    "type": "noun"
+  },
+  {
+    "word": "зебра",
+    "translation": "zebra",
+    "type": "noun"
+  },
+  {
+    "word": "крыса",
+    "translation": "rat",
+    "type": "noun"
+  },
+  {
+    "word": "хомяк",
+    "translation": "hamster",
+    "type": "noun"
+  },
+  {
+    "word": "кролик",
+    "translation": "rabbit",
+    "type": "noun"
+  },
+  {
+    "word": "белка",
+    "translation": "squirrel",
+    "type": "noun"
+  },
+  {
+    "word": "звезда",
+    "translation": "star",
+    "type": "noun"
+  },
+  {
+    "word": "облако",
+    "translation": "cloud",
+    "type": "noun"
+  },
+  {
+    "word": "погода",
+    "translation": "weather",
+    "type": "noun"
+  },
+  {
+    "word": "победа",
+    "translation": "victory",
+    "type": "noun"
+  },
+  {
+    "word": "собака",
+    "translation": "dog",
+    "type": "noun"
+  },
+  {
+    "word": "дерево",
+    "translation": "tree",
+    "type": "noun"
+  },
+  {
+    "word": "цветок",
+    "translation": "flower",
+    "type": "noun"
+  },
+  {
+    "word": "стекло",
+    "translation": "glass",
+    "type": "noun"
+  },
+  {
+    "word": "провод",
+    "translation": "wire",
+    "type": "noun"
+  },
+  {
+    "word": "мышка",
+    "translation": "mouse",
+    "type": "noun"
+  },
+  {
+    "word": "данные",
+    "translation": "data",
+    "type": "noun"
+  },
+  {
+    "word": "ворота",
+    "translation": "gate",
+    "type": "noun"
+  },
+  {
+    "word": "рисунок",
+    "translation": "drawing",
+    "type": "noun"
+  },
+  {
+    "word": "помада",
+    "translation": "lipstick",
+    "type": "noun"
+  },
+  {
+    "word": "улитка",
+    "translation": "snail",
+    "type": "noun"
+  },
+  {
+    "word": "курица",
+    "translation": "chicken",
+    "type": "noun"
+  },
+  {
+    "word": "свинья",
+    "translation": "pig",
+    "type": "noun"
+  },
+  {
+    "word": "корова",
+    "translation": "cow",
+    "type": "noun"
+  },
+  {
+    "word": "розетка",
+    "translation": "outlet",
+    "type": "noun"
+  },
+  {
+    "word": "полотно",
+    "translation": "canvas",
+    "type": "noun"
+  },
+  {
+    "word": "причал",
+    "translation": "pier",
+    "type": "noun"
+  },
+  {
+    "word": "прибой",
+    "translation": "surf",
+    "type": "noun"
+  },
+  {
+    "word": "сундук",
+    "translation": "chest",
+    "type": "noun"
+  },
+  {
+    "word": "подвал",
+    "translation": "cellar",
+    "type": "noun"
+  },
+  {
+    "word": "чердак",
+    "translation": "attic",
+    "type": "noun"
+  },
+  {
+    "word": "балкон",
+    "translation": "balcony",
+    "type": "noun"
+  },
+  {
+    "word": "гараж",
+    "translation": "garage",
+    "type": "noun"
+  },
+  {
+    "word": "подъём",
+    "translation": "ascent",
+    "type": "noun"
+  },
+  {
+    "word": "спуск",
+    "translation": "descent",
+    "type": "noun"
+  },
+  {
+    "word": "обрыв",
+    "translation": "cliff",
+    "type": "noun"
+  },
+  {
+    "word": "овраг",
+    "translation": "ravine",
+    "type": "noun"
+  },
+  {
+    "word": "болото",
+    "translation": "swamp",
+    "type": "noun"
+  },
+  {
+    "word": "пустыня",
+    "translation": "desert",
+    "type": "noun"
+  },
+  {
+    "word": "степь",
+    "translation": "steppe",
+    "type": "noun"
+  },
+  {
+    "word": "тайга",
+    "translation": "taiga",
+    "type": "noun"
+  },
+  {
+    "word": "тундра",
+    "translation": "tundra",
+    "type": "noun"
+  },
+  {
+    "word": "джунгли",
+    "translation": "jungle",
+    "type": "noun"
+  },
+  {
+    "word": "оазис",
+    "translation": "oasis",
+    "type": "noun"
+  },
+  {
+    "word": "вулкан",
+    "translation": "volcano",
+    "type": "noun"
+  },
+  {
+    "word": "кратер",
+    "translation": "crater",
+    "type": "noun"
+  },
+  {
+    "word": "пещера",
+    "translation": "cave",
+    "type": "noun"
+  },
+  {
+    "word": "скала",
+    "translation": "rock",
+    "type": "noun"
+  },
+  {
+    "word": "утёс",
+    "translation": "cliff",
+    "type": "noun"
+  },
+  {
+    "word": "холм",
+    "translation": "hill",
+    "type": "noun"
+  },
+  {
+    "word": "долина",
+    "translation": "valley",
+    "type": "noun"
+  },
+  {
+    "word": "ручей",
+    "translation": "stream",
+    "type": "noun"
+  },
+  {
+    "word": "водопад",
+    "translation": "waterfall",
+    "type": "noun"
+  },
+  {
+    "word": "залив",
+    "translation": "bay",
+    "type": "noun"
+  },
+  {
+    "word": "пролив",
+    "translation": "strait",
+    "type": "noun"
+  },
+  {
+    "word": "канава",
+    "translation": "ditch",
+    "type": "noun"
+  },
+  {
+    "word": "колодец",
+    "translation": "well",
+    "type": "noun"
+  },
+  {
+    "word": "фонтан",
+    "translation": "fountain",
+    "type": "noun"
+  },
+  {
+    "word": "бассейн",
+    "translation": "pool",
+    "type": "noun"
+  },
+  {
+    "word": "плотина",
+    "translation": "dam",
+    "type": "noun"
+  },
+  {
+    "word": "шлюз",
+    "translation": "lock",
+    "type": "noun"
+  },
+  {
+    "word": "причина",
+    "translation": "cause",
+    "type": "noun"
+  },
+  {
+    "word": "пример",
+    "translation": "example",
+    "type": "noun"
+  },
+  {
+    "word": "случай",
+    "translation": "case",
+    "type": "noun"
+  },
+  {
+    "word": "проект",
+    "translation": "project",
+    "type": "noun"
+  },
+  {
+    "word": "команда",
+    "translation": "team",
+    "type": "noun"
+  },
+  {
+    "word": "состав",
+    "translation": "lineup",
+    "type": "noun"
+  },
+  {
+    "word": "рубль",
+    "translation": "ruble",
+    "type": "noun"
+  },
+  {
+    "word": "копейка",
+    "translation": "kopeck",
+    "type": "noun"
+  },
+  {
+    "word": "монета",
+    "translation": "coin",
+    "type": "noun"
+  },
+  {
+    "word": "купюра",
+    "translation": "bill",
+    "type": "noun"
+  },
+  {
+    "word": "чек",
+    "translation": "check",
+    "type": "noun"
+  },
+  {
+    "word": "счёт",
+    "translation": "bill",
+    "type": "noun"
+  },
+  {
+    "word": "касса",
+    "translation": "cashier",
+    "type": "noun"
+  },
+  {
+    "word": "витрина",
+    "translation": "display",
+    "type": "noun"
+  },
+  {
+    "word": "тележка",
+    "translation": "cart",
+    "type": "noun"
+  },
+  {
+    "word": "корзина",
+    "translation": "basket",
+    "type": "noun"
+  },
+  {
+    "word": "рецепт",
+    "translation": "recipe",
+    "type": "noun"
+  },
+  {
+    "word": "меню",
+    "translation": "menu",
+    "type": "noun"
+  },
+  {
+    "word": "порция",
+    "translation": "portion",
+    "type": "noun"
+  },
+  {
+    "word": "блюдо",
+    "translation": "dish",
+    "type": "noun"
+  },
+  {
+    "word": "десерт",
+    "translation": "dessert",
+    "type": "noun"
+  },
+  {
+    "word": "салат",
+    "translation": "salad",
+    "type": "noun"
+  },
+  {
+    "word": "соус",
+    "translation": "sauce",
+    "type": "noun"
+  },
+  {
+    "word": "специя",
+    "translation": "spice",
+    "type": "noun"
+  },
+  {
+    "word": "перец",
+    "translation": "pepper",
+    "type": "noun"
+  },
+  {
+    "word": "чеснок",
+    "translation": "garlic",
+    "type": "noun"
+  },
+  {
+    "word": "лук",
+    "translation": "onion",
+    "type": "noun"
+  },
+  {
+    "word": "морковь",
+    "translation": "carrot",
+    "type": "noun"
+  },
+  {
+    "word": "капуста",
+    "translation": "cabbage",
+    "type": "noun"
+  },
+  {
+    "word": "огурец",
+    "translation": "cucumber",
+    "type": "noun"
+  },
+  {
+    "word": "помидор",
+    "translation": "tomato",
+    "type": "noun"
+  },
+  {
+    "word": "свёкла",
+    "translation": "beet",
+    "type": "noun"
+  },
+  {
+    "word": "тыква",
+    "translation": "pumpkin",
+    "type": "noun"
+  },
+  {
+    "word": "арбуз",
+    "translation": "watermelon",
+    "type": "noun"
+  },
+  {
+    "word": "дыня",
+    "translation": "melon",
+    "type": "noun"
+  },
+  {
+    "word": "яблоко",
+    "translation": "apple",
+    "type": "noun"
+  },
+  {
+    "word": "груша",
+    "translation": "pear",
+    "type": "noun"
+  },
+  {
+    "word": "слива",
+    "translation": "plum",
+    "type": "noun"
+  },
+  {
+    "word": "вишня",
+    "translation": "cherry",
+    "type": "noun"
+  },
+  {
+    "word": "малина",
+    "translation": "raspberry",
+    "type": "noun"
+  },
+  {
+    "word": "банан",
+    "translation": "banana",
+    "type": "noun"
+  },
+  {
+    "word": "лимон",
+    "translation": "lemon",
+    "type": "noun"
+  },
+  {
+    "word": "персик",
+    "translation": "peach",
+    "type": "noun"
+  },
+  {
+    "word": "абрикос",
+    "translation": "apricot",
+    "type": "noun"
+  },
+  {
+    "word": "орех",
+    "translation": "nut",
+    "type": "noun"
+  },
+  {
+    "word": "семечка",
+    "translation": "seed",
+    "type": "noun"
+  },
+  {
+    "word": "зерно",
+    "translation": "grain",
+    "type": "noun"
+  },
+  {
+    "word": "мука",
+    "translation": "flour",
+    "type": "noun"
+  },
+  {
+    "word": "тесто",
+    "translation": "dough",
+    "type": "noun"
+  },
+  {
+    "word": "булка",
+    "translation": "bun",
+    "type": "noun"
+  },
+  {
+    "word": "батон",
+    "translation": "loaf",
+    "type": "noun"
+  },
+  {
+    "word": "сухарь",
+    "translation": "cracker",
+    "type": "noun"
+  },
+  {
+    "word": "печенье",
+    "translation": "cookie",
+    "type": "noun"
+  },
+  {
+    "word": "пирог",
+    "translation": "pie",
+    "type": "noun"
+  },
+  {
+    "word": "пирожок",
+    "translation": "pastry",
+    "type": "noun"
+  },
+  {
+    "word": "блин",
+    "translation": "pancake",
+    "type": "noun"
+  },
+  {
+    "word": "каравай",
+    "translation": "loaf",
+    "type": "noun"
+  },
+  {
+    "word": "бублик",
+    "translation": "bagel",
+    "type": "noun"
+  },
+  {
+    "word": "сосиска",
+    "translation": "sausage",
+    "type": "noun"
+  },
+  {
+    "word": "колбаса",
+    "translation": "sausage",
+    "type": "noun"
+  },
+  {
+    "word": "котлета",
+    "translation": "cutlet",
+    "type": "noun"
+  },
+  {
+    "word": "борщ",
+    "translation": "borscht",
+    "type": "noun"
+  },
+  {
+    "word": "уха",
+    "translation": "fish soup",
+    "type": "noun"
+  },
+  {
+    "word": "окрошка",
+    "translation": "okroshka",
+    "type": "noun"
+  },
+  {
+    "word": "компот",
+    "translation": "compote",
+    "type": "noun"
+  },
+  {
+    "word": "кисель",
+    "translation": "kissel",
+    "type": "noun"
+  },
+  {
+    "word": "варенье",
+    "translation": "jam",
+    "type": "noun"
+  },
+  {
+    "word": "мёд",
+    "translation": "honey",
+    "type": "noun"
+  },
+  {
+    "word": "сметана",
+    "translation": "sour cream",
+    "type": "noun"
+  },
+  {
+    "word": "творог",
+    "translation": "cottage cheese",
+    "type": "noun"
+  },
+  {
+    "word": "кефир",
+    "translation": "kefir",
+    "type": "noun"
+  },
+  {
+    "word": "йогурт",
+    "translation": "yogurt",
+    "type": "noun"
+  },
+  {
+    "word": "сливки",
+    "translation": "cream",
+    "type": "noun"
+  },
+  {
+    "word": "подарок",
+    "translation": "gift",
+    "type": "noun"
+  },
+  {
+    "word": "сюрприз",
+    "translation": "surprise",
+    "type": "noun"
+  },
+  {
+    "word": "свадьба",
+    "translation": "wedding",
+    "type": "noun"
+  },
+  {
+    "word": "юбилей",
+    "translation": "jubilee",
+    "type": "noun"
+  },
+  {
+    "word": "концерт",
+    "translation": "concert",
+    "type": "noun"
+  },
+  {
+    "word": "ярмарка",
+    "translation": "fair",
+    "type": "noun"
+  },
+  {
+    "word": "цирк",
+    "translation": "circus",
+    "type": "noun"
+  },
+  {
+    "word": "зоопарк",
+    "translation": "zoo",
+    "type": "noun"
+  },
+  {
+    "word": "стадион",
+    "translation": "stadium",
+    "type": "noun"
+  },
+  {
+    "word": "каток",
+    "translation": "rink",
+    "type": "noun"
+  },
+  {
+    "word": "пляж",
+    "translation": "beach",
+    "type": "noun"
+  },
+  {
+    "word": "курорт",
+    "translation": "resort",
+    "type": "noun"
+  },
+  {
+    "word": "отель",
+    "translation": "hotel",
+    "type": "noun"
+  },
+  {
+    "word": "хостел",
+    "translation": "hostel",
+    "type": "noun"
+  },
+  {
+    "word": "палатка",
+    "translation": "tent",
+    "type": "noun"
+  },
+  {
+    "word": "костёр",
+    "translation": "bonfire",
+    "type": "noun"
+  },
+  {
+    "word": "рюкзак",
+    "translation": "backpack",
+    "type": "noun"
+  },
+  {
+    "word": "чемодан",
+    "translation": "suitcase",
+    "type": "noun"
+  },
+  {
+    "word": "паспорт",
+    "translation": "passport",
+    "type": "noun"
+  },
+  {
+    "word": "виза",
+    "translation": "visa",
+    "type": "noun"
+  },
+  {
+    "word": "рейс",
+    "translation": "flight",
+    "type": "noun"
+  },
+  {
+    "word": "вокзал",
+    "translation": "station",
+    "type": "noun"
+  },
+  {
+    "word": "перрон",
+    "translation": "platform",
+    "type": "noun"
+  },
+  {
+    "word": "купе",
+    "translation": "compartment",
+    "type": "noun"
+  },
+  {
+    "word": "каюта",
+    "translation": "cabin",
+    "type": "noun"
+  },
+  {
+    "word": "трамвай",
+    "translation": "tram",
+    "type": "noun"
+  },
+  {
+    "word": "автобус",
+    "translation": "bus",
+    "type": "noun"
+  },
+  {
+    "word": "такси",
+    "translation": "taxi",
+    "type": "noun"
+  },
+  {
+    "word": "метро",
+    "translation": "metro",
+    "type": "noun"
+  },
+  {
+    "word": "самолёт",
+    "translation": "airplane",
+    "type": "noun"
+  },
+  {
+    "word": "ракета",
+    "translation": "rocket",
+    "type": "noun"
+  },
+  {
+    "word": "спутник",
+    "translation": "satellite",
+    "type": "noun"
+  },
+  {
+    "word": "робот",
+    "translation": "robot",
+    "type": "noun"
+  },
+  {
+    "word": "антенна",
+    "translation": "antenna",
+    "type": "noun"
+  },
+  {
+    "word": "батарея",
+    "translation": "battery",
+    "type": "noun"
+  },
+  {
+    "word": "зарядка",
+    "translation": "charger",
+    "type": "noun"
+  },
+  {
+    "word": "утюг",
+    "translation": "iron",
+    "type": "noun"
+  },
+  {
+    "word": "пылесос",
+    "translation": "vacuum",
+    "type": "noun"
+  },
+  {
+    "word": "чайник",
+    "translation": "kettle",
+    "type": "noun"
+  },
+  {
+    "word": "плита",
+    "translation": "stove",
+    "type": "noun"
+  },
+  {
+    "word": "духовка",
+    "translation": "oven",
+    "type": "noun"
+  },
+  {
+    "word": "тарелка",
+    "translation": "plate",
+    "type": "noun"
+  },
+  {
+    "word": "блюдце",
+    "translation": "saucer",
+    "type": "noun"
+  },
+  {
+    "word": "поднос",
+    "translation": "tray",
+    "type": "noun"
+  },
+  {
+    "word": "губка",
+    "translation": "sponge",
+    "type": "noun"
+  },
+  {
+    "word": "ведро",
+    "translation": "bucket",
+    "type": "noun"
+  },
+  {
+    "word": "швабра",
+    "translation": "mop",
+    "type": "noun"
+  },
+  {
+    "word": "метла",
+    "translation": "broom",
+    "type": "noun"
+  },
+  {
+    "word": "совок",
+    "translation": "dustpan",
+    "type": "noun"
+  },
+  {
+    "word": "мусор",
+    "translation": "trash",
+    "type": "noun"
+  },
+  {
+    "word": "свалка",
+    "translation": "dump",
+    "type": "noun"
+  },
+  {
+    "word": "отходы",
+    "translation": "waste",
+    "type": "noun"
+  },
+  {
+    "word": "пятно",
+    "translation": "stain",
+    "type": "noun"
+  },
+  {
+    "word": "порошок",
+    "translation": "powder",
+    "type": "noun"
+  },
+  {
+    "word": "мочалка",
+    "translation": "washcloth",
+    "type": "noun"
+  },
+  {
+    "word": "зеркало",
+    "translation": "mirror",
+    "type": "noun"
+  },
+  {
+    "word": "бритва",
+    "translation": "razor",
+    "type": "noun"
+  },
+  {
+    "word": "ножницы",
+    "translation": "scissors",
+    "type": "noun"
+  },
+  {
+    "word": "иголка",
+    "translation": "needle",
+    "type": "noun"
+  },
+  {
+    "word": "молния",
+    "translation": "zipper",
+    "type": "noun"
+  },
+  {
+    "word": "карман",
+    "translation": "pocket",
+    "type": "noun"
+  },
+  {
+    "word": "рукав",
+    "translation": "sleeve",
+    "type": "noun"
+  },
+  {
+    "word": "подошва",
+    "translation": "sole",
+    "type": "noun"
+  },
+  {
+    "word": "каблук",
+    "translation": "heel",
+    "type": "noun"
+  },
+  {
+    "word": "шнурок",
+    "translation": "lace",
+    "type": "noun"
+  },
+  {
+    "word": "ремень",
+    "translation": "belt",
+    "type": "noun"
+  },
+  {
+    "word": "галстук",
+    "translation": "tie",
+    "type": "noun"
+  },
+  {
+    "word": "платок",
+    "translation": "scarf",
+    "type": "noun"
+  },
+  {
+    "word": "варежка",
+    "translation": "mitten",
+    "type": "noun"
+  },
+  {
+    "word": "шарф",
+    "translation": "scarf",
+    "type": "noun"
+  },
+  {
+    "word": "куртка",
+    "translation": "jacket",
+    "type": "noun"
+  },
+  {
+    "word": "пальто",
+    "translation": "coat",
+    "type": "noun"
+  },
+  {
+    "word": "плащ",
+    "translation": "raincoat",
+    "type": "noun"
+  },
+  {
+    "word": "шуба",
+    "translation": "fur coat",
+    "type": "noun"
+  },
+  {
+    "word": "свитер",
+    "translation": "sweater",
+    "type": "noun"
+  },
+  {
+    "word": "рубашка",
+    "translation": "shirt",
+    "type": "noun"
+  },
+  {
+    "word": "майка",
+    "translation": "t-shirt",
+    "type": "noun"
+  },
+  {
+    "word": "трусы",
+    "translation": "underwear",
+    "type": "noun"
+  },
+  {
+    "word": "носки",
+    "translation": "socks",
+    "type": "noun"
+  },
+  {
+    "word": "халат",
+    "translation": "robe",
+    "type": "noun"
+  },
+  {
+    "word": "пижама",
+    "translation": "pajamas",
+    "type": "noun"
+  },
+  {
+    "word": "костюм",
+    "translation": "suit",
+    "type": "noun"
+  },
+  {
+    "word": "платье",
+    "translation": "dress",
+    "type": "noun"
+  },
+  {
+    "word": "брюки",
+    "translation": "pants",
+    "type": "noun"
+  },
+  {
+    "word": "джинсы",
+    "translation": "jeans",
+    "type": "noun"
+  },
+  {
+    "word": "шорты",
+    "translation": "shorts",
+    "type": "noun"
+  },
+  {
+    "word": "диван",
+    "translation": "sofa",
+    "type": "noun"
+  },
+  {
+    "word": "кресло",
+    "translation": "armchair",
+    "type": "noun"
+  },
+  {
+    "word": "кровать",
+    "translation": "bed",
+    "type": "noun"
+  },
+  {
+    "word": "матрас",
+    "translation": "mattress",
+    "type": "noun"
+  },
+  {
+    "word": "подушка",
+    "translation": "pillow",
+    "type": "noun"
+  },
+  {
+    "word": "одеяло",
+    "translation": "blanket",
+    "type": "noun"
+  },
+  {
+    "word": "штора",
+    "translation": "curtain",
+    "type": "noun"
+  },
+  {
+    "word": "ковёр",
+    "translation": "carpet",
+    "type": "noun"
+  },
+  {
+    "word": "обои",
+    "translation": "wallpaper",
+    "type": "noun"
+  },
+  {
+    "word": "плитка",
+    "translation": "tile",
+    "type": "noun"
+  },
+  {
+    "word": "паркет",
+    "translation": "parquet",
+    "type": "noun"
+  },
+  {
+    "word": "потолок",
+    "translation": "ceiling",
+    "type": "noun"
+  },
+  {
+    "word": "порог",
+    "translation": "threshold",
+    "type": "noun"
+  },
+  {
+    "word": "перила",
+    "translation": "railing",
+    "type": "noun"
+  },
+  {
+    "word": "коридор",
+    "translation": "hallway",
+    "type": "noun"
+  },
+  {
+    "word": "кухня",
+    "translation": "kitchen",
+    "type": "noun"
+  },
+  {
+    "word": "спальня",
+    "translation": "bedroom",
+    "type": "noun"
+  },
+  {
+    "word": "кабинет",
+    "translation": "study",
+    "type": "noun"
+  },
+  {
+    "word": "туалет",
+    "translation": "toilet",
+    "type": "noun"
+  },
+  {
+    "word": "кран",
+    "translation": "faucet",
+    "type": "noun"
+  },
+  {
+    "word": "камин",
+    "translation": "fireplace",
+    "type": "noun"
+  },
+  {
+    "word": "печь",
+    "translation": "stove",
+    "type": "noun"
+  },
+  {
+    "word": "котёл",
+    "translation": "boiler",
+    "type": "noun"
+  },
+  {
+    "word": "насос",
+    "translation": "pump",
+    "type": "noun"
+  },
+  {
+    "word": "вентиль",
+    "translation": "valve",
+    "type": "noun"
+  },
+  {
+    "word": "гвоздь",
+    "translation": "nail",
+    "type": "noun"
+  },
+  {
+    "word": "шуруп",
+    "translation": "screw",
+    "type": "noun"
+  },
+  {
+    "word": "болт",
+    "translation": "bolt",
+    "type": "noun"
+  },
+  {
+    "word": "гайка",
+    "translation": "nut",
+    "type": "noun"
+  },
+  {
+    "word": "молоток",
+    "translation": "hammer",
+    "type": "noun"
+  },
+  {
+    "word": "пила",
+    "translation": "saw",
+    "type": "noun"
+  },
+  {
+    "word": "дрель",
+    "translation": "drill",
+    "type": "noun"
+  },
+  {
+    "word": "рубанок",
+    "translation": "plane",
+    "type": "noun"
+  },
+  {
+    "word": "клещи",
+    "translation": "pliers",
+    "type": "noun"
+  },
+  {
+    "word": "тиски",
+    "translation": "vise",
+    "type": "noun"
+  },
+  {
+    "word": "верстак",
+    "translation": "workbench",
+    "type": "noun"
+  },
+  {
+    "word": "станок",
+    "translation": "machine",
+    "type": "noun"
+  },
+  {
+    "word": "мотор",
+    "translation": "motor",
+    "type": "noun"
+  },
+  {
+    "word": "колесо",
+    "translation": "wheel",
+    "type": "noun"
+  },
+  {
+    "word": "руль",
+    "translation": "steering wheel",
+    "type": "noun"
+  },
+  {
+    "word": "педаль",
+    "translation": "pedal",
+    "type": "noun"
+  },
+  {
+    "word": "тормоз",
+    "translation": "brake",
+    "type": "noun"
+  },
+  {
+    "word": "фара",
+    "translation": "headlight",
+    "type": "noun"
+  },
+  {
+    "word": "бампер",
+    "translation": "bumper",
+    "type": "noun"
+  },
+  {
+    "word": "капот",
+    "translation": "hood",
+    "type": "noun"
+  },
+  {
+    "word": "кузов",
+    "translation": "body",
+    "type": "noun"
+  },
+  {
+    "word": "шина",
+    "translation": "tire",
+    "type": "noun"
+  },
+  {
+    "word": "бензин",
+    "translation": "gasoline",
+    "type": "noun"
+  },
+  {
+    "word": "правило",
+    "translation": "rule",
+    "type": "noun"
+  },
+  {
+    "word": "условие",
+    "translation": "condition",
+    "type": "noun"
+  },
+  {
+    "word": "решение",
+    "translation": "decision",
+    "type": "noun"
+  },
+  {
+    "word": "знание",
+    "translation": "knowledge",
+    "type": "noun"
+  },
+  {
+    "word": "умение",
+    "translation": "ability",
+    "type": "noun"
+  },
+  {
+    "word": "желание",
+    "translation": "desire",
+    "type": "noun"
+  },
+  {
+    "word": "чувство",
+    "translation": "feeling",
+    "type": "noun"
+  },
+  {
+    "word": "интерес",
+    "translation": "interest",
+    "type": "noun"
+  },
+  {
+    "word": "радость",
+    "translation": "joy",
+    "type": "noun"
+  },
+  {
+    "word": "счастье",
+    "translation": "happiness",
+    "type": "noun"
+  },
+  {
+    "word": "надежда",
+    "translation": "hope",
+    "type": "noun"
+  },
+  {
+    "word": "тревога",
+    "translation": "anxiety",
+    "type": "noun"
+  },
+  {
+    "word": "ужас",
+    "translation": "horror",
+    "type": "noun"
+  },
+  {
+    "word": "восторг",
+    "translation": "delight",
+    "type": "noun"
+  },
+  {
+    "word": "досада",
+    "translation": "annoyance",
+    "type": "noun"
+  },
+  {
+    "word": "зависть",
+    "translation": "envy",
+    "type": "noun"
+  },
+  {
+    "word": "жалость",
+    "translation": "pity",
+    "type": "noun"
+  },
+  {
+    "word": "грусть",
+    "translation": "sadness",
+    "type": "noun"
+  },
+  {
+    "word": "тоска",
+    "translation": "longing",
+    "type": "noun"
+  },
+  {
+    "word": "печаль",
+    "translation": "sorrow",
+    "type": "noun"
+  },
+  {
+    "word": "отвага",
+    "translation": "courage",
+    "type": "noun"
+  },
+  {
+    "word": "подвиг",
+    "translation": "feat",
+    "type": "noun"
+  },
+  {
+    "word": "заслуга",
+    "translation": "merit",
+    "type": "noun"
+  },
+  {
+    "word": "награда",
+    "translation": "reward",
+    "type": "noun"
+  },
+  {
+    "word": "ошибка",
+    "translation": "mistake",
+    "type": "noun"
+  },
+  {
+    "word": "промах",
+    "translation": "miss",
+    "type": "noun"
+  },
+  {
+    "word": "удача",
+    "translation": "luck",
+    "type": "noun"
+  },
+  {
+    "word": "неудача",
+    "translation": "failure",
+    "type": "noun"
+  },
+  {
+    "word": "попытка",
+    "translation": "attempt",
+    "type": "noun"
+  },
+  {
+    "word": "усилие",
+    "translation": "effort",
+    "type": "noun"
+  },
+  {
+    "word": "труд",
+    "translation": "labor",
+    "type": "noun"
+  },
+  {
+    "word": "отпуск",
+    "translation": "vacation",
+    "type": "noun"
+  },
+  {
+    "word": "быть",
+    "translation": "to be",
+    "type": "verb"
+  },
+  {
+    "word": "мочь",
+    "translation": "can",
+    "type": "verb"
+  },
+  {
+    "word": "знать",
+    "translation": "to know",
+    "type": "verb"
+  },
+  {
+    "word": "стать",
+    "translation": "to become",
+    "type": "verb"
+  },
+  {
+    "word": "хотеть",
+    "translation": "to want",
+    "type": "verb"
+  },
+  {
+    "word": "идти",
+    "translation": "to go",
+    "type": "verb"
+  },
+  {
+    "word": "дать",
+    "translation": "to give",
+    "type": "verb"
+  },
+  {
+    "word": "жить",
+    "translation": "to live",
+    "type": "verb"
+  },
+  {
+    "word": "думать",
+    "translation": "to think",
+    "type": "verb"
+  },
+  {
+    "word": "видеть",
+    "translation": "to see",
+    "type": "verb"
+  },
+  {
+    "word": "сидеть",
+    "translation": "to sit",
+    "type": "verb"
+  },
+  {
+    "word": "стоять",
+    "translation": "to stand",
+    "type": "verb"
+  },
+  {
+    "word": "найти",
+    "translation": "to find",
+    "type": "verb"
+  },
+  {
+    "word": "взять",
+    "translation": "to take",
+    "type": "verb"
+  },
+  {
+    "word": "понять",
+    "translation": "to grasp",
+    "type": "verb"
+  },
+  {
+    "word": "делать",
+    "translation": "to do",
+    "type": "verb"
+  },
+  {
+    "word": "иметь",
+    "translation": "to have",
+    "type": "verb"
+  },
+  {
+    "word": "писать",
+    "translation": "to write",
+    "type": "verb"
+  },
+  {
+    "word": "читать",
+    "translation": "to read",
+    "type": "verb"
+  },
+  {
+    "word": "играть",
+    "translation": "to play",
+    "type": "verb"
+  },
+  {
+    "word": "любить",
+    "translation": "to love",
+    "type": "verb"
+  },
+  {
+    "word": "ждать",
+    "translation": "to wait",
+    "type": "verb"
+  },
+  {
+    "word": "спать",
+    "translation": "to sleep",
+    "type": "verb"
+  },
+  {
+    "word": "есть",
+    "translation": "to eat",
+    "type": "verb"
+  },
+  {
+    "word": "пить",
+    "translation": "to drink",
+    "type": "verb"
+  },
+  {
+    "word": "петь",
+    "translation": "to sing",
+    "type": "verb"
+  },
+  {
+    "word": "лежать",
+    "translation": "to lie",
+    "type": "verb"
+  },
+  {
+    "word": "бежать",
+    "translation": "to run",
+    "type": "verb"
+  },
+  {
+    "word": "лететь",
+    "translation": "to fly",
+    "type": "verb"
+  },
+  {
+    "word": "плыть",
+    "translation": "to swim",
+    "type": "verb"
+  },
+  {
+    "word": "нести",
+    "translation": "to carry",
+    "type": "verb"
+  },
+  {
+    "word": "вести",
+    "translation": "to lead",
+    "type": "verb"
+  },
+  {
+    "word": "расти",
+    "translation": "to grow",
+    "type": "verb"
+  },
+  {
+    "word": "падать",
+    "translation": "to fall",
+    "type": "verb"
+  },
+  {
+    "word": "ходить",
+    "translation": "to walk",
+    "type": "verb"
+  },
+  {
+    "word": "ехать",
+    "translation": "to ride",
+    "type": "verb"
+  },
+  {
+    "word": "бить",
+    "translation": "to hit",
+    "type": "verb"
+  },
+  {
+    "word": "резать",
+    "translation": "to cut",
+    "type": "verb"
+  },
+  {
+    "word": "рвать",
+    "translation": "to tear",
+    "type": "verb"
+  },
+  {
+    "word": "мыть",
+    "translation": "to wash",
+    "type": "verb"
+  },
+  {
+    "word": "шить",
+    "translation": "to sew",
+    "type": "verb"
+  },
+  {
+    "word": "вязать",
+    "translation": "to knit",
+    "type": "verb"
+  },
+  {
+    "word": "варить",
+    "translation": "to cook",
+    "type": "verb"
+  },
+  {
+    "word": "жарить",
+    "translation": "to fry",
+    "type": "verb"
+  },
+  {
+    "word": "сушить",
+    "translation": "to dry",
+    "type": "verb"
+  },
+  {
+    "word": "греть",
+    "translation": "to warm",
+    "type": "verb"
+  },
+  {
+    "word": "солить",
+    "translation": "to salt",
+    "type": "verb"
+  },
+  {
+    "word": "мешать",
+    "translation": "to stir",
+    "type": "verb"
+  },
+  {
+    "word": "лить",
+    "translation": "to pour",
+    "type": "verb"
+  },
+  {
+    "word": "класть",
+    "translation": "to put",
+    "type": "verb"
+  },
+  {
+    "word": "тянуть",
+    "translation": "to pull",
+    "type": "verb"
+  },
+  {
+    "word": "давить",
+    "translation": "to press",
+    "type": "verb"
+  },
+  {
+    "word": "гнуть",
+    "translation": "to bend",
+    "type": "verb"
+  },
+  {
+    "word": "ломать",
+    "translation": "to break",
+    "type": "verb"
+  },
+  {
+    "word": "чинить",
+    "translation": "to fix",
+    "type": "verb"
+  },
+  {
+    "word": "копать",
+    "translation": "to dig",
+    "type": "verb"
+  },
+  {
+    "word": "сажать",
+    "translation": "to plant",
+    "type": "verb"
+  },
+  {
+    "word": "рубить",
+    "translation": "to chop",
+    "type": "verb"
+  },
+  {
+    "word": "пилить",
+    "translation": "to saw",
+    "type": "verb"
+  },
+  {
+    "word": "клеить",
+    "translation": "to glue",
+    "type": "verb"
+  },
+  {
+    "word": "плести",
+    "translation": "to weave",
+    "type": "verb"
+  },
+  {
+    "word": "ткать",
+    "translation": "to weave",
+    "type": "verb"
+  },
+  {
+    "word": "тереть",
+    "translation": "to rub",
+    "type": "verb"
+  },
+  {
+    "word": "мазать",
+    "translation": "to smear",
+    "type": "verb"
+  },
+  {
+    "word": "паять",
+    "translation": "to solder",
+    "type": "verb"
+  },
+  {
+    "word": "ковать",
+    "translation": "to forge",
+    "type": "verb"
+  },
+  {
+    "word": "лепить",
+    "translation": "to sculpt",
+    "type": "verb"
+  },
+  {
+    "word": "мерить",
+    "translation": "to measure",
+    "type": "verb"
+  },
+  {
+    "word": "весить",
+    "translation": "to weigh",
+    "type": "verb"
+  },
+  {
+    "word": "учить",
+    "translation": "to teach",
+    "type": "verb"
+  },
+  {
+    "word": "забыть",
+    "translation": "to forget",
+    "type": "verb"
+  },
+  {
+    "word": "верить",
+    "translation": "to believe",
+    "type": "verb"
+  },
+  {
+    "word": "желать",
+    "translation": "to wish",
+    "type": "verb"
+  },
+  {
+    "word": "звать",
+    "translation": "to call",
+    "type": "verb"
+  },
+  {
+    "word": "искать",
+    "translation": "to search",
+    "type": "verb"
+  },
+  {
+    "word": "ловить",
+    "translation": "to catch",
+    "type": "verb"
+  },
+  {
+    "word": "кидать",
+    "translation": "to toss",
+    "type": "verb"
+  },
+  {
+    "word": "катать",
+    "translation": "to roll",
+    "type": "verb"
+  },
+  {
+    "word": "качать",
+    "translation": "to swing",
+    "type": "verb"
+  },
+  {
+    "word": "трясти",
+    "translation": "to shake",
+    "type": "verb"
+  },
+  {
+    "word": "дышать",
+    "translation": "to breathe",
+    "type": "verb"
+  },
+  {
+    "word": "чихать",
+    "translation": "to sneeze",
+    "type": "verb"
+  },
+  {
+    "word": "зевать",
+    "translation": "to yawn",
+    "type": "verb"
+  },
+  {
+    "word": "потеть",
+    "translation": "to sweat",
+    "type": "verb"
+  },
+  {
+    "word": "болеть",
+    "translation": "to be sick",
+    "type": "verb"
+  },
+  {
+    "word": "лечить",
+    "translation": "to treat",
+    "type": "verb"
+  },
+  {
+    "word": "ранить",
+    "translation": "to wound",
+    "type": "verb"
+  },
+  {
+    "word": "гулять",
+    "translation": "to stroll",
+    "type": "verb"
+  },
+  {
+    "word": "бегать",
+    "translation": "to jog",
+    "type": "verb"
+  },
+  {
+    "word": "лазить",
+    "translation": "to climb",
+    "type": "verb"
+  },
+  {
+    "word": "висеть",
+    "translation": "to hang",
+    "type": "verb"
+  },
+  {
+    "word": "сесть",
+    "translation": "to sit",
+    "type": "verb"
+  },
+  {
+    "word": "встать",
+    "translation": "to stand",
+    "type": "verb"
+  },
+  {
+    "word": "лечь",
+    "translation": "to lie down",
+    "type": "verb"
+  },
+  {
+    "word": "упасть",
+    "translation": "to fall",
+    "type": "verb"
+  },
+  {
+    "word": "нырять",
+    "translation": "to dive",
+    "type": "verb"
+  },
+  {
+    "word": "грести",
+    "translation": "to row",
+    "type": "verb"
+  },
+  {
+    "word": "парить",
+    "translation": "to soar",
+    "type": "verb"
+  },
+  {
+    "word": "гнать",
+    "translation": "to chase",
+    "type": "verb"
+  },
+  {
+    "word": "начать",
+    "translation": "to begin",
+    "type": "verb"
+  },
+  {
+    "word": "менять",
+    "translation": "to change",
+    "type": "verb"
+  },
+  {
+    "word": "терять",
+    "translation": "to lose",
+    "type": "verb"
+  },
+  {
+    "word": "спасти",
+    "translation": "to save",
+    "type": "verb"
+  },
+  {
+    "word": "убить",
+    "translation": "to kill",
+    "type": "verb"
+  },
+  {
+    "word": "родить",
+    "translation": "to birth",
+    "type": "verb"
+  },
+  {
+    "word": "жечь",
+    "translation": "to burn",
+    "type": "verb"
+  },
+  {
+    "word": "гасить",
+    "translation": "to douse",
+    "type": "verb"
+  },
+  {
+    "word": "зажечь",
+    "translation": "to light",
+    "type": "verb"
+  },
+  {
+    "word": "сиять",
+    "translation": "to glow",
+    "type": "verb"
+  },
+  {
+    "word": "гореть",
+    "translation": "to burn",
+    "type": "verb"
+  },
+  {
+    "word": "тлеть",
+    "translation": "to smolder",
+    "type": "verb"
+  },
+  {
+    "word": "курить",
+    "translation": "to smoke",
+    "type": "verb"
+  },
+  {
+    "word": "дымить",
+    "translation": "to fume",
+    "type": "verb"
+  },
+  {
+    "word": "топать",
+    "translation": "to stomp",
+    "type": "verb"
+  },
+  {
+    "word": "шуметь",
+    "translation": "to be noisy",
+    "type": "verb"
+  },
+  {
+    "word": "гудеть",
+    "translation": "to hum",
+    "type": "verb"
+  },
+  {
+    "word": "выть",
+    "translation": "to howl",
+    "type": "verb"
+  },
+  {
+    "word": "лаять",
+    "translation": "to bark",
+    "type": "verb"
+  },
+  {
+    "word": "рычать",
+    "translation": "to growl",
+    "type": "verb"
+  },
+  {
+    "word": "шипеть",
+    "translation": "to hiss",
+    "type": "verb"
+  },
+  {
+    "word": "пищать",
+    "translation": "to squeak",
+    "type": "verb"
+  },
+  {
+    "word": "брать",
+    "translation": "to take",
+    "type": "verb"
+  },
+  {
+    "word": "дарить",
+    "translation": "to gift",
+    "type": "verb"
+  },
+  {
+    "word": "купить",
+    "translation": "to buy",
+    "type": "verb"
+  },
+  {
+    "word": "платить",
+    "translation": "to pay",
+    "type": "verb"
+  },
+  {
+    "word": "копить",
+    "translation": "to save",
+    "type": "verb"
+  },
+  {
+    "word": "красть",
+    "translation": "to steal",
+    "type": "verb"
+  },
+  {
+    "word": "делить",
+    "translation": "to divide",
+    "type": "verb"
+  },
+  {
+    "word": "сеять",
+    "translation": "to sow",
+    "type": "verb"
+  },
+  {
+    "word": "жать",
+    "translation": "to reap",
+    "type": "verb"
+  },
+  {
+    "word": "косить",
+    "translation": "to mow",
+    "type": "verb"
+  },
+  {
+    "word": "полоть",
+    "translation": "to weed",
+    "type": "verb"
+  },
+  {
+    "word": "пахать",
+    "translation": "to plow",
+    "type": "verb"
+  },
+  {
+    "word": "доить",
+    "translation": "to milk",
+    "type": "verb"
+  },
+  {
+    "word": "стричь",
+    "translation": "to shear",
+    "type": "verb"
+  },
+  {
+    "word": "чесать",
+    "translation": "to comb",
+    "type": "verb"
+  },
+  {
+    "word": "мести",
+    "translation": "to sweep",
+    "type": "verb"
+  },
+  {
+    "word": "снять",
+    "translation": "to remove",
+    "type": "verb"
+  },
+  {
+    "word": "надеть",
+    "translation": "to put on",
+    "type": "verb"
+  },
+  {
+    "word": "одеть",
+    "translation": "to dress",
+    "type": "verb"
+  },
+  {
+    "word": "обуть",
+    "translation": "to shoe",
+    "type": "verb"
+  },
+  {
+    "word": "молоть",
+    "translation": "to grind",
+    "type": "verb"
+  },
+  {
+    "word": "поить",
+    "translation": "to water",
+    "type": "verb"
+  },
+  {
+    "word": "нюхать",
+    "translation": "to sniff",
+    "type": "verb"
+  },
+  {
+    "word": "щупать",
+    "translation": "to feel",
+    "type": "verb"
+  },
+  {
+    "word": "хлопать",
+    "translation": "to clap",
+    "type": "verb"
+  },
+  {
+    "word": "стучать",
+    "translation": "to knock",
+    "type": "verb"
+  },
+  {
+    "word": "трещать",
+    "translation": "to crack",
+    "type": "verb"
+  },
+  {
+    "word": "кормить",
+    "translation": "to feed",
+    "type": "verb"
+  },
+  {
+    "word": "прыгать",
+    "translation": "to jump",
+    "type": "verb"
+  },
+  {
+    "word": "ползать",
+    "translation": "to crawl",
+    "type": "verb"
+  },
+  {
+    "word": "кружить",
+    "translation": "to circle",
+    "type": "verb"
+  },
+  {
+    "word": "спешить",
+    "translation": "to hurry",
+    "type": "verb"
+  },
+  {
+    "word": "открыть",
+    "translation": "to open",
+    "type": "verb"
+  },
+  {
+    "word": "закрыть",
+    "translation": "to close",
+    "type": "verb"
+  },
+  {
+    "word": "войти",
+    "translation": "to enter",
+    "type": "verb"
+  },
+  {
+    "word": "выйти",
+    "translation": "to exit",
+    "type": "verb"
+  },
+  {
+    "word": "кончить",
+    "translation": "to finish",
+    "type": "verb"
+  },
+  {
+    "word": "светить",
+    "translation": "to shine",
+    "type": "verb"
+  },
+  {
+    "word": "мерцать",
+    "translation": "to flicker",
+    "type": "verb"
+  },
+  {
+    "word": "звенеть",
+    "translation": "to ring",
+    "type": "verb"
+  },
+  {
+    "word": "жужжать",
+    "translation": "to buzz",
+    "type": "verb"
+  },
+  {
+    "word": "продать",
+    "translation": "to sell",
+    "type": "verb"
+  },
+  {
+    "word": "тратить",
+    "translation": "to spend",
+    "type": "verb"
+  },
+  {
+    "word": "грабить",
+    "translation": "to rob",
+    "type": "verb"
+  },
+  {
+    "word": "гладить",
+    "translation": "to iron",
+    "type": "verb"
+  },
+  {
+    "word": "стирать",
+    "translation": "to wash",
+    "type": "verb"
+  },
+  {
+    "word": "убирать",
+    "translation": "to clean",
+    "type": "verb"
+  },
+  {
+    "word": "чистить",
+    "translation": "to clean",
+    "type": "verb"
+  },
+  {
+    "word": "сложить",
+    "translation": "to fold",
+    "type": "verb"
+  },
+  {
+    "word": "вешать",
+    "translation": "to hang",
+    "type": "verb"
+  },
+  {
+    "word": "считать",
+    "translation": "to count",
+    "type": "verb"
+  },
+  {
+    "word": "решать",
+    "translation": "to solve",
+    "type": "verb"
+  },
+  {
+    "word": "помнить",
+    "translation": "to remember",
+    "type": "verb"
+  },
+  {
+    "word": "мечтать",
+    "translation": "to dream",
+    "type": "verb"
+  },
+  {
+    "word": "просить",
+    "translation": "to ask",
+    "type": "verb"
+  },
+  {
+    "word": "кричать",
+    "translation": "to shout",
+    "type": "verb"
+  },
+  {
+    "word": "шептать",
+    "translation": "to whisper",
+    "type": "verb"
+  },
+  {
+    "word": "молчать",
+    "translation": "to be silent",
+    "type": "verb"
+  },
+  {
+    "word": "слушать",
+    "translation": "to listen",
+    "type": "verb"
+  },
+  {
+    "word": "слышать",
+    "translation": "to hear",
+    "type": "verb"
+  },
+  {
+    "word": "глядеть",
+    "translation": "to look",
+    "type": "verb"
+  },
+  {
+    "word": "прятать",
+    "translation": "to hide",
+    "type": "verb"
+  },
+  {
+    "word": "бросать",
+    "translation": "to throw",
+    "type": "verb"
+  },
+  {
+    "word": "дрожать",
+    "translation": "to tremble",
+    "type": "verb"
+  },
+  {
+    "word": "кашлять",
+    "translation": "to cough",
+    "type": "verb"
+  },
+  {
+    "word": "плакать",
+    "translation": "to cry",
+    "type": "verb"
+  },
+  {
+    "word": "строить",
+    "translation": "to build",
+    "type": "verb"
+  },
+  {
+    "word": "красить",
+    "translation": "to paint",
+    "type": "verb"
+  },
+  {
+    "word": "чертить",
+    "translation": "to draft",
+    "type": "verb"
+  },
+  {
+    "word": "точить",
+    "translation": "to sharpen",
+    "type": "verb"
+  },
+  {
+    "word": "крутить",
+    "translation": "to spin",
+    "type": "verb"
+  },
+  {
+    "word": "толкать",
+    "translation": "to push",
+    "type": "verb"
+  },
+  {
+    "word": "ставить",
+    "translation": "to place",
+    "type": "verb"
+  },
+  {
+    "word": "сыпать",
+    "translation": "to pour",
+    "type": "verb"
+  },
+  {
+    "word": "тушить",
+    "translation": "to stew",
+    "type": "verb"
+  },
+  {
+    "word": "бояться",
+    "translation": "to fear",
+    "type": "verb"
+  },
+  {
+    "word": "вернуть",
+    "translation": "to return",
+    "type": "verb"
+  },
+  {
+    "word": "послать",
+    "translation": "to send",
+    "type": "verb"
+  },
+  {
+    "word": "принять",
+    "translation": "to accept",
+    "type": "verb"
+  },
+  {
+    "word": "бросить",
+    "translation": "to throw",
+    "type": "verb"
+  },
+  {
+    "word": "пустить",
+    "translation": "to let",
+    "type": "verb"
+  },
+  {
+    "word": "водить",
+    "translation": "to drive",
+    "type": "verb"
+  },
+  {
+    "word": "носить",
+    "translation": "to wear",
+    "type": "verb"
+  },
+  {
+    "word": "возить",
+    "translation": "to transport",
+    "type": "verb"
+  },
+  {
+    "word": "таскать",
+    "translation": "to drag",
+    "type": "verb"
+  },
+  {
+    "word": "двигать",
+    "translation": "to move",
+    "type": "verb"
+  },
+  {
+    "word": "катить",
+    "translation": "to roll",
+    "type": "verb"
+  },
+  {
+    "word": "вертеть",
+    "translation": "to turn",
+    "type": "verb"
+  },
+  {
+    "word": "махать",
+    "translation": "to wave",
+    "type": "verb"
+  },
+  {
+    "word": "кивать",
+    "translation": "to nod",
+    "type": "verb"
+  },
+  {
+    "word": "моргать",
+    "translation": "to blink",
+    "type": "verb"
+  },
+  {
+    "word": "щурить",
+    "translation": "to squint",
+    "type": "verb"
+  },
+  {
+    "word": "хмурить",
+    "translation": "to frown",
+    "type": "verb"
+  },
+  {
+    "word": "морщить",
+    "translation": "to wrinkle",
+    "type": "verb"
+  },
+  {
+    "word": "обнять",
+    "translation": "to hug",
+    "type": "verb"
+  },
+  {
+    "word": "ласкать",
+    "translation": "to caress",
+    "type": "verb"
+  },
+  {
+    "word": "щипать",
+    "translation": "to pinch",
+    "type": "verb"
+  },
+  {
+    "word": "кусать",
+    "translation": "to bite",
+    "type": "verb"
+  },
+  {
+    "word": "колоть",
+    "translation": "to prick",
+    "type": "verb"
+  },
+  {
+    "word": "жалить",
+    "translation": "to sting",
+    "type": "verb"
+  },
+  {
+    "word": "грызть",
+    "translation": "to gnaw",
+    "type": "verb"
+  },
+  {
+    "word": "жевать",
+    "translation": "to chew",
+    "type": "verb"
+  },
+  {
+    "word": "глотать",
+    "translation": "to swallow",
+    "type": "verb"
+  },
+  {
+    "word": "сосать",
+    "translation": "to suck",
+    "type": "verb"
+  },
+  {
+    "word": "дуть",
+    "translation": "to blow",
+    "type": "verb"
+  },
+  {
+    "word": "плевать",
+    "translation": "to spit",
+    "type": "verb"
+  },
+  {
+    "word": "икать",
+    "translation": "to hiccup",
+    "type": "verb"
+  },
+  {
+    "word": "храпеть",
+    "translation": "to snore",
+    "type": "verb"
+  },
+  {
+    "word": "стонать",
+    "translation": "to moan",
+    "type": "verb"
+  },
+  {
+    "word": "охать",
+    "translation": "to groan",
+    "type": "verb"
+  },
+  {
+    "word": "ахать",
+    "translation": "to gasp",
+    "type": "verb"
+  },
+  {
+    "word": "хныкать",
+    "translation": "to whimper",
+    "type": "verb"
+  },
+  {
+    "word": "рыдать",
+    "translation": "to sob",
+    "type": "verb"
+  },
+  {
+    "word": "ворчать",
+    "translation": "to grumble",
+    "type": "verb"
+  },
+  {
+    "word": "болтать",
+    "translation": "to chat",
+    "type": "verb"
+  },
+  {
+    "word": "врать",
+    "translation": "to lie",
+    "type": "verb"
+  },
+  {
+    "word": "хвалить",
+    "translation": "to praise",
+    "type": "verb"
+  },
+  {
+    "word": "ругать",
+    "translation": "to scold",
+    "type": "verb"
+  },
+  {
+    "word": "винить",
+    "translation": "to blame",
+    "type": "verb"
+  },
+  {
+    "word": "прощать",
+    "translation": "to forgive",
+    "type": "verb"
+  },
+  {
+    "word": "мстить",
+    "translation": "to avenge",
+    "type": "verb"
+  },
+  {
+    "word": "спорить",
+    "translation": "to argue",
+    "type": "verb"
+  },
+  {
+    "word": "ссорить",
+    "translation": "to quarrel",
+    "type": "verb"
+  },
+  {
+    "word": "мирить",
+    "translation": "to reconcile",
+    "type": "verb"
+  },
+  {
+    "word": "дружить",
+    "translation": "to befriend",
+    "type": "verb"
+  },
+  {
+    "word": "угощать",
+    "translation": "to treat",
+    "type": "verb"
+  },
+  {
+    "word": "терпеть",
+    "translation": "to endure",
+    "type": "verb"
+  },
+  {
+    "word": "мучить",
+    "translation": "to torment",
+    "type": "verb"
+  },
+  {
+    "word": "пугать",
+    "translation": "to scare",
+    "type": "verb"
+  },
+  {
+    "word": "злить",
+    "translation": "to anger",
+    "type": "verb"
+  },
+  {
+    "word": "смешить",
+    "translation": "to make laugh",
+    "type": "verb"
+  },
+  {
+    "word": "уважать",
+    "translation": "to respect",
+    "type": "verb"
+  },
+  {
+    "word": "ценить",
+    "translation": "to value",
+    "type": "verb"
+  },
+  {
+    "word": "беречь",
+    "translation": "to cherish",
+    "type": "verb"
+  },
+  {
+    "word": "хранить",
+    "translation": "to keep",
+    "type": "verb"
+  },
+  {
+    "word": "коптить",
+    "translation": "to smoke",
+    "type": "verb"
+  },
+  {
+    "word": "новый",
+    "translation": "new",
+    "type": "adj"
+  },
+  {
+    "word": "старый",
+    "translation": "old",
+    "type": "adj"
+  },
+  {
+    "word": "большой",
+    "translation": "big",
+    "type": "adj"
+  },
+  {
+    "word": "малый",
+    "translation": "small",
+    "type": "adj"
+  },
+  {
+    "word": "добрый",
+    "translation": "kind",
+    "type": "adj"
+  },
+  {
+    "word": "злой",
+    "translation": "evil",
+    "type": "adj"
+  },
+  {
+    "word": "умный",
+    "translation": "smart",
+    "type": "adj"
+  },
+  {
+    "word": "глупый",
+    "translation": "stupid",
+    "type": "adj"
+  },
+  {
+    "word": "белый",
+    "translation": "white",
+    "type": "adj"
+  },
+  {
+    "word": "чёрный",
+    "translation": "black",
+    "type": "adj"
+  },
+  {
+    "word": "красный",
+    "translation": "red",
+    "type": "adj"
+  },
+  {
+    "word": "синий",
+    "translation": "blue",
+    "type": "adj"
+  },
+  {
+    "word": "жёлтый",
+    "translation": "yellow",
+    "type": "adj"
+  },
+  {
+    "word": "зелёный",
+    "translation": "green",
+    "type": "adj"
+  },
+  {
+    "word": "серый",
+    "translation": "gray",
+    "type": "adj"
+  },
+  {
+    "word": "розовый",
+    "translation": "pink",
+    "type": "adj"
+  },
+  {
+    "word": "тёмный",
+    "translation": "dark",
+    "type": "adj"
+  },
+  {
+    "word": "светлый",
+    "translation": "bright",
+    "type": "adj"
+  },
+  {
+    "word": "яркий",
+    "translation": "vivid",
+    "type": "adj"
+  },
+  {
+    "word": "тусклый",
+    "translation": "dim",
+    "type": "adj"
+  },
+  {
+    "word": "тёплый",
+    "translation": "warm",
+    "type": "adj"
+  },
+  {
+    "word": "горячий",
+    "translation": "hot",
+    "type": "adj"
+  },
+  {
+    "word": "мокрый",
+    "translation": "wet",
+    "type": "adj"
+  },
+  {
+    "word": "сухой",
+    "translation": "dry",
+    "type": "adj"
+  },
+  {
+    "word": "мягкий",
+    "translation": "soft",
+    "type": "adj"
+  },
+  {
+    "word": "жёсткий",
+    "translation": "hard",
+    "type": "adj"
+  },
+  {
+    "word": "гладкий",
+    "translation": "smooth",
+    "type": "adj"
+  },
+  {
+    "word": "грубый",
+    "translation": "rough",
+    "type": "adj"
+  },
+  {
+    "word": "острый",
+    "translation": "sharp",
+    "type": "adj"
+  },
+  {
+    "word": "тупой",
+    "translation": "blunt",
+    "type": "adj"
+  },
+  {
+    "word": "тонкий",
+    "translation": "thin",
+    "type": "adj"
+  },
+  {
+    "word": "толстый",
+    "translation": "thick",
+    "type": "adj"
+  },
+  {
+    "word": "узкий",
+    "translation": "narrow",
+    "type": "adj"
+  },
+  {
+    "word": "широкий",
+    "translation": "wide",
+    "type": "adj"
+  },
+  {
+    "word": "высокий",
+    "translation": "tall",
+    "type": "adj"
+  },
+  {
+    "word": "низкий",
+    "translation": "low",
+    "type": "adj"
+  },
+  {
+    "word": "длинный",
+    "translation": "long",
+    "type": "adj"
+  },
+  {
+    "word": "быстрый",
+    "translation": "fast",
+    "type": "adj"
+  },
+  {
+    "word": "тихий",
+    "translation": "quiet",
+    "type": "adj"
+  },
+  {
+    "word": "громкий",
+    "translation": "loud",
+    "type": "adj"
+  },
+  {
+    "word": "чистый",
+    "translation": "clean",
+    "type": "adj"
+  },
+  {
+    "word": "грязный",
+    "translation": "dirty",
+    "type": "adj"
+  },
+  {
+    "word": "пустой",
+    "translation": "empty",
+    "type": "adj"
+  },
+  {
+    "word": "полный",
+    "translation": "full",
+    "type": "adj"
+  },
+  {
+    "word": "целый",
+    "translation": "whole",
+    "type": "adj"
+  },
+  {
+    "word": "живой",
+    "translation": "alive",
+    "type": "adj"
+  },
+  {
+    "word": "мёртвый",
+    "translation": "dead",
+    "type": "adj"
+  },
+  {
+    "word": "сильный",
+    "translation": "strong",
+    "type": "adj"
+  },
+  {
+    "word": "слабый",
+    "translation": "weak",
+    "type": "adj"
+  },
+  {
+    "word": "молодой",
+    "translation": "young",
+    "type": "adj"
+  },
+  {
+    "word": "юный",
+    "translation": "youthful",
+    "type": "adj"
+  },
+  {
+    "word": "зрелый",
+    "translation": "mature",
+    "type": "adj"
+  },
+  {
+    "word": "бедный",
+    "translation": "poor",
+    "type": "adj"
+  },
+  {
+    "word": "богатый",
+    "translation": "rich",
+    "type": "adj"
+  },
+  {
+    "word": "дешёвый",
+    "translation": "cheap",
+    "type": "adj"
+  },
+  {
+    "word": "дорогой",
+    "translation": "expensive",
+    "type": "adj"
+  },
+  {
+    "word": "важный",
+    "translation": "important",
+    "type": "adj"
+  },
+  {
+    "word": "нужный",
+    "translation": "needed",
+    "type": "adj"
+  },
+  {
+    "word": "лишний",
+    "translation": "extra",
+    "type": "adj"
+  },
+  {
+    "word": "правый",
+    "translation": "right",
+    "type": "adj"
+  },
+  {
+    "word": "левый",
+    "translation": "left",
+    "type": "adj"
+  },
+  {
+    "word": "нижний",
+    "translation": "lower",
+    "type": "adj"
+  },
+  {
+    "word": "задний",
+    "translation": "rear",
+    "type": "adj"
+  },
+  {
+    "word": "средний",
+    "translation": "middle",
+    "type": "adj"
+  },
+  {
+    "word": "ближний",
+    "translation": "near",
+    "type": "adj"
+  },
+  {
+    "word": "дальний",
+    "translation": "far",
+    "type": "adj"
+  },
+  {
+    "word": "ранний",
+    "translation": "early",
+    "type": "adj"
+  },
+  {
+    "word": "поздний",
+    "translation": "late",
+    "type": "adj"
+  },
+  {
+    "word": "первый",
+    "translation": "first",
+    "type": "adj"
+  },
+  {
+    "word": "второй",
+    "translation": "second",
+    "type": "adj"
+  },
+  {
+    "word": "третий",
+    "translation": "third",
+    "type": "adj"
+  },
+  {
+    "word": "каждый",
+    "translation": "every",
+    "type": "adj"
+  },
+  {
+    "word": "другой",
+    "translation": "other",
+    "type": "adj"
+  },
+  {
+    "word": "общий",
+    "translation": "common",
+    "type": "adj"
+  },
+  {
+    "word": "личный",
+    "translation": "personal",
+    "type": "adj"
+  },
+  {
+    "word": "родной",
+    "translation": "native",
+    "type": "adj"
+  },
+  {
+    "word": "чужой",
+    "translation": "foreign",
+    "type": "adj"
+  },
+  {
+    "word": "свой",
+    "translation": "own",
+    "type": "adj"
+  },
+  {
+    "word": "готовый",
+    "translation": "ready",
+    "type": "adj"
+  },
+  {
+    "word": "занятый",
+    "translation": "busy",
+    "type": "adj"
+  },
+  {
+    "word": "простой",
+    "translation": "simple",
+    "type": "adj"
+  },
+  {
+    "word": "сложный",
+    "translation": "complex",
+    "type": "adj"
+  },
+  {
+    "word": "лёгкий",
+    "translation": "easy",
+    "type": "adj"
+  },
+  {
+    "word": "трудный",
+    "translation": "hard",
+    "type": "adj"
+  },
+  {
+    "word": "ясный",
+    "translation": "clear",
+    "type": "adj"
+  },
+  {
+    "word": "мутный",
+    "translation": "murky",
+    "type": "adj"
+  },
+  {
+    "word": "точный",
+    "translation": "exact",
+    "type": "adj"
+  },
+  {
+    "word": "верный",
+    "translation": "faithful",
+    "type": "adj"
+  },
+  {
+    "word": "ложный",
+    "translation": "false",
+    "type": "adj"
+  },
+  {
+    "word": "честный",
+    "translation": "honest",
+    "type": "adj"
+  },
+  {
+    "word": "хитрый",
+    "translation": "cunning",
+    "type": "adj"
+  },
+  {
+    "word": "смелый",
+    "translation": "brave",
+    "type": "adj"
+  },
+  {
+    "word": "робкий",
+    "translation": "timid",
+    "type": "adj"
+  },
+  {
+    "word": "гордый",
+    "translation": "proud",
+    "type": "adj"
+  },
+  {
+    "word": "жадный",
+    "translation": "greedy",
+    "type": "adj"
+  },
+  {
+    "word": "щедрый",
+    "translation": "generous",
+    "type": "adj"
+  },
+  {
+    "word": "ленивый",
+    "translation": "lazy",
+    "type": "adj"
+  },
+  {
+    "word": "строгий",
+    "translation": "strict",
+    "type": "adj"
+  },
+  {
+    "word": "мирный",
+    "translation": "peaceful",
+    "type": "adj"
+  },
+  {
+    "word": "дикий",
+    "translation": "wild",
+    "type": "adj"
+  },
+  {
+    "word": "ручной",
+    "translation": "tame",
+    "type": "adj"
+  },
+  {
+    "word": "густой",
+    "translation": "dense",
+    "type": "adj"
+  },
+  {
+    "word": "редкий",
+    "translation": "rare",
+    "type": "adj"
+  },
+  {
+    "word": "частый",
+    "translation": "frequent",
+    "type": "adj"
+  },
+  {
+    "word": "вечный",
+    "translation": "eternal",
+    "type": "adj"
+  },
+  {
+    "word": "краткий",
+    "translation": "brief",
+    "type": "adj"
+  },
+  {
+    "word": "долгий",
+    "translation": "long",
+    "type": "adj"
+  },
+  {
+    "word": "ровный",
+    "translation": "even",
+    "type": "adj"
+  },
+  {
+    "word": "кривой",
+    "translation": "crooked",
+    "type": "adj"
+  },
+  {
+    "word": "круглый",
+    "translation": "round",
+    "type": "adj"
+  },
+  {
+    "word": "плоский",
+    "translation": "flat",
+    "type": "adj"
+  },
+  {
+    "word": "крутой",
+    "translation": "steep",
+    "type": "adj"
+  },
+  {
+    "word": "резкий",
+    "translation": "sharp",
+    "type": "adj"
+  },
+  {
+    "word": "плавный",
+    "translation": "smooth",
+    "type": "adj"
+  },
+  {
+    "word": "сладкий",
+    "translation": "sweet",
+    "type": "adj"
+  },
+  {
+    "word": "горький",
+    "translation": "bitter",
+    "type": "adj"
+  },
+  {
+    "word": "кислый",
+    "translation": "sour",
+    "type": "adj"
+  },
+  {
+    "word": "солёный",
+    "translation": "salty",
+    "type": "adj"
+  },
+  {
+    "word": "пресный",
+    "translation": "bland",
+    "type": "adj"
+  },
+  {
+    "word": "вкусный",
+    "translation": "tasty",
+    "type": "adj"
+  },
+  {
+    "word": "сытый",
+    "translation": "full",
+    "type": "adj"
+  },
+  {
+    "word": "пьяный",
+    "translation": "drunk",
+    "type": "adj"
+  },
+  {
+    "word": "трезвый",
+    "translation": "sober",
+    "type": "adj"
+  },
+  {
+    "word": "усталый",
+    "translation": "tired",
+    "type": "adj"
+  },
+  {
+    "word": "бодрый",
+    "translation": "cheerful",
+    "type": "adj"
+  },
+  {
+    "word": "весёлый",
+    "translation": "merry",
+    "type": "adj"
+  },
+  {
+    "word": "нежный",
+    "translation": "tender",
+    "type": "adj"
+  },
+  {
+    "word": "суровый",
+    "translation": "severe",
+    "type": "adj"
+  },
+  {
+    "word": "мудрый",
+    "translation": "wise",
+    "type": "adj"
+  },
+  {
+    "word": "глухой",
+    "translation": "deaf",
+    "type": "adj"
+  },
+  {
+    "word": "слепой",
+    "translation": "blind",
+    "type": "adj"
+  },
+  {
+    "word": "немой",
+    "translation": "mute",
+    "type": "adj"
+  },
+  {
+    "word": "хромой",
+    "translation": "lame",
+    "type": "adj"
+  },
+  {
+    "word": "лысый",
+    "translation": "bald",
+    "type": "adj"
+  },
+  {
+    "word": "худой",
+    "translation": "skinny",
+    "type": "adj"
+  },
+  {
+    "word": "пухлый",
+    "translation": "plump",
+    "type": "adj"
+  },
+  {
+    "word": "ловкий",
+    "translation": "agile",
+    "type": "adj"
+  },
+  {
+    "word": "милый",
+    "translation": "cute",
+    "type": "adj"
+  },
+  {
+    "word": "модный",
+    "translation": "trendy",
+    "type": "adj"
+  },
+  {
+    "word": "удобный",
+    "translation": "comfy",
+    "type": "adj"
+  },
+  {
+    "word": "тесный",
+    "translation": "tight",
+    "type": "adj"
+  },
+  {
+    "word": "уютный",
+    "translation": "cozy",
+    "type": "adj"
+  },
+  {
+    "word": "пышный",
+    "translation": "lush",
+    "type": "adj"
+  },
+  {
+    "word": "бурный",
+    "translation": "stormy",
+    "type": "adj"
+  },
+  {
+    "word": "шумный",
+    "translation": "noisy",
+    "type": "adj"
+  },
+  {
+    "word": "душный",
+    "translation": "stuffy",
+    "type": "adj"
+  },
+  {
+    "word": "свежий",
+    "translation": "fresh",
+    "type": "adj"
+  },
+  {
+    "word": "тухлый",
+    "translation": "rotten",
+    "type": "adj"
+  },
+  {
+    "word": "сырой",
+    "translation": "raw",
+    "type": "adj"
+  },
+  {
+    "word": "местный",
+    "translation": "local",
+    "type": "adj"
+  },
+  {
+    "word": "южный",
+    "translation": "southern",
+    "type": "adj"
+  },
+  {
+    "word": "горный",
+    "translation": "mountain",
+    "type": "adj"
+  },
+  {
+    "word": "лесной",
+    "translation": "forest",
+    "type": "adj"
+  },
+  {
+    "word": "речной",
+    "translation": "river",
+    "type": "adj"
+  },
+  {
+    "word": "земной",
+    "translation": "earthly",
+    "type": "adj"
+  },
+  {
+    "word": "водный",
+    "translation": "water",
+    "type": "adj"
+  },
+  {
+    "word": "медный",
+    "translation": "copper",
+    "type": "adj"
+  },
+  {
+    "word": "кожаный",
+    "translation": "leather",
+    "type": "adj"
+  },
+  {
+    "word": "золотой",
+    "translation": "golden",
+    "type": "adj"
+  },
+  {
+    "word": "ледяной",
+    "translation": "icy",
+    "type": "adj"
+  },
+  {
+    "word": "морской",
+    "translation": "sea",
+    "type": "adj"
+  },
+  {
+    "word": "главный",
+    "translation": "main",
+    "type": "adj"
+  },
+  {
+    "word": "боковой",
+    "translation": "side",
+    "type": "adj"
+  },
+  {
+    "word": "внешний",
+    "translation": "outer",
+    "type": "adj"
+  },
+  {
+    "word": "верхний",
+    "translation": "upper",
+    "type": "adj"
+  },
+  {
+    "word": "обычный",
+    "translation": "usual",
+    "type": "adj"
+  },
+  {
+    "word": "особый",
+    "translation": "special",
+    "type": "adj"
+  },
+  {
+    "word": "чудной",
+    "translation": "odd",
+    "type": "adj"
+  },
+  {
+    "word": "дивный",
+    "translation": "wondrous",
+    "type": "adj"
+  },
+  {
+    "word": "грозный",
+    "translation": "menacing",
+    "type": "adj"
+  },
+  {
+    "word": "жуткий",
+    "translation": "creepy",
+    "type": "adj"
+  },
+  {
+    "word": "мрачный",
+    "translation": "gloomy",
+    "type": "adj"
+  },
+  {
+    "word": "знойный",
+    "translation": "sultry",
+    "type": "adj"
+  },
+  {
+    "word": "влажный",
+    "translation": "humid",
+    "type": "adj"
+  },
+  {
+    "word": "хмурый",
+    "translation": "overcast",
+    "type": "adj"
+  },
+  {
+    "word": "снежный",
+    "translation": "snowy",
+    "type": "adj"
+  },
+  {
+    "word": "лунный",
+    "translation": "lunar",
+    "type": "adj"
+  },
+  {
+    "word": "ночной",
+    "translation": "night",
+    "type": "adj"
+  },
+  {
+    "word": "дневной",
+    "translation": "daytime",
+    "type": "adj"
+  },
+  {
+    "word": "зимний",
+    "translation": "winter",
+    "type": "adj"
+  },
+  {
+    "word": "летний",
+    "translation": "summer",
+    "type": "adj"
+  },
+  {
+    "word": "осенний",
+    "translation": "autumn",
+    "type": "adj"
+  },
+  {
+    "word": "годовой",
+    "translation": "annual",
+    "type": "adj"
+  },
+  {
+    "word": "древний",
+    "translation": "ancient",
+    "type": "adj"
+  },
+  {
+    "word": "будущий",
+    "translation": "future",
+    "type": "adj"
+  },
+  {
+    "word": "прошлый",
+    "translation": "past",
+    "type": "adj"
+  },
+  {
+    "word": "данный",
+    "translation": "given",
+    "type": "adj"
+  },
+  {
+    "word": "тайный",
+    "translation": "secret",
+    "type": "adj"
+  },
+  {
+    "word": "явный",
+    "translation": "obvious",
+    "type": "adj"
+  },
+  {
+    "word": "скрытый",
+    "translation": "hidden",
+    "type": "adj"
+  },
+  {
+    "word": "занятой",
+    "translation": "occupied",
+    "type": "adj"
+  },
+  {
+    "word": "рабочий",
+    "translation": "working",
+    "type": "adj"
+  },
+  {
+    "word": "будний",
+    "translation": "weekday",
+    "type": "adj"
+  },
+  {
+    "word": "военный",
+    "translation": "military",
+    "type": "adj"
+  },
+  {
+    "word": "частный",
+    "translation": "private",
+    "type": "adj"
+  },
+  {
+    "word": "детский",
+    "translation": "children",
+    "type": "adj"
+  },
+  {
+    "word": "мужской",
+    "translation": "male",
+    "type": "adj"
+  },
+  {
+    "word": "женский",
+    "translation": "female",
+    "type": "adj"
+  },
+  {
+    "word": "людской",
+    "translation": "human",
+    "type": "adj"
+  },
+  {
+    "word": "птичий",
+    "translation": "bird",
+    "type": "adj"
+  },
+  {
+    "word": "рыбий",
+    "translation": "fish",
+    "type": "adj"
+  },
+  {
+    "word": "конский",
+    "translation": "horse",
+    "type": "adj"
+  },
+  {
+    "word": "собачий",
+    "translation": "dog",
+    "type": "adj"
+  },
+  {
+    "word": "кошачий",
+    "translation": "cat",
+    "type": "adj"
+  },
+  {
+    "word": "волчий",
+    "translation": "wolf",
+    "type": "adj"
+  },
+  {
+    "word": "лисий",
+    "translation": "fox",
+    "type": "adj"
+  },
+  {
+    "word": "заячий",
+    "translation": "hare",
+    "type": "adj"
+  },
+  {
+    "word": "мышиный",
+    "translation": "mouse",
+    "type": "adj"
+  },
+  {
+    "word": "очень",
+    "translation": "very",
+    "type": "adv"
+  },
+  {
+    "word": "уже",
+    "translation": "already",
+    "type": "adv"
+  },
+  {
+    "word": "ещё",
+    "translation": "still",
+    "type": "adv"
+  },
+  {
+    "word": "тоже",
+    "translation": "also",
+    "type": "adv"
+  },
+  {
+    "word": "потом",
+    "translation": "then",
+    "type": "adv"
+  },
+  {
+    "word": "опять",
+    "translation": "again",
+    "type": "adv"
+  },
+  {
+    "word": "всегда",
+    "translation": "always",
+    "type": "adv"
+  },
+  {
+    "word": "иногда",
+    "translation": "sometimes",
+    "type": "adv"
+  },
+  {
+    "word": "часто",
+    "translation": "often",
+    "type": "adv"
+  },
+  {
+    "word": "редко",
+    "translation": "rarely",
+    "type": "adv"
+  },
+  {
+    "word": "быстро",
+    "translation": "quickly",
+    "type": "adv"
+  },
+  {
+    "word": "тихо",
+    "translation": "quietly",
+    "type": "adv"
+  },
+  {
+    "word": "громко",
+    "translation": "loudly",
+    "type": "adv"
+  },
+  {
+    "word": "хорошо",
+    "translation": "well",
+    "type": "adv"
+  },
+  {
+    "word": "плохо",
+    "translation": "badly",
+    "type": "adv"
+  },
+  {
+    "word": "легко",
+    "translation": "easily",
+    "type": "adv"
+  },
+  {
+    "word": "трудно",
+    "translation": "hard",
+    "type": "adv"
+  },
+  {
+    "word": "просто",
+    "translation": "simply",
+    "type": "adv"
+  },
+  {
+    "word": "сложно",
+    "translation": "complex",
+    "type": "adv"
+  },
+  {
+    "word": "точно",
+    "translation": "exactly",
+    "type": "adv"
+  },
+  {
+    "word": "верно",
+    "translation": "correctly",
+    "type": "adv"
+  },
+  {
+    "word": "ясно",
+    "translation": "clearly",
+    "type": "adv"
+  },
+  {
+    "word": "тайно",
+    "translation": "secretly",
+    "type": "adv"
+  },
+  {
+    "word": "вместе",
+    "translation": "together",
+    "type": "adv"
+  },
+  {
+    "word": "рядом",
+    "translation": "nearby",
+    "type": "adv"
+  },
+  {
+    "word": "далеко",
+    "translation": "far",
+    "type": "adv"
+  },
+  {
+    "word": "близко",
+    "translation": "close",
+    "type": "adv"
+  },
+  {
+    "word": "высоко",
+    "translation": "high",
+    "type": "adv"
+  },
+  {
+    "word": "низко",
+    "translation": "low",
+    "type": "adv"
+  },
+  {
+    "word": "сверху",
+    "translation": "above",
+    "type": "adv"
+  },
+  {
+    "word": "снизу",
+    "translation": "below",
+    "type": "adv"
+  },
+  {
+    "word": "справа",
+    "translation": "right",
+    "type": "adv"
+  },
+  {
+    "word": "слева",
+    "translation": "left",
+    "type": "adv"
+  },
+  {
+    "word": "вперёд",
+    "translation": "forward",
+    "type": "adv"
+  },
+  {
+    "word": "назад",
+    "translation": "back",
+    "type": "adv"
+  },
+  {
+    "word": "вверх",
+    "translation": "up",
+    "type": "adv"
+  },
+  {
+    "word": "вниз",
+    "translation": "down",
+    "type": "adv"
+  },
+  {
+    "word": "внутри",
+    "translation": "inside",
+    "type": "adv"
+  },
+  {
+    "word": "дома",
+    "translation": "at home",
+    "type": "adv"
+  },
+  {
+    "word": "здесь",
+    "translation": "here",
+    "type": "adv"
+  },
+  {
+    "word": "там",
+    "translation": "there",
+    "type": "adv"
+  },
+  {
+    "word": "везде",
+    "translation": "everywhere",
+    "type": "adv"
+  },
+  {
+    "word": "нигде",
+    "translation": "nowhere",
+    "type": "adv"
+  },
+  {
+    "word": "сейчас",
+    "translation": "now",
+    "type": "adv"
+  },
+  {
+    "word": "тогда",
+    "translation": "then",
+    "type": "adv"
+  },
+  {
+    "word": "давно",
+    "translation": "long ago",
+    "type": "adv"
+  },
+  {
+    "word": "скоро",
+    "translation": "soon",
+    "type": "adv"
+  },
+  {
+    "word": "рано",
+    "translation": "early",
+    "type": "adv"
+  },
+  {
+    "word": "поздно",
+    "translation": "late",
+    "type": "adv"
+  },
+  {
+    "word": "утром",
+    "translation": "morning",
+    "type": "adv"
+  },
+  {
+    "word": "днём",
+    "translation": "afternoon",
+    "type": "adv"
+  },
+  {
+    "word": "ночью",
+    "translation": "at night",
+    "type": "adv"
+  },
+  {
+    "word": "зимой",
+    "translation": "in winter",
+    "type": "adv"
+  },
+  {
+    "word": "летом",
+    "translation": "in summer",
+    "type": "adv"
+  },
+  {
+    "word": "весной",
+    "translation": "in spring",
+    "type": "adv"
+  },
+  {
+    "word": "осенью",
+    "translation": "in autumn",
+    "type": "adv"
+  },
+  {
+    "word": "сразу",
+    "translation": "at once",
+    "type": "adv"
+  },
+  {
+    "word": "вдруг",
+    "translation": "suddenly",
+    "type": "adv"
+  },
+  {
+    "word": "почти",
+    "translation": "almost",
+    "type": "adv"
+  },
+  {
+    "word": "совсем",
+    "translation": "completely",
+    "type": "adv"
+  },
+  {
+    "word": "мало",
+    "translation": "little",
+    "type": "adv"
+  },
+  {
+    "word": "много",
+    "translation": "much",
+    "type": "adv"
+  },
+  {
+    "word": "чуть",
+    "translation": "slightly",
+    "type": "adv"
+  },
+  {
+    "word": "едва",
+    "translation": "barely",
+    "type": "adv"
+  },
+  {
+    "word": "кстати",
+    "translation": "by the way",
+    "type": "adv"
+  },
+  {
+    "word": "вообще",
+    "translation": "in general",
+    "type": "adv"
+  },
+  {
+    "word": "именно",
+    "translation": "namely",
+    "type": "adv"
+  },
+  {
+    "word": "видимо",
+    "translation": "apparently",
+    "type": "adv"
+  },
+  {
+    "word": "заново",
+    "translation": "anew",
+    "type": "adv"
+  },
+  {
+    "word": "наверно",
+    "translation": "probably",
+    "type": "adv"
+  },
+  {
+    "word": "конечно",
+    "translation": "of course",
+    "type": "adv"
+  },
+  {
+    "word": "пешком",
+    "translation": "on foot",
+    "type": "adv"
+  },
+  {
+    "word": "молча",
+    "translation": "silently",
+    "type": "adv"
+  },
+  {
+    "word": "нехотя",
+    "translation": "reluctantly",
+    "type": "adv"
+  },
+  {
+    "word": "наспех",
+    "translation": "hastily",
+    "type": "adv"
+  },
+  {
+    "word": "наугад",
+    "translation": "at random",
+    "type": "adv"
+  },
+  {
+    "word": "набок",
+    "translation": "sideways",
+    "type": "adv"
+  },
+  {
+    "word": "наотрез",
+    "translation": "flatly",
+    "type": "adv"
+  },
+  {
+    "word": "нарочно",
+    "translation": "on purpose",
+    "type": "adv"
+  },
+  {
+    "word": "наружу",
+    "translation": "outside",
+    "type": "adv"
+  },
+  {
+    "word": "настежь",
+    "translation": "wide open",
+    "type": "adv"
+  },
+  {
+    "word": "наяву",
+    "translation": "awake",
+    "type": "adv"
+  },
+  {
+    "word": "недаром",
+    "translation": "not for nothing",
+    "type": "adv"
+  },
+  {
+    "word": "нередко",
+    "translation": "not rarely",
+    "type": "adv"
+  },
+  {
+    "word": "отнюдь",
+    "translation": "by no means",
+    "type": "adv"
+  },
+  {
+    "word": "отчасти",
+    "translation": "partly",
+    "type": "adv"
+  },
+  {
+    "word": "поодаль",
+    "translation": "at distance",
+    "type": "adv"
+  },
+  {
+    "word": "поровну",
+    "translation": "equally",
+    "type": "adv"
+  },
+  {
+    "word": "порознь",
+    "translation": "apart",
+    "type": "adv"
+  },
+  {
+    "word": "посреди",
+    "translation": "amid",
+    "type": "adv"
+  },
+  {
+    "word": "сбоку",
+    "translation": "from side",
+    "type": "adv"
+  },
+  {
+    "word": "сзади",
+    "translation": "behind",
+    "type": "adv"
+  },
+  {
+    "word": "снова",
+    "translation": "again",
+    "type": "adv"
+  },
+  {
+    "word": "сплошь",
+    "translation": "entirely",
+    "type": "adv"
+  },
+  {
+    "word": "сполна",
+    "translation": "in full",
+    "type": "adv"
+  },
+  {
+    "word": "тотчас",
+    "translation": "instantly",
+    "type": "adv"
+  },
+  {
+    "word": "три",
+    "translation": "three",
+    "type": "numeral"
+  },
+  {
+    "word": "пять",
+    "translation": "five",
+    "type": "numeral"
+  },
+  {
+    "word": "шесть",
+    "translation": "six",
+    "type": "numeral"
+  },
+  {
+    "word": "семь",
+    "translation": "seven",
+    "type": "numeral"
+  },
+  {
+    "word": "восемь",
+    "translation": "eight",
+    "type": "numeral"
+  },
+  {
+    "word": "девять",
+    "translation": "nine",
+    "type": "numeral"
+  },
+  {
+    "word": "десять",
+    "translation": "ten",
+    "type": "numeral"
+  },
+  {
+    "word": "сто",
+    "translation": "hundred",
+    "type": "numeral"
+  },
+  {
+    "word": "нет",
+    "translation": "no",
+    "type": "particle"
+  },
+  {
+    "word": "вот",
+    "translation": "here is",
+    "type": "particle"
+  },
+  {
+    "word": "ведь",
+    "translation": "after all",
+    "type": "particle"
+  },
+  {
+    "word": "даже",
+    "translation": "even",
+    "type": "particle"
+  },
+  {
+    "word": "лишь",
+    "translation": "only",
+    "type": "particle"
+  },
+  {
+    "word": "пока",
+    "translation": "while",
+    "type": "conj"
+  },
+  {
+    "word": "если",
+    "translation": "if",
+    "type": "conj"
+  },
+  {
+    "word": "когда",
+    "translation": "when",
+    "type": "conj"
+  },
+  {
+    "word": "чтобы",
+    "translation": "in order to",
+    "type": "conj"
+  },
+  {
+    "word": "однако",
+    "translation": "however",
+    "type": "conj"
+  },
+  {
+    "word": "зато",
+    "translation": "but then",
+    "type": "conj"
+  },
+  {
+    "word": "либо",
+    "translation": "or",
+    "type": "conj"
+  },
+  {
+    "word": "также",
+    "translation": "also",
+    "type": "conj"
+  },
+  {
+    "word": "причём",
+    "translation": "moreover",
+    "type": "conj"
+  },
+  {
+    "word": "итак",
+    "translation": "so",
+    "type": "conj"
+  },
+  {
+    "word": "значит",
+    "translation": "means",
+    "type": "conj"
+  },
+  {
+    "word": "увы",
+    "translation": "alas",
+    "type": "interj"
+  },
+  {
+    "word": "ура",
+    "translation": "hooray",
+    "type": "interj"
+  },
+  {
+    "word": "браво",
+    "translation": "bravo",
+    "type": "interj"
+  },
+  {
+    "word": "алло",
+    "translation": "hello",
+    "type": "interj"
+  },
+  {
+    "word": "привет",
+    "translation": "hi",
+    "type": "interj"
+  },
+  {
+    "word": "ладно",
+    "translation": "okay",
+    "type": "interj"
+  },
+  {
+    "word": "пень",
+    "translation": "stump",
+    "type": "noun"
+  },
+  {
+    "word": "куст",
+    "translation": "bush",
+    "type": "noun"
+  },
+  {
+    "word": "мох",
+    "translation": "moss",
+    "type": "noun"
+  },
+  {
+    "word": "ива",
+    "translation": "willow",
+    "type": "noun"
+  },
+  {
+    "word": "дуб",
+    "translation": "oak",
+    "type": "noun"
+  },
+  {
+    "word": "ель",
+    "translation": "spruce",
+    "type": "noun"
+  },
+  {
+    "word": "сосна",
+    "translation": "pine",
+    "type": "noun"
+  },
+  {
+    "word": "берёза",
+    "translation": "birch",
+    "type": "noun"
+  },
+  {
+    "word": "клён",
+    "translation": "maple",
+    "type": "noun"
+  },
+  {
+    "word": "тополь",
+    "translation": "poplar",
+    "type": "noun"
+  },
+  {
+    "word": "ясень",
+    "translation": "ash",
+    "type": "noun"
+  },
+  {
+    "word": "липа",
+    "translation": "linden",
+    "type": "noun"
+  },
+  {
+    "word": "рябина",
+    "translation": "rowan",
+    "type": "noun"
+  },
+  {
+    "word": "сирень",
+    "translation": "lilac",
+    "type": "noun"
+  },
+  {
+    "word": "жасмин",
+    "translation": "jasmine",
+    "type": "noun"
+  },
+  {
+    "word": "мак",
+    "translation": "poppy",
+    "type": "noun"
+  },
+  {
+    "word": "лилия",
+    "translation": "lily",
+    "type": "noun"
+  },
+  {
+    "word": "тюльпан",
+    "translation": "tulip",
+    "type": "noun"
+  },
+  {
+    "word": "астра",
+    "translation": "aster",
+    "type": "noun"
+  },
+  {
+    "word": "пион",
+    "translation": "peony",
+    "type": "noun"
+  },
+  {
+    "word": "фиалка",
+    "translation": "violet",
+    "type": "noun"
+  },
+  {
+    "word": "ромашка",
+    "translation": "daisy",
+    "type": "noun"
+  },
+  {
+    "word": "клевер",
+    "translation": "clover",
+    "type": "noun"
+  },
+  {
+    "word": "полынь",
+    "translation": "wormwood",
+    "type": "noun"
+  },
+  {
+    "word": "крапива",
+    "translation": "nettle",
+    "type": "noun"
+  },
+  {
+    "word": "лопух",
+    "translation": "burdock",
+    "type": "noun"
+  },
+  {
+    "word": "хмель",
+    "translation": "hops",
+    "type": "noun"
+  },
+  {
+    "word": "укроп",
+    "translation": "dill",
+    "type": "noun"
+  },
+  {
+    "word": "базилик",
+    "translation": "basil",
+    "type": "noun"
+  },
+  {
+    "word": "мята",
+    "translation": "mint",
+    "type": "noun"
+  },
+  {
+    "word": "шалфей",
+    "translation": "sage",
+    "type": "noun"
+  },
+  {
+    "word": "тмин",
+    "translation": "cumin",
+    "type": "noun"
+  },
+  {
+    "word": "корица",
+    "translation": "cinnamon",
+    "type": "noun"
+  },
+  {
+    "word": "имбирь",
+    "translation": "ginger",
+    "type": "noun"
+  },
+  {
+    "word": "ваниль",
+    "translation": "vanilla",
+    "type": "noun"
+  },
+  {
+    "word": "горчица",
+    "translation": "mustard",
+    "type": "noun"
+  },
+  {
+    "word": "хрен",
+    "translation": "horseradish",
+    "type": "noun"
+  },
+  {
+    "word": "уксус",
+    "translation": "vinegar",
+    "type": "noun"
+  },
+  {
+    "word": "сироп",
+    "translation": "syrup",
+    "type": "noun"
+  },
+  {
+    "word": "джем",
+    "translation": "jam",
+    "type": "noun"
+  },
+  {
+    "word": "повидло",
+    "translation": "preserve",
+    "type": "noun"
+  },
+  {
+    "word": "халва",
+    "translation": "halva",
+    "type": "noun"
+  },
+  {
+    "word": "зефир",
+    "translation": "zephyr",
+    "type": "noun"
+  },
+  {
+    "word": "пастила",
+    "translation": "pastila",
+    "type": "noun"
+  },
+  {
+    "word": "ирис",
+    "translation": "toffee",
+    "type": "noun"
+  },
+  {
+    "word": "нуга",
+    "translation": "nougat",
+    "type": "noun"
+  },
+  {
+    "word": "помадка",
+    "translation": "fudge",
+    "type": "noun"
+  },
+  {
+    "word": "леденец",
+    "translation": "lollipop",
+    "type": "noun"
+  },
+  {
+    "word": "драже",
+    "translation": "dragee",
+    "type": "noun"
+  },
+  {
+    "word": "вафля",
+    "translation": "waffle",
+    "type": "noun"
+  },
+  {
+    "word": "рулет",
+    "translation": "roll",
+    "type": "noun"
+  },
+  {
+    "word": "кекс",
+    "translation": "cupcake",
+    "type": "noun"
+  },
+  {
+    "word": "багет",
+    "translation": "baguette",
+    "type": "noun"
+  },
+  {
+    "word": "лаваш",
+    "translation": "lavash",
+    "type": "noun"
+  },
+  {
+    "word": "лепёшка",
+    "translation": "flatbread",
+    "type": "noun"
+  },
+  {
+    "word": "пита",
+    "translation": "pita",
+    "type": "noun"
+  },
+  {
+    "word": "манка",
+    "translation": "semolina",
+    "type": "noun"
+  },
+  {
+    "word": "овёс",
+    "translation": "oats",
+    "type": "noun"
+  },
+  {
+    "word": "рожь",
+    "translation": "rye",
+    "type": "noun"
+  },
+  {
+    "word": "ячмень",
+    "translation": "barley",
+    "type": "noun"
+  },
+  {
+    "word": "просо",
+    "translation": "millet",
+    "type": "noun"
+  },
+  {
+    "word": "гречка",
+    "translation": "buckwheat",
+    "type": "noun"
+  },
+  {
+    "word": "фасоль",
+    "translation": "beans",
+    "type": "noun"
+  },
+  {
+    "word": "горох",
+    "translation": "peas",
+    "type": "noun"
+  },
+  {
+    "word": "бобы",
+    "translation": "beans",
+    "type": "noun"
+  },
+  {
+    "word": "соя",
+    "translation": "soy",
+    "type": "noun"
+  },
+  {
+    "word": "кунжут",
+    "translation": "sesame",
+    "type": "noun"
+  },
+  {
+    "word": "рапс",
+    "translation": "rapeseed",
+    "type": "noun"
+  },
+  {
+    "word": "хлопок",
+    "translation": "cotton",
+    "type": "noun"
+  },
+  {
+    "word": "лён",
+    "translation": "flax",
+    "type": "noun"
+  },
+  {
+    "word": "шёлк",
+    "translation": "silk",
+    "type": "noun"
+  },
+  {
+    "word": "бархат",
+    "translation": "velvet",
+    "type": "noun"
+  },
+  {
+    "word": "атлас",
+    "translation": "satin",
+    "type": "noun"
+  },
+  {
+    "word": "кружево",
+    "translation": "lace",
+    "type": "noun"
+  },
+  {
+    "word": "вышивка",
+    "translation": "embroidery",
+    "type": "noun"
+  },
+  {
+    "word": "узор",
+    "translation": "pattern",
+    "type": "noun"
+  },
+  {
+    "word": "мозаика",
+    "translation": "mosaic",
+    "type": "noun"
+  },
+  {
+    "word": "фреска",
+    "translation": "fresco",
+    "type": "noun"
+  },
+  {
+    "word": "витраж",
+    "translation": "stained glass",
+    "type": "noun"
+  },
+  {
+    "word": "статуя",
+    "translation": "statue",
+    "type": "noun"
+  },
+  {
+    "word": "бюст",
+    "translation": "bust",
+    "type": "noun"
+  },
+  {
+    "word": "колонна",
+    "translation": "column",
+    "type": "noun"
+  },
+  {
+    "word": "арка",
+    "translation": "arch",
+    "type": "noun"
+  },
+  {
+    "word": "купол",
+    "translation": "dome",
+    "type": "noun"
+  },
+  {
+    "word": "шпиль",
+    "translation": "spire",
+    "type": "noun"
+  },
+  {
+    "word": "фасад",
+    "translation": "facade",
+    "type": "noun"
+  },
+  {
+    "word": "портик",
+    "translation": "portico",
+    "type": "noun"
+  },
+  {
+    "word": "терраса",
+    "translation": "terrace",
+    "type": "noun"
+  },
+  {
+    "word": "веранда",
+    "translation": "veranda",
+    "type": "noun"
+  },
+  {
+    "word": "беседка",
+    "translation": "gazebo",
+    "type": "noun"
+  },
+  {
+    "word": "навес",
+    "translation": "canopy",
+    "type": "noun"
+  },
+  {
+    "word": "тент",
+    "translation": "awning",
+    "type": "noun"
+  },
+  {
+    "word": "зонтик",
+    "translation": "parasol",
+    "type": "noun"
+  },
+  {
+    "word": "козырёк",
+    "translation": "visor",
+    "type": "noun"
+  },
+  {
+    "word": "карниз",
+    "translation": "cornice",
+    "type": "noun"
+  },
+  {
+    "word": "жалюзи",
+    "translation": "blinds",
+    "type": "noun"
+  },
+  {
+    "word": "ставни",
+    "translation": "shutters",
+    "type": "noun"
+  },
+  {
+    "word": "решётка",
+    "translation": "grate",
+    "type": "noun"
+  },
+  {
+    "word": "засов",
+    "translation": "bolt",
+    "type": "noun"
+  },
+  {
+    "word": "петля",
+    "translation": "hinge",
+    "type": "noun"
+  },
+  {
+    "word": "звонок",
+    "translation": "bell",
+    "type": "noun"
+  },
+  {
+    "word": "домофон",
+    "translation": "intercom",
+    "type": "noun"
+  },
+  {
+    "word": "конверт",
+    "translation": "envelope",
+    "type": "noun"
+  },
+  {
+    "word": "посылка",
+    "translation": "package",
+    "type": "noun"
+  },
+  {
+    "word": "факс",
+    "translation": "fax",
+    "type": "noun"
+  },
+  {
+    "word": "принтер",
+    "translation": "printer",
+    "type": "noun"
+  },
+  {
+    "word": "сканер",
+    "translation": "scanner",
+    "type": "noun"
+  },
+  {
+    "word": "модем",
+    "translation": "modem",
+    "type": "noun"
+  },
+  {
+    "word": "роутер",
+    "translation": "router",
+    "type": "noun"
+  },
+  {
+    "word": "сервер",
+    "translation": "server",
+    "type": "noun"
+  },
+  {
+    "word": "монитор",
+    "translation": "monitor",
+    "type": "noun"
+  },
+  {
+    "word": "клавиша",
+    "translation": "key",
+    "type": "noun"
+  },
+  {
+    "word": "курсор",
+    "translation": "cursor",
+    "type": "noun"
+  },
+  {
+    "word": "иконка",
+    "translation": "icon",
+    "type": "noun"
+  },
+  {
+    "word": "папка",
+    "translation": "folder",
+    "type": "noun"
+  },
+  {
+    "word": "архив",
+    "translation": "archive",
+    "type": "noun"
+  },
+  {
+    "word": "резерв",
+    "translation": "reserve",
+    "type": "noun"
+  },
+  {
+    "word": "ресурс",
+    "translation": "resource",
+    "type": "noun"
+  },
+  {
+    "word": "бюро",
+    "translation": "bureau",
+    "type": "noun"
+  },
+  {
+    "word": "контора",
+    "translation": "office",
+    "type": "noun"
+  },
+  {
+    "word": "фирма",
+    "translation": "firm",
+    "type": "noun"
+  },
+  {
+    "word": "корпус",
+    "translation": "building",
+    "type": "noun"
+  },
+  {
+    "word": "филиал",
+    "translation": "branch",
+    "type": "noun"
+  },
+  {
+    "word": "отдел",
+    "translation": "department",
+    "type": "noun"
+  },
+  {
+    "word": "штаб",
+    "translation": "headquarters",
+    "type": "noun"
+  },
+  {
+    "word": "комитет",
+    "translation": "committee",
+    "type": "noun"
+  },
+  {
+    "word": "партия",
+    "translation": "party",
+    "type": "noun"
+  },
+  {
+    "word": "фракция",
+    "translation": "faction",
+    "type": "noun"
+  },
+  {
+    "word": "секта",
+    "translation": "sect",
+    "type": "noun"
+  },
+  {
+    "word": "орден",
+    "translation": "order",
+    "type": "noun"
+  },
+  {
+    "word": "лига",
+    "translation": "league",
+    "type": "noun"
+  },
+  {
+    "word": "союз",
+    "translation": "union",
+    "type": "noun"
+  },
+  {
+    "word": "альянс",
+    "translation": "alliance",
+    "type": "noun"
+  },
+  {
+    "word": "блок",
+    "translation": "bloc",
+    "type": "noun"
+  },
+  {
+    "word": "пакт",
+    "translation": "pact",
+    "type": "noun"
+  },
+  {
+    "word": "хартия",
+    "translation": "charter",
+    "type": "noun"
+  },
+  {
+    "word": "устав",
+    "translation": "statute",
+    "type": "noun"
+  },
+  {
+    "word": "кодекс",
+    "translation": "codex",
+    "type": "noun"
+  },
+  {
+    "word": "указ",
+    "translation": "decree",
+    "type": "noun"
+  },
+  {
+    "word": "приказ",
+    "translation": "order",
+    "type": "noun"
+  },
+  {
+    "word": "рапорт",
+    "translation": "report",
+    "type": "noun"
+  },
+  {
+    "word": "сводка",
+    "translation": "summary",
+    "type": "noun"
+  },
+  {
+    "word": "отчёт",
+    "translation": "report",
+    "type": "noun"
+  },
+  {
+    "word": "доклад",
+    "translation": "report",
+    "type": "noun"
+  },
+  {
+    "word": "тезис",
+    "translation": "thesis",
+    "type": "noun"
+  },
+  {
+    "word": "реферат",
+    "translation": "abstract",
+    "type": "noun"
+  },
+  {
+    "word": "диплом",
+    "translation": "diploma",
+    "type": "noun"
+  },
+  {
+    "word": "патент",
+    "translation": "patent",
+    "type": "noun"
+  },
+  {
+    "word": "квота",
+    "translation": "quota",
+    "type": "noun"
+  },
+  {
+    "word": "тариф",
+    "translation": "tariff",
+    "type": "noun"
+  },
+  {
+    "word": "пошлина",
+    "translation": "duty",
+    "type": "noun"
+  },
+  {
+    "word": "акциз",
+    "translation": "excise",
+    "type": "noun"
+  },
+  {
+    "word": "дотация",
+    "translation": "grant",
+    "type": "noun"
+  },
+  {
+    "word": "ссуда",
+    "translation": "loan",
+    "type": "noun"
+  },
+  {
+    "word": "залог",
+    "translation": "pledge",
+    "type": "noun"
+  },
+  {
+    "word": "аванс",
+    "translation": "advance",
+    "type": "noun"
+  },
+  {
+    "word": "задаток",
+    "translation": "deposit",
+    "type": "noun"
+  },
+  {
+    "word": "пеня",
+    "translation": "fine",
+    "type": "noun"
+  },
+  {
+    "word": "процент",
+    "translation": "percent",
+    "type": "noun"
+  },
+  {
+    "word": "ставка",
+    "translation": "rate",
+    "type": "noun"
+  },
+  {
+    "word": "курс",
+    "translation": "course",
+    "type": "noun"
+  },
+  {
+    "word": "индекс",
+    "translation": "index",
+    "type": "noun"
+  },
+  {
+    "word": "рейтинг",
+    "translation": "rating",
+    "type": "noun"
+  },
+  {
+    "word": "статус",
+    "translation": "status",
+    "type": "noun"
+  },
+  {
+    "word": "ранг",
+    "translation": "rank",
+    "type": "noun"
+  },
+  {
+    "word": "чин",
+    "translation": "rank",
+    "type": "noun"
+  },
+  {
+    "word": "титул",
+    "translation": "title",
+    "type": "noun"
+  },
+  {
+    "word": "звание",
+    "translation": "title",
+    "type": "noun"
+  },
+  {
+    "word": "пост",
+    "translation": "post",
+    "type": "noun"
+  },
+  {
+    "word": "стаж",
+    "translation": "tenure",
+    "type": "noun"
+  },
+  {
+    "word": "ремесло",
+    "translation": "craft",
+    "type": "noun"
+  },
+  {
+    "word": "хобби",
+    "translation": "hobby",
+    "type": "noun"
+  },
+  {
+    "word": "досуг",
+    "translation": "leisure",
+    "type": "noun"
+  },
+  {
+    "word": "забава",
+    "translation": "fun",
+    "type": "noun"
+  },
+  {
+    "word": "потеха",
+    "translation": "amusement",
+    "type": "noun"
+  },
+  {
+    "word": "шутка",
+    "translation": "joke",
+    "type": "noun"
+  },
+  {
+    "word": "анекдот",
+    "translation": "anecdote",
+    "type": "noun"
+  },
+  {
+    "word": "загадка",
+    "translation": "riddle",
+    "type": "noun"
+  },
+  {
+    "word": "ребус",
+    "translation": "rebus",
+    "type": "noun"
+  },
+  {
+    "word": "пазл",
+    "translation": "puzzle",
+    "type": "noun"
+  },
+  {
+    "word": "домино",
+    "translation": "domino",
+    "type": "noun"
+  },
+  {
+    "word": "лото",
+    "translation": "lotto",
+    "type": "noun"
+  },
+  {
+    "word": "рулетка",
+    "translation": "roulette",
+    "type": "noun"
+  },
+  {
+    "word": "фишка",
+    "translation": "chip",
+    "type": "noun"
+  },
+  {
+    "word": "жетон",
+    "translation": "token",
+    "type": "noun"
+  },
+  {
+    "word": "кубик",
+    "translation": "dice",
+    "type": "noun"
+  },
+  {
+    "word": "пешка",
+    "translation": "pawn",
+    "type": "noun"
+  },
+  {
+    "word": "ладья",
+    "translation": "rook",
+    "type": "noun"
+  },
+  {
+    "word": "ферзь",
+    "translation": "queen",
+    "type": "noun"
+  },
+  {
+    "word": "мат",
+    "translation": "checkmate",
+    "type": "noun"
+  },
+  {
+    "word": "пат",
+    "translation": "stalemate",
+    "type": "noun"
+  },
+  {
+    "word": "дебют",
+    "translation": "debut",
+    "type": "noun"
+  },
+  {
+    "word": "гамбит",
+    "translation": "gambit",
+    "type": "noun"
+  },
+  {
+    "word": "этюд",
+    "translation": "etude",
+    "type": "noun"
+  },
+  {
+    "word": "раунд",
+    "translation": "round",
+    "type": "noun"
+  },
+  {
+    "word": "сет",
+    "translation": "set",
+    "type": "noun"
+  },
+  {
+    "word": "тайм",
+    "translation": "half",
+    "type": "noun"
+  },
+  {
+    "word": "период",
+    "translation": "period",
+    "type": "noun"
+  },
+  {
+    "word": "угловой",
+    "translation": "corner",
+    "type": "noun"
+  },
+  {
+    "word": "аут",
+    "translation": "out",
+    "type": "noun"
+  },
+  {
+    "word": "офсайд",
+    "translation": "offside",
+    "type": "noun"
+  },
+  {
+    "word": "фол",
+    "translation": "foul",
+    "type": "noun"
+  },
+  {
+    "word": "жёлтая",
+    "translation": "yellow card",
+    "type": "noun"
+  },
+  {
+    "word": "красная",
+    "translation": "red card",
+    "type": "noun"
+  },
+  {
+    "word": "свисток",
+    "translation": "whistle",
+    "type": "noun"
+  },
+  {
+    "word": "табло",
+    "translation": "scoreboard",
+    "type": "noun"
+  },
+  {
+    "word": "трибуна",
+    "translation": "stand",
+    "type": "noun"
+  },
+  {
+    "word": "арена",
+    "translation": "arena",
+    "type": "noun"
+  },
+  {
+    "word": "ринг",
+    "translation": "ring",
+    "type": "noun"
+  },
+  {
+    "word": "корт",
+    "translation": "court",
+    "type": "noun"
+  },
+  {
+    "word": "трек",
+    "translation": "track",
+    "type": "noun"
+  },
+  {
+    "word": "трасса",
+    "translation": "track",
+    "type": "noun"
+  },
+  {
+    "word": "дорожка",
+    "translation": "lane",
+    "type": "noun"
+  },
+  {
+    "word": "барьер",
+    "translation": "barrier",
+    "type": "noun"
+  },
+  {
+    "word": "планка",
+    "translation": "bar",
+    "type": "noun"
+  },
+  {
+    "word": "сетка",
+    "translation": "net",
+    "type": "noun"
+  },
+  {
+    "word": "ракетка",
+    "translation": "racket",
+    "type": "noun"
+  },
+  {
+    "word": "клюшка",
+    "translation": "stick",
+    "type": "noun"
+  },
+  {
+    "word": "шайба",
+    "translation": "puck",
+    "type": "noun"
+  },
+  {
+    "word": "штанга",
+    "translation": "barbell",
+    "type": "noun"
+  },
+  {
+    "word": "гантель",
+    "translation": "dumbbell",
+    "type": "noun"
+  },
+  {
+    "word": "обруч",
+    "translation": "hoop",
+    "type": "noun"
+  },
+  {
+    "word": "канат",
+    "translation": "rope",
+    "type": "noun"
+  },
+  {
+    "word": "трос",
+    "translation": "cable",
+    "type": "noun"
+  },
+  {
+    "word": "цепочка",
+    "translation": "chain",
+    "type": "noun"
+  },
+  {
+    "word": "верёвка",
+    "translation": "rope",
+    "type": "noun"
+  },
+  {
+    "word": "шнур",
+    "translation": "cord",
+    "type": "noun"
+  },
+  {
+    "word": "кабель",
+    "translation": "cable",
+    "type": "noun"
+  },
+  {
+    "word": "тройник",
+    "translation": "splitter",
+    "type": "noun"
+  },
+  {
+    "word": "реле",
+    "translation": "relay",
+    "type": "noun"
+  },
+  {
+    "word": "датчик",
+    "translation": "sensor",
+    "type": "noun"
+  },
+  {
+    "word": "бинокль",
+    "translation": "binoculars",
+    "type": "noun"
+  },
+  {
+    "word": "лупа",
+    "translation": "magnifier",
+    "type": "noun"
+  },
+  {
+    "word": "призма",
+    "translation": "prism",
+    "type": "noun"
+  },
+  {
+    "word": "затвор",
+    "translation": "shutter",
+    "type": "noun"
+  },
+  {
+    "word": "вспышка",
+    "translation": "flash",
+    "type": "noun"
+  },
+  {
+    "word": "штатив",
+    "translation": "tripod",
+    "type": "noun"
+  },
+  {
+    "word": "холст",
+    "translation": "canvas",
+    "type": "noun"
+  },
+  {
+    "word": "палитра",
+    "translation": "palette",
+    "type": "noun"
+  },
+  {
+    "word": "этюдник",
+    "translation": "sketch box",
+    "type": "noun"
+  },
+  {
+    "word": "маркер",
+    "translation": "marker",
+    "type": "noun"
+  },
+  {
+    "word": "ластик",
+    "translation": "eraser",
+    "type": "noun"
+  },
+  {
+    "word": "линейка",
+    "translation": "ruler",
+    "type": "noun"
+  },
+  {
+    "word": "циркуль",
+    "translation": "compass",
+    "type": "noun"
+  },
+  {
+    "word": "лекало",
+    "translation": "template",
+    "type": "noun"
+  },
+  {
+    "word": "штамп",
+    "translation": "stamp",
+    "type": "noun"
+  },
+  {
+    "word": "печать",
+    "translation": "seal",
+    "type": "noun"
+  },
+  {
+    "word": "подпись",
+    "translation": "signature",
+    "type": "noun"
+  },
+  {
+    "word": "почерк",
+    "translation": "handwriting",
+    "type": "noun"
+  },
+  {
+    "word": "шрифт",
+    "translation": "font",
+    "type": "noun"
+  },
+  {
+    "word": "абзац",
+    "translation": "paragraph",
+    "type": "noun"
+  },
+  {
+    "word": "строфа",
+    "translation": "stanza",
+    "type": "noun"
+  },
+  {
+    "word": "рифма",
+    "translation": "rhyme",
+    "type": "noun"
+  },
+  {
+    "word": "эпитет",
+    "translation": "epithet",
+    "type": "noun"
+  },
+  {
+    "word": "ирония",
+    "translation": "irony",
+    "type": "noun"
+  },
+  {
+    "word": "сатира",
+    "translation": "satire",
+    "type": "noun"
+  },
+  {
+    "word": "пародия",
+    "translation": "parody",
+    "type": "noun"
+  },
+  {
+    "word": "басня",
+    "translation": "fable",
+    "type": "noun"
+  },
+  {
+    "word": "притча",
+    "translation": "parable",
+    "type": "noun"
+  },
+  {
+    "word": "легенда",
+    "translation": "legend",
+    "type": "noun"
+  },
+  {
+    "word": "былина",
+    "translation": "bylina",
+    "type": "noun"
+  },
+  {
+    "word": "эпос",
+    "translation": "epic",
+    "type": "noun"
+  },
+  {
+    "word": "сага",
+    "translation": "saga",
+    "type": "noun"
+  },
+  {
+    "word": "хроника",
+    "translation": "chronicle",
+    "type": "noun"
+  },
+  {
+    "word": "мемуары",
+    "translation": "memoirs",
+    "type": "noun"
+  },
+  {
+    "word": "дневник",
+    "translation": "diary",
+    "type": "noun"
+  },
+  {
+    "word": "блокнот",
+    "translation": "notebook",
+    "type": "noun"
+  },
+  {
+    "word": "тетрадь",
+    "translation": "notebook",
+    "type": "noun"
+  },
+  {
+    "word": "альбом",
+    "translation": "album",
+    "type": "noun"
+  },
+  {
+    "word": "словарь",
+    "translation": "dictionary",
+    "type": "noun"
+  },
+  {
+    "word": "учебник",
+    "translation": "textbook",
+    "type": "noun"
+  },
+  {
+    "word": "пособие",
+    "translation": "manual",
+    "type": "noun"
+  },
+  {
+    "word": "таять",
+    "translation": "to melt",
+    "type": "verb"
+  },
+  {
+    "word": "сохнуть",
+    "translation": "to dry",
+    "type": "verb"
+  },
+  {
+    "word": "мокнуть",
+    "translation": "to get wet",
+    "type": "verb"
+  },
+  {
+    "word": "гнить",
+    "translation": "to rot",
+    "type": "verb"
+  },
+  {
+    "word": "ржаветь",
+    "translation": "to rust",
+    "type": "verb"
+  },
+  {
+    "word": "пылить",
+    "translation": "to dust",
+    "type": "verb"
+  },
+  {
+    "word": "чадить",
+    "translation": "to fume",
+    "type": "verb"
+  },
+  {
+    "word": "кипеть",
+    "translation": "to boil",
+    "type": "verb"
+  },
+  {
+    "word": "бурлить",
+    "translation": "to seethe",
+    "type": "verb"
+  },
+  {
+    "word": "капать",
+    "translation": "to drip",
+    "type": "verb"
+  },
+  {
+    "word": "течь",
+    "translation": "to flow",
+    "type": "verb"
+  },
+  {
+    "word": "хлынуть",
+    "translation": "to gush",
+    "type": "verb"
+  },
+  {
+    "word": "журчать",
+    "translation": "to babble",
+    "type": "verb"
+  },
+  {
+    "word": "шуршать",
+    "translation": "to rustle",
+    "type": "verb"
+  },
+  {
+    "word": "лязгать",
+    "translation": "to clang",
+    "type": "verb"
+  },
+  {
+    "word": "бахнуть",
+    "translation": "to bang",
+    "type": "verb"
+  },
+  {
+    "word": "пнуть",
+    "translation": "to kick",
+    "type": "verb"
+  },
+  {
+    "word": "ткнуть",
+    "translation": "to poke",
+    "type": "verb"
+  },
+  {
+    "word": "сунуть",
+    "translation": "to shove",
+    "type": "verb"
+  },
+  {
+    "word": "дёрнуть",
+    "translation": "to yank",
+    "type": "verb"
+  },
+  {
+    "word": "рвануть",
+    "translation": "to jerk",
+    "type": "verb"
+  },
+  {
+    "word": "метнуть",
+    "translation": "to fling",
+    "type": "verb"
+  },
+  {
+    "word": "пырнуть",
+    "translation": "to stab",
+    "type": "verb"
+  },
+  {
+    "word": "шепнуть",
+    "translation": "to whisper",
+    "type": "verb"
+  },
+  {
+    "word": "охнуть",
+    "translation": "to gasp",
+    "type": "verb"
+  },
+  {
+    "word": "ахнуть",
+    "translation": "to exclaim",
+    "type": "verb"
+  },
+  {
+    "word": "ойкнуть",
+    "translation": "to yelp",
+    "type": "verb"
+  },
+  {
+    "word": "зевнуть",
+    "translation": "to yawn",
+    "type": "verb"
+  },
+  {
+    "word": "чихнуть",
+    "translation": "to sneeze",
+    "type": "verb"
+  },
+  {
+    "word": "укрыть",
+    "translation": "to cover",
+    "type": "verb"
+  },
+  {
+    "word": "накрыть",
+    "translation": "to cover",
+    "type": "verb"
+  },
+  {
+    "word": "отмыть",
+    "translation": "to scrub",
+    "type": "verb"
+  },
+  {
+    "word": "подшить",
+    "translation": "to hem",
+    "type": "verb"
+  },
+  {
+    "word": "скроить",
+    "translation": "to cut out",
+    "type": "verb"
+  },
+  {
+    "word": "ушить",
+    "translation": "to take in",
+    "type": "verb"
+  },
+  {
+    "word": "сузить",
+    "translation": "to narrow",
+    "type": "verb"
+  },
+  {
+    "word": "усилить",
+    "translation": "to strengthen",
+    "type": "verb"
+  },
+  {
+    "word": "сломать",
+    "translation": "to break",
+    "type": "verb"
+  },
+  {
+    "word": "скачать",
+    "translation": "to download",
+    "type": "verb"
+  },
+  {
+    "word": "удалить",
+    "translation": "to delete",
+    "type": "verb"
+  },
+  {
+    "word": "стереть",
+    "translation": "to erase",
+    "type": "verb"
+  },
+  {
+    "word": "набрать",
+    "translation": "to type",
+    "type": "verb"
+  },
+  {
+    "word": "пологий",
+    "translation": "gentle",
+    "type": "adj"
+  },
+  {
+    "word": "покатый",
+    "translation": "sloping",
+    "type": "adj"
+  },
+  {
+    "word": "витой",
+    "translation": "twisted",
+    "type": "adj"
+  },
+  {
+    "word": "прямой",
+    "translation": "straight",
+    "type": "adj"
+  },
+  {
+    "word": "косой",
+    "translation": "slanted",
+    "type": "adj"
+  },
+  {
+    "word": "рваный",
+    "translation": "torn",
+    "type": "adj"
+  },
+  {
+    "word": "мятый",
+    "translation": "crumpled",
+    "type": "adj"
+  },
+  {
+    "word": "гнутый",
+    "translation": "bent",
+    "type": "adj"
+  },
+  {
+    "word": "литой",
+    "translation": "cast",
+    "type": "adj"
+  },
+  {
+    "word": "кованый",
+    "translation": "forged",
+    "type": "adj"
+  },
+  {
+    "word": "тканый",
+    "translation": "woven",
+    "type": "adj"
+  },
+  {
+    "word": "вязаный",
+    "translation": "knitted",
+    "type": "adj"
+  },
+  {
+    "word": "шитый",
+    "translation": "sewn",
+    "type": "adj"
+  },
+  {
+    "word": "клеёный",
+    "translation": "glued",
+    "type": "adj"
+  },
+  {
+    "word": "белёный",
+    "translation": "whitened",
+    "type": "adj"
+  },
+  {
+    "word": "мощёный",
+    "translation": "paved",
+    "type": "adj"
+  },
+  {
+    "word": "крытый",
+    "translation": "covered",
+    "type": "adj"
+  },
+  {
+    "word": "забитый",
+    "translation": "clogged",
+    "type": "adj"
+  },
+  {
+    "word": "набитый",
+    "translation": "stuffed",
+    "type": "adj"
+  },
+  {
+    "word": "битый",
+    "translation": "broken",
+    "type": "adj"
+  },
+  {
+    "word": "ветхий",
+    "translation": "decrepit",
+    "type": "adj"
+  },
+  {
+    "word": "дряхлый",
+    "translation": "frail",
+    "type": "adj"
+  },
+  {
+    "word": "хрупкий",
+    "translation": "fragile",
+    "type": "adj"
+  },
+  {
+    "word": "прочный",
+    "translation": "durable",
+    "type": "adj"
+  },
+  {
+    "word": "крепкий",
+    "translation": "sturdy",
+    "type": "adj"
+  },
+  {
+    "word": "рыхлый",
+    "translation": "loose",
+    "type": "adj"
+  },
+  {
+    "word": "плотный",
+    "translation": "dense",
+    "type": "adj"
+  },
+  {
+    "word": "вязкий",
+    "translation": "viscous",
+    "type": "adj"
+  },
+  {
+    "word": "жидкий",
+    "translation": "liquid",
+    "type": "adj"
+  },
+  {
+    "word": "сыпучий",
+    "translation": "granular",
+    "type": "adj"
+  },
+  {
+    "word": "липкий",
+    "translation": "sticky",
+    "type": "adj"
+  },
+  {
+    "word": "матовый",
+    "translation": "matte",
+    "type": "adj"
+  },
+  {
+    "word": "цветной",
+    "translation": "colored",
+    "type": "adj"
+  },
+  {
+    "word": "пёстрый",
+    "translation": "motley",
+    "type": "adj"
+  },
+  {
+    "word": "рябой",
+    "translation": "pockmarked",
+    "type": "adj"
+  },
+  {
+    "word": "бледный",
+    "translation": "pale",
+    "type": "adj"
+  },
+  {
+    "word": "румяный",
+    "translation": "rosy",
+    "type": "adj"
+  },
+  {
+    "word": "смуглый",
+    "translation": "swarthy",
+    "type": "adj"
+  },
+  {
+    "word": "рыжий",
+    "translation": "red-haired",
+    "type": "adj"
+  },
+  {
+    "word": "русый",
+    "translation": "light brown",
+    "type": "adj"
+  },
+  {
+    "word": "седой",
+    "translation": "gray-haired",
+    "type": "adj"
+  },
+  {
+    "word": "ушастый",
+    "translation": "big-eared",
+    "type": "adj"
+  },
+  {
+    "word": "рогатый",
+    "translation": "horned",
+    "type": "adj"
+  },
+  {
+    "word": "колючий",
+    "translation": "prickly",
+    "type": "adj"
+  },
+  {
+    "word": "вредный",
+    "translation": "harmful",
+    "type": "adj"
+  },
+  {
+    "word": "опасный",
+    "translation": "dangerous",
+    "type": "adj"
+  },
+  {
+    "word": "удачный",
+    "translation": "successful",
+    "type": "adj"
+  },
+  {
+    "word": "платный",
+    "translation": "paid",
+    "type": "adj"
+  },
+  {
+    "word": "оптовый",
+    "translation": "wholesale",
+    "type": "adj"
+  },
+  {
+    "word": "научный",
+    "translation": "scientific",
+    "type": "adj"
+  },
+  {
+    "word": "паровой",
+    "translation": "steam",
+    "type": "adj"
+  },
+  {
+    "word": "газовый",
+    "translation": "gas",
+    "type": "adj"
+  },
+  {
+    "word": "ядерный",
+    "translation": "nuclear",
+    "type": "adj"
+  },
+  {
+    "word": "водяной",
+    "translation": "water",
+    "type": "adj"
+  },
+  {
+    "word": "вслух",
+    "translation": "aloud",
+    "type": "adv"
+  },
+  {
+    "word": "шёпотом",
+    "translation": "in whisper",
+    "type": "adv"
+  },
+  {
+    "word": "бегом",
+    "translation": "running",
+    "type": "adv"
+  },
+  {
+    "word": "шагом",
+    "translation": "walking",
+    "type": "adv"
+  },
+  {
+    "word": "ползком",
+    "translation": "crawling",
+    "type": "adv"
+  },
+  {
+    "word": "вплавь",
+    "translation": "swimming",
+    "type": "adv"
+  },
+  {
+    "word": "верхом",
+    "translation": "horseback",
+    "type": "adv"
+  },
+  {
+    "word": "босиком",
+    "translation": "barefoot",
+    "type": "adv"
+  },
+  {
+    "word": "наощупь",
+    "translation": "by touch",
+    "type": "adv"
+  },
+  {
+    "word": "наглаз",
+    "translation": "by eye",
+    "type": "adv"
+  },
+  {
+    "word": "наслух",
+    "translation": "by ear",
+    "type": "adv"
+  },
+  {
+    "word": "напоказ",
+    "translation": "for show",
+    "type": "adv"
+  },
+  {
+    "word": "наравне",
+    "translation": "equally",
+    "type": "adv"
+  },
+  {
+    "word": "насухо",
+    "translation": "dry",
+    "type": "adv"
+  },
+  {
+    "word": "натощак",
+    "translation": "on empty stomach",
+    "type": "adv"
+  },
+  {
+    "word": "начеку",
+    "translation": "on guard",
+    "type": "adv"
+  },
+  {
+    "word": "начисто",
+    "translation": "cleanly",
+    "type": "adv"
+  },
+  {
+    "word": "никуда",
+    "translation": "to nowhere",
+    "type": "adv"
+  },
+  {
+    "word": "ничуть",
+    "translation": "not a bit",
+    "type": "adv"
+  },
+  {
+    "word": "обратно",
+    "translation": "back",
+    "type": "adv"
+  },
+  {
+    "word": "отсюда",
+    "translation": "from here",
+    "type": "adv"
+  },
+  {
+    "word": "оттуда",
+    "translation": "from there",
+    "type": "adv"
+  },
+  {
+    "word": "поверх",
+    "translation": "over",
+    "type": "adv"
+  },
+  {
+    "word": "подряд",
+    "translation": "in a row",
+    "type": "adv"
+  },
+  {
+    "word": "позади",
+    "translation": "behind",
+    "type": "adv"
+  },
+  {
+    "word": "помимо",
+    "translation": "besides",
+    "type": "adv"
+  },
+  {
+    "word": "порой",
+    "translation": "at times",
+    "type": "adv"
+  },
+  {
+    "word": "почём",
+    "translation": "how much",
+    "type": "adv"
+  },
+  {
+    "word": "поэтому",
+    "translation": "therefore",
+    "type": "adv"
+  },
+  {
+    "word": "прежде",
+    "translation": "before",
+    "type": "adv"
+  },
+  {
+    "word": "притом",
+    "translation": "besides",
+    "type": "adv"
+  },
+  {
+    "word": "против",
+    "translation": "against",
+    "type": "adv"
+  },
+  {
+    "word": "прочь",
+    "translation": "away",
+    "type": "adv"
+  },
+  {
+    "word": "свысока",
+    "translation": "condescendingly",
+    "type": "adv"
+  },
+  {
+    "word": "сгоряча",
+    "translation": "in heat",
+    "type": "adv"
+  },
+  {
+    "word": "сквозь",
+    "translation": "through",
+    "type": "adv"
+  },
+  {
+    "word": "слегка",
+    "translation": "slightly",
+    "type": "adv"
+  },
+  {
+    "word": "сначала",
+    "translation": "at first",
+    "type": "adv"
+  },
+  {
+    "word": "сообща",
+    "translation": "jointly",
+    "type": "adv"
+  },
+  {
+    "word": "сперва",
+    "translation": "firstly",
+    "type": "adv"
+  },
+  {
+    "word": "тайком",
+    "translation": "secretly",
+    "type": "adv"
+  },
+  {
+    "word": "абажур",
+    "translation": "lampshade",
+    "type": "noun"
+  },
+  {
+    "word": "аборт",
+    "translation": "abortion",
+    "type": "noun"
+  },
+  {
+    "word": "абсурд",
+    "translation": "absurd",
+    "type": "noun"
+  },
+  {
+    "word": "авария",
+    "translation": "crash",
+    "type": "noun"
+  },
+  {
+    "word": "август",
+    "translation": "august",
+    "type": "noun"
+  },
+  {
+    "word": "авиация",
+    "translation": "aviation",
+    "type": "noun"
+  },
+  {
+    "word": "агент",
+    "translation": "agent",
+    "type": "noun"
+  },
+  {
+    "word": "адвокат",
+    "translation": "lawyer",
+    "type": "noun"
+  },
+  {
+    "word": "азарт",
+    "translation": "excitement",
+    "type": "noun"
+  },
+  {
+    "word": "азбука",
+    "translation": "alphabet",
+    "type": "noun"
+  },
+  {
+    "word": "аист",
+    "translation": "stork",
+    "type": "noun"
+  },
+  {
+    "word": "айсберг",
+    "translation": "iceberg",
+    "type": "noun"
+  },
+  {
+    "word": "акация",
+    "translation": "acacia",
+    "type": "noun"
+  },
+  {
+    "word": "аккорд",
+    "translation": "chord",
+    "type": "noun"
+  },
+  {
+    "word": "акробат",
+    "translation": "acrobat",
+    "type": "noun"
+  },
+  {
+    "word": "аксиома",
+    "translation": "axiom",
+    "type": "noun"
+  },
+  {
+    "word": "актив",
+    "translation": "asset",
+    "type": "noun"
+  },
+  {
+    "word": "актриса",
+    "translation": "actress",
+    "type": "noun"
+  },
+  {
+    "word": "акция",
+    "translation": "share",
+    "type": "noun"
+  },
+  {
+    "word": "алиби",
+    "translation": "alibi",
+    "type": "noun"
+  },
+  {
+    "word": "алмаз",
+    "translation": "diamond",
+    "type": "noun"
+  },
+  {
+    "word": "алтарь",
+    "translation": "altar",
+    "type": "noun"
+  },
+  {
+    "word": "алфавит",
+    "translation": "alphabet",
+    "type": "noun"
+  },
+  {
+    "word": "алхимия",
+    "translation": "alchemy",
+    "type": "noun"
+  },
+  {
+    "word": "амбар",
+    "translation": "barn",
+    "type": "noun"
+  },
+  {
+    "word": "аметист",
+    "translation": "amethyst",
+    "type": "noun"
+  },
+  {
+    "word": "ампула",
+    "translation": "ampoule",
+    "type": "noun"
+  },
+  {
+    "word": "анализ",
+    "translation": "analysis",
+    "type": "noun"
+  },
+  {
+    "word": "ананас",
+    "translation": "pineapple",
+    "type": "noun"
+  },
+  {
+    "word": "ангар",
+    "translation": "hangar",
+    "type": "noun"
+  },
+  {
+    "word": "ангел",
+    "translation": "angel",
+    "type": "noun"
+  },
+  {
+    "word": "анкета",
+    "translation": "form",
+    "type": "noun"
+  },
+  {
+    "word": "аптека",
+    "translation": "pharmacy",
+    "type": "noun"
+  },
+  {
+    "word": "арбитр",
+    "translation": "referee",
+    "type": "noun"
+  },
+  {
+    "word": "арест",
+    "translation": "arrest",
+    "type": "noun"
+  },
+  {
+    "word": "аромат",
+    "translation": "aroma",
+    "type": "noun"
+  },
+  {
+    "word": "арсенал",
+    "translation": "arsenal",
+    "type": "noun"
+  },
+  {
+    "word": "артист",
+    "translation": "artist",
+    "type": "noun"
+  },
+  {
+    "word": "аспект",
+    "translation": "aspect",
+    "type": "noun"
+  },
+  {
+    "word": "атлет",
+    "translation": "athlete",
+    "type": "noun"
+  },
+  {
+    "word": "атом",
+    "translation": "atom",
+    "type": "noun"
+  },
+  {
+    "word": "аудит",
+    "translation": "audit",
+    "type": "noun"
+  },
+  {
+    "word": "аукцион",
+    "translation": "auction",
+    "type": "noun"
+  },
+  {
+    "word": "аура",
+    "translation": "aura",
+    "type": "noun"
+  },
+  {
+    "word": "афиша",
+    "translation": "poster",
+    "type": "noun"
+  },
+  {
+    "word": "баба",
+    "translation": "woman",
+    "type": "noun"
+  },
+  {
+    "word": "бабка",
+    "translation": "grandma",
+    "type": "noun"
+  },
+  {
+    "word": "багаж",
+    "translation": "luggage",
+    "type": "noun"
+  },
+  {
+    "word": "бадья",
+    "translation": "tub",
+    "type": "noun"
+  },
+  {
+    "word": "базар",
+    "translation": "bazaar",
+    "type": "noun"
+  },
+  {
+    "word": "байка",
+    "translation": "tale",
+    "type": "noun"
+  },
+  {
+    "word": "бакен",
+    "translation": "buoy",
+    "type": "noun"
+  },
+  {
+    "word": "балаган",
+    "translation": "farce",
+    "type": "noun"
+  },
+  {
+    "word": "балет",
+    "translation": "ballet",
+    "type": "noun"
+  },
+  {
+    "word": "балка",
+    "translation": "beam",
+    "type": "noun"
+  },
+  {
+    "word": "баллон",
+    "translation": "cylinder",
+    "type": "noun"
+  },
+  {
+    "word": "бальзам",
+    "translation": "balm",
+    "type": "noun"
+  },
+  {
+    "word": "банда",
+    "translation": "gang",
+    "type": "noun"
+  },
+  {
+    "word": "бандит",
+    "translation": "bandit",
+    "type": "noun"
+  },
+  {
+    "word": "банка",
+    "translation": "jar",
+    "type": "noun"
+  },
+  {
+    "word": "баня",
+    "translation": "bathhouse",
+    "type": "noun"
+  },
+  {
+    "word": "барак",
+    "translation": "barrack",
+    "type": "noun"
+  },
+  {
+    "word": "баран",
+    "translation": "ram",
+    "type": "noun"
+  },
+  {
+    "word": "барин",
+    "translation": "master",
+    "type": "noun"
+  },
+  {
+    "word": "барон",
+    "translation": "baron",
+    "type": "noun"
+  },
+  {
+    "word": "барсук",
+    "translation": "badger",
+    "type": "noun"
+  },
+  {
+    "word": "бархан",
+    "translation": "dune",
+    "type": "noun"
+  },
+  {
+    "word": "башмак",
+    "translation": "boot",
+    "type": "noun"
+  },
+  {
+    "word": "бегство",
+    "translation": "escape",
+    "type": "noun"
+  },
+  {
+    "word": "бедро",
+    "translation": "thigh",
+    "type": "noun"
+  },
+  {
+    "word": "бездна",
+    "translation": "abyss",
+    "type": "noun"
+  },
+  {
+    "word": "белок",
+    "translation": "protein",
+    "type": "noun"
+  },
+  {
+    "word": "берлога",
+    "translation": "den",
+    "type": "noun"
+  },
+  {
+    "word": "бетон",
+    "translation": "concrete",
+    "type": "noun"
+  },
+  {
+    "word": "библия",
+    "translation": "bible",
+    "type": "noun"
+  },
+  {
+    "word": "бизнес",
+    "translation": "business",
+    "type": "noun"
+  },
+  {
+    "word": "бинт",
+    "translation": "bandage",
+    "type": "noun"
+  },
+  {
+    "word": "биржа",
+    "translation": "exchange",
+    "type": "noun"
+  },
+  {
+    "word": "бисер",
+    "translation": "beads",
+    "type": "noun"
+  },
+  {
+    "word": "благо",
+    "translation": "good",
+    "type": "noun"
+  },
+  {
+    "word": "бланк",
+    "translation": "form",
+    "type": "noun"
+  },
+  {
+    "word": "блеск",
+    "translation": "glitter",
+    "type": "noun"
+  },
+  {
+    "word": "блоха",
+    "translation": "flea",
+    "type": "noun"
+  },
+  {
+    "word": "блюз",
+    "translation": "blues",
+    "type": "noun"
+  },
+  {
+    "word": "бобёр",
+    "translation": "beaver",
+    "type": "noun"
+  },
+  {
+    "word": "богач",
+    "translation": "rich man",
+    "type": "noun"
+  },
+  {
+    "word": "боец",
+    "translation": "fighter",
+    "type": "noun"
+  },
+  {
+    "word": "бокал",
+    "translation": "goblet",
+    "type": "noun"
+  },
+  {
+    "word": "болезнь",
+    "translation": "illness",
+    "type": "noun"
+  },
+  {
+    "word": "бомж",
+    "translation": "homeless",
+    "type": "noun"
+  },
+  {
+    "word": "бордюр",
+    "translation": "curb",
+    "type": "noun"
+  },
+  {
+    "word": "борода",
+    "translation": "beard",
+    "type": "noun"
+  },
+  {
+    "word": "борозда",
+    "translation": "furrow",
+    "type": "noun"
+  },
+  {
+    "word": "борт",
+    "translation": "side",
+    "type": "noun"
+  },
+  {
+    "word": "ботинок",
+    "translation": "shoe",
+    "type": "noun"
+  },
+  {
+    "word": "бочок",
+    "translation": "side",
+    "type": "noun"
+  },
+  {
+    "word": "бояр",
+    "translation": "boyar",
+    "type": "noun"
+  },
+  {
+    "word": "бравада",
+    "translation": "bravado",
+    "type": "noun"
+  },
+  {
+    "word": "бразды",
+    "translation": "reins",
+    "type": "noun"
+  },
+  {
+    "word": "бревно",
+    "translation": "log",
+    "type": "noun"
+  },
+  {
+    "word": "бред",
+    "translation": "delirium",
+    "type": "noun"
+  },
+  {
+    "word": "бремя",
+    "translation": "burden",
+    "type": "noun"
+  },
+  {
+    "word": "бригада",
+    "translation": "brigade",
+    "type": "noun"
+  },
+  {
+    "word": "бриз",
+    "translation": "breeze",
+    "type": "noun"
+  },
+  {
+    "word": "бровь",
+    "translation": "eyebrow",
+    "type": "noun"
+  },
+  {
+    "word": "бронза",
+    "translation": "bronze",
+    "type": "noun"
+  },
+  {
+    "word": "броня",
+    "translation": "armor",
+    "type": "noun"
+  },
+  {
+    "word": "брошь",
+    "translation": "brooch",
+    "type": "noun"
+  },
+  {
+    "word": "брусок",
+    "translation": "bar",
+    "type": "noun"
+  },
+  {
+    "word": "брюхо",
+    "translation": "belly",
+    "type": "noun"
+  },
+  {
+    "word": "будка",
+    "translation": "booth",
+    "type": "noun"
+  },
+  {
+    "word": "будни",
+    "translation": "weekdays",
+    "type": "noun"
+  },
+  {
+    "word": "букет",
+    "translation": "bouquet",
+    "type": "noun"
+  },
+  {
+    "word": "буксир",
+    "translation": "tugboat",
+    "type": "noun"
+  },
+  {
+    "word": "бульвар",
+    "translation": "boulevard",
+    "type": "noun"
+  },
+  {
+    "word": "бульон",
+    "translation": "broth",
+    "type": "noun"
+  },
+  {
+    "word": "бунт",
+    "translation": "revolt",
+    "type": "noun"
+  },
+  {
+    "word": "буран",
+    "translation": "blizzard",
+    "type": "noun"
+  },
+  {
+    "word": "бурда",
+    "translation": "slop",
+    "type": "noun"
+  },
+  {
+    "word": "бурьян",
+    "translation": "weeds",
+    "type": "noun"
+  },
+  {
+    "word": "бусы",
+    "translation": "beads",
+    "type": "noun"
+  },
+  {
+    "word": "бутон",
+    "translation": "bud",
+    "type": "noun"
+  },
+  {
+    "word": "бутыль",
+    "translation": "bottle",
+    "type": "noun"
+  },
+  {
+    "word": "буфет",
+    "translation": "buffet",
+    "type": "noun"
+  },
+  {
+    "word": "бухта",
+    "translation": "cove",
+    "type": "noun"
+  },
+  {
+    "word": "быль",
+    "translation": "true story",
+    "type": "noun"
+  },
+  {
+    "word": "бытие",
+    "translation": "being",
+    "type": "noun"
+  },
+  {
+    "word": "вянуть",
+    "translation": "to wilt",
+    "type": "verb"
+  },
+  {
+    "word": "гаснуть",
+    "translation": "to fade",
+    "type": "verb"
+  },
+  {
+    "word": "липнуть",
+    "translation": "to stick",
+    "type": "verb"
+  },
+  {
+    "word": "никнуть",
+    "translation": "to droop",
+    "type": "verb"
+  },
+  {
+    "word": "пахнуть",
+    "translation": "to smell",
+    "type": "verb"
+  },
+  {
+    "word": "стынуть",
+    "translation": "to cool",
+    "type": "verb"
+  },
+  {
+    "word": "тонуть",
+    "translation": "to drown",
+    "type": "verb"
+  },
+  {
+    "word": "тухнуть",
+    "translation": "to go out",
+    "type": "verb"
+  },
+  {
+    "word": "чахнуть",
+    "translation": "to wither",
+    "type": "verb"
+  },
+  {
+    "word": "виснуть",
+    "translation": "to hang",
+    "type": "verb"
+  },
+  {
+    "word": "вязнуть",
+    "translation": "to get stuck",
+    "type": "verb"
+  },
+  {
+    "word": "гибнуть",
+    "translation": "to perish",
+    "type": "verb"
+  },
+  {
+    "word": "зябнуть",
+    "translation": "to feel cold",
+    "type": "verb"
+  },
+  {
+    "word": "киснуть",
+    "translation": "to sour",
+    "type": "verb"
+  },
+  {
+    "word": "пугнуть",
+    "translation": "to scare",
+    "type": "verb"
+  },
+  {
+    "word": "тискать",
+    "translation": "to squeeze",
+    "type": "verb"
+  },
+  {
+    "word": "цедить",
+    "translation": "to strain",
+    "type": "verb"
+  },
+  {
+    "word": "шагать",
+    "translation": "to stride",
+    "type": "verb"
+  },
+  {
+    "word": "шарить",
+    "translation": "to rummage",
+    "type": "verb"
+  },
+  {
+    "word": "щадить",
+    "translation": "to spare",
+    "type": "verb"
+  },
+  {
+    "word": "юлить",
+    "translation": "to dodge",
+    "type": "verb"
+  },
+  {
+    "word": "явить",
+    "translation": "to reveal",
+    "type": "verb"
+  },
+  {
+    "word": "алеть",
+    "translation": "to redden",
+    "type": "verb"
+  },
+  {
+    "word": "белеть",
+    "translation": "to whiten",
+    "type": "verb"
+  },
+  {
+    "word": "желтеть",
+    "translation": "to yellow",
+    "type": "verb"
+  },
+  {
+    "word": "синеть",
+    "translation": "to turn blue",
+    "type": "verb"
+  },
+  {
+    "word": "чернеть",
+    "translation": "to blacken",
+    "type": "verb"
+  },
+  {
+    "word": "сереть",
+    "translation": "to turn gray",
+    "type": "verb"
+  },
+  {
+    "word": "седеть",
+    "translation": "to go gray",
+    "type": "verb"
+  },
+  {
+    "word": "лысеть",
+    "translation": "to go bald",
+    "type": "verb"
+  },
+  {
+    "word": "худеть",
+    "translation": "to lose weight",
+    "type": "verb"
+  },
+  {
+    "word": "глупеть",
+    "translation": "to grow stupid",
+    "type": "verb"
+  },
+  {
+    "word": "умнеть",
+    "translation": "to grow smart",
+    "type": "verb"
+  },
+  {
+    "word": "добреть",
+    "translation": "to grow kind",
+    "type": "verb"
+  },
+  {
+    "word": "дуреть",
+    "translation": "to go crazy",
+    "type": "verb"
+  },
+  {
+    "word": "звереть",
+    "translation": "to become fierce",
+    "type": "verb"
+  },
+  {
+    "word": "хмелеть",
+    "translation": "to get tipsy",
+    "type": "verb"
+  },
+  {
+    "word": "мелеть",
+    "translation": "to become shallow",
+    "type": "verb"
+  },
+  {
+    "word": "редеть",
+    "translation": "to thin out",
+    "type": "verb"
+  },
+  {
+    "word": "густеть",
+    "translation": "to thicken",
+    "type": "verb"
+  },
+  {
+    "word": "мягчеть",
+    "translation": "to soften",
+    "type": "verb"
+  },
+  {
+    "word": "слабеть",
+    "translation": "to weaken",
+    "type": "verb"
+  },
+  {
+    "word": "легчать",
+    "translation": "to lighten",
+    "type": "verb"
+  },
+  {
+    "word": "темнеть",
+    "translation": "to darken",
+    "type": "verb"
+  },
+  {
+    "word": "теплеть",
+    "translation": "to warm up",
+    "type": "verb"
+  },
+  {
+    "word": "алый",
+    "translation": "scarlet",
+    "type": "adj"
+  },
+  {
+    "word": "бурый",
+    "translation": "brown",
+    "type": "adj"
+  },
+  {
+    "word": "сизый",
+    "translation": "blue-gray",
+    "type": "adj"
+  },
+  {
+    "word": "карий",
+    "translation": "brown",
+    "type": "adj"
+  },
+  {
+    "word": "вагон",
+    "translation": "wagon",
+    "type": "noun"
+  },
+  {
+    "word": "валюта",
+    "translation": "currency",
+    "type": "noun"
+  },
+  {
+    "word": "ватага",
+    "translation": "gang",
+    "type": "noun"
+  },
+  {
+    "word": "вдова",
+    "translation": "widow",
+    "type": "noun"
+  },
+  {
+    "word": "ведьма",
+    "translation": "witch",
+    "type": "noun"
+  },
+  {
+    "word": "вексель",
+    "translation": "bill",
+    "type": "noun"
+  },
+  {
+    "word": "вена",
+    "translation": "vein",
+    "type": "noun"
+  },
+  {
+    "word": "веник",
+    "translation": "broom",
+    "type": "noun"
+  },
+  {
+    "word": "верба",
+    "translation": "willow",
+    "type": "noun"
+  },
+  {
+    "word": "верфь",
+    "translation": "shipyard",
+    "type": "noun"
+  },
+  {
+    "word": "весы",
+    "translation": "scales",
+    "type": "noun"
+  },
+  {
+    "word": "ветвь",
+    "translation": "branch",
+    "type": "noun"
+  },
+  {
+    "word": "вещь",
+    "translation": "thing",
+    "type": "noun"
+  },
+  {
+    "word": "взнос",
+    "translation": "fee",
+    "type": "noun"
+  },
+  {
+    "word": "вигвам",
+    "translation": "wigwam",
+    "type": "noun"
+  },
+  {
+    "word": "визит",
+    "translation": "visit",
+    "type": "noun"
+  },
+  {
+    "word": "вилла",
+    "translation": "villa",
+    "type": "noun"
+  },
+  {
+    "word": "виток",
+    "translation": "coil",
+    "type": "noun"
+  },
+  {
+    "word": "вкладыш",
+    "translation": "insert",
+    "type": "noun"
+  },
+  {
+    "word": "влага",
+    "translation": "moisture",
+    "type": "noun"
+  },
+  {
+    "word": "внук",
+    "translation": "grandson",
+    "type": "noun"
+  },
+  {
+    "word": "внучка",
+    "translation": "granddaughter",
+    "type": "noun"
+  },
+  {
+    "word": "водоём",
+    "translation": "reservoir",
+    "type": "noun"
+  },
+  {
+    "word": "вожак",
+    "translation": "leader",
+    "type": "noun"
+  },
+  {
+    "word": "вожжи",
+    "translation": "reins",
+    "type": "noun"
+  },
+  {
+    "word": "возраст",
+    "translation": "age",
+    "type": "noun"
+  },
+  {
+    "word": "войлок",
+    "translation": "felt",
+    "type": "noun"
+  },
+  {
+    "word": "волокно",
+    "translation": "fiber",
+    "type": "noun"
+  },
+  {
+    "word": "ворс",
+    "translation": "pile",
+    "type": "noun"
+  },
+  {
+    "word": "восход",
+    "translation": "sunrise",
+    "type": "noun"
+  },
+  {
+    "word": "впадина",
+    "translation": "hollow",
+    "type": "noun"
+  },
+  {
+    "word": "вратарь",
+    "translation": "goalkeeper",
+    "type": "noun"
+  },
+  {
+    "word": "всадник",
+    "translation": "rider",
+    "type": "noun"
+  },
+  {
+    "word": "встреча",
+    "translation": "meeting",
+    "type": "noun"
+  },
+  {
+    "word": "выемка",
+    "translation": "notch",
+    "type": "noun"
+  },
+  {
+    "word": "выкуп",
+    "translation": "ransom",
+    "type": "noun"
+  },
+  {
+    "word": "вымпел",
+    "translation": "pennant",
+    "type": "noun"
+  },
+  {
+    "word": "выпуск",
+    "translation": "issue",
+    "type": "noun"
+  },
+  {
+    "word": "высота",
+    "translation": "altitude",
+    "type": "noun"
+  },
+  {
+    "word": "выступ",
+    "translation": "ledge",
+    "type": "noun"
+  },
+  {
+    "word": "вьюга",
+    "translation": "snowstorm",
+    "type": "noun"
+  },
+  {
+    "word": "вьюнок",
+    "translation": "bindweed",
+    "type": "noun"
+  },
+  {
+    "word": "газета",
+    "translation": "newspaper",
+    "type": "noun"
+  },
+  {
+    "word": "газон",
+    "translation": "lawn",
+    "type": "noun"
+  },
+  {
+    "word": "галерея",
+    "translation": "gallery",
+    "type": "noun"
+  },
+  {
+    "word": "галька",
+    "translation": "pebble",
+    "type": "noun"
+  },
+  {
+    "word": "гамак",
+    "translation": "hammock",
+    "type": "noun"
+  },
+  {
+    "word": "гарем",
+    "translation": "harem",
+    "type": "noun"
+  },
+  {
+    "word": "гармонь",
+    "translation": "accordion",
+    "type": "noun"
+  },
+  {
+    "word": "гарнир",
+    "translation": "garnish",
+    "type": "noun"
+  },
+  {
+    "word": "гвардия",
+    "translation": "guard",
+    "type": "noun"
+  },
+  {
+    "word": "генерал",
+    "translation": "general",
+    "type": "noun"
+  },
+  {
+    "word": "герань",
+    "translation": "geranium",
+    "type": "noun"
+  },
+  {
+    "word": "гиена",
+    "translation": "hyena",
+    "type": "noun"
+  },
+  {
+    "word": "гильза",
+    "translation": "cartridge",
+    "type": "noun"
+  },
+  {
+    "word": "гипноз",
+    "translation": "hypnosis",
+    "type": "noun"
+  },
+  {
+    "word": "гипс",
+    "translation": "plaster",
+    "type": "noun"
+  },
+  {
+    "word": "глетчер",
+    "translation": "glacier",
+    "type": "noun"
+  },
+  {
+    "word": "глина",
+    "translation": "clay",
+    "type": "noun"
+  },
+  {
+    "word": "глобус",
+    "translation": "globe",
+    "type": "noun"
+  },
+  {
+    "word": "глушь",
+    "translation": "backwoods",
+    "type": "noun"
+  },
+  {
+    "word": "гном",
+    "translation": "gnome",
+    "type": "noun"
+  },
+  {
+    "word": "гобелен",
+    "translation": "tapestry",
+    "type": "noun"
+  },
+  {
+    "word": "голень",
+    "translation": "shin",
+    "type": "noun"
+  },
+  {
+    "word": "гонец",
+    "translation": "messenger",
+    "type": "noun"
+  },
+  {
+    "word": "горло",
+    "translation": "throat",
+    "type": "noun"
+  },
+  {
+    "word": "горсть",
+    "translation": "handful",
+    "type": "noun"
+  },
+  {
+    "word": "гостья",
+    "translation": "guest f",
+    "type": "noun"
+  },
+  {
+    "word": "грабли",
+    "translation": "rake",
+    "type": "noun"
+  },
+  {
+    "word": "градус",
+    "translation": "degree",
+    "type": "noun"
+  },
+  {
+    "word": "гранат",
+    "translation": "pomegranate",
+    "type": "noun"
+  },
+  {
+    "word": "гранит",
+    "translation": "granite",
+    "type": "noun"
+  },
+  {
+    "word": "графин",
+    "translation": "carafe",
+    "type": "noun"
+  },
+  {
+    "word": "гребень",
+    "translation": "comb",
+    "type": "noun"
+  },
+  {
+    "word": "грелка",
+    "translation": "warmer",
+    "type": "noun"
+  },
+  {
+    "word": "гречиха",
+    "translation": "buckwheat",
+    "type": "noun"
+  },
+  {
+    "word": "грива",
+    "translation": "mane",
+    "type": "noun"
+  },
+  {
+    "word": "гримаса",
+    "translation": "grimace",
+    "type": "noun"
+  },
+  {
+    "word": "гроб",
+    "translation": "coffin",
+    "type": "noun"
+  },
+  {
+    "word": "гром",
+    "translation": "thunder",
+    "type": "noun"
+  },
+  {
+    "word": "грунт",
+    "translation": "soil",
+    "type": "noun"
+  },
+  {
+    "word": "груз",
+    "translation": "cargo",
+    "type": "noun"
+  },
+  {
+    "word": "грядка",
+    "translation": "bed",
+    "type": "noun"
+  },
+  {
+    "word": "гудок",
+    "translation": "horn",
+    "type": "noun"
+  },
+  {
+    "word": "гуляш",
+    "translation": "goulash",
+    "type": "noun"
+  },
+  {
+    "word": "гуща",
+    "translation": "dregs",
+    "type": "noun"
+  },
+  {
+    "word": "давка",
+    "translation": "crush",
+    "type": "noun"
+  },
+  {
+    "word": "дамба",
+    "translation": "dam",
+    "type": "noun"
+  },
+  {
+    "word": "дань",
+    "translation": "tribute",
+    "type": "noun"
+  },
+  {
+    "word": "дебри",
+    "translation": "thicket",
+    "type": "noun"
+  },
+  {
+    "word": "девиз",
+    "translation": "motto",
+    "type": "noun"
+  },
+  {
+    "word": "дёготь",
+    "translation": "tar",
+    "type": "noun"
+  },
+  {
+    "word": "декан",
+    "translation": "dean",
+    "type": "noun"
+  },
+  {
+    "word": "декор",
+    "translation": "decor",
+    "type": "noun"
+  },
+  {
+    "word": "делёж",
+    "translation": "division",
+    "type": "noun"
+  },
+  {
+    "word": "демон",
+    "translation": "demon",
+    "type": "noun"
+  },
+  {
+    "word": "депо",
+    "translation": "depot",
+    "type": "noun"
+  },
+  {
+    "word": "десна",
+    "translation": "gum",
+    "type": "noun"
+  },
+  {
+    "word": "деталь",
+    "translation": "detail",
+    "type": "noun"
+  },
+  {
+    "word": "дефект",
+    "translation": "defect",
+    "type": "noun"
+  },
+  {
+    "word": "дефицит",
+    "translation": "deficit",
+    "type": "noun"
+  },
+  {
+    "word": "диагноз",
+    "translation": "diagnosis",
+    "type": "noun"
+  },
+  {
+    "word": "диалект",
+    "translation": "dialect",
+    "type": "noun"
+  },
+  {
+    "word": "дизайн",
+    "translation": "design",
+    "type": "noun"
+  },
+  {
+    "word": "динамит",
+    "translation": "dynamite",
+    "type": "noun"
+  },
+  {
+    "word": "дирижёр",
+    "translation": "conductor",
+    "type": "noun"
+  },
+  {
+    "word": "дисплей",
+    "translation": "display",
+    "type": "noun"
+  },
+  {
+    "word": "добыча",
+    "translation": "prey",
+    "type": "noun"
+  },
+  {
+    "word": "довесок",
+    "translation": "extra",
+    "type": "noun"
+  },
+  {
+    "word": "договор",
+    "translation": "contract",
+    "type": "noun"
+  },
+  {
+    "word": "дозор",
+    "translation": "patrol",
+    "type": "noun"
+  },
+  {
+    "word": "домик",
+    "translation": "cottage",
+    "type": "noun"
+  },
+  {
+    "word": "донор",
+    "translation": "donor",
+    "type": "noun"
+  },
+  {
+    "word": "допрос",
+    "translation": "interrogation",
+    "type": "noun"
+  },
+  {
+    "word": "доспехи",
+    "translation": "armor",
+    "type": "noun"
+  },
+  {
+    "word": "дракон",
+    "translation": "dragon",
+    "type": "noun"
+  },
+  {
+    "word": "дрова",
+    "translation": "firewood",
+    "type": "noun"
+  },
+  {
+    "word": "дрожь",
+    "translation": "shiver",
+    "type": "noun"
+  },
+  {
+    "word": "дружба",
+    "translation": "friendship",
+    "type": "noun"
+  },
+  {
+    "word": "дубина",
+    "translation": "club",
+    "type": "noun"
+  },
+  {
+    "word": "дудка",
+    "translation": "pipe",
+    "type": "noun"
+  },
+  {
+    "word": "дупло",
+    "translation": "hollow",
+    "type": "noun"
+  },
+  {
+    "word": "дуэль",
+    "translation": "duel",
+    "type": "noun"
+  },
+  {
+    "word": "дюна",
+    "translation": "dune",
+    "type": "noun"
+  },
+  {
+    "word": "дятел",
+    "translation": "woodpecker",
+    "type": "noun"
+  },
+  {
+    "word": "егерь",
+    "translation": "ranger",
+    "type": "noun"
+  },
+  {
+    "word": "единица",
+    "translation": "unit",
+    "type": "noun"
+  },
+  {
+    "word": "ежевика",
+    "translation": "blackberry",
+    "type": "noun"
+  },
+  {
+    "word": "ересь",
+    "translation": "heresy",
+    "type": "noun"
+  },
+  {
+    "word": "жаба",
+    "translation": "toad",
+    "type": "noun"
+  },
+  {
+    "word": "жажда",
+    "translation": "thirst",
+    "type": "noun"
+  },
+  {
+    "word": "жалоба",
+    "translation": "complaint",
+    "type": "noun"
+  },
+  {
+    "word": "жандарм",
+    "translation": "gendarme",
+    "type": "noun"
+  },
+  {
+    "word": "жаргон",
+    "translation": "jargon",
+    "type": "noun"
+  },
+  {
+    "word": "жатва",
+    "translation": "harvest",
+    "type": "noun"
+  },
+  {
+    "word": "желе",
+    "translation": "jelly",
+    "type": "noun"
+  },
+  {
+    "word": "железо",
+    "translation": "iron",
+    "type": "noun"
+  },
+  {
+    "word": "жёлоб",
+    "translation": "gutter",
+    "type": "noun"
+  },
+  {
+    "word": "жёлудь",
+    "translation": "acorn",
+    "type": "noun"
+  },
+  {
+    "word": "жемчуг",
+    "translation": "pearl",
+    "type": "noun"
+  },
+  {
+    "word": "жених",
+    "translation": "groom",
+    "type": "noun"
+  },
+  {
+    "word": "жерло",
+    "translation": "muzzle",
+    "type": "noun"
+  },
+  {
+    "word": "жертва",
+    "translation": "sacrifice",
+    "type": "noun"
+  },
+  {
+    "word": "жилет",
+    "translation": "vest",
+    "type": "noun"
+  },
+  {
+    "word": "жилище",
+    "translation": "dwelling",
+    "type": "noun"
+  },
+  {
+    "word": "житель",
+    "translation": "resident",
+    "type": "noun"
+  },
+  {
+    "word": "журавль",
+    "translation": "crane",
+    "type": "noun"
+  },
+  {
+    "word": "журнал",
+    "translation": "magazine",
+    "type": "noun"
+  }
+]

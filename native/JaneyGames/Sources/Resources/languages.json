@@ -1,0 +1,52 @@
+{
+  "ru": {
+    "displayName": "Russian",
+    "games": ["rootsky", "wordsky", "scramblisky", "bogglesky", "snakesky", "tetrisky", "slashsky", "triviatsky"],
+    "themes": ["soviet", "dark", "light", "bw", "festivus"],
+    "dictionaryBasePath": "../shared/dictionaries/ru",
+    "letterPool": "оооооооеееееееаааааааиииииинннннттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщэфъьёй",
+    "validationRegex": "^[а-яёА-ЯЁ]+$",
+    "gameNames": {
+      "rootsky":     { "name": "Rootsky",     "desc": "Match Russian words to their roots" },
+      "wordsky":     { "name": "Wordsky",     "desc": "Guess the daily Russian words" },
+      "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Russian words before time runs out" },
+      "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Russian words in a letter grid" },
+      "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Russian words" },
+      "tetrisky":    { "name": "Tetrisky",    "desc": "Stack falling letters into Russian words" },
+      "slashsky":    { "name": "Slashsky",    "desc": "Slash the synonyms, dodge the distractors" },
+      "triviatsky":  { "name": "Triviatsky",  "desc": "Answer daily Russian trivia questions" }
+    }
+  },
+  "pt-br": {
+    "displayName": "Portuguese",
+    "games": ["scramblisky", "bogglesky", "snakesky", "tetrisky", "triviatsky"],
+    "themes": ["brazil", "dark", "light", "bw", "festivus"],
+    "dictionaryBasePath": "../shared/dictionaries/pt-br",
+    "letterPool": "aaaaaaaaaaeeeeeeeeeoooooooossssssrrrrrrnnnnnnttttttllllddddmmmmccccppppuuuiiibbbggffvvhhjjqqxxzzçãõéêíóôúâà",
+    "validationRegex": "^[a-záàâãéêíóôõúüç]+$",
+    "gameNames": {
+      "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Portuguese words before time runs out" },
+      "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Portuguese words in a letter grid" },
+      "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Portuguese words" },
+      "tetrisky":    { "name": "Tetrisky",    "desc": "Stack falling letters into Portuguese words" },
+      "slashsky":    { "name": "Slashsky",    "desc": "Slash the synonyms, dodge the distractors" },
+      "triviatsky":  { "name": "Triviatsky",  "desc": "Answer daily Portuguese trivia questions" }
+    }
+  },
+  "uk": {
+    "displayName": "Ukranian",
+    "games": ["scramblisky", "bogglesky", "snakesky", "tetrisky", "triviatsky"],
+    "themes": ["ukraine", "dark", "light", "bw", "festivus"],
+    "dictionaryBasePath": "../shared/dictionaries/uk",
+    "letterPool": "оооооооеееееееаааааааиииииінннннніііііттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщьїєфґй",
+    "validationRegex": "^[а-яіїєґА-ЯІЇЄҐ]+$",
+    "gameNames": {
+      "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Ukrainian words before time runs out" },
+      "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Ukrainian words in a letter grid" },
+      "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Ukrainian words" },
+      "tetrisky":    { "name": "Tetrisky",    "desc": "Stack falling letters into Ukrainian words" },
+      "slashsky":    { "name": "Slashsky",    "desc": "Slash the synonyms, dodge the distractors" },
+      "triviatsky":  { "name": "Triviatsky",  "desc": "Answer daily Ukrainian trivia questions" }
+    }
+  }
+}

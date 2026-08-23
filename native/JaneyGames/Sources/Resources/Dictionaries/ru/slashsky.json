@@ -1,0 +1,206 @@
+{
+  "words": [
+    {
+      "word": "быстрый",
+      "translation": "fast",
+      "synonyms": [
+        { "word": "скорый", "translation": "quick" },
+        { "word": "стремительный", "translation": "rapid" },
+        { "word": "проворный", "translation": "agile" }
+      ]
+    },
+    {
+      "word": "большой",
+      "translation": "big",
+      "synonyms": [
+        { "word": "огромный", "translation": "huge" },
+        { "word": "крупный", "translation": "large" },
+        { "word": "громадный", "translation": "enormous" }
+      ]
+    },
+    {
+      "word": "красивый",
+      "translation": "beautiful",
+      "synonyms": [
+        { "word": "прекрасный", "translation": "wonderful" },
+        { "word": "привлекательный", "translation": "attractive" },
+        { "word": "великолепный", "translation": "magnificent" }
+      ]
+    },
+    {
+      "word": "умный",
+      "translation": "smart",
+      "synonyms": [
+        { "word": "мудрый", "translation": "wise" },
+        { "word": "сообразительный", "translation": "clever" },
+        { "word": "разумный", "translation": "reasonable" }
+      ]
+    },
+    {
+      "word": "сильный",
+      "translation": "strong",
+      "synonyms": [
+        { "word": "мощный", "translation": "powerful" },
+        { "word": "крепкий", "translation": "sturdy" },
+        { "word": "могучий", "translation": "mighty" }
+      ]
+    },
+    {
+      "word": "весёлый",
+      "translation": "cheerful",
+      "synonyms": [
+        { "word": "радостный", "translation": "joyful" },
+        { "word": "счастливый", "translation": "happy" },
+        { "word": "бодрый", "translation": "lively" }
+      ]
+    },
+    {
+      "word": "храбрый",
+      "translation": "brave",
+      "synonyms": [
+        { "word": "смелый", "translation": "courageous" },
+        { "word": "отважный", "translation": "fearless" },
+        { "word": "мужественный", "translation": "valiant" }
+      ]
+    },
+    {
+      "word": "тихий",
+      "translation": "quiet",
+      "synonyms": [
+        { "word": "спокойный", "translation": "calm" },
+        { "word": "безмолвный", "translation": "silent" },
+        { "word": "мирный", "translation": "peaceful" }
+      ]
+    },
+    {
+      "word": "старый",
+      "translation": "old",
+      "synonyms": [
+        { "word": "древний", "translation": "ancient" },
+        { "word": "ветхий", "translation": "decrepit" },
+        { "word": "пожилой", "translation": "elderly" }
+      ]
+    },
+    {
+      "word": "холодный",
+      "translation": "cold",
+      "synonyms": [
+        { "word": "морозный", "translation": "frosty" },
+        { "word": "ледяной", "translation": "icy" },
+        { "word": "прохладный", "translation": "cool" }
+      ]
+    },
+    {
+      "word": "грустный",
+      "translation": "sad",
+      "synonyms": [
+        { "word": "печальный", "translation": "sorrowful" },
+        { "word": "тоскливый", "translation": "melancholy" },
+        { "word": "унылый", "translation": "gloomy" }
+      ]
+    },
+    {
+      "word": "маленький",
+      "translation": "small",
+      "synonyms": [
+        { "word": "крошечный", "translation": "tiny" },
+        { "word": "миниатюрный", "translation": "miniature" },
+        { "word": "мелкий", "translation": "little" }
+      ]
+    },
+    {
+      "word": "горячий",
+      "translation": "hot",
+      "synonyms": [
+        { "word": "жаркий", "translation": "scorching" },
+        { "word": "знойный", "translation": "sultry" },
+        { "word": "раскалённый", "translation": "red-hot" }
+      ]
+    },
+    {
+      "word": "новый",
+      "translation": "new",
+      "synonyms": [
+        { "word": "свежий", "translation": "fresh" },
+        { "word": "современный", "translation": "modern" },
+        { "word": "недавний", "translation": "recent" }
+      ]
+    },
+    {
+      "word": "трудный",
+      "translation": "difficult",
+      "synonyms": [
+        { "word": "сложный", "translation": "complex" },
+        { "word": "тяжёлый", "translation": "hard" },
+        { "word": "непростой", "translation": "challenging" }
+      ]
+    },
+    {
+      "word": "лёгкий",
+      "translation": "easy",
+      "synonyms": [
+        { "word": "простой", "translation": "simple" },
+        { "word": "нетрудный", "translation": "effortless" },
+        { "word": "элементарный", "translation": "elementary" }
+      ]
+    },
+    {
+      "word": "важный",
+      "translation": "important",
+      "synonyms": [
+        { "word": "значимый", "translation": "significant" },
+        { "word": "существенный", "translation": "essential" },
+        { "word": "ключевой", "translation": "key" }
+      ]
+    },
+    {
+      "word": "добрый",
+      "translation": "kind",
+      "synonyms": [
+        { "word": "ласковый", "translation": "gentle" },
+        { "word": "отзывчивый", "translation": "responsive" },
+        { "word": "заботливый", "translation": "caring" }
+      ]
+    },
+    {
+      "word": "злой",
+      "translation": "angry",
+      "synonyms": [
+        { "word": "сердитый", "translation": "cross" },
+        { "word": "раздражённый", "translation": "irritated" },
+        { "word": "яростный", "translation": "furious" }
+      ]
+    },
+    {
+      "word": "богатый",
+      "translation": "rich",
+      "synonyms": [
+        { "word": "состоятельный", "translation": "wealthy" },
+        { "word": "зажиточный", "translation": "prosperous" },
+        { "word": "обеспеченный", "translation": "well-off" }
+      ]
+    }
+  ],
+  "distractors": [
+    { "word": "медленный", "translation": "slow" },
+    { "word": "зелёный", "translation": "green" },
+    { "word": "круглый", "translation": "round" },
+    { "word": "деревянный", "translation": "wooden" },
+    { "word": "мокрый", "translation": "wet" },
+    { "word": "горький", "translation": "bitter" },
+    { "word": "узкий", "translation": "narrow" },
+    { "word": "пустой", "translation": "empty" },
+    { "word": "гладкий", "translation": "smooth" },
+    { "word": "острый", "translation": "sharp" },
+    { "word": "сладкий", "translation": "sweet" },
+    { "word": "длинный", "translation": "long" },
+    { "word": "короткий", "translation": "short" },
+    { "word": "широкий", "translation": "wide" },
+    { "word": "глубокий", "translation": "deep" },
+    { "word": "сухой", "translation": "dry" },
+    { "word": "тёмный", "translation": "dark" },
+    { "word": "светлый", "translation": "light" },
+    { "word": "мягкий", "translation": "soft" },
+    { "word": "твёрдый", "translation": "hard" }
+  ]
+}
