@@ -39,6 +39,6 @@ struct DictionaryValidationTests {
         #expect(languages.first?.id == "ru")
         let russian = languages.first { $0.id == "ru" }
         #expect(russian?.games.contains("bogglesky") == true)
-        #expect(russian?.themes.first == "soviet")
+        #expect(russian?.themes.first == "korni")
     }
 }

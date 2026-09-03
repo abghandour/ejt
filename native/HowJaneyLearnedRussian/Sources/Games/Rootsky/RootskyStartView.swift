@@ -31,9 +31,7 @@ struct RootskyStartView: View {
                 .accessibilityHidden(true)
 
             Text(game.title)
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
-                .kerning(4)
+                .heading(.largeTitle, kerning: 4)
                 .foregroundStyle(theme.textPrimary)
 
             Text(game.friendlyDate)
@@ -62,7 +60,7 @@ struct RootskyStartView: View {
 
     private var startLabel: String {
         if canResume, let state = game.state {
-            "Resume game — Word \(state.currentWordIndex + 1)/\(RootskyModel.wordsPerDay)"
+            "Resume game — Word \(state.currentWordIndex + 1)/\(game.wordCount)"
         } else if game.game == .wordsky {
             "Guess the translation of each \(game.language.displayName) word. 5 words, daily challenge."
         } else {

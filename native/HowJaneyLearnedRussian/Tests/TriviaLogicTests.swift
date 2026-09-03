@@ -78,6 +78,15 @@ struct TriviaLogicTests {
         #expect(TriviaLogic.date(fromKey: "banana!!") == nil)
     }
 
+    @Test
+    func shortDateIsNumericMonthSlashDay() {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: "en_US")
+        #expect(TriviaLogic.shortDate(fromKey: "20260912", calendar: calendar) == "9/12")
+        #expect(TriviaLogic.shortDate(fromKey: "20260305", calendar: calendar) == "3/5")
+        #expect(TriviaLogic.shortDate(fromKey: "banana!!", calendar: calendar) == "")
+    }
+
     // MARK: Day state
 
     @Test

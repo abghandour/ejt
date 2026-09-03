@@ -41,6 +41,8 @@ final class ScramblisyModel {
 
     private(set) var phase: Phase = .loading
     var difficulty: ScramblisyDifficulty = .medium
+    /// Round length in seconds when set (Meddleysky plays shortened levels).
+    var timeLimitOverride: Int?
     /// Zen practice: no timer, no penalties, no leaderboard.
     var isZen = false
     /// Consecutive solves without a wrong answer or skip.
@@ -129,7 +131,7 @@ final class ScramblisyModel {
         wrongAttempts = 0
         solveStreak = 0
         completedWords = []
-        timeLeft = Self.startingTime
+        timeLeft = timeLimitOverride ?? Self.startingTime
         isTransitioning = false
         phase = .playing
         presentWord()

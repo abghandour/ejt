@@ -21,6 +21,15 @@ final class RootskyModel {
     /// `.rootsky` or `.wordsky` — the model runs both daily word games.
     let game: GameID
     let language: Language
+    /// Words per round: 5 for the daily puzzle, fewer for Meddleysky levels.
+    let wordCount: Int
+    /// Sandboxed sessions (Meddleysky) play a random past day and never touch
+    /// the calendar, saved progress, or the results sheet.
+    let isSandboxed: Bool
+    /// Replaces the top bar's dismiss when hosted inside another game.
+    var onQuit: (() -> Void)?
+
+    var maxScore: Int { wordCount * 5 }
 
     var title: String {
         game == .wordsky ? "WORDSKY" : "ROOTSKY"
@@ -83,10 +92,14 @@ final class RootskyModel {
         rootskyStore: RootskyStore,
         dailyState: DailyStateService,
         speech: SpeechService,
+        wordCount: Int = RootskyModel.wordsPerDay,
+        isSandboxed: Bool = false,
         onComplete: @escaping (RootskyResult) -> Void
     ) {
         self.game = game
         self.language = language
+        self.wordCount = min(max(1, wordCount), RootskyModel.wordsPerDay)
+        self.isSandboxed = isSandboxed
         self.soundEngine = soundEngine
         self.rootskyStore = rootskyStore
         self.dailyState = dailyState
@@ -100,6 +113,11 @@ final class RootskyModel {
 
     var friendlyDate: String {
         TriviaLogic.friendlyDate(fromKey: dateKey)
+    }
+
+    /// Compact "9/12" form for the in-game header.
+    var shortDate: String {
+        TriviaLogic.shortDate(fromKey: dateKey)
     }
 
     /// The word shown right now (active in play, browsed in review).
@@ -142,6 +160,10 @@ final class RootskyModel {
     func load() async {
         do {
             allDays = try await rootskyStore.words(for: language)
+            if isSandboxed {
+                selectDate(Self.randomPastDay(from: allDays.keys, rng: &rng))
+                return
+            }
             let progress = dailyState.progressDateKeys(game: game, languageID: language.id)
             completedKeys = progress.completed
             partialKeys = progress.inProgress
@@ -158,6 +180,15 @@ final class RootskyModel {
         }
     }
 
+    /// Any day except today, so a sandboxed round never spoils the daily puzzle.
+    static func randomPastDay(from keys: some Collection<String>, rng: inout SeedEngine) -> String {
+        let today = TriviaLogic.dateKey(for: .now)
+        let candidates = keys.filter { $0 != today }.sorted()
+        let pool = candidates.isEmpty ? keys.sorted() : candidates
+        guard !pool.isEmpty else { return today }
+        return pool[rng.nextInt(pool.count)]
+    }
+
     func selectDate(_ key: String) {
         stopTimer()
         isShowingResults = false
@@ -167,16 +198,17 @@ final class RootskyModel {
         reviewIndex = 0
         dateKey = key
 
-        guard let dayWords = allDays[key], dayWords.count == Self.wordsPerDay else {
+        guard let dayWords = allDays[key], dayWords.count >= wordCount else {
             words = []
             state = nil
             phase = .noGame
             return
         }
-        words = dayWords
+        words = Array(dayWords.prefix(wordCount))
 
-        if let saved = dailyState.load(RootskyDayState.self, game: game, languageID: language.id, dateKey: key),
-           saved.isShapeValid {
+        if !isSandboxed,
+           let saved = dailyState.load(RootskyDayState.self, game: game, languageID: language.id, dateKey: key),
+           saved.isShapeValid(wordCount: wordCount) {
             state = saved
             if saved.completed {
                 phase = .review
@@ -185,7 +217,7 @@ final class RootskyModel {
                 phase = .start(canResume: saved.started)
             }
         } else {
-            state = RootskyDayState(dateKey: key)
+            state = RootskyDayState(dateKey: key, wordCount: wordCount)
             phase = .start(canResume: false)
         }
     }
@@ -272,7 +304,7 @@ final class RootskyModel {
             self.state = state
             save()
 
-            if index >= Self.wordsPerDay - 1 {
+            if index >= wordCount - 1 {
                 completeDay()
             } else {
                 Task { [weak self] in
@@ -308,7 +340,7 @@ final class RootskyModel {
         completedKeys.insert(dateKey)
         partialKeys.remove(dateKey)
 
-        let isPerfect = state.totalScore == Self.maxScore
+        let isPerfect = state.totalScore == maxScore
         Task { [weak self] in
             try? await Task.sleep(for: .seconds(1))
             guard let self else { return }
@@ -317,7 +349,9 @@ final class RootskyModel {
             if isPerfect {
                 self.confettiTrigger += 1
             }
-            self.isShowingResults = true
+            if !self.isSandboxed {
+                self.isShowingResults = true
+            }
         }
 
         onComplete(
@@ -339,7 +373,7 @@ final class RootskyModel {
         isShowingResults = false
         guard isCompleted else { return }
         phase = .review
-        reviewIndex = min(reviewIndex, Self.wordsPerDay - 1)
+        reviewIndex = min(reviewIndex, wordCount - 1)
         presentAnswers(for: reviewIndex)
     }
 
@@ -403,7 +437,7 @@ final class RootskyModel {
     }
 
     private func save() {
-        guard let state else { return }
+        guard let state, !isSandboxed else { return }
         dailyState.save(
             state,
             game: game,

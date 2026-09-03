@@ -11,6 +11,7 @@ nonisolated enum GameID: String, CaseIterable, Identifiable, Sendable {
     case slashsky
     case tetrisky
     case wordsky
+    case meddleysky
 
     var id: String { rawValue }
 
@@ -25,6 +26,7 @@ nonisolated enum GameID: String, CaseIterable, Identifiable, Sendable {
         case .slashsky: "scissors"
         case .tetrisky: "square.stack.3d.down.right"
         case .wordsky: "character.book.closed"
+        case .meddleysky: "dice.fill"
         }
     }
 

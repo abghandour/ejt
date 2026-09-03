@@ -48,7 +48,7 @@ final class AppSettings {
         }
 
         languageID = stored(Key.language) as? String ?? LanguageCatalog.fallbackLanguageID
-        themeSelection = (stored(Key.theme) as? String).flatMap(ThemeSelection.init) ?? .soviet
+        themeSelection = (stored(Key.theme) as? String).flatMap(ThemeSelection.init) ?? .korni
         soundEnabled = stored(Key.sound) as? Bool ?? true
         hapticsEnabled = stored(Key.haptics) as? Bool ?? true
         displayName = stored(Key.displayName) as? String ?? ""

@@ -37,7 +37,7 @@ struct RootskyTopBarView: View {
 
     var body: some View {
         HStack(spacing: Design.spacing) {
-            Button("Quit", systemImage: "xmark", action: { dismiss() })
+            Button("Quit", systemImage: "xmark", action: quit)
                 .labelStyle(.iconOnly)
                 .padding(8)
                 .glassEffect(.regular.interactive())
@@ -58,8 +58,23 @@ struct RootskyTopBarView: View {
 
             Spacer()
 
+            if game.isSandboxed {
+                Label("\(game.displayedIndex + 1)/\(game.wordCount)", systemImage: "list.number")
+                    .font(.caption)
+                    .bold()
+                    .foregroundStyle(theme.textSecondary)
+            } else {
+                sandboxHiddenControls
+            }
+        }
+        .padding(.horizontal, Design.padding)
+    }
+
+    /// Calendar, share and ranks only make sense for the real daily puzzle.
+    @ViewBuilder
+    private var sandboxHiddenControls: some View {
             Button(action: openCalendar) {
-                Label(game.friendlyDate, systemImage: "calendar")
+                Label(game.shortDate, systemImage: "calendar")
                     .font(.caption)
                     .bold()
                     .foregroundStyle(theme.accent)
@@ -83,8 +98,14 @@ struct RootskyTopBarView: View {
                     .padding(8)
                     .glassEffect(.regular.interactive())
             }
+    }
+
+    private func quit() {
+        if let onQuit = game.onQuit {
+            onQuit()
+        } else {
+            dismiss()
         }
-        .padding(.horizontal, Design.padding)
     }
 
     private func openCalendar() {

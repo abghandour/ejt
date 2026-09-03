@@ -107,9 +107,7 @@ struct TetriskyStartView: View {
                 .accessibilityHidden(true)
 
             Text("TETRISKY")
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
-                .kerning(4)
+                .heading(.largeTitle, kerning: 4)
                 .foregroundStyle(theme.textPrimary)
 
             Text("Steer falling letters to spell \(game.language.displayName) words across or down. Clear the target word for a bonus.")

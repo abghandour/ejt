@@ -17,22 +17,22 @@ nonisolated struct RootskyDayState: Codable, Equatable, Sendable {
     /// Seconds spent on each word.
     var wordTimes: [Int]
 
-    init(dateKey: String) {
+    init(dateKey: String, wordCount: Int = RootskyModel.wordsPerDay) {
         self.dateKey = dateKey
         currentWordIndex = 0
-        wordScores = Array(repeating: 5, count: 5)
-        disabledAnswers = Array(repeating: [], count: 5)
+        wordScores = Array(repeating: 5, count: wordCount)
+        disabledAnswers = Array(repeating: [], count: wordCount)
         completed = false
         started = false
         elapsedSeconds = 0
-        wordTimes = Array(repeating: 0, count: 5)
+        wordTimes = Array(repeating: 0, count: wordCount)
     }
 
     var totalScore: Int {
         wordScores.reduce(0, +)
     }
 
-    var isShapeValid: Bool {
-        wordScores.count == 5 && disabledAnswers.count == 5 && wordTimes.count == 5
+    func isShapeValid(wordCount: Int) -> Bool {
+        wordScores.count == wordCount && disabledAnswers.count == wordCount && wordTimes.count == wordCount
     }
 }

@@ -232,9 +232,7 @@ struct PauseOverlayView: View {
                 .ignoresSafeArea()
             VStack(spacing: Design.spacing * 2) {
                 Text("PAUSED")
-                    .font(.system(.title, design: .rounded))
-                    .bold()
-                    .kerning(4)
+                    .heading(.title, kerning: 4)
                     .foregroundStyle(theme.accent)
                 Button(action: resume) {
                     Label("Resume", systemImage: "play.fill")

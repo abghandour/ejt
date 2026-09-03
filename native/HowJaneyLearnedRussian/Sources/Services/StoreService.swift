@@ -7,8 +7,8 @@ import StoreKit
 final class StoreService {
     static let subscriptionGroupID = "21534001"
     static let productIDs = [
-        "com.mokotti-solutions.howjaneylearnedrussian.premium.monthly",
-        "com.mokotti-solutions.howjaneylearnedrussian.premium.yearly",
+        "com.mokottisolutions.howjaneylearnedrussian.premium.monthly",
+        "com.mokottisolutions.howjaneylearnedrussian.premium.yearly",
     ]
 
     private(set) var isPremium = false

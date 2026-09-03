@@ -16,9 +16,7 @@ struct GameCardView: View {
                 .accessibilityHidden(true)
 
             Text(game.name.uppercased())
-                .font(.system(.title, design: .rounded))
-                .bold()
-                .kerning(3)
+                .heading(.title, kerning: 3)
                 .foregroundStyle(theme.textPrimary)
 
             Text(game.desc)

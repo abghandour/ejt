@@ -46,8 +46,10 @@ final class GameCenterService {
         GKAccessPoint.shared.trigger(state: .dashboard) {}
     }
 
+    /// App Store Connect only allows alphanumerics, periods and underscores in
+    /// leaderboard IDs, so hyphenated language IDs (e.g. `pt-br`) become `pt_br`.
     static func leaderboardID(game: GameID, languageID: String, difficulty: String?) -> String {
-        var id = "\(game.rawValue).\(languageID)"
+        var id = "\(game.rawValue).\(languageID.replacingOccurrences(of: "-", with: "_"))"
         if let difficulty {
             id += ".\(difficulty)"
         }

@@ -35,6 +35,9 @@ targets:
       - path: Sources/Resources/TriviaImages
         type: folder
         buildPhase: resources
+      - path: Sources/Resources/Fonts
+        type: folder
+        buildPhase: resources
       - path: HowJaneyLearnedRussian.storekit
         buildPhase: none
     settings:
@@ -82,6 +85,8 @@ schemes:
     run:
       config: Debug
       storeKitConfiguration: HowJaneyLearnedRussian.storekit
+      commandLineArguments:
+        "--init-cloudkit-schema": false
     test:
       config: Debug
       targets:

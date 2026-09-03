@@ -7,6 +7,10 @@ struct HowJaneyLearnedRussianApp: App {
     @State private var model: AppModel
 
     init() {
+        FontRegistrar.registerBundledFonts()
+        #if DEBUG
+        CloudKitSchemaInitializer.runIfRequested()
+        #endif
         let container = PersistenceController.makeContainer()
         self.container = container
         _model = State(initialValue: AppModel(container: container))

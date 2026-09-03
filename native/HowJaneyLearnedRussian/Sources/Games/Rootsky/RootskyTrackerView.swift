@@ -7,7 +7,7 @@ struct RootskyTrackerView: View {
 
     var body: some View {
         HStack(spacing: 8) {
-            ForEach(0..<RootskyModel.wordsPerDay, id: \.self) { index in
+            ForEach(0..<game.wordCount, id: \.self) { index in
                 RootskyTrackerChip(index: index)
             }
         }

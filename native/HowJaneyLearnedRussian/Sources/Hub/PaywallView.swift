@@ -17,7 +17,7 @@ struct PaywallView: View {
                 Text("Janey Premium")
                     .font(.system(.title, design: .rounded))
                     .bold()
-                Text("All languages, festivus holiday themes, and stats sync across your devices.")
+                Text("Festivus holiday themes and stats sync across your devices.")
                     .font(.subheadline)
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.secondary)

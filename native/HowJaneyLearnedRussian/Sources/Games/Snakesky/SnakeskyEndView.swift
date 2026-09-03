@@ -15,8 +15,7 @@ struct SnakeskyEndView: View {
                 .foregroundStyle(theme.accent)
 
             Text("Game Over")
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
+                .heading(.largeTitle)
                 .foregroundStyle(theme.textPrimary)
 
             Text(deathText)
@@ -54,16 +53,21 @@ struct SnakeskyEndView: View {
                 Button(action: playAgain) {
                     Label("Again", systemImage: "arrow.counterclockwise")
                         .bold()
+                        .lineLimit(1)
+                        .fixedSize()
                 }
                 .buttonStyle(.glassProminent)
 
                 ShareLink(item: shareText) {
                     Label("Share", systemImage: "square.and.arrow.up")
+                        .labelStyle(.iconOnly)
                 }
                 .buttonStyle(.glass)
 
                 if model.gameCenter.isAuthenticated {
                     Button("Ranks", systemImage: "chart.bar.fill", action: showLeaderboard)
+                        .lineLimit(1)
+                        .fixedSize()
                         .buttonStyle(.glass)
                 }
             }

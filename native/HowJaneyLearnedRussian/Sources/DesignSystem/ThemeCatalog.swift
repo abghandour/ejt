@@ -7,14 +7,34 @@ nonisolated enum ThemeCatalog {
     }
 
     static func festivus(for holiday: Holiday) -> Theme {
-        theme(id: "festivus-\(holiday.rawValue)") ?? soviet
+        theme(id: "festivus-\(holiday.rawValue)") ?? korni
     }
 
     static let all: [Theme] = [
-        soviet, dark, light, bw, brazil, ukraine,
+        korni, soviet, dark, light, bw, brazil, ukraine,
         festivusNewYear, festivusValentine, festivusEaster, festivusJuly4th,
         festivusHalloween, festivusThanksgiving, festivusChristmas,
     ]
+
+    /// Default theme, styled after the "Root of the Day" social posts: warm
+    /// paper, a flat grey diagonal band, near-black type, burnt-orange accent,
+    /// and Manrope throughout.
+    static let korni = Theme(
+        id: "korni", name: "Korni", isDark: false,
+        bgPrimary: Color(hex: 0xEBEAE6), bgSecondary: Color(hex: 0xE0DFDA), surface: Color(hex: 0xF7F6F3),
+        textPrimary: Color(hex: 0x111111), textSecondary: Color(hex: 0x3A3A38), textMuted: Color(hex: 0x7A7A76),
+        accent: Color(hex: 0xC8602C), info: Color(hex: 0x2B2B2B),
+        success: Color(hex: 0x3E7A3E), successText: Color(hex: 0x2E6A2E),
+        danger: Color(hex: 0xB3402A), dangerText: Color(hex: 0x9A2E1E),
+        tileTop: Color(hex: 0xFFFFFF), tileBottom: Color(hex: 0xF1EFEB), tileBorder: Color(hex: 0x1A1A1A),
+        tileSelectedTop: Color(hex: 0xFBE3D6), tileSelectedBottom: Color(hex: 0xF5CFBC),
+        correctTop: Color(hex: 0xE4F0E0), correctBottom: Color(hex: 0xD3E6CD), correctBorder: Color(hex: 0x3E7A3E),
+        wrongTop: Color(hex: 0xF9DDD6), wrongBottom: Color(hex: 0xF2C9BE), wrongBorder: Color(hex: 0xB3402A),
+        playTop: Color(hex: 0xC8602C), playBottom: Color(hex: 0xA84A1E), playBorder: Color(hex: 0x111111),
+        sunburst1: Color(hex: 0xDCDCDC), sunburst2: Color(hex: 0x111111), sunburstOpacity: 1,
+        headingFontName: "Manrope-ExtraBold", bodyFontName: "Manrope-Regular",
+        background: .wedge, decoration: .korni
+    )
 
     static let soviet = Theme(
         id: "soviet", name: "Soviet", isDark: true,
@@ -28,7 +48,8 @@ nonisolated enum ThemeCatalog {
         correctTop: Color(hex: 0x2A5A2A), correctBottom: Color(hex: 0x1A3A1A), correctBorder: Color(hex: 0x55AA55),
         wrongTop: Color(hex: 0x5A2A2A), wrongBottom: Color(hex: 0x3A1A1A), wrongBorder: Color(hex: 0xCC4444),
         playTop: Color(hex: 0x3A5A2A), playBottom: Color(hex: 0x2A4A1A), playBorder: Color(hex: 0x5A8A3A),
-        sunburst1: Color(hex: 0x8B2020), sunburst2: Color(hex: 0xA33A3A), sunburstOpacity: 0.35
+        sunburst1: Color(hex: 0x8B2020), sunburst2: Color(hex: 0xA33A3A), sunburstOpacity: 0.35,
+        headingFontName: "RussoOne-Regular"
     )
 
     static let dark = Theme(

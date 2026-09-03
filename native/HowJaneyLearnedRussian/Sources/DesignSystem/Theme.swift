@@ -44,6 +44,31 @@ nonisolated struct Theme: Identifiable, Sendable {
     let sunburst2: Color
     let sunburstOpacity: Double
 
+    /// PostScript name of a bundled display face for headings (game names,
+    /// screen titles). `nil` falls back to the system rounded bold font.
+    var headingFontName: String? = nil
+    /// PostScript name of a bundled text face applied as the default body
+    /// font. `nil` keeps San Francisco.
+    var bodyFontName: String? = nil
+    /// How the full-screen background is drawn.
+    var background: BackgroundStyle = .sunburst
+    /// Optional home-screen stickers layered over the hub.
+    var decoration: Decoration = .none
+
+    nonisolated enum BackgroundStyle: Sendable {
+        /// Rotating hard-edged conic sunburst (the classic look).
+        case sunburst
+        /// Poster layout: a flat diagonal band in `sunburst1` over `bgPrimary`
+        /// with a black corner flag, like a cut-paper collage.
+        case wedge
+    }
+
+    nonisolated enum Decoration: Sendable {
+        case none
+        /// Megaphone cutout and slanted black label, from the "Root of the Day" posts.
+        case korni
+    }
+
     var accentGlow: Color { accent.opacity(0.35) }
     var tileGradient: LinearGradient {
         LinearGradient(colors: [tileTop, tileBottom], startPoint: .top, endPoint: .bottom)
@@ -63,5 +88,5 @@ nonisolated struct Theme: Identifiable, Sendable {
 }
 
 extension EnvironmentValues {
-    @Entry var theme: Theme = ThemeCatalog.soviet
+    @Entry var theme: Theme = ThemeCatalog.korni
 }

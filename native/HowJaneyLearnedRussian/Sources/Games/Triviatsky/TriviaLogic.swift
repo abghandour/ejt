@@ -34,4 +34,11 @@ nonisolated enum TriviaLogic {
         guard let date = date(fromKey: key, calendar: calendar) else { return "" }
         return date.formatted(.dateTime.weekday(.abbreviated).month(.abbreviated).day().year())
     }
+
+    /// Compact "9/12"-style label (numeric month/day, no padding) for the tight
+    /// in-game header pill, where the long form wraps on narrow screens.
+    static func shortDate(fromKey key: String, calendar: Calendar = .current) -> String {
+        guard let date = date(fromKey: key, calendar: calendar) else { return "" }
+        return date.formatted(.dateTime.month(.defaultDigits).day(.defaultDigits))
+    }
 }

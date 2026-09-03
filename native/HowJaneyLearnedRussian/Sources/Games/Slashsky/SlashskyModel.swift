@@ -69,6 +69,8 @@ final class SlashskyModel {
 
     private(set) var phase: Phase = .loading
     private(set) var state: SlashskyEngine.State?
+    /// Round length in seconds when set (Meddleysky plays shortened levels).
+    var timeLimitOverride: Double?
     private(set) var flyingWords: [SlashskyEngine.FlyingWord] = []
     /// Recent swipe points for the gold trail (play-area coordinates).
     private(set) var trailPoints: [CGPoint] = []
@@ -120,7 +122,11 @@ final class SlashskyModel {
 
     func startRound() {
         guard let dictionary else { return }
-        state = SlashskyEngine.makeState(dictionary: dictionary, seed: Int.random(in: Int.min...Int.max))
+        var newState = SlashskyEngine.makeState(dictionary: dictionary, seed: Int.random(in: Int.min...Int.max))
+        if let timeLimitOverride {
+            newState.timeRemaining = timeLimitOverride
+        }
+        state = newState
         flyingWords = []
         completedMainWords = []
         trailPoints = []

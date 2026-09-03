@@ -61,7 +61,7 @@ final class AppModel {
         languages.first { $0.id == settings.languageID }
             ?? languages.first
             ?? Language(
-                id: "ru", displayName: "Russian", games: [], themes: ["soviet"],
+                id: "ru", displayName: "Russian", games: [], themes: ["korni", "soviet"],
                 letterPool: "абв", validationRegex: ".*", gameNames: [:]
             )
     }
@@ -146,7 +146,7 @@ final class AppModel {
             languageID: result.languageID,
             difficulty: nil,
             score: result.score,
-            wordsCompleted: RootskyModel.wordsPerDay
+            wordsCompleted: result.words.count
         )
         gameCenter.submit(
             score: result.score,
@@ -274,6 +274,28 @@ final class AppModel {
             achievements.report(.perfectTrivia)
         }
         afterRound(game: .triviatsky, languageID: result.languageID)
+    }
+
+    func finishedMeddleysky(_ result: MeddleyskyResult) {
+        stats.record(
+            game: .meddleysky,
+            languageID: result.languageID,
+            difficulty: nil,
+            score: result.score,
+            wordsCompleted: result.levelsCleared
+        )
+        gameCenter.submit(
+            score: result.score,
+            game: .meddleysky,
+            languageID: result.languageID,
+            difficulty: nil
+        )
+        wordBook.record(
+            words: result.words.map { ($0.word, $0.translation) },
+            languageID: result.languageID,
+            game: .meddleysky
+        )
+        afterRound(game: .meddleysky, languageID: result.languageID)
     }
 
     func finishedBogglesky(_ result: BoggleskyResult) {

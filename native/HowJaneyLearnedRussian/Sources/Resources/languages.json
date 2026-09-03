@@ -1,12 +1,13 @@
 {
   "ru": {
     "displayName": "Russian",
-    "games": ["rootsky", "wordsky", "scramblisky", "bogglesky", "snakesky", "tetrisky", "slashsky", "triviatsky"],
-    "themes": ["soviet", "dark", "light", "bw", "festivus"],
+    "games": ["meddleysky", "rootsky", "wordsky", "scramblisky", "bogglesky", "snakesky", "tetrisky", "slashsky", "triviatsky"],
+    "themes": ["korni", "soviet", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/ru",
     "letterPool": "оооооооеееееееаааааааиииииинннннттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщэфъьёй",
     "validationRegex": "^[а-яёА-ЯЁ]+$",
     "gameNames": {
+      "meddleysky":  { "name": "Meddleysky",  "desc": "Every game, shuffled. Survive level after level" },
       "rootsky":     { "name": "Rootsky",     "desc": "Match Russian words to their roots" },
       "wordsky":     { "name": "Wordsky",     "desc": "Guess the daily Russian words" },
       "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Russian words before time runs out" },
@@ -19,12 +20,13 @@
   },
   "pt-br": {
     "displayName": "Portuguese",
-    "games": ["scramblisky", "bogglesky", "snakesky", "tetrisky", "triviatsky"],
-    "themes": ["brazil", "dark", "light", "bw", "festivus"],
+    "games": ["meddleysky", "scramblisky", "bogglesky", "snakesky", "tetrisky", "triviatsky"],
+    "themes": ["korni", "brazil", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/pt-br",
     "letterPool": "aaaaaaaaaaeeeeeeeeeoooooooossssssrrrrrrnnnnnnttttttllllddddmmmmccccppppuuuiiibbbggffvvhhjjqqxxzzçãõéêíóôúâà",
     "validationRegex": "^[a-záàâãéêíóôõúüç]+$",
     "gameNames": {
+      "meddleysky":  { "name": "Meddleysky",  "desc": "Every game, shuffled. Survive level after level" },
       "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Portuguese words before time runs out" },
       "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Portuguese words in a letter grid" },
       "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Portuguese words" },
@@ -35,12 +37,13 @@
   },
   "uk": {
     "displayName": "Ukranian",
-    "games": ["scramblisky", "bogglesky", "snakesky", "tetrisky", "triviatsky"],
-    "themes": ["ukraine", "dark", "light", "bw", "festivus"],
+    "games": ["meddleysky", "scramblisky", "bogglesky", "snakesky", "tetrisky", "triviatsky"],
+    "themes": ["korni", "ukraine", "dark", "light", "bw", "festivus"],
     "dictionaryBasePath": "../shared/dictionaries/uk",
     "letterPool": "оооооооеееееееаааааааиииииінннннніііііттттссссррррввввллллккккммммддддппппууууяяяббггззччхжшюцщьїєфґй",
     "validationRegex": "^[а-яіїєґА-ЯІЇЄҐ]+$",
     "gameNames": {
+      "meddleysky":  { "name": "Meddleysky",  "desc": "Every game, shuffled. Survive level after level" },
       "scramblisky": { "name": "Scramblisky", "desc": "Unscramble Ukrainian words before time runs out" },
       "bogglesky":   { "name": "Bogglesky",   "desc": "Swipe to find Ukrainian words in a letter grid" },
       "snakesky":    { "name": "Snakesky",    "desc": "Guide the snake to eat the right Ukrainian words" },

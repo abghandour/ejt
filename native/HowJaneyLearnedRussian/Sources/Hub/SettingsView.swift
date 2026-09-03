@@ -8,9 +8,11 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Language") {
-                    ForEach(model.languages) { language in
-                        LanguageRowView(language: language)
+                if FeatureFlags.multiLanguage {
+                    Section("Language") {
+                        ForEach(model.languages) { language in
+                            LanguageRowView(language: language)
+                        }
                     }
                 }
 

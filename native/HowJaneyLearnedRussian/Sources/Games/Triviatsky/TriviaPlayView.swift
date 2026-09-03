@@ -60,24 +60,26 @@ struct TriviaTopBarView: View {
 
     var body: some View {
         HStack(spacing: Design.spacing) {
-            Button("Quit", systemImage: "xmark", action: { dismiss() })
+            Button("Quit", systemImage: "xmark", action: quit)
                 .labelStyle(.iconOnly)
                 .padding(8)
                 .glassEffect(.regular.interactive())
 
-            Button(action: openCalendar) {
-                Label(game.friendlyDate, systemImage: "calendar")
-                    .font(.subheadline)
-                    .bold()
-                    .foregroundStyle(theme.accent)
-                    .padding(.horizontal, Design.spacing)
-                    .padding(.vertical, 8)
+            if !game.isSandboxed {
+                Button(action: openCalendar) {
+                    Label(game.shortDate, systemImage: "calendar")
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundStyle(theme.accent)
+                        .padding(.horizontal, Design.spacing)
+                        .padding(.vertical, 8)
+                }
+                .glassEffect(.regular.interactive())
             }
-            .glassEffect(.regular.interactive())
 
             Spacer()
 
-            if game.isCompleted {
+            if game.isCompleted, !game.isSandboxed {
                 ShareLink(item: game.shareText) {
                     Label("Share", systemImage: "square.and.arrow.up")
                         .labelStyle(.iconOnly)
@@ -86,7 +88,7 @@ struct TriviaTopBarView: View {
                 .glassEffect(.regular.interactive())
             }
 
-            if model.gameCenter.isAuthenticated {
+            if model.gameCenter.isAuthenticated, !game.isSandboxed {
                 Button("Ranks", systemImage: "chart.bar.fill", action: showLeaderboard)
                     .labelStyle(.iconOnly)
                     .padding(8)
@@ -95,6 +97,14 @@ struct TriviaTopBarView: View {
         }
         .padding(.horizontal, Design.padding)
         .frame(maxWidth: Design.maxContentWidth)
+    }
+
+    private func quit() {
+        if let onQuit = game.onQuit {
+            onQuit()
+        } else {
+            dismiss()
+        }
     }
 
     private func openCalendar() {

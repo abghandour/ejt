@@ -15,11 +15,10 @@ struct RootskyEndView: View {
                 .foregroundStyle(theme.accent)
 
             Text("Game Over")
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
+                .heading(.largeTitle)
                 .foregroundStyle(theme.textPrimary)
                 .overlay(alignment: .trailing) {
-                    if game.state?.totalScore == RootskyModel.maxScore {
+                    if game.state?.totalScore == game.maxScore {
                         PerfectStampView()
                             .offset(x: 70, y: -8)
                     }
@@ -63,7 +62,7 @@ struct RootskyEndView: View {
                     }
                 }
 
-                Text("Total: \(state.totalScore)/\(RootskyModel.maxScore)")
+                Text("Total: \(state.totalScore)/\(game.maxScore)")
                     .font(.title3)
                     .bold()
                     .foregroundStyle(theme.accent)
@@ -77,16 +76,21 @@ struct RootskyEndView: View {
                 Button(action: review) {
                     Label("Review", systemImage: "eye")
                         .bold()
+                        .lineLimit(1)
+                        .fixedSize()
                 }
                 .buttonStyle(.glassProminent)
 
                 ShareLink(item: game.shareText) {
                     Label("Share", systemImage: "square.and.arrow.up")
+                        .labelStyle(.iconOnly)
                 }
                 .buttonStyle(.glass)
 
                 if model.gameCenter.isAuthenticated {
                     Button("Ranks", systemImage: "chart.bar.fill", action: showLeaderboard)
+                        .lineLimit(1)
+                        .fixedSize()
                         .buttonStyle(.glass)
                 }
             }

@@ -14,6 +14,7 @@
 		0C064D2530AA910A77E627A4 /* BoggleskyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF687183BA63728AF7DAC11B /* BoggleskyResult.swift */; };
 		0EAD6C09E7D4957E94CE5C81 /* GlassSegmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9432D0239A114472E5FED4EC /* GlassSegmentButton.swift */; };
 		1198CB9A93E2E60C554E7FE7 /* DailyStateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110E9C896DF15B8956BFC7D /* DailyStateRecord.swift */; };
+		142F9C811473322DA478FEB3 /* MeddleyLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61B1F27CC6E633D6774E055 /* MeddleyLevelView.swift */; };
 		159B49BD146A028154CE5306 /* SnakeskyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466A8C3AF4B7D62F81B60D4 /* SnakeskyView.swift */; };
 		16AF4137F6F663F833B61A8F /* RootskyTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E02D0B80D6F446FED4D5BD7 /* RootskyTrackerView.swift */; };
 		19822FC598239C79C8815126 /* WordBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5D8B601B4E5AFE65B76C04 /* WordBookView.swift */; };
@@ -29,6 +30,7 @@
 		2D0F3ECFAE83A1B959160F61 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E299F151DA08FD025D1253BE /* SoundEffect.swift */; };
 		30800DE223CE5A8C3944AD35 /* ScramblisyEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931816455B74A2334E1C52E /* ScramblisyEndView.swift */; };
 		313B0CF071670FB6EC747256 /* AnswerSlotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB30C31AB14914D425520 /* AnswerSlotsView.swift */; };
+		31FEBAC17E0E8DCB1AA26835 /* CloudKitSchemaInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D873B5D864019A971BCE40 /* CloudKitSchemaInitializer.swift */; };
 		3564EC1D6334D0A074B2C519 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA49EAF83393DD3BB36FA1 /* ProfileView.swift */; };
 		368C40414ED1F372F50D138C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7477072731DEAF7F0162A39 /* RootView.swift */; };
 		39A552C5935D0E0169654ED7 /* ExplosionBurstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A66AF3BC4A8F4B41BEFE94 /* ExplosionBurstView.swift */; };
@@ -37,6 +39,7 @@
 		3D48AD30BBD3FCE79920D45B /* SnakeskyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBF3A30EA37951F2A9CA04C /* SnakeskyResult.swift */; };
 		3D7057ADA46950CFA9FB7FC7 /* WordBookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A691062DB4314E54403AF73C /* WordBookService.swift */; };
 		3F056D521D081C4324DD70B2 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EF79833B7CB3CFB7FB8934 /* Holiday.swift */; };
+		3F4EA7304233929A2E9F96C0 /* MeddleyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15981A0D8A885DE955A115A3 /* MeddleyLevel.swift */; };
 		3F926D232F2D7A7C3E3AD03F /* ScramblisyPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C170F2A1DF3DB1CCA9D67C7C /* ScramblisyPlayView.swift */; };
 		41FA93A6D9B187CC8BBD53CB /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5EFFD0D08C71586EB3F853 /* ConfettiView.swift */; };
 		4344AFD23C87D9E8A99105DE /* RootskyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2961B0D0B57BCBE3D40E54E9 /* RootskyView.swift */; };
@@ -65,8 +68,10 @@
 		708620628B0EB3D17D8CDDE7 /* GameID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A0F9594ACA92ED5F16EA /* GameID.swift */; };
 		70F85B6614DD117C4C1AC923 /* RootskyPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6320810ABECAFFD5DC83DED /* RootskyPlayView.swift */; };
 		71B32F3BEC48040B75674D32 /* TriviaAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B96B3D2B242ABB80B27EF7 /* TriviaAnswer.swift */; };
+		73E3C2C4EF1DE1438ED560C0 /* MeddleyTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DD9106264E0B745450E83A /* MeddleyTransitionView.swift */; };
 		74D4126397B78147EB7F36EE /* TetriskyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029519943057D5D472584D3C /* TetriskyView.swift */; };
 		75674C6816F6794C1688DBEB /* HintBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B12DA490D2E2D69F0BF07A7 /* HintBarView.swift */; };
+		75D2F1BC037642BFD35059AC /* MeddleyskyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1861D5F51E3AF1DB6FDCF4 /* MeddleyskyModel.swift */; };
 		76D769434045D8E83E4914AA /* TetriskyEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713F257FEBC7F4179D0DA92 /* TetriskyEndView.swift */; };
 		7721C97FF3E9F54F9075B0D5 /* SeedEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE298C30244CEBA2D2F2FE52 /* SeedEngine.swift */; };
 		7B52A036C093B8FDD420D2B3 /* ThemeCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF756F82A261958B396E3AC1 /* ThemeCatalog.swift */; };
@@ -84,6 +89,7 @@
 		93F2A6A303A3DC165CA1ABDD /* TriviatskyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E900DAB209CE902D14222C0 /* TriviatskyModel.swift */; };
 		94FFB0A966AD4A2C96932671 /* RootskyEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4330D6691217001065C627 /* RootskyEndView.swift */; };
 		954068DAF08D0AB6919DCD3E /* GameResultRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87659C2D3E16FEE2930DD9F5 /* GameResultRecord.swift */; };
+		954998261E6C284A5B015094 /* FeatureFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD8D8561C720F3D4A0B8F1 /* FeatureFlags.swift */; };
 		9E59933FC8E9F9AB31D884F6 /* SnakeskyEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F6BCE5A3AE6C4EE15F119A /* SnakeskyEndView.swift */; };
 		9FA68DB6541819D2C2B1E81B /* BoggleskyEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2972E4F0DC2EA8F61D654431 /* BoggleskyEngineTests.swift */; };
 		A1E37E9CF95373A8DB09253A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B481D4B5A23F0212C4075B01 /* Assets.xcassets */; };
@@ -98,6 +104,7 @@
 		A7F0567450FC2CA07452984D /* ThemeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220F2AA431FD43225701D35 /* ThemeGridView.swift */; };
 		A90A8705639297B30E102C6C /* BoggleskyDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A286755F6BF4B99E3DACEAC5 /* BoggleskyDifficulty.swift */; };
 		AE921DE0969D629EC5ECEBA6 /* TetriskyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D12DAA2E723EBAFF39B6A /* TetriskyModel.swift */; };
+		B1295A46CDBE1FF54BD0890F /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 33128D981B78F84574337369 /* Fonts */; };
 		B1BED9CD491D30BEDF9CE316 /* BoggleGridGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84185EF478CBF1E42EE9BBD1 /* BoggleGridGeometry.swift */; };
 		B7243584AA2DADB40880B169 /* MetaProgressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57F506B07CF928F4676D259 /* MetaProgressionTests.swift */; };
 		B9634215B2CADB82FE037FBE /* DictionaryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F404B8F714E52CD8AAE85 /* DictionaryStore.swift */; };
@@ -106,6 +113,7 @@
 		BC9CE45621BAE53636C9BFFE /* ScramblisyStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F4F7807E9484E2ACA7B79 /* ScramblisyStartView.swift */; };
 		BD1C2245C5F00F55E2115328 /* TriviatskyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC7E47A254400A3F2D99C2 /* TriviatskyView.swift */; };
 		BD2FE63CE633CDE01D9967E7 /* BoggleGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0B0EBA1C5FFE9ED29CD5C4 /* BoggleGridView.swift */; };
+		BFEAA209BA94C69A1A606B6C /* HeadingFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528547ABCD02FA3CEA12968 /* HeadingFont.swift */; };
 		C30AAC1D83AD2B71BC183AB7 /* DictionaryValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6631D3B6B2C87C39CEE7B20 /* DictionaryValidationTests.swift */; };
 		C4408FE2C4D6EC21B17E14DB /* GameCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5D42EC47E554A3FD57B671 /* GameCalendarView.swift */; };
 		C6EDB664C7911F2EC3CA0E12 /* ScramblisyDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8F648C7A8BA6E40E1F79F /* ScramblisyDifficulty.swift */; };
@@ -117,7 +125,9 @@
 		D12CF0B809012AC9A0C18EBF /* BoggleskyEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14891C2CC22A730DD476E0D8 /* BoggleskyEngine.swift */; };
 		D2CFA44DAA9D194D71A75CCC /* SnakeskyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CFC6598AB1455E6C12C48D /* SnakeskyModel.swift */; };
 		D30BEFA51ED847B95979A67F /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D4DB28E8CA38AE818FAD3 /* PaywallView.swift */; };
+		D3B36C11640A936020B386D4 /* MeddleyskyLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DD52C1FF140F330CE97D6 /* MeddleyskyLogicTests.swift */; };
 		D62CA4C564EB6F98ACA9396F /* TetriskyEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15014694940163719A77027A /* TetriskyEngine.swift */; };
+		D66AFAD85038997AD2DB179B /* MeddleyskyEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD38134D0353910EDCDECA /* MeddleyskyEndView.swift */; };
 		D768C854C018CD87972D10EF /* ArcadeEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58310E4E235AC3668D49721 /* ArcadeEngineTests.swift */; };
 		D7E076DCD75A7A160DFE3009 /* RootskyDayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB693C29CAF40FB92FFEFF5 /* RootskyDayState.swift */; };
 		D8CB548DB787B9B71A050A92 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133FE6E6E89358369CAB93A /* AppModel.swift */; };
@@ -130,6 +140,7 @@
 		E3DB97038ECCEBF47D8F175C /* SlashskyEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAA5CB208017CC8593A91C5 /* SlashskyEndView.swift */; };
 		E5D10B151876CE7194A27E39 /* TriviatskyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3104316827DCA039FC334911 /* TriviatskyResult.swift */; };
 		E6F59C96EBB4508951375B04 /* SlashskyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BC05A02EBC62E1936E87C7 /* SlashskyStore.swift */; };
+		EA9AF5A252CE6AE78A3BA97C /* MeddleyskyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB7952D402D83CCBEB833 /* MeddleyskyView.swift */; };
 		EAA22CAC8CEC706CD7990182 /* BoggleskyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B44D96B1F6204FC6227A /* BoggleskyView.swift */; };
 		ECAD4F4874E9B239B1481587 /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 42FC7F2ECBD1A953CBC63778 /* languages.json */; };
 		ED7BA789002A39689F37BEC3 /* TriviaImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7778BF7EEB27B4FEC0E982 /* TriviaImageView.swift */; };
@@ -158,6 +169,7 @@
 		0110E9C896DF15B8956BFC7D /* DailyStateRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStateRecord.swift; sourceTree = "<group>"; };
 		029519943057D5D472584D3C /* TetriskyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetriskyView.swift; sourceTree = "<group>"; };
 		07EF64DA92547F59345B5683 /* RootskyAnswerGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyAnswerGridView.swift; sourceTree = "<group>"; };
+		08D873B5D864019A971BCE40 /* CloudKitSchemaInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSchemaInitializer.swift; sourceTree = "<group>"; };
 		09C45A37BA14E5F9B3E22E59 /* BoggleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoggleCellView.swift; sourceTree = "<group>"; };
 		0C30CFA60E69F05BCE7C5B07 /* LanguageCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCatalog.swift; sourceTree = "<group>"; };
 		0EDA49EAF83393DD3BB36FA1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -166,6 +178,7 @@
 		14891C2CC22A730DD476E0D8 /* BoggleskyEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoggleskyEngine.swift; sourceTree = "<group>"; };
 		15014694940163719A77027A /* TetriskyEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetriskyEngine.swift; sourceTree = "<group>"; };
 		15346759D9AF1B9531E712D3 /* BoggleskyEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoggleskyEndView.swift; sourceTree = "<group>"; };
+		15981A0D8A885DE955A115A3 /* MeddleyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeddleyLevel.swift; sourceTree = "<group>"; };
 		1647DF8E075F64B87D8475F0 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		167E5B84DA130E3D8E7F6778 /* SlashskyPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlashskyPlayView.swift; sourceTree = "<group>"; };
 		170598C87E8BFEDE5FDF29C0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -176,6 +189,7 @@
 		1C8C41595009E7014346FCCA /* TriviaCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaCalendarView.swift; sourceTree = "<group>"; };
 		1E5C1EDBFECCE0C0421EBFE4 /* SnakeskyDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeskyDifficulty.swift; sourceTree = "<group>"; };
 		1ED74F4F3667B8C1DD842D8D /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		20BD38134D0353910EDCDECA /* MeddleyskyEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeddleyskyEndView.swift; sourceTree = "<group>"; };
 		21051D5CB8C9448730AA211F /* SlashskyEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlashskyEngine.swift; sourceTree = "<group>"; };
 		216AE83DEA848A52AB73FA72 /* SnakeskyEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeskyEngine.swift; sourceTree = "<group>"; };
 		22CFC6598AB1455E6C12C48D /* SnakeskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeskyModel.swift; sourceTree = "<group>"; };
@@ -190,6 +204,7 @@
 		30FC7E47A254400A3F2D99C2 /* TriviatskyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviatskyView.swift; sourceTree = "<group>"; };
 		3104316827DCA039FC334911 /* TriviatskyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviatskyResult.swift; sourceTree = "<group>"; };
 		3133FE6E6E89358369CAB93A /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		33128D981B78F84574337369 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Sources/Resources/Fonts; sourceTree = SOURCE_ROOT; };
 		3376077CB8EFF3EE1D6592B7 /* TriviaStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaStartView.swift; sourceTree = "<group>"; };
 		342081BADB7BCFD1F09723F7 /* RootskyStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyStartView.swift; sourceTree = "<group>"; };
 		35AF793A90D27941A4E77B06 /* LearnedWordRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedWordRecord.swift; sourceTree = "<group>"; };
@@ -202,6 +217,7 @@
 		4306BDF6B163D6427CDB1094 /* SickleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SickleShape.swift; sourceTree = "<group>"; };
 		436E230323D90364BDF5D23E /* TriviaResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaResultsView.swift; sourceTree = "<group>"; };
 		43EFB30C31AB14914D425520 /* AnswerSlotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSlotsView.swift; sourceTree = "<group>"; };
+		4528547ABCD02FA3CEA12968 /* HeadingFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingFont.swift; sourceTree = "<group>"; };
 		487EA6CC8CE20DB730A3518C /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
 		49A6FD72FC9150F6AE810875 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		4D8F4F7807E9484E2ACA7B79 /* ScramblisyStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScramblisyStartView.swift; sourceTree = "<group>"; };
@@ -222,6 +238,7 @@
 		77EF79833B7CB3CFB7FB8934 /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
 		7964F2D2BB7883A7FA18AAE3 /* RootskyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyStore.swift; sourceTree = "<group>"; };
 		7B12DA490D2E2D69F0BF07A7 /* HintBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintBarView.swift; sourceTree = "<group>"; };
+		809EB7952D402D83CCBEB833 /* MeddleyskyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeddleyskyView.swift; sourceTree = "<group>"; };
 		84185EF478CBF1E42EE9BBD1 /* BoggleGridGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoggleGridGeometry.swift; sourceTree = "<group>"; };
 		86A66AF3BC4A8F4B41BEFE94 /* ExplosionBurstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionBurstView.swift; sourceTree = "<group>"; };
 		8713F257FEBC7F4179D0DA92 /* TetriskyEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetriskyEndView.swift; sourceTree = "<group>"; };
@@ -260,15 +277,19 @@
 		BE56D68555D7B7EAF0D1D3FC /* TriviaPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaPlayView.swift; sourceTree = "<group>"; };
 		BEFD99F8B994042BB4CBBCFA /* StatsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsService.swift; sourceTree = "<group>"; };
 		BF687183BA63728AF7DAC11B /* BoggleskyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoggleskyResult.swift; sourceTree = "<group>"; };
+		BFAD8D8561C720F3D4A0B8F1 /* FeatureFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlags.swift; sourceTree = "<group>"; };
 		C170F2A1DF3DB1CCA9D67C7C /* ScramblisyPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScramblisyPlayView.swift; sourceTree = "<group>"; };
 		C58310E4E235AC3668D49721 /* ArcadeEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeEngineTests.swift; sourceTree = "<group>"; };
+		C59DD52C1FF140F330CE97D6 /* MeddleyskyLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeddleyskyLogicTests.swift; sourceTree = "<group>"; };
 		C62D12DAA2E723EBAFF39B6A /* TetriskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetriskyModel.swift; sourceTree = "<group>"; };
 		C6631D3B6B2C87C39CEE7B20 /* DictionaryValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryValidationTests.swift; sourceTree = "<group>"; };
 		C6B076B13A7DA36F16B6136F /* BoggleskyStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoggleskyStartView.swift; sourceTree = "<group>"; };
 		C6B48E7FA1468905823A5D80 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		C80A3A11CCD8874B554A4295 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		C9CBBE0FAA1922F48CC42964 /* SlashskyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlashskyView.swift; sourceTree = "<group>"; };
+		C9DD9106264E0B745450E83A /* MeddleyTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeddleyTransitionView.swift; sourceTree = "<group>"; };
 		CC3EFE9A1D7FBB7A17472740 /* ScramblisyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScramblisyResult.swift; sourceTree = "<group>"; };
+		CE1861D5F51E3AF1DB6FDCF4 /* MeddleyskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeddleyskyModel.swift; sourceTree = "<group>"; };
 		CF756F82A261958B396E3AC1 /* ThemeCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCatalog.swift; sourceTree = "<group>"; };
 		D3CDC14EEAB880F0D0374BE4 /* TriviaAnswerGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaAnswerGridView.swift; sourceTree = "<group>"; };
 		DA24D3ED88B510E72E316A50 /* AchievementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementService.swift; sourceTree = "<group>"; };
@@ -279,6 +300,7 @@
 		E297DCC1003D37CA05BDCB15 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		E299F151DA08FD025D1253BE /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		E3F23EE3E14A27FEC6AD6C50 /* FoundWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundWord.swift; sourceTree = "<group>"; };
+		E61B1F27CC6E633D6774E055 /* MeddleyLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeddleyLevelView.swift; sourceTree = "<group>"; };
 		E6320810ABECAFFD5DC83DED /* RootskyPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyPlayView.swift; sourceTree = "<group>"; };
 		E7477072731DEAF7F0162A39 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E7F6BCE5A3AE6C4EE15F119A /* SnakeskyEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeskyEndView.swift; sourceTree = "<group>"; };
@@ -298,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				A46F2FDB5A23DC56E3796C7F /* Bogglesky */,
+				5A2CE76EC09E74A150437E78 /* Meddleysky */,
 				DCBDF3955F42D05095B6DD7D /* Rootsky */,
 				8A3A0667C6917951A685A5E6 /* Scramblisky */,
 				6CB6179A60C3B182D817A395 /* Slashsky */,
@@ -356,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				E90F404B8F714E52CD8AAE85 /* DictionaryStore.swift */,
+				BFAD8D8561C720F3D4A0B8F1 /* FeatureFlags.swift */,
 				3BB3A0F9594ACA92ED5F16EA /* GameID.swift */,
 				1647DF8E075F64B87D8475F0 /* GameInfo.swift */,
 				1ED74F4F3667B8C1DD842D8D /* Language.swift */,
@@ -381,10 +405,24 @@
 			children = (
 				B481D4B5A23F0212C4075B01 /* Assets.xcassets */,
 				39D8C81C884A70125F297258 /* Dictionaries */,
+				33128D981B78F84574337369 /* Fonts */,
 				42FC7F2ECBD1A953CBC63778 /* languages.json */,
 				B20AD2704DA080AFB174F15B /* TriviaImages */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5A2CE76EC09E74A150437E78 /* Meddleysky */ = {
+			isa = PBXGroup;
+			children = (
+				15981A0D8A885DE955A115A3 /* MeddleyLevel.swift */,
+				E61B1F27CC6E633D6774E055 /* MeddleyLevelView.swift */,
+				20BD38134D0353910EDCDECA /* MeddleyskyEndView.swift */,
+				CE1861D5F51E3AF1DB6FDCF4 /* MeddleyskyModel.swift */,
+				809EB7952D402D83CCBEB833 /* MeddleyskyView.swift */,
+				C9DD9106264E0B745450E83A /* MeddleyTransitionView.swift */,
+			);
+			path = Meddleysky;
 			sourceTree = "<group>";
 		};
 		6CB6179A60C3B182D817A395 /* Slashsky */ = {
@@ -498,6 +536,7 @@
 				2972E4F0DC2EA8F61D654431 /* BoggleskyEngineTests.swift */,
 				C6631D3B6B2C87C39CEE7B20 /* DictionaryValidationTests.swift */,
 				6D3D396E6C217B28A43E2FF4 /* HolidayTests.swift */,
+				C59DD52C1FF140F330CE97D6 /* MeddleyskyLogicTests.swift */,
 				B57F506B07CF928F4676D259 /* MetaProgressionTests.swift */,
 				EA1682C62C4A66C30656D142 /* RootskyLogicTests.swift */,
 				6F0C115C72EF13AD0CFEDCDD /* ScramblisyLogicTests.swift */,
@@ -529,6 +568,7 @@
 				C6B48E7FA1468905823A5D80 /* Design.swift */,
 				DE5D42EC47E554A3FD57B671 /* GameCalendarView.swift */,
 				9432D0239A114472E5FED4EC /* GlassSegmentButton.swift */,
+				4528547ABCD02FA3CEA12968 /* HeadingFont.swift */,
 				77EF79833B7CB3CFB7FB8934 /* Holiday.swift */,
 				4306BDF6B163D6427CDB1094 /* SickleShape.swift */,
 				9490EA85359DB7AE636E578C /* Theme.swift */,
@@ -558,6 +598,7 @@
 		D158514DD69812934309A826 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				08D873B5D864019A971BCE40 /* CloudKitSchemaInitializer.swift */,
 				0110E9C896DF15B8956BFC7D /* DailyStateRecord.swift */,
 				975605884C53C7894B58725D /* DailyStateService.swift */,
 				87659C2D3E16FEE2930DD9F5 /* GameResultRecord.swift */,
@@ -674,6 +715,7 @@
 			files = (
 				A1E37E9CF95373A8DB09253A /* Assets.xcassets in Resources */,
 				DA60B9DC41897CFDA01C0263 /* Dictionaries in Resources */,
+				B1295A46CDBE1FF54BD0890F /* Fonts in Resources */,
 				45A23759A1F2F4744BF16BDA /* TriviaImages in Resources */,
 				ECAD4F4874E9B239B1481587 /* languages.json in Resources */,
 			);
@@ -701,6 +743,7 @@
 				0C064D2530AA910A77E627A4 /* BoggleskyResult.swift in Sources */,
 				DC24A165C5DB8BD277774D32 /* BoggleskyStartView.swift in Sources */,
 				EAA22CAC8CEC706CD7990182 /* BoggleskyView.swift in Sources */,
+				31FEBAC17E0E8DCB1AA26835 /* CloudKitSchemaInitializer.swift in Sources */,
 				A5F7E69DF2B815EAE42665FE /* ColorHex.swift in Sources */,
 				41FA93A6D9B187CC8BBD53CB /* ConfettiView.swift in Sources */,
 				1198CB9A93E2E60C554E7FE7 /* DailyStateRecord.swift in Sources */,
@@ -708,6 +751,7 @@
 				D0EBB3BD0864123693B1284E /* Design.swift in Sources */,
 				B9634215B2CADB82FE037FBE /* DictionaryStore.swift in Sources */,
 				39A552C5935D0E0169654ED7 /* ExplosionBurstView.swift in Sources */,
+				954998261E6C284A5B015094 /* FeatureFlags.swift in Sources */,
 				8229A0DB497A9B7D5324941E /* FoundWord.swift in Sources */,
 				C4408FE2C4D6EC21B17E14DB /* GameCalendarView.swift in Sources */,
 				CBF543909841BFDA795A69D3 /* GameCardView.swift in Sources */,
@@ -717,6 +761,7 @@
 				954068DAF08D0AB6919DCD3E /* GameResultRecord.swift in Sources */,
 				2A4106950B74625F6DB88997 /* GameStatsRecord.swift in Sources */,
 				0EAD6C09E7D4957E94CE5C81 /* GlassSegmentButton.swift in Sources */,
+				BFEAA209BA94C69A1A606B6C /* HeadingFont.swift in Sources */,
 				75674C6816F6794C1688DBEB /* HintBarView.swift in Sources */,
 				3F056D521D081C4324DD70B2 /* Holiday.swift in Sources */,
 				90BD1E310D7295ADB5B8D0B1 /* HomeView.swift in Sources */,
@@ -725,6 +770,12 @@
 				889D8E93056120844ED1D449 /* LanguageCatalog.swift in Sources */,
 				937E5C5CD29B9220799DB384 /* LearnedWordRecord.swift in Sources */,
 				593319D03A465E4F1BC1B154 /* LetterRackView.swift in Sources */,
+				3F4EA7304233929A2E9F96C0 /* MeddleyLevel.swift in Sources */,
+				142F9C811473322DA478FEB3 /* MeddleyLevelView.swift in Sources */,
+				73E3C2C4EF1DE1438ED560C0 /* MeddleyTransitionView.swift in Sources */,
+				D66AFAD85038997AD2DB179B /* MeddleyskyEndView.swift in Sources */,
+				75D2F1BC037642BFD35059AC /* MeddleyskyModel.swift in Sources */,
+				EA9AF5A252CE6AE78A3BA97C /* MeddleyskyView.swift in Sources */,
 				F4D965DD775CFA4C67F73E2E /* ParticleBurstView.swift in Sources */,
 				D30BEFA51ED847B95979A67F /* PaywallView.swift in Sources */,
 				6E39ECC594F45A975BABC19B /* PersistenceController.swift in Sources */,
@@ -818,6 +869,7 @@
 				9FA68DB6541819D2C2B1E81B /* BoggleskyEngineTests.swift in Sources */,
 				C30AAC1D83AD2B71BC183AB7 /* DictionaryValidationTests.swift in Sources */,
 				230AE9D01ADFF8E470EF7AB4 /* HolidayTests.swift in Sources */,
+				D3B36C11640A936020B386D4 /* MeddleyskyLogicTests.swift in Sources */,
 				B7243584AA2DADB40880B169 /* MetaProgressionTests.swift in Sources */,
 				C86FFC45B99906DB5A52037A /* RootskyLogicTests.swift in Sources */,
 				A6C3242630F9BE7865706D34 /* ScramblisyLogicTests.swift in Sources */,

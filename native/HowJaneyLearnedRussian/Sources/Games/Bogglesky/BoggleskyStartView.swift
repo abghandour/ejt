@@ -26,9 +26,7 @@ struct BoggleskyStartView: View {
                 .accessibilityHidden(true)
 
             Text("BOGGLESKY")
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
-                .kerning(4)
+                .heading(.largeTitle, kerning: 4)
                 .foregroundStyle(theme.textPrimary)
 
             Text("Swipe across adjacent letters to form \(game.language.displayName) words. Find as many as you can before time runs out.")

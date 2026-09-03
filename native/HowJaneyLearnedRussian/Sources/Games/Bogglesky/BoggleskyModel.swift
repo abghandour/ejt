@@ -55,6 +55,8 @@ final class BoggleskyModel {
 
     private(set) var phase: Phase = .loading
     var difficulty: BoggleskyDifficulty = .medium
+    /// Round length in seconds when set (Meddleysky plays shortened levels).
+    var timeLimitOverride: Int?
     private(set) var board: BoggleskyEngine.Board?
     private(set) var selectedPath: [Int] = []
     private(set) var score = 0
@@ -148,7 +150,7 @@ final class BoggleskyModel {
         comboCount = 0
         lastFoundTimeLeft = nil
         clearedBoards = 0
-        timeLeft = difficulty.gameTime
+        timeLeft = timeLimitOverride ?? difficulty.gameTime
 
         let size = difficulty.gridSize
         let words = Array(wordMap.keys)

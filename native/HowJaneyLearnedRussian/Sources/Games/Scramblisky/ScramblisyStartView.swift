@@ -27,9 +27,7 @@ struct ScramblisyStartView: View {
                 .accessibilityHidden(true)
 
             Text("SCRAMBLISKY")
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
-                .kerning(4)
+                .heading(.largeTitle, kerning: 4)
                 .foregroundStyle(theme.textPrimary)
 
             Text("Unscramble as many \(game.language.displayName) words as you can in 90 seconds. Wrong answers and skipping cost precious time.")

@@ -35,3 +35,5 @@ build/
 Pods/
 
 node_modules
+# macOS
+.DS_Store

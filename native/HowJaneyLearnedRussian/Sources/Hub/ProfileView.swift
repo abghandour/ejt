@@ -334,11 +334,14 @@ struct ProfileActionsView: View {
                 ) {
                     Label("Share Scoreboard", systemImage: "square.and.arrow.up")
                         .bold()
+                        .labelStyle(.iconOnly)
                 }
                 .buttonStyle(.glassProminent)
             }
             if model.gameCenter.isAuthenticated {
                 Button("Game Center", systemImage: "person.2.fill", action: openDashboard)
+                    .lineLimit(1)
+                    .fixedSize()
                     .buttonStyle(.glass)
             }
         }

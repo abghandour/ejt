@@ -126,9 +126,7 @@ struct SlashskyStartView: View {
                 .accessibilityHidden(true)
 
             Text("SLASHSKY")
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
-                .kerning(4)
+                .heading(.largeTitle, kerning: 4)
                 .foregroundStyle(theme.textPrimary)
 
             Text("Slash the synonyms of the main word. Avoid the distractors — they cost a life. Catch +5s, dodge −5s.")

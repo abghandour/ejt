@@ -18,6 +18,13 @@ final class TriviatskyModel {
     }
 
     let language: Language
+    /// Caps the questions per round (Meddleysky levels); nil plays the whole day.
+    let questionLimit: Int?
+    /// Sandboxed sessions (Meddleysky) play a random past day and never touch
+    /// the calendar, saved progress, or the results sheet.
+    let isSandboxed: Bool
+    /// Replaces the top bar's dismiss when hosted inside another game.
+    var onQuit: (() -> Void)?
 
     private let soundEngine: SoundEngine
     private let triviaStore: TriviaStore
@@ -68,9 +75,13 @@ final class TriviatskyModel {
         soundEngine: SoundEngine,
         triviaStore: TriviaStore,
         dailyState: DailyStateService,
+        questionLimit: Int? = nil,
+        isSandboxed: Bool = false,
         onComplete: @escaping (TriviatskyResult) -> Void
     ) {
         self.language = language
+        self.questionLimit = questionLimit
+        self.isSandboxed = isSandboxed
         self.soundEngine = soundEngine
         self.triviaStore = triviaStore
         self.dailyState = dailyState
@@ -95,6 +106,11 @@ final class TriviatskyModel {
         TriviaLogic.friendlyDate(fromKey: dateKey)
     }
 
+    /// Compact "9/12" form for the in-game header.
+    var shortDate: String {
+        TriviaLogic.shortDate(fromKey: dateKey)
+    }
+
     var currentQuestion: TriviaQuestion? {
         guard let state, questions.indices.contains(state.currentQuestionIndex) else { return nil }
         return questions[state.currentQuestionIndex]
@@ -109,6 +125,10 @@ final class TriviatskyModel {
     func load() async {
         do {
             allDays = try await triviaStore.trivia(for: language)
+            if isSandboxed {
+                selectDate(RootskyModel.randomPastDay(from: allDays.keys, rng: &rng))
+                return
+            }
             completedKeys = dailyState.completedDateKeys(game: .triviatsky, languageID: language.id)
 
             var initialKey = TriviaLogic.dateKey(for: .now)
@@ -136,10 +156,11 @@ final class TriviatskyModel {
             phase = .noGame
             return
         }
-        questions = dayQuestions
+        questions = questionLimit.map { Array(dayQuestions.prefix($0)) } ?? dayQuestions
 
-        if let saved = dailyState.load(TriviaDayState.self, game: .triviatsky, languageID: language.id, dateKey: key),
-           saved.matches(questions: dayQuestions) {
+        if !isSandboxed,
+           let saved = dailyState.load(TriviaDayState.self, game: .triviatsky, languageID: language.id, dateKey: key),
+           saved.matches(questions: questions) {
             state = saved
             if saved.completed {
                 phase = .review
@@ -149,7 +170,7 @@ final class TriviatskyModel {
                 phase = .start(canResume: false)
             }
         } else {
-            state = TriviaDayState(dateKey: key, questionCount: dayQuestions.count)
+            state = TriviaDayState(dateKey: key, questionCount: questions.count)
             phase = .start(canResume: false)
         }
     }
@@ -291,7 +312,9 @@ final class TriviatskyModel {
         completedKeys.insert(dateKey)
         soundEngine.play(.gameEnd)
         successTick += 1
-        isShowingResults = true
+        if !isSandboxed {
+            isShowingResults = true
+        }
         onComplete(
             TriviatskyResult(
                 languageID: language.id,
@@ -405,7 +428,7 @@ final class TriviatskyModel {
     }
 
     private func save() {
-        guard let state else { return }
+        guard let state, !isSandboxed else { return }
         dailyState.save(
             state,
             game: .triviatsky,

@@ -44,8 +44,16 @@ struct RootskyLogicTests {
         let state = RootskyDayState(dateKey: "20260821")
         #expect(state.wordScores == [5, 5, 5, 5, 5])
         #expect(state.totalScore == 25)
-        #expect(state.isShapeValid)
+        #expect(state.isShapeValid(wordCount: 5))
         #expect(!state.started && !state.completed)
+    }
+
+    @Test
+    func shortStateShapeForMeddleysky() {
+        let state = RootskyDayState(dateKey: "20260821", wordCount: 3)
+        #expect(state.wordScores == [5, 5, 5])
+        #expect(state.isShapeValid(wordCount: 3))
+        #expect(!state.isShapeValid(wordCount: 5))
     }
 
     @Test

@@ -25,6 +25,8 @@ struct RootView: View {
                     TetriskyView()
                 case .slashsky:
                     SlashskyView()
+                case .meddleysky:
+                    MeddleyskyView()
                 }
             }
             .sheet(isPresented: $model.isShowingSettings) {
@@ -40,6 +42,7 @@ struct RootView: View {
                 PaywallView()
             }
             .environment(\.theme, model.theme)
+            .environment(\.font, model.theme.bodyFontName.map { .custom($0, size: 17, relativeTo: .body) })
             .tint(model.theme.accent)
             .preferredColorScheme(model.theme.isDark ? .dark : .light)
             .onChange(of: scenePhase) {

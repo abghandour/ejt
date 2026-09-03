@@ -14,6 +14,9 @@ struct HomeView: View {
                 HomeHeaderView()
                 GameCarouselView(selectedGame: $selectedGame)
             }
+            if theme.decoration == .korni {
+                KorniStickersView()
+            }
         }
         .onAppear(perform: selectInitialGame)
         .onChange(of: model.language.id) {
@@ -52,25 +55,27 @@ struct HomeHeaderView: View {
                             .padding(10)
                             .glassEffect(.regular.interactive())
 
-                        Menu {
-                            ForEach(model.languages) { language in
-                                Button(action: { model.selectLanguage(language) }) {
-                                    if model.isLanguageLocked(language) {
-                                        Label("\(language.flag) \(language.displayName)", systemImage: "lock")
-                                    } else if language.id == model.language.id {
-                                        Label("\(language.flag) \(language.displayName)", systemImage: "checkmark")
-                                    } else {
-                                        Text("\(language.flag) \(language.displayName)")
+                        if FeatureFlags.multiLanguage {
+                            Menu {
+                                ForEach(model.languages) { language in
+                                    Button(action: { model.selectLanguage(language) }) {
+                                        if model.isLanguageLocked(language) {
+                                            Label("\(language.flag) \(language.displayName)", systemImage: "lock")
+                                        } else if language.id == model.language.id {
+                                            Label("\(language.flag) \(language.displayName)", systemImage: "checkmark")
+                                        } else {
+                                            Text("\(language.flag) \(language.displayName)")
+                                        }
                                     }
                                 }
+                            } label: {
+                                Text(model.language.flag)
+                                    .font(.title3)
+                                    .padding(10)
                             }
-                        } label: {
-                            Text(model.language.flag)
-                                .font(.title3)
-                                .padding(10)
+                            .glassEffect(.regular.interactive())
+                            .accessibilityLabel("Language: \(model.language.displayName)")
                         }
-                        .glassEffect(.regular.interactive())
-                        .accessibilityLabel("Language: \(model.language.displayName)")
 
                         Button("Settings", systemImage: "gearshape.fill", action: showSettings)
                             .labelStyle(.iconOnly)
@@ -83,14 +88,10 @@ struct HomeHeaderView: View {
             .padding(.horizontal, Design.padding)
 
             Text("HOW JANEY LEARNED")
-                .font(.system(.caption, design: .rounded))
-                .bold()
-                .kerning(4)
+                .heading(.caption, kerning: 4)
                 .foregroundStyle(theme.textSecondary)
             Text(model.language.displayName.uppercased())
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
-                .kerning(2)
+                .heading(.largeTitle, kerning: 2)
                 .foregroundStyle(theme.accent)
                 .shadow(color: theme.accentGlow, radius: 12)
                 .contentTransition(.numericText())
@@ -126,5 +127,42 @@ struct GameCarouselView: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
+    }
+}
+
+/// Collage stickers for the Korni theme: the megaphone cutout bottom-leading
+/// and a slanted black label bottom-trailing, both purely decorative.
+private struct KorniStickersView: View {
+    @Environment(\.theme) private var theme
+
+    var body: some View {
+        ZStack {
+            Image("korni-megaphone")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 162)
+                .rotationEffect(.degrees(-6))
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+                .padding(.leading, 8)
+                .padding(.bottom, 4)
+
+            VStack(alignment: .leading, spacing: -2) {
+                Text("PICK A GAME.")
+                    .foregroundStyle(theme.accent)
+                Text("PLAY EVERY DAY!")
+                    .foregroundStyle(.white)
+            }
+            .font(.custom("Manrope-ExtraBold", size: 13))
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(theme.sunburst2)
+            .rotationEffect(.degrees(-9))
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+            .padding(.trailing, 6)
+            .padding(.bottom, 10)
+        }
+        .ignoresSafeArea(edges: .bottom)
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
     }
 }

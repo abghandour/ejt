@@ -89,6 +89,10 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
+         <CommandLineArgument
+            argument = "--init-cloudkit-schema"
+            isEnabled = "NO">
+         </CommandLineArgument>
       </CommandLineArguments>
       <StoreKitConfigurationFileReference
          identifier = "../../HowJaneyLearnedRussian.storekit">

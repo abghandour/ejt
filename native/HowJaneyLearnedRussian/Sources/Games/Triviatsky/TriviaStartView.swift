@@ -31,9 +31,7 @@ struct TriviaStartView: View {
                 .accessibilityHidden(true)
 
             Text("TRIVIATSKY")
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
-                .kerning(4)
+                .heading(.largeTitle, kerning: 4)
                 .foregroundStyle(theme.textPrimary)
 
             Text(game.friendlyDate)

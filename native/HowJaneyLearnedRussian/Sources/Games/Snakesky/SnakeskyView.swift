@@ -107,9 +107,7 @@ struct SnakeskyStartView: View {
                 .accessibilityHidden(true)
 
             Text("SNAKESKY")
-                .font(.system(.largeTitle, design: .rounded))
-                .bold()
-                .kerning(4)
+                .heading(.largeTitle, kerning: 4)
                 .foregroundStyle(theme.textPrimary)
 
             Text("Guide the snake to eat \(game.language.displayName) letters in order. Don't hit the walls or yourself.")
