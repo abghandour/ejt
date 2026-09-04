@@ -313,6 +313,7 @@ final class RootskyModel {
                 }
             }
         } else {
+            guard !state.disabledAnswers[index].contains(answer) else { return }
             state.wordScores[index] = max(0, state.wordScores[index] - 1)
             state.disabledAnswers[index].append(answer)
             self.state = state
@@ -416,8 +417,8 @@ final class RootskyModel {
         timerTask = Task { [weak self] in
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(1))
-                guard !Task.isCancelled else { return }
-                self?.tickUp()
+                guard !Task.isCancelled, let self else { return }
+                self.tickUp()
             }
         }
     }

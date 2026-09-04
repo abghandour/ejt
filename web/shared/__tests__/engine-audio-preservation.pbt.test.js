@@ -102,10 +102,17 @@ function loadEngine() {
       setItem(k, v) { store[k] = String(v); },
     };
   })();
-  globalThis.navigator = globalThis.navigator || {};
-  globalThis.alert = globalThis.alert || function() {};
-  globalThis.prompt = globalThis.prompt || function() {};
-  globalThis.fetch = globalThis.fetch || function() { return Promise.resolve({ ok: false }); };
+  // Node 21+ exposes `navigator` as a getter-only global, so plain assignment throws.
+  // Only define it (and any other missing globals) when absent.
+  function defineIfAbsent(name, value) {
+    if (globalThis[name]) return;
+    try { Object.defineProperty(globalThis, name, { value: value, configurable: true, writable: true }); }
+    catch (e) { try { globalThis[name] = value; } catch (e2) {} }
+  }
+  defineIfAbsent('navigator', {});
+  defineIfAbsent('alert', function() {});
+  defineIfAbsent('prompt', function() {});
+  defineIfAbsent('fetch', function() { return Promise.resolve({ ok: false }); });
 
   // Desktop AudioContext — starts in 'running' state
   globalThis.AudioContext = function() { return createDesktopMockAudioContext(); };

@@ -111,7 +111,8 @@ struct FoundWordListView: View {
         } else {
             ScrollView {
                 VStack(spacing: 4) {
-                    ForEach(sortedWords) { found in
+                    // Offset identity: the same word can recur after a board clear.
+                    ForEach(Array(sortedWords.enumerated()), id: \.offset) { _, found in
                         HStack {
                             Text(found.word)
                                 .bold()

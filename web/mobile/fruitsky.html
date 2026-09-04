@@ -658,6 +658,7 @@ document.addEventListener('DOMContentLoaded', initGame);
 var lastFrameTime = 0;
 var lastLaunchTime = 0;
 var animFrameId = null;
+var swipeDetectorReady = false;
 
 function formatTimer(seconds) {
   var s = Math.ceil(seconds);
@@ -689,13 +690,14 @@ function showGameOver() {
   document.getElementById('final-words').textContent = gameState.wordsCompleted;
   document.getElementById('final-synonyms').textContent = gameState.totalSynonymsSlashed;
   document.getElementById('gameover-overlay').classList.remove('hidden');
+  var finished = gameState;
   authReady.then(function() {
     if (isSubscriber()) {
       submitScore('fruitsky', getActiveLanguage(), {
-        score: gameState.score,
-        words_completed: gameState.wordsCompleted,
-        duration_secs: 60,
-        details: { totalSynonymsSlashed: gameState.totalSynonymsSlashed }
+        score: finished.score,
+        words_completed: finished.wordsCompleted,
+        duration_secs: Math.round(finished.elapsedTime),
+        details: { totalSynonymsSlashed: finished.totalSynonymsSlashed }
       });
     }
   });
@@ -720,6 +722,7 @@ function launchWord(diff) {
 }
 
 function handleSlash(wordId) {
+  if (!gameState || gameState.phase !== 'playing') return;
   var word = null;
   for (var i = 0; i < gameState.activeWords.length; i++) {
     if (gameState.activeWords[i].id === wordId) {
@@ -875,10 +878,13 @@ function startGame() {
   // Init swipe canvas for trail rendering
   initSwipeCanvas();
 
-  // Init swipe detector
-  initSwipeDetector(playArea, function() {
-    return gameState.activeWords;
-  }, handleSlash);
+  // Init swipe detector (once — listeners would otherwise accumulate on every restart)
+  if (!swipeDetectorReady) {
+    swipeDetectorReady = true;
+    initSwipeDetector(playArea, function() {
+      return gameState ? gameState.activeWords : [];
+    }, handleSlash);
+  }
 
   // Reset timing
   lastFrameTime = 0;

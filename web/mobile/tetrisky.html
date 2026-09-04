@@ -231,6 +231,7 @@ var dictionary = [];
 var wordSet = new Set();
 var loopId = null;
 var gridCells = [];
+var _renderedScore = null;
 var DIFFICULTY = 'medium';
 
 // ===== INIT GAME STATE =====
@@ -401,8 +402,12 @@ function advanceTarget(s) {
   }
   s.targetWord = s.wordQueue[s.wordQueueIndex];
   s.targetProgress = 0;
-  // Speed up slightly
+  // Speed up slightly (and restart the running loop so the new speed takes effect)
   s.tickSpeed = Math.max(300, s.tickSpeed - 30);
+  if (s === state && loopId) {
+    clearInterval(loopId);
+    loopId = setInterval(tick, s.tickSpeed);
+  }
 }
 
 // ===== GAME TICK =====
@@ -431,8 +436,10 @@ function tick() {
     if (words.length > 0) {
       soundWordComplete();
       clearWords(state, words);
+      var thisGame = state;
       // Small delay then gravity
       setTimeout(function() {
+        if (state !== thisGame) return;
         applyGravity(state);
         // Check for chain reactions
         var moreWords = findWords(state);
@@ -491,7 +498,9 @@ function hardDrop() {
   if (words.length > 0) {
     soundWordComplete();
     clearWords(state, words);
+    var thisGame = state;
     setTimeout(function() {
+      if (state !== thisGame) return;
       applyGravity(state);
       var moreWords = findWords(state);
       if (moreWords.length > 0) {
@@ -514,14 +523,16 @@ function gameOver() {
   soundDeath();
   render();
   showDeathModal();
+  var finished = state;
+  var durationSecs = Math.round((Date.now() - finished.startTime) / 1000);
   authReady.then(function() {
     if (isSubscriber()) {
       submitScore('tetrisky', getActiveLanguage(), {
-        score: state.score,
-        difficulty: state.difficulty || 'medium',
-        words_completed: state.wordsCompleted,
-        duration_secs: Math.round((Date.now() - state.startTime) / 1000),
-        details: { completedWords: state.completedWords.map(function(w) { return w.word; }) }
+        score: finished.score,
+        difficulty: finished.difficulty || 'medium',
+        words_completed: finished.wordsCompleted,
+        duration_secs: durationSecs,
+        details: { completedWords: finished.completedWords.map(function(w) { return w.word; }) }
       });
     }
   });
@@ -599,8 +610,11 @@ function render() {
     gridCells[fIdx].textContent = f.letter;
   }
 
-  // Update score
-  document.getElementById('score-display').innerHTML = '<svg class="icon-star"><use href="#ico-star"/></svg> ' + state.score;
+  // Update score (only when changed — avoids rebuilding the SVG every tick/move)
+  if (_renderedScore !== state.score) {
+    _renderedScore = state.score;
+    document.getElementById('score-display').innerHTML = '<svg class="icon-star"><use href="#ico-star"/></svg> ' + state.score;
+  }
 }
 
 function updateUI() {
@@ -641,14 +655,15 @@ function showDeathModal() {
     '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Score</span><span style="color:#c8a830;font-weight:700">' + state.score + '</span></div>' +
     '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Time</span><span style="color:#f5e6c8;font-weight:700">' + formatTime(elapsed) + '</span></div>';
 
-  wordsDiv.innerHTML = '';
+  var wordsHtml = '';
   for (var i = 0; i < state.completedWords.length; i++) {
     var w = state.completedWords[i];
-    wordsDiv.innerHTML += '<div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(58,58,94,0.2)"><span style="color:#f5e6c8;font-weight:700">' + w.word + '</span><span style="color:#6a9ec0;font-size:12px">' + w.translation + '</span></div>';
+    wordsHtml += '<div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(58,58,94,0.2)"><span style="color:#f5e6c8;font-weight:700">' + w.word + '</span><span style="color:#6a9ec0;font-size:12px">' + w.translation + '</span></div>';
   }
   if (state.completedWords.length === 0) {
-    wordsDiv.innerHTML = '<div style="color:#6a6a8a;text-align:center">No words formed</div>';
+    wordsHtml = '<div style="color:#6a6a8a;text-align:center">No words formed</div>';
   }
+  wordsDiv.innerHTML = wordsHtml;
   overlay.classList.remove('hidden');
 }
 

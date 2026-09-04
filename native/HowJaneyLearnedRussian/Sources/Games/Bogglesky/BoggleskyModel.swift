@@ -85,6 +85,10 @@ final class BoggleskyModel {
 
     @ObservationIgnored private var wordMap: [String: String] = [:]
     @ObservationIgnored private var trie: BoggleskyEngine.Trie?
+    /// Tries keyed by grid size; the dictionary never changes for a session.
+    @ObservationIgnored private var trieCache: [Int: BoggleskyEngine.Trie] = [:]
+    /// Findable words of the current board, sorted short→long (hint bar order).
+    @ObservationIgnored private var sortedFindableWords: [String] = []
     @ObservationIgnored private var rng = SeedEngine(seed: Int.random(in: Int.min...Int.max))
     @ObservationIgnored private var letterPool: [Character] = []
     @ObservationIgnored private var timerTask: Task<Void, Never>?
@@ -156,13 +160,14 @@ final class BoggleskyModel {
         let words = Array(wordMap.keys)
         let minLength = difficulty.minWordLength
         let pool = letterPool
+        let cachedTrie = trieCache[size]
         let (board, builtTrie, nextRNG) = await Self.generate(
-            words: words, minLength: minLength, size: size, pool: pool, rng: rng
+            words: words, minLength: minLength, size: size, pool: pool, trie: cachedTrie, rng: rng
         )
         rng = nextRNG
         trie = builtTrie
-        self.board = board
-        boardGeneration += 1
+        trieCache[size] = builtTrie
+        install(board)
         phase = .playing
         startTimer()
     }
@@ -173,12 +178,19 @@ final class BoggleskyModel {
         minLength: Int,
         size: Int,
         pool: [Character],
+        trie cached: BoggleskyEngine.Trie?,
         rng: SeedEngine
     ) async -> (BoggleskyEngine.Board, BoggleskyEngine.Trie, SeedEngine) {
         var rng = rng
-        let trie = BoggleskyEngine.Trie.build(words: words, minLength: minLength, maxLength: size * size)
+        let trie = cached ?? BoggleskyEngine.Trie.build(words: words, minLength: minLength, maxLength: size * size)
         let board = BoggleskyEngine.generateBoard(size: size, pool: pool, trie: trie, rng: &rng)
         return (board, trie, rng)
+    }
+
+    private func install(_ board: BoggleskyEngine.Board) {
+        self.board = board
+        sortedFindableWords = board.findableWords.sorted { ($0.count, $0) < ($1.count, $1) }
+        boardGeneration += 1
     }
 
     func backToStart() {
@@ -201,8 +213,8 @@ final class BoggleskyModel {
         timerTask = Task { [weak self] in
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(1))
-                guard !Task.isCancelled else { return }
-                self?.tick()
+                guard !Task.isCancelled, let self else { return }
+                self.tick()
             }
         }
     }
@@ -260,7 +272,7 @@ final class BoggleskyModel {
         guard isDragging else { return }
 
         if let index = geometry.cell(at: point) {
-            previewIndex = nil
+            if previewIndex != nil { previewIndex = nil }
             guard index != dwellIndex else { return }
             cancelDwell()
             guard index != selectedPath.last else { return }
@@ -280,7 +292,8 @@ final class BoggleskyModel {
 
         cancelDwell()
         guard let last = selectedPath.last else { return }
-        previewIndex = geometry.bestNeighbor(of: last, toward: point, excluding: Set(selectedPath))
+        let preview = geometry.bestNeighbor(of: last, toward: point, excluding: Set(selectedPath))
+        if preview != previewIndex { previewIndex = preview }
     }
 
     func dragEnded() {
@@ -292,7 +305,7 @@ final class BoggleskyModel {
     }
 
     private func commit(_ index: Int) {
-        previewIndex = nil
+        if previewIndex != nil { previewIndex = nil }
         cancelDwell()
         guard isDragging, let board else { return }
 
@@ -397,11 +410,12 @@ final class BoggleskyModel {
     }
 
     private func scheduleClearSelection() {
+        let flashID = eventID
         Task { [weak self] in
             try? await Task.sleep(for: .milliseconds(300))
-            self?.selectedPath = []
+            if let self, !self.isDragging { self.selectedPath = [] }
             try? await Task.sleep(for: .milliseconds(150))
-            self?.flash = nil
+            if self?.flash?.id == flashID { self?.flash = nil }
         }
     }
 
@@ -429,8 +443,10 @@ final class BoggleskyModel {
         soundEngine.play(.boardClear)
         Task { [weak self] in
             try? await Task.sleep(for: .milliseconds(600))
-            await self?.refreshBoard(resetFound: true)
-            self?.startTimer()
+            guard let self, case .playing = self.phase else { return }
+            await self.refreshBoard(resetFound: true)
+            guard case .playing = self.phase, !self.isPaused else { return }
+            self.startTimer()
         }
     }
 
@@ -439,12 +455,11 @@ final class BoggleskyModel {
         let size = board.gridSize
         let pool = letterPool
         let newBoard = await Self.regenerate(size: size, pool: pool, trie: trie, rng: rng)
-        self.board = newBoard.board
         rng = newBoard.rng
         if resetFound { foundSet = [] }
         selectedPath = []
         revealedHints = []
-        boardGeneration += 1
+        install(newBoard.board)
     }
 
     @concurrent
@@ -468,9 +483,9 @@ final class BoggleskyModel {
         let size = board.gridSize
         let pool = letterPool
         let result = await Self.reshuffle(letters: letters, size: size, pool: pool, trie: trie, rng: rng)
-        self.board = result.board
+        guard case .playing = phase else { return }
         rng = result.rng
-        boardGeneration += 1
+        install(result.board)
         applyPenalty(seconds: BoggleskyEngine.shufflePenaltySeconds)
     }
 
@@ -500,9 +515,10 @@ final class BoggleskyModel {
         errorTick += 1
         eventID += 1
         penalty = Penalty(seconds: seconds, id: eventID)
+        let penaltyID = eventID
         Task { [weak self] in
             try? await Task.sleep(for: .seconds(1))
-            self?.penalty = nil
+            if self?.penalty?.id == penaltyID { self?.penalty = nil }
         }
         if timeLeft <= 0 {
             endRound()
@@ -519,9 +535,8 @@ final class BoggleskyModel {
 
     /// Hint-bar rows: every findable word sorted short→long with its display state.
     var hintItems: [HintItem] {
-        guard let board else { return [] }
-        return board.findableWords
-            .sorted { ($0.count, $0) < ($1.count, $1) }
+        guard board != nil else { return [] }
+        return sortedFindableWords
             .map { word in
                 HintItem(
                     word: word,

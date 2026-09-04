@@ -10,7 +10,7 @@ struct TetriskyView: View {
 
     var body: some View {
         ZStack {
-            ThemedBackground()
+            GameStageBackground(game: .tetrisky)
             if let game {
                 TetriskyPhaseView()
                     .environment(game)

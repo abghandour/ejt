@@ -6,6 +6,11 @@ import Observation
 @Observable
 final class SpeechService {
     @ObservationIgnored private let synthesizer = AVSpeechSynthesizer()
+    /// `speechVoices()` is slow and `hasVoice` is called from row bodies, so
+    /// the installed languages are enumerated once.
+    @ObservationIgnored private lazy var voiceLanguages: Set<String> = Set(
+        AVSpeechSynthesisVoice.speechVoices().map { $0.language.lowercased() }
+    )
 
     /// BCP-47 voice language for a game language id.
     nonisolated static func voiceLanguage(for languageID: String) -> String {
@@ -18,10 +23,7 @@ final class SpeechService {
     }
 
     func hasVoice(for languageID: String) -> Bool {
-        let code = Self.voiceLanguage(for: languageID)
-        return AVSpeechSynthesisVoice.speechVoices().contains {
-            $0.language.compare(code, options: .caseInsensitive) == .orderedSame
-        }
+        voiceLanguages.contains(Self.voiceLanguage(for: languageID).lowercased())
     }
 
     func speak(_ text: String, languageID: String) {

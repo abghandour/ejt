@@ -11,7 +11,7 @@ struct BoggleskyView: View {
 
     var body: some View {
         ZStack {
-            ThemedBackground()
+            GameStageBackground(game: .bogglesky)
             if let game {
                 BoggleskyPhaseView(game: game)
                     .environment(game)

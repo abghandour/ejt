@@ -36,28 +36,58 @@ function _alog(msg) {
 
 function getAudioDebug() { return _audioDebug.join('\n'); }
 
-function getAudioCtx() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    _alog('getAudioCtx created, state=' + audioCtx.state);
-  }
+var _ctxFromGesture = false;
+
+function _createAudioCtx(where, fromGesture) {
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  _ctxFromGesture = !!fromGesture;
+  _alog(where + ' created, state=' + audioCtx.state);
   return audioCtx;
 }
 
+function getAudioCtx() {
+  if (!audioCtx || audioCtx.state === 'closed') _createAudioCtx('getAudioCtx');
+  return audioCtx;
+}
+
+function _closeAudioCtx(ctx) {
+  try {
+    if (typeof ctx.close === 'function') {
+      var p = ctx.close();
+      if (p && typeof p.catch === 'function') p.catch(function() {});
+    }
+  } catch(e) {}
+}
+
+function _resumeCtx(ctx) {
+  ctx.resume().then(function() {
+    _alog('resume resolved, state=' + ctx.state);
+    // Only trust this result if the context is still the active one
+    if (ctx === audioCtx && ctx.state === 'running') audioUnlocked = true;
+  }).catch(function(e) {
+    _alog('resume rejected: ' + e);
+  });
+}
+
 function unlockAudio() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    _alog('unlockAudio created, state=' + audioCtx.state);
-  }
   var ctx = audioCtx;
+  if (!ctx || ctx.state === 'closed') {
+    ctx = _createAudioCtx('unlockAudio', true);
+  }
   _alog('unlockAudio called, state=' + ctx.state + ', unlocked=' + audioUnlocked);
   if (ctx.state === 'suspended') {
-    ctx.resume().then(function() {
-      _alog('resume resolved, state=' + ctx.state);
-      audioUnlocked = true;
-    }).catch(function(e) {
-      _alog('resume rejected: ' + e);
-    });
+    _resumeCtx(ctx);
+    // iOS: a context created outside a user gesture (lazily via playTone), or one
+    // that was re-suspended after inactivity, may never leave 'suspended' via resume().
+    // Since we are inside a gesture now, replace it with a fresh context.
+    // A context created by an earlier event of this same tap (touchstart -> touchend -> click)
+    // is still resuming; leave it alone so one tap doesn't churn through several contexts.
+    if (ctx.state !== 'running' && (!_ctxFromGesture || audioUnlocked)) {
+      _closeAudioCtx(ctx);
+      audioUnlocked = false;
+      ctx = _createAudioCtx('unlockAudio (recreate)', true);
+      if (ctx.state === 'suspended') _resumeCtx(ctx);
+    }
   }
   if (!audioUnlocked) {
     try {
@@ -119,9 +149,8 @@ function showMuteHint() {
 function playTone(freq, dur, type, vol, delay) {
   var ctx = getAudioCtx();
   _alog('playTone f=' + freq + ' state=' + ctx.state);
-  if (ctx.state === 'suspended') {
-    ctx.resume().catch(function() {});
-  }
+  // Do not call resume() here: playTone usually runs from timers/game loops (not a user
+  // gesture), where resume() is a no-op on iOS. Gestures are handled by unlockAudio().
   showMuteHint();
   type = type || 'sine';
   vol = vol || 0.1;
@@ -207,7 +236,7 @@ function shareText(text) {
   if (navigator.share) {
     navigator.share({ text: text }).catch(function(){});
   } else if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() { alert('Copied!'); });
+    navigator.clipboard.writeText(text).then(function() { alert('Copied!'); }).catch(function() { prompt('Copy:', text); });
   } else {
     prompt('Copy:', text);
   }

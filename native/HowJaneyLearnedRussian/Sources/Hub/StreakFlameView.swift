@@ -9,12 +9,14 @@ struct StreakFlameView: View {
     @State private var pulse = false
 
     private var streak: Int {
-        model.games
+        _ = model.stats.revision
+        return model.games
             .compactMap { model.stats.stats(game: $0.id, languageID: model.language.id)?.currentStreak }
             .max() ?? 0
     }
 
     var body: some View {
+        let streak = streak
         if streak >= 2 {
             HStack(spacing: 3) {
                 Image(systemName: "flame.fill")

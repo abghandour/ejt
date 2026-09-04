@@ -23,6 +23,10 @@ final class TetriskyModel {
     private(set) var state: TetriskyEngine.State?
     private(set) var startedAt: Date = .now
     private(set) var isPaused = false
+    /// Presentation-only state for a short, continuous fall between board rows.
+    private(set) var previousFalling: TetriskyEngine.Falling?
+    private(set) var fallingMotion = 0
+    private(set) var landingTick = 0
 
     private(set) var selectionTick = 0
     private(set) var successTick = 0
@@ -67,6 +71,9 @@ final class TetriskyModel {
         )
         TetriskyEngine.spawn(&newState, dictionary: dictionary, alphabet: alphabet)
         state = newState
+        previousFalling = nil
+        fallingMotion = 0
+        landingTick = 0
         startedAt = .now
         phase = .playing
         startLoop()
@@ -94,13 +101,16 @@ final class TetriskyModel {
 
     private func move(by delta: Int) {
         guard case .playing = phase, !isPaused, var state, var falling = state.falling else { return }
+        let previousFalling = falling
         let newCol = falling.col + delta
         guard (0..<TetriskyEngine.columns).contains(newCol),
               state.board[falling.row][newCol] == nil
         else { return }
         falling.col = newCol
         state.falling = falling
+        self.previousFalling = previousFalling
         self.state = state
+        fallingMotion += 1
         soundEngine.play(.select(step: 0))
         selectionTick += 1
     }
@@ -114,6 +124,7 @@ final class TetriskyModel {
         soundEngine.play(.explode)
         selectionTick += 1
         resolveLanding(&state)
+        previousFalling = nil
         self.state = state
         afterStep()
     }
@@ -126,8 +137,8 @@ final class TetriskyModel {
             while !Task.isCancelled {
                 let interval = self?.state?.tickMilliseconds ?? 800
                 try? await Task.sleep(for: .milliseconds(interval))
-                guard !Task.isCancelled else { return }
-                self?.tick()
+                guard let self, !Task.isCancelled else { return }
+                self.tick()
             }
         }
     }
@@ -142,6 +153,7 @@ final class TetriskyModel {
 
         if state.falling == nil {
             TetriskyEngine.spawn(&state, dictionary: dictionary, alphabet: alphabet)
+            previousFalling = nil
             self.state = state
             if !state.isAlive {
                 gameOver()
@@ -150,12 +162,16 @@ final class TetriskyModel {
         }
 
         if var falling = state.falling {
+            let previousFalling = falling
             let nextRow = falling.row + 1
             if nextRow >= TetriskyEngine.rows || state.board[nextRow][falling.col] != nil {
                 resolveLanding(&state)
+                self.previousFalling = nil
             } else {
                 falling.row = nextRow
                 state.falling = falling
+                self.previousFalling = previousFalling
+                fallingMotion += 1
             }
         }
         self.state = state
@@ -164,6 +180,7 @@ final class TetriskyModel {
 
     private func resolveLanding(_ state: inout TetriskyEngine.State) {
         let cleared = TetriskyEngine.land(&state, wordSet: wordSet, dictionary: dictionary)
+        landingTick += 1
         if cleared.isEmpty {
             soundEngine.play(.deselect)
         } else {

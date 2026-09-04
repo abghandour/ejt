@@ -1,6 +1,10 @@
 /* ===== LEADERBOARD MODAL ===== */
 /* Call showLeaderboard(game, language, difficulty) from any game page */
 
+function _lbEscape(v) {
+  return String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 function showLeaderboard(game, language, difficulty) {
   // Remove existing modal if any
   var existing = document.getElementById('leaderboard-modal');
@@ -51,8 +55,8 @@ function showLeaderboard(game, language, difficulty) {
       var nameStyle = e.is_me ? 'font-weight:700;color:var(--accent,#c8a830);' : 'color:var(--text-primary,#eee);';
       html += '<tr style="' + rowStyle + '">';
       html += '<td style="padding:8px 4px;font-size:13px;color:var(--text-secondary,#888);">' + e.rank + '</td>';
-      html += '<td style="padding:8px 4px;font-size:14px;' + nameStyle + '">' + e.display_name + '</td>';
-      html += '<td style="padding:8px 4px;font-size:14px;text-align:right;color:var(--text-primary,#eee);font-weight:700;">' + e.score + '</td>';
+      html += '<td style="padding:8px 4px;font-size:14px;' + nameStyle + '">' + _lbEscape(e.display_name) + '</td>';
+      html += '<td style="padding:8px 4px;font-size:14px;text-align:right;color:var(--text-primary,#eee);font-weight:700;">' + _lbEscape(e.score) + '</td>';
       html += '</tr>';
     });
     html += '</table>';

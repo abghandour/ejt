@@ -108,6 +108,9 @@ struct TetriskyTargetView: View {
 struct TetriskyBoardView: View {
     @Environment(TetriskyModel.self) private var game
     @Environment(\.theme) private var theme
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var fallingProgress = 1.0
+    @State private var landingScale = 1.0
 
     var body: some View {
         Canvas { context, size in
@@ -129,8 +132,7 @@ struct TetriskyBoardView: View {
 
             // A lit, beveled cube: shadowed body, four bevel faces (light from
             // the top-left), a gradient front face, and a specular top edge.
-            func drawTile(row: Int, col: Int, letter: Character, fill: Color, text: Color) {
-                let tileRect = rect(row: row, col: col)
+            func drawTile(in tileRect: CGRect, letter: Character, fill: Color, text: Color) {
                 let bevel = max(2.5, cell * 0.14)
                 let outer = Path(roundedRect: tileRect, cornerRadius: 3)
                 let face = tileRect.insetBy(dx: bevel, dy: bevel)
@@ -208,7 +210,7 @@ struct TetriskyBoardView: View {
             for r in 0..<TetriskyEngine.rows {
                 for c in 0..<TetriskyEngine.columns {
                     if let letter = state.board[r][c] {
-                        drawTile(row: r, col: c, letter: letter, fill: theme.tileTop, text: theme.textPrimary)
+                        drawTile(in: rect(row: r, col: c), letter: letter, fill: theme.tileTop, text: theme.textPrimary)
                     }
                 }
             }
@@ -222,7 +224,43 @@ struct TetriskyBoardView: View {
                         style: StrokeStyle(lineWidth: 1.5, dash: [4, 3])
                     )
                 }
-                drawTile(row: falling.row, col: falling.col, letter: falling.letter, fill: theme.accent, text: theme.bgPrimary)
+                let targetRect = rect(row: falling.row, col: falling.col)
+                let visualRect: CGRect
+                if let previous = game.previousFalling, !reduceMotion {
+                    let previousRect = rect(row: previous.row, col: previous.col)
+                    visualRect = CGRect(
+                        x: previousRect.minX + (targetRect.minX - previousRect.minX) * fallingProgress,
+                        y: previousRect.minY + (targetRect.minY - previousRect.minY) * fallingProgress,
+                        width: targetRect.width,
+                        height: targetRect.height
+                    )
+                } else {
+                    visualRect = targetRect
+                }
+                drawTile(in: visualRect, letter: falling.letter, fill: theme.accent, text: theme.bgPrimary)
+            }
+        }
+        .scaleEffect(landingScale)
+        .onChange(of: game.fallingMotion) { _, _ in
+            guard !reduceMotion else {
+                fallingProgress = 1
+                return
+            }
+            fallingProgress = 0
+            withAnimation(Design.arcadeStep) {
+                fallingProgress = 1
+            }
+        }
+        .onChange(of: game.landingTick) { _, _ in
+            guard !reduceMotion else { return }
+            withAnimation(.spring(duration: 0.16, bounce: 0.42)) {
+                landingScale = 1.018
+            }
+            Task {
+                try? await Task.sleep(nanoseconds: 150_000_000)
+                withAnimation(.easeOut(duration: 0.16)) {
+                    landingScale = 1
+                }
             }
         }
         .accessibilityElement()

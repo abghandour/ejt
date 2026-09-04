@@ -10,7 +10,7 @@ struct ScramblisyView: View {
 
     var body: some View {
         ZStack {
-            ThemedBackground()
+            GameStageBackground(game: .scramblisky)
             if let game {
                 ScramblisyPhaseView()
                     .environment(game)

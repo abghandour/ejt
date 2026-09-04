@@ -24,6 +24,10 @@ final class SnakeskyModel {
     private(set) var startedAt: Date = .now
     private(set) var deathCause: SnakeskyEngine.Collision?
     private(set) var isPaused = false
+    /// Presentation-only movement data lets the canvas travel between grid
+    /// cells instead of visibly teleporting every game tick.
+    private(set) var previousHead: SnakeskyEngine.Point?
+    private(set) var movementTick = 0
 
     private(set) var selectionTick = 0
     private(set) var successTick = 0
@@ -49,6 +53,7 @@ final class SnakeskyModel {
             dictionary = try await dictionaryStore.dictionary(for: language, game: "snakesky").entries
             // Show a preview board behind the start screen, like the web.
             state = SnakeskyEngine.makeState(dictionary: dictionary, seed: 42)
+            previousHead = state?.snake.first
             phase = .start
         } catch {
             phase = .failed(error.localizedDescription)
@@ -58,6 +63,8 @@ final class SnakeskyModel {
     func startRound() {
         guard !dictionary.isEmpty else { return }
         state = SnakeskyEngine.makeState(dictionary: dictionary, seed: Int.random(in: Int.min...Int.max))
+        previousHead = state?.snake.first
+        movementTick = 0
         deathCause = nil
         startedAt = .now
         phase = .playing
@@ -87,8 +94,8 @@ final class SnakeskyModel {
         loopTask = Task { [weak self] in
             while !Task.isCancelled {
                 try? await Task.sleep(for: .milliseconds(interval))
-                guard !Task.isCancelled else { return }
-                self?.tick()
+                guard let self, !Task.isCancelled else { return }
+                self.tick()
             }
         }
     }
@@ -100,8 +107,11 @@ final class SnakeskyModel {
 
     private func tick() {
         guard case .playing = phase, !isPaused, var state else { return }
+        let previousHead = state.snake.first
         let outcome = SnakeskyEngine.step(&state)
+        self.previousHead = previousHead
         self.state = state
+        movementTick += 1
 
         switch outcome {
         case .moved:

@@ -164,8 +164,8 @@ final class SlashskyModel {
         loopTask = Task { [weak self] in
             while !Task.isCancelled {
                 try? await Task.sleep(for: .milliseconds(16))
-                guard !Task.isCancelled else { return }
-                self?.step()
+                guard let self, !Task.isCancelled else { return }
+                self.step()
             }
         }
     }
@@ -226,22 +226,34 @@ final class SlashskyModel {
         self.state = state
 
         // Age the ephemera: fragments tumble, popups float, bursts sparkle.
-        for index in fragments.indices {
-            fragments[index].age += dt
-            fragments[index].vy += 900 * dt
-            fragments[index].x += fragments[index].vx * dt
-            fragments[index].y += fragments[index].vy * dt
-            fragments[index].rotation += fragments[index].spin * dt
+        if !fragments.isEmpty {
+            var updated = fragments
+            for index in updated.indices {
+                updated[index].age += dt
+                updated[index].vy += 900 * dt
+                updated[index].x += updated[index].vx * dt
+                updated[index].y += updated[index].vy * dt
+                updated[index].rotation += updated[index].spin * dt
+            }
+            updated.removeAll { $0.age >= WordFragment.lifetime }
+            fragments = updated
         }
-        fragments.removeAll { $0.age >= WordFragment.lifetime }
-        for index in popups.indices {
-            popups[index].age += dt
+        if !popups.isEmpty {
+            var updated = popups
+            for index in updated.indices {
+                updated[index].age += dt
+            }
+            updated.removeAll { $0.age >= SlashPopup.lifetime }
+            popups = updated
         }
-        popups.removeAll { $0.age >= SlashPopup.lifetime }
-        for index in bursts.indices {
-            bursts[index].age += dt
+        if !bursts.isEmpty {
+            var updated = bursts
+            for index in updated.indices {
+                updated[index].age += dt
+            }
+            updated.removeAll { $0.age >= SlashBurst.lifetime }
+            bursts = updated
         }
-        bursts.removeAll { $0.age >= SlashBurst.lifetime }
 
         // Fade the swipe trail.
         if !trailPoints.isEmpty, trailPoints.count > 24 {
@@ -284,7 +296,7 @@ final class SlashskyModel {
     }
 
     private func slash(_ word: SlashskyEngine.FlyingWord, from p1: CGPoint, to p2: CGPoint) {
-        guard var state, let dictionary else { return }
+        guard case .playing = phase, var state, let dictionary else { return }
         SlashskyEngine.processSlash(&state, type: word.type, synonymWord: word.text)
 
         // The blade cuts through the word center along the swipe direction.

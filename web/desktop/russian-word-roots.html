@@ -398,7 +398,9 @@ async function fetchWikiImage(wikiUrl) {
     return url;
   } catch { return ''; }
 }
+let triviaToken = 0;
 function showTrivia(city) {
+  const token = ++triviaToken;
   const cityName = document.getElementById('trivia-city-name');
   const triviaText = document.getElementById('trivia-text');
   const img = document.getElementById('trivia-img');
@@ -420,7 +422,7 @@ function showTrivia(city) {
   // City photo (circle image at top)
   img.src = '';
   if (city.wiki) {
-    fetchWikiImage(city.wiki).then(url => { if (url) img.src = url; });
+    fetchWikiImage(city.wiki).then(url => { if (url && token === triviaToken) img.src = url; });
   }
 
   // Famous person section
@@ -437,7 +439,7 @@ function showTrivia(city) {
     personFame.textContent = person.fame;
     personImg.src = '';
     if (person.wiki) {
-      fetchWikiImage(person.wiki).then(url => { if (url) personImg.src = url; });
+      fetchWikiImage(person.wiki).then(url => { if (url && token === triviaToken) personImg.src = url; });
     }
   } else {
     divider.style.display = 'none';
@@ -541,7 +543,7 @@ function saveGame() {
     score, correctCount, wrongCount, rootsMastered,
     visitedCities, wordHistory,
     currentRoot, currentWordQueue, currentWordIndex,
-    allRootsRemaining: allRoots,
+    allRootsRemaining: allRoots.map(r => r.rootName),
     cityIdx: cityIdx >= 0 ? cityIdx : 1,
     gameActive
   };
@@ -557,12 +559,15 @@ function loadSave() {
 
 // ==================== GAME FLOW ====================
 let rootsMastered = 0;
+let gameGen = 0; // bumped on every start/resume; stale async flows check it and bail
 
 function confirmRestart() {
   if (confirm('Весь прогресс будет потерян. Начать заново?\n(all progress will be lost. restart?)')) { clearSave(); startGame(); }
 }
 
 async function startGame() {
+  const gen = ++gameGen;
+  if (audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
   overlay.classList.add('hidden');
   score = 0; correctCount = 0; wrongCount = 0; rootsMastered = 0; visitedCities = []; cityPool = []; wordHistory = []; currentHistoryRoot = null;
   currentCity = CITIES[1]; trainX = W * 0.3; scenePhase = 'stopped'; scrollX = 0;
@@ -573,12 +578,14 @@ async function startGame() {
   document.getElementById('visited-list').innerHTML = '';
   document.getElementById('history-list').innerHTML = '';
   resetTrivia();
-  await loadData(); await playNextRoot();
+  await loadData(); if (gen !== gameGen) return;
+  await playNextRoot();
 }
 
 async function resumeGame(saved) {
+  const gen = ++gameGen;
   overlay.classList.add('hidden');
-  await loadData();
+  await loadData(); if (gen !== gameGen) return;
   // Restore state
   score = saved.score; correctCount = saved.correctCount; wrongCount = saved.wrongCount;
   rootsMastered = saved.rootsMastered;
@@ -587,7 +594,9 @@ async function resumeGame(saved) {
   currentRoot = saved.currentRoot;
   currentWordQueue = saved.currentWordQueue || [];
   currentWordIndex = saved.currentWordIndex || 0;
-  allRoots = saved.allRootsRemaining || [...allData];
+  allRoots = saved.allRootsRemaining
+    ? saved.allRootsRemaining.map(r => typeof r === 'string' ? allData.find(d => d.rootName === r) : r).filter(Boolean)
+    : [...allData];
   gameActive = true;
   // Restore current history root reference (last entry in wordHistory)
   currentHistoryRoot = wordHistory.length > 0 ? wordHistory[wordHistory.length - 1] : null;
@@ -612,16 +621,17 @@ async function resumeGame(saved) {
 function resetTrivia() {
   document.getElementById('trivia-city-name').innerHTML = 'Начните игру...<br><span class="en">(start the game...)</span>';
   document.getElementById('trivia-text').innerHTML = 'Путешествуйте по Советскому Союзу на поезде и учите корни русских слов.<br><span class="en" style="font-size:13px">travel across the Soviet Union by train and learn Russian word roots.</span>';
-  document.getElementById('trivia-img').src = 'hero.png';
+  document.getElementById('trivia-img').src = '../shared/assets/hero.png';
   document.getElementById('trivia-divider').style.display = 'none';
   document.getElementById('trivia-person-section').style.display = 'none';
 }
 async function playNextRoot() {
   if (!gameActive) return;
+  const gen = gameGen;
   if (allRoots.length === 0) allRoots = [...allData];
   const idx = Math.floor(Math.random() * allRoots.length);
   currentRoot = allRoots.splice(idx, 1)[0];
-  currentWordQueue = shuffleArray(currentRoot.children);
+  currentWordQueue = shuffleArray(currentRoot.children).map(c => ({ ...c }));
   currentWordIndex = 0;
   rootLabel.innerHTML = `Корень <span class="en-sm">(root)</span>: <span class="root-badge">${currentRoot.rootName.replace('корень_', '-')}-</span> <span class="en">(${currentRoot.rootTranslation})</span>`;
   depthDisplay.textContent = `${currentWordIndex} / ${currentWordQueue.length}`;
@@ -631,8 +641,9 @@ async function playNextRoot() {
   renderWordHistory();
   // Travel to a new city for each new root
   const city = pickNextCity();
-  if (currentCity) { await departCity(); await travelBetweenCities(currentCity, city); }
-  await arriveAtCity(city); saveGame(); await presentCurrentWord();
+  if (currentCity) { await departCity(); if (gen !== gameGen) return; await travelBetweenCities(currentCity, city); if (gen !== gameGen) return; }
+  await arriveAtCity(city); if (gen !== gameGen) return;
+  saveGame(); await presentCurrentWord();
 }
 function showRootMastered() {
   return new Promise(resolve => {
@@ -647,17 +658,20 @@ function showRootMastered() {
     document.getElementById('restart-btn').style.display = 'none';
     overlay.classList.remove('hidden');
     // Auto-dismiss after 2.5s
-    setTimeout(() => { overlay.classList.add('hidden'); resolve(); }, 2500);
+    const gen = gameGen;
+    setTimeout(() => { if (gen === gameGen) overlay.classList.add('hidden'); resolve(); }, 2500);
   });
 }
 async function presentCurrentWord() {
+  const gen = gameGen;
   if (currentWordIndex >= currentWordQueue.length) {
     // All words in this root guessed — show mastered popup
     rootsMastered++;
     wordDisplay.classList.remove('visible'); choicesArea.innerHTML = '';
     setFeedback('', 'info');
-    soundCorrect(); await wait(300); soundCorrect();
-    await showRootMastered();
+    soundCorrect(); await wait(300); if (gen !== gameGen) return;
+    soundCorrect();
+    await showRootMastered(); if (gen !== gameGen) return;
     await playNextRoot();
     return;
   }
@@ -674,6 +688,7 @@ function disableAllChoices() { choicesArea.querySelectorAll('.choice-btn').forEa
 
 async function handleChoice(btn, chosen, correct) {
   if (!waitingForAnswer) return;
+  const gen = gameGen;
   if (chosen === correct) {
     waitingForAnswer = false; disableAllChoices();
     soundCorrect(); btn.classList.add('correct-pick');
@@ -684,9 +699,9 @@ async function handleChoice(btn, chosen, correct) {
       if (currentHistoryRoot) { currentHistoryRoot.words.push({ word: currentWord.word, translation: currentWord.translation, correct: true }); renderWordHistory(); }
     }
     feedback.innerHTML = 'Правильно! <span class="en">(correct!)</span>' + (currentWord._markedWrong ? '' : ' +10'); feedback.className = 'correct';
-    saveGame();
-    await wait(800); wordDisplay.classList.remove('visible'); choicesArea.innerHTML = ''; await wait(300);
-    currentWordIndex++;
+    currentWordIndex++; saveGame();
+    await wait(800); if (gen !== gameGen) return;
+    wordDisplay.classList.remove('visible'); choicesArea.innerHTML = ''; await wait(300); if (gen !== gameGen) return;
     await presentCurrentWord();
   } else {
     soundWrong(); btn.classList.add('wrong-pick'); btn.disabled = true;

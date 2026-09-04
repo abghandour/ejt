@@ -23,12 +23,19 @@ struct TriviaImageView: View {
         }
     }
 
+    /// Decoded images keyed by "<lang>/<name>"; the card re-renders on every
+    /// answer tap, so without this each render re-read and re-decoded the file.
+    private static let cache = NSCache<NSString, UIImage>()
+
     private var loadedImage: UIImage? {
+        let key = "\(languageID)/\(imageName)" as NSString
+        if let cached = Self.cache.object(forKey: key) { return cached }
         guard let url = Bundle.main.url(
             forResource: (imageName as NSString).deletingPathExtension,
             withExtension: (imageName as NSString).pathExtension,
             subdirectory: "TriviaImages/\(languageID)"
-        ) else { return nil }
-        return UIImage(contentsOfFile: url.path)
+        ), let image = UIImage(contentsOfFile: url.path) else { return nil }
+        Self.cache.setObject(image, forKey: key)
+        return image
     }
 }

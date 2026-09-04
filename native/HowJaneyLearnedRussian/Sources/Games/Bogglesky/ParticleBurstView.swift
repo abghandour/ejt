@@ -6,6 +6,7 @@ struct ParticleBurstView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     let burst: BoggleskyModel.Burst
     let geometry: BoggleGridGeometry
+    @State private var start: Date = .now
 
     private static let lifetime = 0.7
 
@@ -44,7 +45,6 @@ struct ParticleBurstView: View {
             EmptyView()
         } else {
             let items = particles
-            let start = Date.now
             TimelineView(.animation) { timeline in
                 Canvas { context, _ in
                     let t = timeline.date.timeIntervalSince(start)

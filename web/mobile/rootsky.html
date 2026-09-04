@@ -1333,7 +1333,8 @@
     if (timerPaused) {
       timerStartedAt = Date.now();
       timerPaused = false;
-      wordStartMs = getElapsedMs();
+      // Do not reset wordStartMs here: elapsed time is frozen while paused, so the
+      // current word's partial time is preserved across pause/resume.
     }
     if (!timerInterval) {
       timerInterval = setInterval(updateClockDisplay, 250);
@@ -2203,6 +2204,8 @@
     var overlay = document.getElementById('calendar-overlay');
     soundModalClose();
     overlay.classList.add('hidden');
+    // openCalendar paused the clock; resume it if a game is still in progress
+    if (isGameActive && gameState.started && !gameState.completed && !isReviewMode) resumeTimer();
   }
 
   function openCalendar() {

@@ -364,6 +364,7 @@ var LETTER_POOL = 'оооооооеееееееаааааааииииииннн�
 // ===== DICTIONARY =====
 var dictionary = [];
 var wordMap = {}; // word -> translation
+var wordTrie = null; // built lazily from wordMap, reused across board generations
 
 // ===== GAME STATE =====
 var game = null;
@@ -434,26 +435,30 @@ function findAllWords(letters, size) {
     adj.push(getNeighbors(i, size));
   }
 
-  // Build a trie from dictionary for efficient prefix checking
-  var trie = {};
-  for (var w in wordMap) {
-    if (w.length < minLen || w.length > letters.length) continue;
-    var node = trie;
-    for (var ci = 0; ci < w.length; ci++) {
-      var ch = w[ci];
-      if (!node[ch]) node[ch] = {};
-      node = node[ch];
+  // Build a trie from dictionary for efficient prefix checking (cached; wordMap is static after load)
+  if (!wordTrie) {
+    wordTrie = {};
+    for (var w in wordMap) {
+      var node = wordTrie;
+      for (var ci = 0; ci < w.length; ci++) {
+        var ch = w[ci];
+        if (!node[ch]) node[ch] = {};
+        node = node[ch];
+      }
+      node['$'] = w;
     }
-    node['$'] = w;
   }
+  var trie = wordTrie;
+  var maxLen = letters.length;
 
   // DFS from each cell
   function dfs(idx, visited, node) {
     var ch = letters[idx];
     if (!node[ch]) return;
     var next = node[ch];
-    if (next['$'] && !found[next['$']]) {
-      found[next['$']] = true;
+    var hit = next['$'];
+    if (hit && hit.length >= minLen && hit.length <= maxLen && !found[hit]) {
+      found[hit] = true;
     }
     visited[idx] = true;
     var nbrs = adj[idx];
@@ -1087,7 +1092,10 @@ document.getElementById('btn-share').addEventListener('click', function() {
 });
 
 // ===== GRID EVENT LISTENERS =====
+var gridListenersAttached = false;
 function setupGridListeners() {
+  if (gridListenersAttached) return;
+  gridListenersAttached = true;
   var grid = document.getElementById('letter-grid');
 
   grid.addEventListener('touchstart', function(e) {

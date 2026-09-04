@@ -111,6 +111,8 @@ struct SnakeWordHeaderView: View {
 struct SnakeBoardView: View {
     @Environment(SnakeskyModel.self) private var game
     @Environment(\.theme) private var theme
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var headProgress = 1.0
 
     var body: some View {
         Canvas { context, size in
@@ -120,13 +122,17 @@ struct SnakeBoardView: View {
             let originX = (size.width - cell * Double(n)) / 2
             let originY = (size.height - cell * Double(n)) / 2
 
-            func rect(_ point: SnakeskyEngine.Point, inset: Double = 1) -> CGRect {
+            func rect(x: Double, y: Double, inset: Double = 1) -> CGRect {
                 CGRect(
-                    x: originX + Double(point.x) * cell + inset,
-                    y: originY + Double(point.y) * cell + inset,
+                    x: originX + x * cell + inset,
+                    y: originY + y * cell + inset,
                     width: cell - inset * 2,
                     height: cell - inset * 2
                 )
+            }
+
+            func rect(_ point: SnakeskyEngine.Point, inset: Double = 1) -> CGRect {
+                rect(x: Double(point.x), y: Double(point.y), inset: inset)
             }
 
             // Board background + border.
@@ -163,8 +169,28 @@ struct SnakeBoardView: View {
                 )
             }
             if let head = state.snake.first {
-                let headRect = rect(head, inset: 1)
+                let previousHead = game.previousHead ?? head
+                let x = Double(previousHead.x) + Double(head.x - previousHead.x) * headProgress
+                let y = Double(previousHead.y) + Double(head.y - previousHead.y) * headProgress
+                let headRect = rect(x: x, y: y, inset: 1)
+
+                if previousHead != head, !reduceMotion {
+                    context.fill(
+                        Path(roundedRect: rect(previousHead, inset: 3), cornerRadius: 3),
+                        with: .color(theme.accent.opacity(0.18 * (1 - headProgress)))
+                    )
+                }
                 context.fill(Path(roundedRect: headRect, cornerRadius: 4), with: .color(theme.accent))
+            }
+        }
+        .onChange(of: game.movementTick) { _, _ in
+            guard !reduceMotion else {
+                headProgress = 1
+                return
+            }
+            headProgress = 0
+            withAnimation(Design.arcadeStep) {
+                headProgress = 1
             }
         }
         .accessibilityElement()

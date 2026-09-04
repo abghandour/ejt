@@ -210,7 +210,7 @@ final class ScramblisyModel {
     }
 
     func selectLetter(_ index: Int) {
-        guard case .playing = phase, !isPaused, !isTransitioning, let currentWord else { return }
+        guard case .playing = phase, !isPaused, !isTransitioning, slotFlash == nil, let currentWord else { return }
         guard !selectedIndices.contains(index) else { return }
         guard selectedIndices.count < currentWord.word.count else { return }
 
@@ -229,7 +229,7 @@ final class ScramblisyModel {
     }
 
     func removeSlot(at position: Int) {
-        guard case .playing = phase, !isPaused, !isTransitioning else { return }
+        guard case .playing = phase, !isPaused, !isTransitioning, slotFlash == nil else { return }
         guard selectedIndices.indices.contains(position) else { return }
         pendingCheck?.cancel()
         selectedIndices.remove(at: position)
@@ -238,7 +238,7 @@ final class ScramblisyModel {
     }
 
     func clearSelection() {
-        guard case .playing = phase, !isPaused, !isTransitioning, !selectedIndices.isEmpty else { return }
+        guard case .playing = phase, !isPaused, !isTransitioning, slotFlash == nil, !selectedIndices.isEmpty else { return }
         pendingCheck?.cancel()
         selectedIndices = []
         soundEngine.play(.deselect)
@@ -251,7 +251,7 @@ final class ScramblisyModel {
     }
 
     func skipWord() {
-        guard case .playing = phase, !isPaused, !isTransitioning else { return }
+        guard case .playing = phase, !isPaused, !isTransitioning, slotFlash == nil else { return }
         soundEngine.play(.penalty)
         wordsSkipped += 1
         solveStreak = 0
@@ -262,7 +262,7 @@ final class ScramblisyModel {
     }
 
     private func checkAnswer() {
-        guard case .playing = phase, !isTransitioning, let currentWord else { return }
+        guard case .playing = phase, !isTransitioning, slotFlash == nil, let currentWord else { return }
         let attempt = String(selectedIndices.map { scrambledLetters[$0] })
 
         if attempt == currentWord.word.lowercased() {
@@ -331,9 +331,10 @@ final class ScramblisyModel {
         errorTick += 1
         eventID += 1
         penalty = BoggleskyModel.Penalty(seconds: seconds, id: eventID)
+        let penaltyID = eventID
         Task { [weak self] in
             try? await Task.sleep(for: .seconds(1))
-            self?.penalty = nil
+            if self?.penalty?.id == penaltyID { self?.penalty = nil }
         }
         if timeLeft <= 0 {
             endRound()
@@ -347,8 +348,8 @@ final class ScramblisyModel {
         timerTask = Task { [weak self] in
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(1))
-                guard !Task.isCancelled else { return }
-                self?.tick()
+                guard !Task.isCancelled, let self else { return }
+                self.tick()
             }
         }
     }

@@ -39,22 +39,39 @@ struct ScrambleTileView: View {
 
     var body: some View {
         Button(action: select) {
-            Text(letter)
-                .font(.system(size: 32, weight: .bold, design: .rounded))
-                .foregroundStyle(theme.textPrimary)
-                .frame(width: Self.tileSize, height: Self.tileSize)
-                .background(theme.tileGradient, in: .rect(cornerRadius: Design.tileCornerRadius))
-                .overlay(
-                    RoundedRectangle(cornerRadius: Design.tileCornerRadius)
-                        .strokeBorder(theme.tileBorder, lineWidth: 2)
-                )
-                .shadow(color: .black.opacity(0.25), radius: 3, y: 2)
+            ZStack(alignment: .topTrailing) {
+                RoundedRectangle(cornerRadius: Design.tileCornerRadius, style: .continuous)
+                    .fill(theme.surface)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: Design.tileCornerRadius, style: .continuous)
+                            .stroke(theme.tileBorder, lineWidth: 2)
+                    }
+                    .overlay(alignment: .bottom) {
+                        Capsule()
+                            .fill(theme.accent.opacity(0.52))
+                            .frame(width: 30, height: 3)
+                            .padding(.bottom, 7)
+                    }
+
+                Text(letter)
+                    .font(.system(size: 32, weight: .black, design: .rounded))
+                    .foregroundStyle(theme.textPrimary)
+                    .shadow(color: .white.opacity(0.38), radius: 0, x: 0, y: 1)
+
+                Text("\(index + 1)")
+                    .font(.caption2.weight(.black))
+                    .foregroundStyle(theme.textMuted)
+                    .padding(7)
+                    .accessibilityHidden(true)
+            }
+            .frame(width: Self.tileSize, height: Self.tileSize)
+            .shadow(color: theme.textPrimary.opacity(0.24), radius: 4, y: 3)
         }
         .buttonStyle(.plain)
         .disabled(isUsed || game.isTransitioning)
         .opacity(tileOpacity)
         .scaleEffect(tileScale)
-        .rotationEffect(.degrees(exploded ? explosionSpin : 0))
+        .rotationEffect(.degrees(exploded ? explosionSpin : restingTilt))
         .offset(exploded ? explosionOffset : .zero)
         .animation(Design.snappy, value: isUsed)
         .onChange(of: game.wordGeneration, initial: true) {
@@ -94,6 +111,10 @@ struct ScrambleTileView: View {
         guard !reduceMotion else { return 0 }
         var rng = SeedEngine(seed: index &* 31 &+ game.explosionTrigger)
         return rng.next() * 360 - 180
+    }
+
+    private var restingTilt: Double {
+        Double((index % 3) - 1) * 1.4
     }
 
     private func animateIn() {

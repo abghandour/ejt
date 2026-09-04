@@ -580,7 +580,10 @@ function checkAnswer() {
     game.completedWords.push(game.currentWord);
     updateUI();
 
+    // Lock input until the transition runs so the answer can't be cleared/re-submitted or skipped meanwhile
+    isTransitioning = true;
     setTimeout(function() {
+      isTransitioning = false;
       transitionToNextWord();
     }, 500);
   } else {
@@ -591,7 +594,9 @@ function checkAnswer() {
     applyPenalty(game.wrongPenalty);
 
     if (game.timeLeft > 0) {
+      isTransitioning = true;
       setTimeout(function() {
+        isTransitioning = false;
         transitionToNextWord();
       }, 500);
     }
@@ -824,7 +829,7 @@ document.addEventListener('keydown', function(e) {
     return;
   }
   var ch = e.key.toLowerCase();
-  if (/^[а-яё]$/.test(ch)) {
+  if (ch.length === 1) {
     for (var i = 0; i < game.scrambledLetters.length; i++) {
       if (game.scrambledLetters[i] === ch && game.selectedIndices.indexOf(i) === -1) {
         selectLetter(i);
@@ -836,6 +841,7 @@ document.addEventListener('keydown', function(e) {
 
 // ===== START GAME =====
 function startGame() {
+  isTransitioning = false;
   game = initGame();
   game.currentWord = getCurrentWord();
   game.scrambledLetters = shuffleArray(game.currentWord.word.toLowerCase().split(''));

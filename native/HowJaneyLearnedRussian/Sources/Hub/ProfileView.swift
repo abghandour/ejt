@@ -32,7 +32,7 @@ struct ProfileView: View {
                 }
             }
             .task(renderScorecard)
-            .onChange(of: model.stats.allStats().count) {
+            .onChange(of: model.stats.revision) {
                 Task { await renderScorecard() }
             }
         }

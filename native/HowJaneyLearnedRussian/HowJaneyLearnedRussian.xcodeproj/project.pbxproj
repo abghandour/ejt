@@ -28,6 +28,7 @@
 		2B6624290DD7DA2387F66C22 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627AE9CC8317B9607BCAC0A7 /* AppSettings.swift */; };
 		2BD27D557F53F2BDE2FA5BF1 /* StreakFlameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED3DBE7D634AF3ABA194CE /* StreakFlameView.swift */; };
 		2D0F3ECFAE83A1B959160F61 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E299F151DA08FD025D1253BE /* SoundEffect.swift */; };
+		2DBE8C82ED0A2C8D515B1032 /* ProgressCelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4FDED3648ADFBEE0E2A871 /* ProgressCelebrationView.swift */; };
 		30800DE223CE5A8C3944AD35 /* ScramblisyEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931816455B74A2334E1C52E /* ScramblisyEndView.swift */; };
 		313B0CF071670FB6EC747256 /* AnswerSlotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB30C31AB14914D425520 /* AnswerSlotsView.swift */; };
 		31FEBAC17E0E8DCB1AA26835 /* CloudKitSchemaInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D873B5D864019A971BCE40 /* CloudKitSchemaInitializer.swift */; };
@@ -51,6 +52,7 @@
 		4E0B28117B1363401B0C0763 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647DF8E075F64B87D8475F0 /* GameInfo.swift */; };
 		4E92C90A4D4AB040796D3481 /* SnakeskyPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2EE7DB26D48E122DD25ED8 /* SnakeskyPlayView.swift */; };
 		51F5648485CBF701AD5B158F /* ThemeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20F1537CD9F0409E8A0C612 /* ThemeSelection.swift */; };
+		56816AC893CA6221C39307F6 /* DailyMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFB53BBA688B64775D6C016 /* DailyMission.swift */; };
 		57DE71309F4FA265BC53136F /* TriviaAnswerGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CDC14EEAB880F0D0374BE4 /* TriviaAnswerGridView.swift */; };
 		57EA011A04C86CBFFC8D6684 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6FD72FC9150F6AE810875 /* StoreService.swift */; };
 		593319D03A465E4F1BC1B154 /* LetterRackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BD2DE73CED76FA84CDD75 /* LetterRackView.swift */; };
@@ -78,6 +80,7 @@
 		7F053F86EC4C06131F4E485F /* ScramblisyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C36D4EF37BBF15F7046AE9 /* ScramblisyModel.swift */; };
 		8229A0DB497A9B7D5324941E /* FoundWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F23EE3E14A27FEC6AD6C50 /* FoundWord.swift */; };
 		865B4EB73C4904E2646656B7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9490EA85359DB7AE636E578C /* Theme.swift */; };
+		86876C00EFBA0C41AA741B51 /* GameStageBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE5CA8BD63F7B89AD62F50 /* GameStageBackground.swift */; };
 		889D8E93056120844ED1D449 /* LanguageCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C30CFA60E69F05BCE7C5B07 /* LanguageCatalog.swift */; };
 		88AAF05E83EFF2D8C16C2A0C /* TriviaPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56D68555D7B7EAF0D1D3FC /* TriviaPlayView.swift */; };
 		8C958D8373176435A97DC62D /* GameCenterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83D6B76E2BA989052ACC44F /* GameCenterService.swift */; };
@@ -143,6 +146,7 @@
 		EA9AF5A252CE6AE78A3BA97C /* MeddleyskyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB7952D402D83CCBEB833 /* MeddleyskyView.swift */; };
 		EAA22CAC8CEC706CD7990182 /* BoggleskyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B44D96B1F6204FC6227A /* BoggleskyView.swift */; };
 		ECAD4F4874E9B239B1481587 /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 42FC7F2ECBD1A953CBC63778 /* languages.json */; };
+		ECDB63B4EAC56B04A1534034 /* ExpeditionPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638879E05EBD8528B46EB885 /* ExpeditionPanel.swift */; };
 		ED7BA789002A39689F37BEC3 /* TriviaImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7778BF7EEB27B4FEC0E982 /* TriviaImageView.swift */; };
 		F30A30C1E31A2A315AB69DE5 /* SlashskyPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E5B84DA130E3D8E7F6778 /* SlashskyPlayView.swift */; };
 		F4214E384B63C0EC4F306FAE /* TriviaLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865EB23E42B3B9B36A8540C /* TriviaLogicTests.swift */; };
@@ -206,6 +210,7 @@
 		3133FE6E6E89358369CAB93A /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		33128D981B78F84574337369 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Sources/Resources/Fonts; sourceTree = SOURCE_ROOT; };
 		3376077CB8EFF3EE1D6592B7 /* TriviaStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaStartView.swift; sourceTree = "<group>"; };
+		33FE5CA8BD63F7B89AD62F50 /* GameStageBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStageBackground.swift; sourceTree = "<group>"; };
 		342081BADB7BCFD1F09723F7 /* RootskyStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyStartView.swift; sourceTree = "<group>"; };
 		35AF793A90D27941A4E77B06 /* LearnedWordRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedWordRecord.swift; sourceTree = "<group>"; };
 		36BC05A02EBC62E1936E87C7 /* SlashskyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlashskyStore.swift; sourceTree = "<group>"; };
@@ -231,7 +236,9 @@
 		5F5D8B601B4E5AFE65B76C04 /* WordBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBookView.swift; sourceTree = "<group>"; };
 		625F1F6CA7166E47C834C818 /* RootskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyModel.swift; sourceTree = "<group>"; };
 		627AE9CC8317B9607BCAC0A7 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		638879E05EBD8528B46EB885 /* ExpeditionPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionPanel.swift; sourceTree = "<group>"; };
 		64AC647B7B864883CB1A75AC /* HowJaneyLearnedRussianTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HowJaneyLearnedRussianTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C4FDED3648ADFBEE0E2A871 /* ProgressCelebrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCelebrationView.swift; sourceTree = "<group>"; };
 		6D3D396E6C217B28A43E2FF4 /* HolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayTests.swift; sourceTree = "<group>"; };
 		6F0C115C72EF13AD0CFEDCDD /* ScramblisyLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScramblisyLogicTests.swift; sourceTree = "<group>"; };
 		6F2EE7DB26D48E122DD25ED8 /* SnakeskyPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeskyPlayView.swift; sourceTree = "<group>"; };
@@ -313,6 +320,7 @@
 		EE3ECD69B13281E22A1E5CE1 /* StreakReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakReminderService.swift; sourceTree = "<group>"; };
 		F466A8C3AF4B7D62F81B60D4 /* SnakeskyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeskyView.swift; sourceTree = "<group>"; };
 		FC22BA0A1BEE9D7C711EDC93 /* BoggleskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoggleskyModel.swift; sourceTree = "<group>"; };
+		FCFB53BBA688B64775D6C016 /* DailyMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -378,6 +386,7 @@
 		52BCF28AF595F908CB343E65 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				FCFB53BBA688B64775D6C016 /* DailyMission.swift */,
 				E90F404B8F714E52CD8AAE85 /* DictionaryStore.swift */,
 				BFAD8D8561C720F3D4A0B8F1 /* FeatureFlags.swift */,
 				3BB3A0F9594ACA92ED5F16EA /* GameID.swift */,
@@ -446,6 +455,7 @@
 				3CE2C0AF2BEDBB2B3A36E899 /* HomeView.swift */,
 				B69D4DB28E8CA38AE818FAD3 /* PaywallView.swift */,
 				0EDA49EAF83393DD3BB36FA1 /* ProfileView.swift */,
+				6C4FDED3648ADFBEE0E2A871 /* ProgressCelebrationView.swift */,
 				88E14C1A447ACFC0AB2C59C7 /* RankBadgeView.swift */,
 				5AE06D27208222E0130F397C /* ScorecardView.swift */,
 				170598C87E8BFEDE5FDF29C0 /* SettingsView.swift */,
@@ -566,7 +576,9 @@
 				487EA6CC8CE20DB730A3518C /* ColorHex.swift */,
 				2A5EFFD0D08C71586EB3F853 /* ConfettiView.swift */,
 				C6B48E7FA1468905823A5D80 /* Design.swift */,
+				638879E05EBD8528B46EB885 /* ExpeditionPanel.swift */,
 				DE5D42EC47E554A3FD57B671 /* GameCalendarView.swift */,
+				33FE5CA8BD63F7B89AD62F50 /* GameStageBackground.swift */,
 				9432D0239A114472E5FED4EC /* GlassSegmentButton.swift */,
 				4528547ABCD02FA3CEA12968 /* HeadingFont.swift */,
 				77EF79833B7CB3CFB7FB8934 /* Holiday.swift */,
@@ -746,10 +758,12 @@
 				31FEBAC17E0E8DCB1AA26835 /* CloudKitSchemaInitializer.swift in Sources */,
 				A5F7E69DF2B815EAE42665FE /* ColorHex.swift in Sources */,
 				41FA93A6D9B187CC8BBD53CB /* ConfettiView.swift in Sources */,
+				56816AC893CA6221C39307F6 /* DailyMission.swift in Sources */,
 				1198CB9A93E2E60C554E7FE7 /* DailyStateRecord.swift in Sources */,
 				08FB3F0AB680DF3A3CB493A3 /* DailyStateService.swift in Sources */,
 				D0EBB3BD0864123693B1284E /* Design.swift in Sources */,
 				B9634215B2CADB82FE037FBE /* DictionaryStore.swift in Sources */,
+				ECDB63B4EAC56B04A1534034 /* ExpeditionPanel.swift in Sources */,
 				39A552C5935D0E0169654ED7 /* ExplosionBurstView.swift in Sources */,
 				954998261E6C284A5B015094 /* FeatureFlags.swift in Sources */,
 				8229A0DB497A9B7D5324941E /* FoundWord.swift in Sources */,
@@ -759,6 +773,7 @@
 				708620628B0EB3D17D8CDDE7 /* GameID.swift in Sources */,
 				4E0B28117B1363401B0C0763 /* GameInfo.swift in Sources */,
 				954068DAF08D0AB6919DCD3E /* GameResultRecord.swift in Sources */,
+				86876C00EFBA0C41AA741B51 /* GameStageBackground.swift in Sources */,
 				2A4106950B74625F6DB88997 /* GameStatsRecord.swift in Sources */,
 				0EAD6C09E7D4957E94CE5C81 /* GlassSegmentButton.swift in Sources */,
 				BFEAA209BA94C69A1A606B6C /* HeadingFont.swift in Sources */,
@@ -780,6 +795,7 @@
 				D30BEFA51ED847B95979A67F /* PaywallView.swift in Sources */,
 				6E39ECC594F45A975BABC19B /* PersistenceController.swift in Sources */,
 				3564EC1D6334D0A074B2C519 /* ProfileView.swift in Sources */,
+				2DBE8C82ED0A2C8D515B1032 /* ProgressCelebrationView.swift in Sources */,
 				E3CF7D5F399C33E062C2FC86 /* Rank.swift in Sources */,
 				5E475DC05FB8448CAD971FC8 /* RankBadgeView.swift in Sources */,
 				2179DA8CFCF5E51E1711296D /* RootFamilyTreeView.swift in Sources */,

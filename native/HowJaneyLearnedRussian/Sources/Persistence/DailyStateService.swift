@@ -84,9 +84,10 @@ final class DailyStateService {
 
     private func record(game: GameID, languageID: String, dateKey: String) -> DailyStateRecord? {
         let gameID = game.rawValue
-        let descriptor = FetchDescriptor<DailyStateRecord>(
+        var descriptor = FetchDescriptor<DailyStateRecord>(
             predicate: #Predicate { $0.game == gameID && $0.languageID == languageID && $0.dateKey == dateKey }
         )
+        descriptor.fetchLimit = 1
         return try? context.fetch(descriptor).first
     }
 }

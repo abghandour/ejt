@@ -1193,7 +1193,8 @@
     if (timerPaused) {
       timerStartedAt = Date.now();
       timerPaused = false;
-      wordStartMs = getElapsedMs();
+      // Do not reset wordStartMs here: elapsed time is frozen while paused, so the
+      // current word's partial time is preserved across pause/resume.
     }
     if (!timerInterval) {
       timerInterval = setInterval(updateClockDisplay, 250);
@@ -1790,14 +1791,18 @@
     if (langConfig && langConfig.validationRegex) {
       setValidationRegex(langConfig.validationRegex);
     }
+    // Honor the ?d=YYYYMMDD param that getShareUrl() emits
+    var urlParams = new URLSearchParams(window.location.search);
+    var dateParam = urlParams.get('d');
     var today = getTodayStr();
+    var targetDate = (dateParam && /^\d{8}$/.test(dateParam)) ? dateParam : today;
 
-    var words = await loadGameData(today);
+    var words = await loadGameData(targetDate);
     if (!words) return;
 
     currentWords = words;
 
-    var saved = loadGameState(today);
+    var saved = loadGameState(targetDate);
     if (saved) {
       gameState = saved;
       // Ensure new fields exist for older saves
@@ -1806,7 +1811,7 @@
       if (gameState.started === undefined) gameState.started = false;
     } else {
       gameState = {
-        date: today,
+        date: targetDate,
         currentWordIndex: 0,
         wordScores: [5, 5, 5, 5, 5],
         disabledOptions: [[], [], [], [], []],
@@ -2016,6 +2021,8 @@
     var overlay = document.getElementById('calendar-overlay');
     soundModalClose();
     overlay.classList.add('hidden');
+    // openCalendar paused the clock; resume it if a game is still in progress
+    if (isGameActive && gameState.started && !gameState.completed && !isReviewMode) resumeTimer();
   }
 
   function openCalendar() {

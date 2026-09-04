@@ -10,7 +10,7 @@ struct SlashskyView: View {
 
     var body: some View {
         ZStack {
-            ThemedBackground()
+            GameStageBackground(game: .slashsky)
             if let game {
                 SlashskyPhaseView()
                     .environment(game)

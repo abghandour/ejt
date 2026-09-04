@@ -27,6 +27,28 @@ struct MetaProgressionTests {
         #expect(Rank.progress(forXP: 1_000_000) == 1)
     }
 
+    // MARK: Daily field passport
+
+    @Test
+    func dailyMissionsReflectRealRoundWordAndRouteProgress() {
+        let missions = DailyMission.today(from: .init(rounds: 1, distinctGames: 3), collectedWords: 8)
+
+        #expect(missions.count == 3)
+        #expect(missions[0].isComplete)
+        #expect(missions[1].isComplete)
+        #expect(missions[2].isComplete)
+        #expect(missions.map(\.progressText) == ["1/1", "8/8", "3/3"])
+    }
+
+    @Test
+    func dailyMissionProgressCapsItsDisplayAtTheGoal() {
+        let missions = DailyMission.today(from: .init(rounds: 5, distinctGames: 1), collectedWords: 2)
+
+        #expect(missions[0].progressText == "1/1")
+        #expect(missions[1].progressText == "2/8")
+        #expect(missions[2].progressText == "1/3")
+    }
+
     // MARK: Trivia state backward compatibility
 
     @Test

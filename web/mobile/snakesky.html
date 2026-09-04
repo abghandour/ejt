@@ -307,6 +307,7 @@ var state = null;
 var dictionary = [];
 var loopId = null;
 var gridCells = [];
+var _renderedScore = null;
 
 function initGameState(seed, dict, gridSize) {
   var rng = new SeedEngine(seed);
@@ -449,15 +450,17 @@ function gameOver() {
   soundDeath();
   render();
   showDeathModal();
+  var finished = state;
+  var durationSecs = Math.round((Date.now() - finished.startTime) / 1000);
   authReady.then(function() {
     if (isSubscriber()) {
       submitScore('snakesky', getActiveLanguage(), {
-        score: state.score,
-        difficulty: state.difficulty,
-        words_completed: state.wordsCompleted,
-        duration_secs: Math.round((Date.now() - state.startTime) / 1000),
-        seed: state.seed,
-        details: { completedWords: state.completedWords.map(function(w) { return w.word; }) }
+        score: finished.score,
+        difficulty: finished.difficulty,
+        words_completed: finished.wordsCompleted,
+        duration_secs: durationSecs,
+        seed: finished.seed,
+        details: { completedWords: finished.completedWords.map(function(w) { return w.word; }) }
       });
     }
   });
@@ -535,8 +538,11 @@ function render() {
 
   // Update word display
   updateWordDisplay();
-  // Update score
-  document.getElementById('score-display').innerHTML = '<svg class="icon-star"><use href="#ico-star"/></svg> ' + state.score;
+  // Update score (only when changed — avoids rebuilding the SVG every tick)
+  if (_renderedScore !== state.score) {
+    _renderedScore = state.score;
+    document.getElementById('score-display').innerHTML = '<svg class="icon-star"><use href="#ico-star"/></svg> ' + state.score;
+  }
 }
 
 function updateWordDisplay() {
@@ -602,14 +608,15 @@ function showDeathModal() {
     '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Score</span><span style="color:#c8a830;font-weight:700">' + state.score + '</span></div>' +
     '<div style="display:flex;justify-content:space-between"><span style="color:#6a6a8a">Time</span><span style="color:#f5e6c8;font-weight:700">' + formatTime(elapsed) + '</span></div>';
 
-  wordsDiv.innerHTML = '';
+  var wordsHtml = '';
   for (var i = 0; i < state.completedWords.length; i++) {
     var w = state.completedWords[i];
-    wordsDiv.innerHTML += '<div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(58,58,94,0.2)"><span style="color:#f5e6c8;font-weight:700">' + w.word + '</span><span style="color:#6a9ec0;font-size:12px">' + w.translation + '</span></div>';
+    wordsHtml += '<div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(58,58,94,0.2)"><span style="color:#f5e6c8;font-weight:700">' + w.word + '</span><span style="color:#6a9ec0;font-size:12px">' + w.translation + '</span></div>';
   }
   if (state.completedWords.length === 0) {
-    wordsDiv.innerHTML = '<div style="color:#6a6a8a;text-align:center">No words completed</div>';
+    wordsHtml = '<div style="color:#6a6a8a;text-align:center">No words completed</div>';
   }
+  wordsDiv.innerHTML = wordsHtml;
 
   overlay.classList.remove('hidden');
 }

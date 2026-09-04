@@ -235,7 +235,7 @@ function showAuthErrorModal(message) {
   inner.innerHTML =
     '<div style="font-size:36px;margin-bottom:16px;">🔒</div>' +
     '<div style="font-family:\'Press Start 2P\',monospace;font-size:12px;color:var(--accent,#c8a830);margin-bottom:16px;">Patreon Members Only</div>' +
-    '<div style="font-size:14px;color:var(--text-secondary,#aaa);margin-bottom:24px;line-height:1.5;">' + (message || 'You need an active Patreon membership to access premium features.') + '</div>' +
+    '<div style="font-size:14px;color:var(--text-secondary,#aaa);margin-bottom:24px;line-height:1.5;">' + String(message || 'You need an active Patreon membership to access premium features.').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div>' +
     '<div style="display:flex;gap:10px;">' +
       '<a href="' + PATREON_PAGE_URL + '" target="_blank" rel="noopener" style="flex:1;padding:12px;font-family:\'Roboto Condensed\',sans-serif;font-weight:700;font-size:14px;background:var(--accent,#c8a830);color:var(--bg-primary,#0e0e1a);border:none;border-radius:8px;text-decoration:none;text-align:center;cursor:pointer;display:block;">Join on Patreon</a>' +
       '<button id="auth-error-close" style="flex:1;padding:12px;font-family:\'Roboto Condensed\',sans-serif;font-weight:700;font-size:14px;background:transparent;color:var(--text-secondary,#888);border:1px solid var(--border-subtle,#333);border-radius:8px;cursor:pointer;">Close</button>' +

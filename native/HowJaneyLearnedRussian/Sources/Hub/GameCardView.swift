@@ -1,6 +1,7 @@
 import SwiftUI
 
-/// One game in the carousel: glass card with icon, blurb, stats, and play button.
+/// Legacy full-card presentation kept for previews and deep links. It shares
+/// the field-notebook treatment used by the dispatch hub.
 struct GameCardView: View {
     @Environment(AppModel.self) private var model
     @Environment(\.theme) private var theme
@@ -37,7 +38,8 @@ struct GameCardView: View {
                         .padding(.horizontal, Design.padding * 2)
                         .padding(.vertical, 6)
                 }
-                .buttonStyle(.glassProminent)
+                .buttonStyle(.borderedProminent)
+                .tint(theme.accent)
             } else {
                 Label("Coming soon", systemImage: "hourglass")
                     .font(.headline)
@@ -48,7 +50,7 @@ struct GameCardView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .glassEffect(.regular.tint(theme.surface.opacity(0.5)), in: .rect(cornerRadius: Design.cardCornerRadius))
+        .expeditionPanel()
     }
 
     private func play() {

@@ -11,7 +11,7 @@ struct TriviatskyView: View {
 
     var body: some View {
         ZStack {
-            ThemedBackground()
+            GameStageBackground(game: .triviatsky)
             if let game {
                 TriviatskyPhaseView()
                     .environment(game)

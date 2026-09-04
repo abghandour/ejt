@@ -13,7 +13,7 @@ struct RootskyView: View {
 
     var body: some View {
         ZStack {
-            ThemedBackground()
+            GameStageBackground(game: gameID)
             if let game {
                 RootskyPhaseView()
                     .environment(game)

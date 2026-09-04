@@ -6,7 +6,13 @@ import SwiftData
 /// otherwise reset to 1.
 @Observable
 final class StatsService {
+    struct TodayProgress {
+        let rounds: Int
+        let distinctGames: Int
+    }
+
     private let context: ModelContext
+    private(set) var revision = 0
 
     init(container: ModelContainer) {
         context = container.mainContext
@@ -24,13 +30,30 @@ final class StatsService {
         )
         updateStats(game: game, languageID: languageID, score: score)
         try? context.save()
+        revision += 1
+    }
+
+    func todayProgress(languageID: String) -> TodayProgress {
+        let calendar = Calendar.current
+        let startOfToday = calendar.startOfDay(for: .now)
+        let descriptor = FetchDescriptor<GameResultRecord>(
+            predicate: #Predicate { $0.languageID == languageID && $0.playedAt >= startOfToday }
+        )
+        let today = (try? context.fetch(descriptor)) ?? []
+        let games = Set(today.compactMap { GameID(rawValue: $0.game) })
+
+        return TodayProgress(
+            rounds: today.count,
+            distinctGames: games.count
+        )
     }
 
     func stats(game: GameID, languageID: String) -> GameStatsRecord? {
         let gameID = game.rawValue
-        let descriptor = FetchDescriptor<GameStatsRecord>(
+        var descriptor = FetchDescriptor<GameStatsRecord>(
             predicate: #Predicate { $0.game == gameID && $0.languageID == languageID }
         )
+        descriptor.fetchLimit = 1
         return try? context.fetch(descriptor).first
     }
 

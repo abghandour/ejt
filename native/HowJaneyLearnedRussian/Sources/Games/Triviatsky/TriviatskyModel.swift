@@ -381,8 +381,8 @@ final class TriviatskyModel {
         timerTask = Task { [weak self] in
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(1))
-                guard !Task.isCancelled else { return }
-                self?.timerTick()
+                guard let self, !Task.isCancelled else { return }
+                self.timerTick()
             }
         }
     }

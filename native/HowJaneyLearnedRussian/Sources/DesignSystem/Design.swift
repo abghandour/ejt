@@ -12,4 +12,6 @@ nonisolated enum Design {
     static let snappy: Animation = .snappy(duration: 0.25)
     static let bouncy: Animation = .bouncy(duration: 0.4)
     static let tilePop: Animation = .spring(duration: 0.35, bounce: 0.45)
+    static let arcadeStep: Animation = .smooth(duration: 0.14)
+    static let celebration: Animation = .spring(duration: 0.55, bounce: 0.28)
 }

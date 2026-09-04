@@ -1892,7 +1892,7 @@
     saveToHistory(gameState.date, gameState.questionScores, true);
     if (typeof isSubscriber === 'function' && isSubscriber()) {
       submitScore('triviatsky', getActiveLanguage(), {
-        score: gameState.score,
+        score: getTotalScore(gameState.questionScores),
         words_completed: gameState.questionScores.length,
         details: { questionScores: gameState.questionScores }
       });

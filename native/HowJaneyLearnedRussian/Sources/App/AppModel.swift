@@ -119,8 +119,25 @@ final class AppModel {
     // MARK: - Round completion
 
     /// Lifetime XP across every game and language.
+    /// Cached per stats revision: views read this several times per body.
+    @ObservationIgnored private var cachedTotalXP: (revision: Int, value: Int)?
     var totalXP: Int {
-        stats.allStats().reduce(0) { $0 + $1.totalScore }
+        let revision = stats.revision
+        if let cachedTotalXP, cachedTotalXP.revision == revision {
+            return cachedTotalXP.value
+        }
+        let value = stats.allStats().reduce(0) { $0 + $1.totalScore }
+        cachedTotalXP = (revision, value)
+        return value
+    }
+
+    var dailyMissions: [DailyMission] {
+        _ = stats.revision
+        _ = wordBook.revision
+        return DailyMission.today(
+            from: stats.todayProgress(languageID: language.id),
+            collectedWords: wordBook.wordsCollectedToday(languageID: language.id)
+        )
     }
 
     var rank: Rank {
@@ -132,7 +149,7 @@ final class AppModel {
         if let record = stats.stats(game: game, languageID: languageID) {
             achievements.reportStreak(record.bestStreak)
         }
-        streakReminder.refresh(stats: stats, languageID: language.id)
+        streakReminder.refresh(stats: stats, languageID: languageID)
     }
 
     func refreshStreakReminder() {

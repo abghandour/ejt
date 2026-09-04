@@ -9,7 +9,7 @@ struct MeddleyskyView: View {
 
     var body: some View {
         ZStack {
-            ThemedBackground()
+            GameStageBackground(game: .meddleysky)
             if let run {
                 MeddleyskyPhaseView()
                     .environment(run)

@@ -16,7 +16,7 @@ struct ThemedBackground: View {
             } else {
                 TimelineView(.animation(minimumInterval: 1 / 20)) { context in
                     let seconds = context.date.timeIntervalSinceReferenceDate
-                    SunburstView(angle: .degrees(seconds.truncatingRemainder(dividingBy: 360) * 0.6))
+                    SunburstView(angle: .degrees((seconds * 0.6).truncatingRemainder(dividingBy: 360)))
                 }
             }
         }
