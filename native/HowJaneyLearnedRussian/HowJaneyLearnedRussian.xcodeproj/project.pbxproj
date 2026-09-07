@@ -237,7 +237,6 @@
 		5E900DAB209CE902D14222C0 /* TriviatskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviatskyModel.swift; sourceTree = "<group>"; };
 		5ED8FDF79DFE1C139113D8A1 /* HowJaneyLearnedRussianApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowJaneyLearnedRussianApp.swift; sourceTree = "<group>"; };
 		5F5D8B601B4E5AFE65B76C04 /* WordBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBookView.swift; sourceTree = "<group>"; };
-		615072E0387D03131ADE2136 /* VerticalCorn */ = {isa = PBXFileReference; lastKnownFileType = folder; name = VerticalCorn; path = ../../../VerticalCorn; sourceTree = SOURCE_ROOT; };
 		625F1F6CA7166E47C834C818 /* RootskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyModel.swift; sourceTree = "<group>"; };
 		627AE9CC8317B9607BCAC0A7 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		638879E05EBD8528B46EB885 /* ExpeditionPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionPanel.swift; sourceTree = "<group>"; };
@@ -340,14 +339,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07C56654ED103CC4F6211284 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				615072E0387D03131ADE2136 /* VerticalCorn */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		199A0870FAB36BB709575AE1 /* Games */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,7 +359,6 @@
 			children = (
 				A7DB27C872D8D0FFC79EF3F9 /* HowJaneyLearnedRussian.storekit */,
 				70406FAFA38C4B9D23DC6529 /* Configuration */,
-				07C56654ED103CC4F6211284 /* Packages */,
 				CFB7DB21B05FAE09EA3D03D8 /* Sources */,
 				BBD6713E9A8E95A5C27D09A1 /* Tests */,
 				52FA08050491CB3F1EC81BDE /* Products */,
@@ -747,7 +737,7 @@
 			mainGroup = 20C99CB5A232DC255DBA0D92;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				3795C4549548AA2A99625266 /* XCLocalSwiftPackageReference "../../../VerticalCorn" */,
+				3CB8CFD1E76A4E331A03434C /* XCRemoteSwiftPackageReference "VerticalCorn" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 52FA08050491CB3F1EC81BDE /* Products */;
@@ -1203,16 +1193,21 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		3795C4549548AA2A99625266 /* XCLocalSwiftPackageReference "../../../VerticalCorn" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../../VerticalCorn;
+/* Begin XCRemoteSwiftPackageReference section */
+		3CB8CFD1E76A4E331A03434C /* XCRemoteSwiftPackageReference "VerticalCorn" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/abghandour/VerticalCorn.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		42A26563EEBCE4979F9C539D /* BugReporterKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 3CB8CFD1E76A4E331A03434C /* XCRemoteSwiftPackageReference "VerticalCorn" */;
 			productName = BugReporterKit;
 		};
 /* End XCSwiftPackageProductDependency section */

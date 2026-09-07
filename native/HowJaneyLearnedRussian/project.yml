@@ -19,9 +19,12 @@ settings:
 
 packages:
   BugReporterKit:
-    # Local path while VerticalCorn is unreleased; swap for url + version once
-    # the private repo is tagged.
-    path: ../../../VerticalCorn
+    # Private repo; Xcode Cloud needs access granted under
+    # App Store Connect > Xcode Cloud > Settings > Additional Repositories.
+    # For local co-development, drag ~/repos/VerticalCorn into the Xcode
+    # project navigator to override this with the working copy.
+    url: https://github.com/abghandour/VerticalCorn.git
+    branch: main
 
 targets:
   HowJaneyLearnedRussian:
