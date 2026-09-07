@@ -1,3 +1,4 @@
+import BugReporterKit
 import SwiftUI
 
 struct RootView: View {
@@ -8,6 +9,7 @@ struct RootView: View {
     @State private var rankCelebration: Rank?
     @State private var achievementCelebration: AchievementService.ID?
     @State private var pendingRankCelebration: Rank?
+    @State private var hasCheckedForCrashes = false
 
     var body: some View {
         @Bindable var model = model
@@ -67,11 +69,23 @@ struct RootView: View {
         .environment(\.font, model.theme.bodyFontName.map { .custom($0, size: 17, relativeTo: .body) })
         .tint(model.theme.accent)
         .preferredColorScheme(model.theme.isDark ? .dark : .light)
+        .bugReporterCrashPrompt()
         .onChange(of: scenePhase) {
             if scenePhase == .active {
                 model.refreshStreakReminder()
+                // Once per launch, after the first window is on screen.
+                if !hasCheckedForCrashes {
+                    hasCheckedForCrashes = true
+                    BugReporter.checkForCrashesAndPrompt()
+                }
             }
         }
+        .onChange(of: model.activeGame) { model.publishBugReportContext() }
+        .onChange(of: model.isShowingSettings) { model.publishBugReportContext() }
+        .onChange(of: model.isShowingProfile) { model.publishBugReportContext() }
+        .onChange(of: model.isShowingWordBook) { model.publishBugReportContext() }
+        .onChange(of: model.isShowingPaywall) { model.publishBugReportContext() }
+        .onChange(of: model.settings.languageID) { model.publishBugReportContext() }
         .onAppear {
             previousRankIndex = model.rank.index
         }
@@ -95,6 +109,7 @@ struct RootView: View {
             presentQueuedCelebrations()
         }
         .task {
+            model.publishBugReportContext()
             model.gameCenter.authenticate()
             model.refreshStreakReminder()
             let arguments = ProcessInfo.processInfo.arguments

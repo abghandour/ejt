@@ -1,0 +1,6 @@
+# Real ingest key and endpoint; Configuration/Secrets.example.xcconfig is the
+# committed template.
+Configuration/Secrets.xcconfig
+
+# Local build output
+build/

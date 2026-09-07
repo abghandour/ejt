@@ -65,6 +65,7 @@
 		643A697813163607A188DC1E /* RootskyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16CE20A490B5F6965ED65B9 /* RootskyResult.swift */; };
 		65034727C9C877FEFB7C6BEC /* ScorecardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE06D27208222E0130F397C /* ScorecardView.swift */; };
 		65ECACF4F73F5FF09F7CA1BB /* SnakeskyEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216AE83DEA848A52AB73FA72 /* SnakeskyEngine.swift */; };
+		68213FABFC95B055B81759DD /* BugReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82407C4A16CBCBA1AD271BF3 /* BugReporting.swift */; };
 		6C2A32870D500148D63D6B9E /* TriviaStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3376077CB8EFF3EE1D6592B7 /* TriviaStartView.swift */; };
 		6E39ECC594F45A975BABC19B /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80A3A11CCD8874B554A4295 /* PersistenceController.swift */; };
 		708620628B0EB3D17D8CDDE7 /* GameID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A0F9594ACA92ED5F16EA /* GameID.swift */; };
@@ -148,6 +149,7 @@
 		ECAD4F4874E9B239B1481587 /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 42FC7F2ECBD1A953CBC63778 /* languages.json */; };
 		ECDB63B4EAC56B04A1534034 /* ExpeditionPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638879E05EBD8528B46EB885 /* ExpeditionPanel.swift */; };
 		ED7BA789002A39689F37BEC3 /* TriviaImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7778BF7EEB27B4FEC0E982 /* TriviaImageView.swift */; };
+		F157CAD9F6D465EBF9EABE2E /* BugReporterKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42A26563EEBCE4979F9C539D /* BugReporterKit */; };
 		F30A30C1E31A2A315AB69DE5 /* SlashskyPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E5B84DA130E3D8E7F6778 /* SlashskyPlayView.swift */; };
 		F4214E384B63C0EC4F306FAE /* TriviaLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865EB23E42B3B9B36A8540C /* TriviaLogicTests.swift */; };
 		F4D965DD775CFA4C67F73E2E /* ParticleBurstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251D5B90F7D64EBE6F9E3B45 /* ParticleBurstView.swift */; };
@@ -230,10 +232,12 @@
 		56E0AD32534188DE870562AB /* GameStatsRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatsRecord.swift; sourceTree = "<group>"; };
 		56F733538EE1FB2B14DD0F38 /* SeedEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedEngineTests.swift; sourceTree = "<group>"; };
 		5AE06D27208222E0130F397C /* ScorecardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardView.swift; sourceTree = "<group>"; };
+		5D9141923D36D4FCF8EF780B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		5E02D0B80D6F446FED4D5BD7 /* RootskyTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyTrackerView.swift; sourceTree = "<group>"; };
 		5E900DAB209CE902D14222C0 /* TriviatskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviatskyModel.swift; sourceTree = "<group>"; };
 		5ED8FDF79DFE1C139113D8A1 /* HowJaneyLearnedRussianApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowJaneyLearnedRussianApp.swift; sourceTree = "<group>"; };
 		5F5D8B601B4E5AFE65B76C04 /* WordBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBookView.swift; sourceTree = "<group>"; };
+		615072E0387D03131ADE2136 /* VerticalCorn */ = {isa = PBXFileReference; lastKnownFileType = folder; name = VerticalCorn; path = ../../../VerticalCorn; sourceTree = SOURCE_ROOT; };
 		625F1F6CA7166E47C834C818 /* RootskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyModel.swift; sourceTree = "<group>"; };
 		627AE9CC8317B9607BCAC0A7 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		638879E05EBD8528B46EB885 /* ExpeditionPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionPanel.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 		7964F2D2BB7883A7FA18AAE3 /* RootskyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootskyStore.swift; sourceTree = "<group>"; };
 		7B12DA490D2E2D69F0BF07A7 /* HintBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintBarView.swift; sourceTree = "<group>"; };
 		809EB7952D402D83CCBEB833 /* MeddleyskyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeddleyskyView.swift; sourceTree = "<group>"; };
+		82407C4A16CBCBA1AD271BF3 /* BugReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugReporting.swift; sourceTree = "<group>"; };
 		84185EF478CBF1E42EE9BBD1 /* BoggleGridGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoggleGridGeometry.swift; sourceTree = "<group>"; };
 		86A66AF3BC4A8F4B41BEFE94 /* ExplosionBurstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionBurstView.swift; sourceTree = "<group>"; };
 		8713F257FEBC7F4179D0DA92 /* TetriskyEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetriskyEndView.swift; sourceTree = "<group>"; };
@@ -323,7 +328,26 @@
 		FCFB53BBA688B64775D6C016 /* DailyMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		070F4DCDAAEB5C64633FBBD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F157CAD9F6D465EBF9EABE2E /* BugReporterKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		07C56654ED103CC4F6211284 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				615072E0387D03131ADE2136 /* VerticalCorn */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		199A0870FAB36BB709575AE1 /* Games */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +367,8 @@
 			isa = PBXGroup;
 			children = (
 				A7DB27C872D8D0FFC79EF3F9 /* HowJaneyLearnedRussian.storekit */,
+				70406FAFA38C4B9D23DC6529 /* Configuration */,
+				07C56654ED103CC4F6211284 /* Packages */,
 				CFB7DB21B05FAE09EA3D03D8 /* Sources */,
 				BBD6713E9A8E95A5C27D09A1 /* Tests */,
 				52FA08050491CB3F1EC81BDE /* Products */,
@@ -448,6 +474,14 @@
 			path = Slashsky;
 			sourceTree = "<group>";
 		};
+		70406FAFA38C4B9D23DC6529 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				5D9141923D36D4FCF8EF780B /* Secrets.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		728123C259610218CBFF6E88 /* Hub */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +505,7 @@
 			children = (
 				3133FE6E6E89358369CAB93A /* AppModel.swift */,
 				627AE9CC8317B9607BCAC0A7 /* AppSettings.swift */,
+				82407C4A16CBCBA1AD271BF3 /* BugReporting.swift */,
 				5ED8FDF79DFE1C139113D8A1 /* HowJaneyLearnedRussianApp.swift */,
 				E7477072731DEAF7F0162A39 /* RootView.swift */,
 			);
@@ -651,6 +686,7 @@
 			buildPhases = (
 				2F0EB30599C6E64D848E5C60 /* Sources */,
 				E1F2E365E020D86B7F19ACC4 /* Resources */,
+				070F4DCDAAEB5C64633FBBD9 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -658,6 +694,7 @@
 			);
 			name = HowJaneyLearnedRussian;
 			packageProductDependencies = (
+				42A26563EEBCE4979F9C539D /* BugReporterKit */,
 			);
 			productName = HowJaneyLearnedRussian;
 			productReference = 98DFAEB5481CA3EF190FEB1C /* HowJaneyLearnedRussian.app */;
@@ -709,6 +746,9 @@
 			);
 			mainGroup = 20C99CB5A232DC255DBA0D92;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3795C4549548AA2A99625266 /* XCLocalSwiftPackageReference "../../../VerticalCorn" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 52FA08050491CB3F1EC81BDE /* Products */;
 			projectDirPath = "";
@@ -755,6 +795,7 @@
 				0C064D2530AA910A77E627A4 /* BoggleskyResult.swift in Sources */,
 				DC24A165C5DB8BD277774D32 /* BoggleskyStartView.swift in Sources */,
 				EAA22CAC8CEC706CD7990182 /* BoggleskyView.swift in Sources */,
+				68213FABFC95B055B81759DD /* BugReporting.swift in Sources */,
 				31FEBAC17E0E8DCB1AA26835 /* CloudKitSchemaInitializer.swift in Sources */,
 				A5F7E69DF2B815EAE42665FE /* ColorHex.swift in Sources */,
 				41FA93A6D9B187CC8BBD53CB /* ConfettiView.swift in Sources */,
@@ -924,12 +965,14 @@
 		};
 		3D7CB6437C7F1B8F88AE799F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D9141923D36D4FCF8EF780B /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HowJaneyLearnedRussian.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Configuration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "How Janey Learned Russian";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSUbiquitousContainers = "";
@@ -1100,12 +1143,14 @@
 		};
 		DB271A62BD8BD99487B5E278 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D9141923D36D4FCF8EF780B /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HowJaneyLearnedRussian.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Configuration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "How Janey Learned Russian";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSUbiquitousContainers = "";
@@ -1157,6 +1202,20 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3795C4549548AA2A99625266 /* XCLocalSwiftPackageReference "../../../VerticalCorn" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../VerticalCorn;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		42A26563EEBCE4979F9C539D /* BugReporterKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BugReporterKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D7087B1D2531CC3530E6B64 /* Project object */;
 }

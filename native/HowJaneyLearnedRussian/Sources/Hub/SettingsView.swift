@@ -1,3 +1,4 @@
+import BugReporterKit
 import SwiftUI
 
 struct SettingsView: View {
@@ -33,6 +34,10 @@ struct SettingsView: View {
                         Button("Unlock Premium", systemImage: "sparkles", action: showPaywall)
                     }
                     Button("Restore Purchases", action: restore)
+                }
+
+                Section("Feedback and problems") {
+                    BugReporterSettingsRows()
                 }
 
                 Section {

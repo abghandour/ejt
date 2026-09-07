@@ -8,6 +8,7 @@ struct HowJaneyLearnedRussianApp: App {
 
     init() {
         FontRegistrar.registerBundledFonts()
+        BugReporting.configure()
         #if DEBUG
         CloudKitSchemaInitializer.runIfRequested()
         #endif
