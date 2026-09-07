@@ -80,6 +80,7 @@ struct RootView: View {
                 }
             }
         }
+        .onChange(of: model.theme.id) { BugReporting.applyTheme(model.theme) }
         .onChange(of: model.activeGame) { model.publishBugReportContext() }
         .onChange(of: model.isShowingSettings) { model.publishBugReportContext() }
         .onChange(of: model.isShowingProfile) { model.publishBugReportContext() }
@@ -109,6 +110,7 @@ struct RootView: View {
             presentQueuedCelebrations()
         }
         .task {
+            BugReporting.applyTheme(model.theme)
             model.publishBugReportContext()
             model.gameCenter.authenticate()
             model.refreshStreakReminder()

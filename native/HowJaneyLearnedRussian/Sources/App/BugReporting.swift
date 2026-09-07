@@ -1,6 +1,7 @@
 import BugReporterKit
 import Foundation
 import GameKit
+import SwiftUI
 
 /// Everything this app tells VerticalCorn about itself.
 ///
@@ -75,6 +76,20 @@ nonisolated final class BugReportContext: @unchecked Sendable {
         lock.lock()
         values = newValues
         lock.unlock()
+    }
+}
+
+extension BugReporting {
+    /// The QA mode button and the sheet it opens live in their own window, so
+    /// they inherit none of `RootView`'s environment. Hand the kit the same
+    /// tint and body font `RootView` applies, and call this again whenever the
+    /// theme changes.
+    @MainActor
+    static func applyTheme(_ theme: Theme) {
+        BugReporter.setQAOverlayStyle(
+            tint: theme.accent,
+            font: theme.bodyFontName.map { .custom($0, size: 17, relativeTo: .body) }
+        )
     }
 }
 
