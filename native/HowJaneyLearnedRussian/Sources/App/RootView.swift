@@ -81,7 +81,10 @@ struct RootView: View {
             }
         }
         .onChange(of: model.theme.id) { BugReporting.applyTheme(model.theme) }
-        .onChange(of: model.activeGame) { model.publishBugReportContext() }
+        .onChange(of: model.activeGame) { old, new in
+            model.publishBugReportContext()
+            BugReporting.gameChanged(from: old, to: new)
+        }
         .onChange(of: model.isShowingSettings) { model.publishBugReportContext() }
         .onChange(of: model.isShowingProfile) { model.publishBugReportContext() }
         .onChange(of: model.isShowingWordBook) { model.publishBugReportContext() }

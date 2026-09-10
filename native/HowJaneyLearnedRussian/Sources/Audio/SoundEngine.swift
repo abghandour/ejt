@@ -1,4 +1,5 @@
 import AVFoundation
+import BugReporterKit
 
 /// Procedural sound playback. Each `SoundEffect` is rendered once into a PCM
 /// buffer from its layered recipe — FM bells, band-passed noise, pitch glides
@@ -38,6 +39,7 @@ final class SoundEngine {
         else { return }
         player.scheduleBuffer(buffer)
         if !player.isPlaying { player.play() }
+        BugReporter.metrics.increment(BugReporting.Metric.soundEffects)
     }
 
     // MARK: - Setup

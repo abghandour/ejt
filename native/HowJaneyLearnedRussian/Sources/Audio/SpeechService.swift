@@ -1,4 +1,5 @@
 import AVFoundation
+import BugReporterKit
 import Observation
 
 /// Pronounces target-language words with the system voice, replacing the web
@@ -27,10 +28,12 @@ final class SpeechService {
     }
 
     func speak(_ text: String, languageID: String) {
-        synthesizer.stopSpeaking(at: .immediate)
-        let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: Self.voiceLanguage(for: languageID))
-        utterance.rate = AVSpeechUtteranceDefaultSpeechRate * 0.9
-        synthesizer.speak(utterance)
+        BugReporter.metrics.time(BugReporting.Metric.speech) {
+            synthesizer.stopSpeaking(at: .immediate)
+            let utterance = AVSpeechUtterance(string: text)
+            utterance.voice = AVSpeechSynthesisVoice(language: Self.voiceLanguage(for: languageID))
+            utterance.rate = AVSpeechUtteranceDefaultSpeechRate * 0.9
+            synthesizer.speak(utterance)
+        }
     }
 }

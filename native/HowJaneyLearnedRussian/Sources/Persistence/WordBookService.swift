@@ -1,3 +1,4 @@
+import BugReporterKit
 import Foundation
 import SwiftData
 
@@ -15,6 +16,14 @@ final class WordBookService {
     /// the seen counter on repeats.
     func record(words: [(word: String, translation: String)], languageID: String, game: GameID) {
         guard !words.isEmpty else { return }
+        BugReporter.metrics.time(BugReporting.Metric.wordBookRecord) {
+            recordUnmetered(words: words, languageID: languageID, game: game)
+        }
+        BugReporter.metrics.increment(BugReporting.Metric.wordBookWords, by: Double(words.count))
+        revision += 1
+    }
+
+    private func recordUnmetered(words: [(word: String, translation: String)], languageID: String, game: GameID) {
         // One fetch for the whole round instead of one per word.
         let normalizedWords = Array(Set(words.map { $0.word.lowercased() }))
         let descriptor = FetchDescriptor<LearnedWordRecord>(
@@ -44,7 +53,6 @@ final class WordBookService {
             }
         }
         try? context.save()
-        revision += 1
     }
 
     func allWords(languageID: String) -> [LearnedWordRecord] {

@@ -49,7 +49,52 @@ enum BugReporting {
                 alias: player.alias
             )
         }
+        config.performance = PerformanceConfig(sampleInterval: 1, maxDuration: 600, builtIn: .all)
         BugReporter.configure(config)
+        registerMetrics()
+    }
+
+    // MARK: - Performance metrics
+
+    /// The metrics Janey reports during a performance capture, on top of the
+    /// kit's CPU, memory, main-thread stall, frame hitch and thermal samplers.
+    /// Names are stable: the viewer compares captures by them.
+    enum Metric {
+        static let dictionaryLoad = "dictionary.load_ms"
+        static let speech = "speech.speak_ms"
+        static let soundEffects = "sound.effects"
+        static let statsRecord = "stats.record_ms"
+        static let wordBookRecord = "wordbook.record_ms"
+        static let wordBookWords = "wordbook.words_recorded"
+    }
+
+    private static func registerMetrics() {
+        BugReporter.metrics.register(
+            timer: Metric.dictionaryLoad, description: "Loading and validating a game dictionary")
+        BugReporter.metrics.register(
+            timer: Metric.speech, description: "Preparing an utterance and handing it to the synthesizer")
+        BugReporter.metrics.register(
+            counter: Metric.soundEffects, unit: "plays", description: "Sound effects scheduled")
+        BugReporter.metrics.register(
+            timer: Metric.statsRecord, description: "Saving a game result and its stats")
+        BugReporter.metrics.register(
+            timer: Metric.wordBookRecord, description: "Recording a round's words in the word book")
+        BugReporter.metrics.register(
+            counter: Metric.wordBookWords, unit: "words", description: "Words written to the word book")
+    }
+
+    /// Marks the game lifecycle on the capture timeline so spikes can be read
+    /// against what the tester was doing. A game session is a span.
+    @MainActor
+    static func gameChanged(from old: GameID?, to new: GameID?) {
+        if let old {
+            BugReporter.metrics.end(span: "game.\(old.rawValue)")
+            BugReporter.metrics.mark("left \(old.rawValue)")
+        }
+        if let new {
+            BugReporter.metrics.mark("opened \(new.rawValue)")
+            BugReporter.metrics.begin(span: "game.\(new.rawValue)")
+        }
     }
 }
 

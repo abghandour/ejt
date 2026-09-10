@@ -1,3 +1,4 @@
+import BugReporterKit
 import Foundation
 import SwiftData
 
@@ -19,17 +20,19 @@ final class StatsService {
     }
 
     func record(game: GameID, languageID: String, difficulty: String?, score: Int, wordsCompleted: Int) {
-        context.insert(
-            GameResultRecord(
-                game: game.rawValue,
-                languageID: languageID,
-                difficulty: difficulty,
-                score: score,
-                wordsCompleted: wordsCompleted
+        BugReporter.metrics.time(BugReporting.Metric.statsRecord) {
+            context.insert(
+                GameResultRecord(
+                    game: game.rawValue,
+                    languageID: languageID,
+                    difficulty: difficulty,
+                    score: score,
+                    wordsCompleted: wordsCompleted
+                )
             )
-        )
-        updateStats(game: game, languageID: languageID, score: score)
-        try? context.save()
+            updateStats(game: game, languageID: languageID, score: score)
+            try? context.save()
+        }
         revision += 1
     }
 

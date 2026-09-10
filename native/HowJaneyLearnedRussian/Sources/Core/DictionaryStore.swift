@@ -1,3 +1,4 @@
+import BugReporterKit
 import Foundation
 
 nonisolated enum DictionaryError: LocalizedError {
@@ -24,11 +25,14 @@ final class DictionaryStore {
     func dictionary(for language: Language, game: String = "dictionary") async throws -> WordDictionary {
         let key = "\(language.id)/\(game)"
         if let cached = cache[key] { return cached }
+        let started = Date()
         let loaded = try await Self.load(
             game: game,
             subdirectory: language.dictionarySubdirectory,
             pattern: language.validationRegex
         )
+        BugReporter.metrics.record(
+            BugReporting.Metric.dictionaryLoad, milliseconds: Date().timeIntervalSince(started) * 1000)
         cache[key] = loaded
         return loaded
     }
